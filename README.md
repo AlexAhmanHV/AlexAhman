@@ -14,3 +14,9 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Formspree setup
+
+1. Copy `.env.example` to `.env.local`.
+2. Set `VITE_FORMSPREE_FORM_ID` to your Formspree form ID.
+3. Restart the dev server after updating env vars.
