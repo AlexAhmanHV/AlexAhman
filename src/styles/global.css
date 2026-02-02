@@ -529,6 +529,33 @@ h1,h2,h3{
   background:#ffe8cf;
 }
 
+.aboutTop{
+  display:grid;
+  gap:16px;
+}
+@media (min-width: 900px){
+  .aboutTop{
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items:stretch;
+  }
+}
+.aboutPhotoCard{
+  margin:0;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#fff7ef;
+  box-shadow: 0 10px 28px rgba(14,33,54,0.06);
+}
+.aboutPhoto{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+  object-position:center top;
+}
+
 @media (max-width: 760px){
   .homeHeroPanel{ padding:24px; }
   .homeFinal{ padding:22px; }
