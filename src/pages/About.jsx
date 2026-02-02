@@ -7,7 +7,6 @@ const copy = {
     kicker: "Om",
     title: "Teknisk profil",
     intro: "Jag är systemutvecklare med en bred verktygslåda inom den digitala världen.",
-    photoAlt: "Porträtt av Alexander Åhman",
     highlights: [
       [
         "Helhetsperspektiv",
@@ -32,7 +31,6 @@ const copy = {
     kicker: "About",
     title: "Technical profile",
     intro: "I’m a software developer with a broad toolbox across modern web development.",
-    photoAlt: "Portrait of Alexander Ahman",
     highlights: [
       [
         "End-to-end perspective",
@@ -86,13 +84,8 @@ export default function About({ lang }) {
             {t.title}
           </h1>
 
-          <div className="aboutTop" style={{ marginTop: 16 }}>
-            <div className="card">
-              <p>{t.intro}</p>
-            </div>
-            <figure className="aboutPhotoCard">
-              <img className="aboutPhoto" src="/Alex.jpg" alt={t.photoAlt} loading="lazy" />
-            </figure>
+          <div className="card" style={{ marginTop: 16 }}>
+            <p>{t.intro}</p>
           </div>
 
           <div className="grid cols-2" style={{ marginTop: 18 }}>

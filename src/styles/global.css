@@ -153,6 +153,11 @@ h1,h2,h3{
   text-transform:uppercase;
   font-size:12px;
 }
+.logoImg{
+  height:28px;
+  width:auto;
+  display:block;
+}
 
 .langToggle{
   border-bottom:1px solid transparent;
@@ -528,30 +533,17 @@ h1,h2,h3{
 .homeFinal .btn:hover{
   background:#ffe8cf;
 }
-
-.aboutTop{
-  display:grid;
-  gap:16px;
-}
-@media (min-width: 900px){
-  .aboutTop{
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items:stretch;
-  }
-}
-.aboutPhotoCard{
+.contactPhotoCard{
   margin:0;
   border:1px solid var(--border);
-  border-radius:var(--radius);
+  border-radius:12px;
   overflow:hidden;
   background:#fff7ef;
-  box-shadow: 0 10px 28px rgba(14,33,54,0.06);
 }
-.aboutPhoto{
+.contactPhoto{
   display:block;
   width:100%;
-  height:100%;
-  min-height:260px;
+  max-height:320px;
   object-fit:cover;
   object-position:center top;
 }

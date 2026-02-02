@@ -59,7 +59,7 @@ export default function Nav({ lang }) {
         contact: "Kontakt",
         // Swedish UI → English label
         toggleLabel: "Switch to English",
-        logo: "Alex Ahmanse",
+        logoAlt: "Alex Ahman logotyp",
       },
       en: {
         services: "Services",
@@ -67,7 +67,7 @@ export default function Nav({ lang }) {
         contact: "Contact",
         // English UI → Swedish label
         toggleLabel: "Byt till svenska",
-        logo: "Alex Ahmanse",
+        logoAlt: "Alex Ahman logo",
       },
     }[lang] || {};
 
@@ -75,7 +75,7 @@ export default function Nav({ lang }) {
     <div className="nav">
       <div className="container navInner">
         <Link className="logo" to={pathFor(lang, "/")}>
-          {t.logo}
+          <img className="logoImg" src="/favicon.svg" alt={t.logoAlt} />
         </Link>
 
         <div className="navLinks">

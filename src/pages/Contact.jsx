@@ -19,6 +19,7 @@ const copy = {
     error: "Något gick fel. Försök igen eller maila mig direkt.",
     setupError: "Formuläret är inte kopplat ännu. Lägg till ditt Formspree-ID först.",
     locationLabel: "Plats",
+    photoAlt: "Porträtt av Alexander Åhman",
   },
 
   en: {
@@ -36,6 +37,7 @@ const copy = {
     error: "Something went wrong. Please try again or email me directly.",
     setupError: "The form is not connected yet. Add your Formspree ID first.",
     locationLabel: "Location",
+    photoAlt: "Portrait of Alexander Ahman",
   },
 };
 
@@ -158,6 +160,10 @@ export default function Contact({ lang }) {
                   <InstagramIcon />
                 </a>
               </div>
+
+              <figure className="contactPhotoCard" style={{ marginTop: 14 }}>
+                <img className="contactPhoto" src="/Alex.jpg" alt={t.photoAlt} loading="lazy" />
+              </figure>
             </div>
           </div>
 
