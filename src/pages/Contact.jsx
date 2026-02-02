@@ -81,10 +81,11 @@ export default function Contact({ lang }) {
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus({ type: "", text: "" });
+    const form = event.currentTarget;
 
     try {
       setIsSubmitting(true);
-      const formData = new FormData(event.currentTarget);
+      const formData = new FormData(form);
       const response = await fetch(formAction, {
         method: "POST",
         body: formData,
@@ -96,7 +97,7 @@ export default function Contact({ lang }) {
         const formspreeError = data?.errors?.[0]?.message;
         throw new Error(formspreeError || "Submit failed");
       }
-      event.currentTarget.reset();
+      form.reset();
       setStatus({ type: "success", text: t.success });
     } catch (error) {
       setStatus({
