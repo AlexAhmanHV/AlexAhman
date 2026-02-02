@@ -1,4 +1,5 @@
 ﻿import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
@@ -11,6 +12,7 @@ const copy = {
       "Jag hjälper team att gå från idé till fungerande webbtjänst. Struktur som skalar, snabb respons och en lösning som är lätt att förvalta.",
     ctaPrimary: "Ta kontakt",
     ctaSecondary: "Se tjänster",
+    localPageLink: "Soker du hemsida i Vastervik?",
     badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
     availabilityTitle: "Tillgänglig för uppdrag",
     availabilityText: "Öppen för freelance, deltidsuppdrag och juniora roller.",
@@ -51,6 +53,7 @@ const copy = {
       "I help teams go from idea to a working web service—built with scalable structure, fast performance, and long-term maintainability in mind.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "View services",
+    localPageLink: "",
     badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
     availabilityTitle: "Available for work",
     availabilityText: "Open to freelance work, part-time projects, and junior roles.",
@@ -110,9 +113,30 @@ export default function Home({ lang }) {
     lang === "en"
       ? "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web services—from UI to APIs, databases, and CMS."
       : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger snabba och lättförvaltade webbtjänster – från UI till API, databas och CMS.";
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Alexander Åhman",
+    alternateName: "Alex Ahman",
+    url: SITE_URL,
+    jobTitle: lang === "en" ? "Software Developer" : "Systemutvecklare",
+    homeLocation: {
+      "@type": "Place",
+      name: "Vastervik, Sweden",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/alexander-%C3%A5hman/",
+      "https://www.instagram.com/AlexAhman",
+    ],
+    knowsAbout: ["React", "Laravel", "WordPress", "C#", "SQL", "SEO"],
+  };
 
   return (
     <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
+      </Helmet>
+
       <Seo
         lang={lang === "en" ? "en" : "sv"}
         pathname={pathname}
@@ -137,6 +161,11 @@ export default function Home({ lang }) {
                   <Link className="btn btn-outline" to={pathFor(lang, "services")}>
                     {t.ctaSecondary}
                   </Link>
+                  {lang === "sv" ? (
+                    <Link className="btn btn-outline" to="/hemsida-vastervik">
+                      {t.localPageLink}
+                    </Link>
+                  ) : null}
                 </div>
 
                 <div className="badges homeBadges">
@@ -172,6 +201,13 @@ export default function Home({ lang }) {
             {t.servicesTitle}
           </h2>
           <p style={{ marginTop: 12 }}>{t.servicesStrengths}</p>
+          {lang === "sv" ? (
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="socialLink" to="/hemsida-vastervik">
+                Hemsida i Vastervik - las mer
+              </Link>
+            </div>
+          ) : null}
 
           <div className="grid cols-3 homeCards" style={{ marginTop: 24 }}>
             {t.services.map(([title, desc], i) => (
@@ -219,3 +255,7 @@ export default function Home({ lang }) {
     </>
   );
 }
+
+
+
+

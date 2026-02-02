@@ -18,6 +18,7 @@ export default function Seo({
   title,
   description,
   siteUrl, // e.g. "https://alexahman.se"
+  svOnly = false,
 }) {
   const canonical = buildUrl(siteUrl, pathname);
 
@@ -37,7 +38,7 @@ export default function Seo({
       <link rel="canonical" href={canonical} />
 
       <link rel="alternate" hrefLang="sv" href={svUrl} />
-      <link rel="alternate" hrefLang="en" href={enUrl} />
+      {!svOnly ? <link rel="alternate" hrefLang="en" href={enUrl} /> : null}
       <link rel="alternate" hrefLang="x-default" href={svUrl} />
     </Helmet>
   );

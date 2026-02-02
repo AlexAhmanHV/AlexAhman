@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
@@ -64,6 +65,13 @@ export default function Services({ lang }) {
             {t.title}
           </h1>
           <p className="lede">{t.lede}</p>
+          {lang === "sv" ? (
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="socialLink" to="/hemsida-vastervik">
+                Hemsida i Vastervik - las mer
+              </Link>
+            </div>
+          ) : null}
 
           <div className="grid cols-3" style={{ marginTop: 20 }}>
             {t.items.map(([title, desc]) => (

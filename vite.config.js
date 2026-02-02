@@ -8,6 +8,7 @@ const routes = [
   "/services",
   "/about",
   "/contact",
+  "/hemsida-vastervik",
   "/terms",
   "/privacy",
   "/en",
