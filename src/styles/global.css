@@ -577,6 +577,21 @@ h1,h2,h3{
 }
 
 @media (max-width: 760px){
+  .nav .container{
+    padding-left:16px;
+    padding-right:16px;
+  }
+  .navInner{
+    padding:12px 0;
+  }
+  .logoImg{
+    height:24px;
+  }
+  .navLinks{
+    gap:12px;
+    font-size:11px;
+    letter-spacing:0.02em;
+  }
   .homeHeroPanel{ padding:24px; }
   .homeFinal{ padding:22px; }
 }
