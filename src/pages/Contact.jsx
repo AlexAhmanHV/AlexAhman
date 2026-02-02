@@ -39,7 +39,9 @@ const copy = {
   },
 };
 
-const formId = import.meta.env.VITE_FORMSPREE_FORM_ID || "mkozqlqp";
+const envFormId = import.meta.env.VITE_FORMSPREE_FORM_ID || "";
+const formId =
+  !envFormId || envFormId === "XXXXXXXX" ? "mkozqlqp" : envFormId;
 const formAction = `https://formspree.io/f/${formId}`;
 
 function LinkedInIcon() {
@@ -89,11 +91,18 @@ export default function Contact({ lang }) {
         headers: { Accept: "application/json" },
       });
 
-      if (!response.ok) throw new Error("Submit failed");
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        const formspreeError = data?.errors?.[0]?.message;
+        throw new Error(formspreeError || "Submit failed");
+      }
       event.currentTarget.reset();
       setStatus({ type: "success", text: t.success });
-    } catch {
-      setStatus({ type: "error", text: t.error });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        text: error?.message ? `${t.error} (${error.message})` : t.error,
+      });
     } finally {
       setIsSubmitting(false);
     }
