@@ -4,7 +4,6 @@ import { StaticRouter } from "react-router-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 
-// Ändra om du vill
 const SITE_URL = "https://alexahman.se";
 
 const SEO = {
@@ -12,66 +11,70 @@ const SEO = {
     "/": {
       title: "Systemutvecklare i Västervik | Alex Åhman",
       description:
-        "Systemutvecklare i Västervik med bred fullstackkompetens. Jag bygger snabba, hållbara webblösningar med tydlig struktur och stabil leverans.",
+        "Systemutvecklare i Västervik med bred fullstackkompetens. Jag bygger snabba och lättförvaltade webblösningar – från UI till API, databas och CMS.",
     },
     "/services": {
-      title: "Tjänster | Alex Åhman",
+      title: "Tjänster | Fullstackutveckling & hemsidor i Västervik | Alex Åhman",
       description:
-        "Fullstacktjänster: frontend, backend, API:er, databaser, CMS och teknisk SEO. Fokus på prestanda, kvalitet och förvaltbar kod.",
+        "Fullstacktjänster i Västervik: webbappar, API:er, databaser, CMS och teknisk SEO. Struktur som skalar, prestanda som håller och kod som är lätt att förvalta.",
     },
     "/about": {
-      title: "Om | Alex Åhman",
+      title: "Om | Systemutvecklare i Västervik | Alex Åhman",
       description:
-        "Teknisk profil: helhetsperspektiv, strukturerat arbetssätt och stabil leverans. Jag trivs mellan front-end och back-end.",
+        "Teknisk profil med helhetsperspektiv mellan front-end och back-end. Strukturerat arbetssätt, snabb onboarding och stabil leverans. Baserad i Västervik.",
     },
     "/contact": {
-      title: "Kontakt | Alex Åhman",
+      title: "Kontakt | Alex Åhman – systemutvecklare i Västervik",
       description:
-        "Kontakta mig för uppdrag eller jobb inom systemutveckling. Baserad i Västervik.",
+        "Kontakta mig om jobb eller uppdrag inom systemutveckling. Jag finns i Västervik och svarar så snart jag kan.",
     },
     "/terms": {
-      title: "Villkor | Alex Åhman",
-      description: "Användarvillkor för webbplatsen.",
+      title: "Användarvillkor | Alex Åhman",
+      description:
+        "Användarvillkor för alexahman.se: användning av innehåll, ansvar och hur du begär tillstånd att återanvända material.",
     },
     "/privacy": {
-      title: "Integritet | Alex Åhman",
-      description: "Integritetspolicy och information om datalagring.",
+      title: "Integritetspolicy | Alex Åhman",
+      description:
+        "Integritetspolicy för alexahman.se. Sidan samlar endast in uppgifter du skickar via kontaktformuläret och sparar dem bara så länge det behövs.",
     },
   },
+
   en: {
     "/en": {
       title: "Software Developer in Västervik | Alex Åhman",
       description:
-        "Software developer in Västervik with broad full-stack skills. I build fast, maintainable web solutions with clear structure and reliable delivery.",
+        "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web solutions—from UI to APIs, databases, and CMS.",
     },
     "/en/services": {
-      title: "Services | Alex Åhman",
+      title: "Services | Full-Stack Development | Alex Åhman",
       description:
-        "Full-stack services: front end, back end, APIs, databases, CMS, and technical SEO—built for performance and maintainability.",
+        "Full-stack services: web apps, APIs, databases, CMS, and technical SEO—built for performance, clarity, and long-term maintainability.",
     },
     "/en/about": {
       title: "About | Alex Åhman",
       description:
-        "Technical profile: end-to-end perspective, structured execution, and stable delivery across modern web development.",
+        "Technical profile with an end-to-end perspective across front end and back end. I build reliable solutions that are easy to maintain and evolve.",
     },
     "/en/contact": {
       title: "Contact | Alex Åhman",
       description:
-        "Get in touch about work or projects. Based in Västervik, Sweden.",
+        "Get in touch about roles or projects in software development. Based in Västervik, Sweden.",
     },
     "/en/terms": {
-      title: "Terms | Alex Åhman",
-      description: "Terms of use for this website.",
+      title: "Terms of Use | Alex Åhman",
+      description:
+        "Terms of use for alexahman.se: content usage, liability, and how to request permission to reuse material.",
     },
     "/en/privacy": {
-      title: "Privacy | Alex Åhman",
-      description: "Privacy policy and data retention information.",
+      title: "Privacy Policy | Alex Åhman",
+      description:
+        "Privacy policy for alexahman.se. This site only collects information you submit through the contact form and keeps it only as needed.",
     },
   },
 };
 
 function normalizeUrl(url) {
-  // Plugin skickar ofta med url som "/about" osv.
   if (!url) return "/";
   return url.startsWith("/") ? url : `/${url}`;
 }
@@ -85,10 +88,9 @@ function canonicalFor(url) {
 }
 
 function alternatesFor(url) {
-  // / <-> /en
-  const enUrl =
-    url === "/" ? "/en" : url.startsWith("/en") ? url : `/en${url}`;
-  const svUrl = url === "/en" ? "/" : url.startsWith("/en/") ? url.replace(/^\/en/, "") : url;
+  const enUrl = url === "/" ? "/en" : url.startsWith("/en") ? url : `/en${url}`;
+  const svUrl =
+    url === "/en" ? "/" : url.startsWith("/en/") ? url.replace(/^\/en/, "") : url;
 
   return { svUrl: svUrl || "/", enUrl };
 }
@@ -101,7 +103,6 @@ export async function prerender({ url }) {
     (SEO[lang] && SEO[lang][path]) ||
     (lang === "en" ? SEO.en["/en"] : SEO.sv["/"]);
 
-  // Om du använder Helmet inne i dina komponenter senare, plockar vi upp det här:
   const helmetContext = {};
 
   const html = renderToString(
@@ -115,13 +116,6 @@ export async function prerender({ url }) {
   const { svUrl, enUrl } = alternatesFor(path);
   const canonical = canonicalFor(path);
 
-  // Helmet (om du lägger till det i sidor senare)
-  const helmet = helmetContext.helmet;
-  const helmetTitle = helmet?.title?.toString?.() || "";
-  const helmetMeta = helmet?.meta?.toString?.() || "";
-  const helmetLinks = helmet?.link?.toString?.() || "";
-
-  // Pluginets "head.elements" tar objekt (type/props) – bra för meta/links.
   const headElements = new Set([
     { type: "meta", props: { name: "description", content: seo.description } },
 
@@ -133,12 +127,25 @@ export async function prerender({ url }) {
 
     // Canonical + hreflang
     { type: "link", props: { rel: "canonical", href: canonical } },
-    { type: "link", props: { rel: "alternate", hrefLang: "sv", href: `${SITE_URL}${svUrl === "/" ? "" : svUrl}` } },
-    { type: "link", props: { rel: "alternate", hrefLang: "en", href: `${SITE_URL}${enUrl}` } },
+    {
+      type: "link",
+      props: {
+        rel: "alternate",
+        hrefLang: "sv",
+        href: `${SITE_URL}${svUrl === "/" ? "" : svUrl}`,
+      },
+    },
+    {
+      type: "link",
+      props: {
+        rel: "alternate",
+        hrefLang: "en",
+        href: `${SITE_URL}${enUrl}`,
+      },
+    },
     { type: "link", props: { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}` } },
   ]);
 
-  // Viktigt: returnera också länkar så pluginet kan crawla vidare (valfritt när du redan listar routes i vite.config)
   const links = new Set([
     "/",
     "/services",
@@ -156,21 +163,11 @@ export async function prerender({ url }) {
 
   return {
     html,
-
-    // Sätt språk + title i <head>
     head: {
       lang,
       title: seo.title,
       elements: headElements,
     },
-
-    // Om du börjar använda Helmet i dina sidor kan du även injicera strängarna:
-    // (pluginet stödjer elements bäst, men detta ger dig Helmet-output i html om du vill)
-    // Vi lägger in Helmet-taggarna i html för säkerhets skull:
-    // OBS: håller det enkelt – du kan ta bort detta om du bara kör head.elements.
-    // (Lämnar kvar som kommentar för att inte dubbla meta)
-    // html: `${helmetTitle}${helmetMeta}${helmetLinks}${html}`,
-
     links,
   };
 }
