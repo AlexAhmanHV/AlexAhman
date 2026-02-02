@@ -39,8 +39,8 @@ const copy = {
   },
 };
 
-const formId = import.meta.env.VITE_FORMSPREE_FORM_ID || "";
-const formAction = formId ? `https://formspree.io/f/${formId}` : "";
+const formId = import.meta.env.VITE_FORMSPREE_FORM_ID || "mkozqlqp";
+const formAction = `https://formspree.io/f/${formId}`;
 
 function LinkedInIcon() {
   return (
@@ -79,11 +79,6 @@ export default function Contact({ lang }) {
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus({ type: "", text: "" });
-
-    if (!formAction) {
-      setStatus({ type: "error", text: t.setupError });
-      return;
-    }
 
     try {
       setIsSubmitting(true);
