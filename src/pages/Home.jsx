@@ -12,10 +12,8 @@ const copy = {
       "Jag hjälper team att gå från idé till fungerande webbtjänst. Struktur som skalar, snabb respons och en lösning som är lätt att förvalta.",
     ctaPrimary: "Ta kontakt",
     ctaSecondary: "Se tjänster",
-    localPageLink: "Soker du hemsida i Vastervik?",
     badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
-    availabilityTitle: "Tillgänglig för uppdrag",
-    availabilityText: "Öppen för freelance, deltidsuppdrag och juniora roller.",
+
     checklist: [
       "Frontend, backend och API-utveckling",
       "Databaser, SQL och systemlogik i C#",
@@ -27,6 +25,11 @@ const copy = {
     servicesKicker: "Tjänster",
     servicesTitle: "Jag hjälper dig hela vägen",
     servicesStrengths: "Min styrka ligger i flexibiliteten.",
+    localSpotlightKicker: "Lokalt i Västervik",
+    localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
+    localSpotlightText:
+      "Behöver du en som tar helhetsansvar för det digitala? Jag finns lokalt för dig i Västervik och gör det enkelt att få fart på både synlighet och försäljning.",
+    localSpotlightCta: "Jag bor i Västervik och vill ha hjälp!",
     services: [
       ["React", "Bygger snabba, moderna gränssnitt med fokus på UX, struktur och prestanda."],
       ["C#", "Utvecklar robust affärslogik och tydliga backendlösningar i C#."],
@@ -53,7 +56,6 @@ const copy = {
       "I help teams go from idea to a working web service—built with scalable structure, fast performance, and long-term maintainability in mind.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "View services",
-    localPageLink: "",
     badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
     availabilityTitle: "Available for work",
     availabilityText: "Open to freelance work, part-time projects, and junior roles.",
@@ -161,11 +163,6 @@ export default function Home({ lang }) {
                   <Link className="btn btn-outline" to={pathFor(lang, "services")}>
                     {t.ctaSecondary}
                   </Link>
-                  {lang === "sv" ? (
-                    <Link className="btn btn-outline" to="/hemsida-vastervik">
-                      {t.localPageLink}
-                    </Link>
-                  ) : null}
                 </div>
 
                 <div className="badges homeBadges">
@@ -201,14 +198,6 @@ export default function Home({ lang }) {
             {t.servicesTitle}
           </h2>
           <p style={{ marginTop: 12 }}>{t.servicesStrengths}</p>
-          {lang === "sv" ? (
-            <div className="row" style={{ marginTop: 12 }}>
-              <Link className="socialLink" to="/hemsida-vastervik">
-                Hemsida i Vastervik - las mer
-              </Link>
-            </div>
-          ) : null}
-
           <div className="grid cols-3 homeCards" style={{ marginTop: 24 }}>
             {t.services.map(([title, desc], i) => (
               <div className="card homeCard" key={`${title}-${i}`}>
@@ -217,6 +206,19 @@ export default function Home({ lang }) {
               </div>
             ))}
           </div>
+
+          {lang === "sv" ? (
+            <aside className="localSpotlight">
+              <div className="kicker">{t.localSpotlightKicker}</div>
+              <h3>{t.localSpotlightTitle}</h3>
+              <p>{t.localSpotlightText}</p>
+              <div className="row" style={{ marginTop: 12 }}>
+                <Link className="btn btn-outline" to="/hemsida-vastervik">
+                  {t.localSpotlightCta}
+                </Link>
+              </div>
+            </aside>
+          ) : null}
         </div>
       </section>
 

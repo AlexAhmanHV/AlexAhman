@@ -7,7 +7,7 @@ const copy = {
   sv: {
     kicker: "Kontakt",
     title: "Kontakt",
-    lede: "Jag söker junior roll inom systemutveckling/IT och är öppen för arbete.",
+    lede: "",
     formTitle: "Skicka ett meddelande",
     formLead: "Jag återkommer så snart jag kan.",
     name: "Namn",
@@ -19,13 +19,16 @@ const copy = {
     error: "Något gick fel. Försök igen eller maila mig direkt.",
     setupError: "Formuläret är inte kopplat ännu. Lägg till ditt Formspree-ID först.",
     locationLabel: "Plats",
+    locationValue: "Västervik, Sverige",
+    remoteLabel: "Arbetssätt",
+    remoteValue: "På plats eller distans",
     photoAlt: "Porträtt av Alexander Åhman",
   },
 
   en: {
     kicker: "Contact",
     title: "Contact",
-    lede: "I’m looking for junior roles in software development/IT and I’m open to work.",
+    lede: "",
     formTitle: "Send a message",
     formLead: "I’ll get back to you as soon as I can.",
     name: "Name",
@@ -37,6 +40,9 @@ const copy = {
     error: "Something went wrong. Please try again or email me directly.",
     setupError: "The form is not connected yet. Add your Formspree ID first.",
     locationLabel: "Location",
+    locationValue: "Västervik, Sweden",
+    remoteLabel: "Work style",
+    remoteValue: "On-site or remote",
     photoAlt: "Portrait of Alexander Ahman",
   },
 };
@@ -122,20 +128,24 @@ export default function Contact({ lang }) {
       />
 
       <section className="section fadeUp" style={{ borderTop: "none" }}>
-        <div className="container split">
-          <div>
-            <div className="kicker">{t.kicker}</div>
-            <h1 className="h2" style={{ marginTop: 10 }}>
-              {t.title}
-            </h1>
-            <p className="lede">{t.lede}</p>
+        <div className="container">
+          <div className="kicker">{t.kicker}</div>
+          <h1 className="h2" style={{ marginTop: 10 }}>
+            {t.title}
+          </h1>
+          {t.lede ? <p className="lede">{t.lede}</p> : null}
 
-            <div className="card" style={{ marginTop: 18 }}>
+          <div className="split" style={{ marginTop: 18 }}>
+            <div>
+            <div className="card">
               <p>
                 <b>Email:</b> Alex@AlexAhman.se
               </p>
               <p style={{ marginTop: 8 }}>
-                <b>{t.locationLabel}:</b> Västervik, Sweden
+                <b>{t.locationLabel}:</b> {t.locationValue}
+              </p>
+              <p style={{ marginTop: 8 }}>
+                <b>{t.remoteLabel}:</b> {t.remoteValue}
               </p>
 
               <div className="row" style={{ marginTop: 12, gap: 10 }}>
@@ -167,42 +177,43 @@ export default function Contact({ lang }) {
             </div>
           </div>
 
-          <form className="card" action={formAction} method="POST" onSubmit={handleSubmit}>
-            <h3 style={{ fontSize: 18, fontWeight: 700 }}>{t.formTitle}</h3>
-            <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
+            <form className="card" action={formAction} method="POST" onSubmit={handleSubmit}>
+              <h3 style={{ fontSize: 18, fontWeight: 700 }}>{t.formTitle}</h3>
+              <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
 
-            <label className="kicker">{t.name}</label>
-            <input name="name" required style={inputStyle} />
+              <label className="kicker">{t.name}</label>
+              <input name="name" required style={inputStyle} />
 
-            <label className="kicker" style={{ marginTop: 12, display: "block" }}>
-              {t.email}
-            </label>
-            <input type="email" name="email" required style={inputStyle} />
+              <label className="kicker" style={{ marginTop: 12, display: "block" }}>
+                {t.email}
+              </label>
+              <input type="email" name="email" required style={inputStyle} />
 
-            <label className="kicker" style={{ marginTop: 12, display: "block" }}>
-              {t.message}
-            </label>
-            <textarea name="message" rows="6" required style={inputStyle} />
+              <label className="kicker" style={{ marginTop: 12, display: "block" }}>
+                {t.message}
+              </label>
+              <textarea name="message" rows="6" required style={inputStyle} />
 
-            {status.text ? (
-              <p
-                className={`formNotice ${status.type === "success" ? "isSuccess" : "isError"}`}
-                role="status"
-                style={{ marginTop: 12 }}
+              {status.text ? (
+                <p
+                  className={`formNotice ${status.type === "success" ? "isSuccess" : "isError"}`}
+                  role="status"
+                  style={{ marginTop: 12 }}
+                >
+                  {status.text}
+                </p>
+              ) : null}
+
+              <button
+                className="btn"
+                type="submit"
+                style={{ marginTop: 14, width: "100%" }}
+                disabled={isSubmitting}
               >
-                {status.text}
-              </p>
-            ) : null}
-
-            <button
-              className="btn"
-              type="submit"
-              style={{ marginTop: 14, width: "100%" }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? t.sending : t.button}
-            </button>
-          </form>
+                {isSubmitting ? t.sending : t.button}
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </>

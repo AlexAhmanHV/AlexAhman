@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
@@ -8,6 +8,11 @@ const copy = {
     kicker: "Tjänster",
     title: "Det jag kan hjälpa till med",
     lede: "Bred fullstackkompetens med fokus på tydlig struktur och stabil leverans.",
+    localKicker: "Lokalt i Västervik",
+    localTitle: "Hemsida i Västervik",
+    localText:
+      "Söker du en lokal partner för hemsida och vidareutveckling? Läs mer om upplägg, fokus och leverans nedan.",
+    localCta: "Jag behöver en hemsida i Västervik med omnejd",
     items: [
       ["React & JavaScript", "Komponentbaserad UI och moderna webbappar."],
       ["PHP & Laravel", "Backendutveckling, validering och API:er."],
@@ -65,12 +70,18 @@ export default function Services({ lang }) {
             {t.title}
           </h1>
           <p className="lede">{t.lede}</p>
+
           {lang === "sv" ? (
-            <div className="row" style={{ marginTop: 12 }}>
-              <Link className="socialLink" to="/hemsida-vastervik">
-                Hemsida i Vastervik - las mer
-              </Link>
-            </div>
+            <aside className="localSpotlight localSpotlightSlim">
+              <div className="kicker">{t.localKicker}</div>
+              <h3>{t.localTitle}</h3>
+              <p>{t.localText}</p>
+              <div className="row" style={{ marginTop: 12 }}>
+                <Link className="btn btn-outline" to="/hemsida-vastervik">
+                  {t.localCta}
+                </Link>
+              </div>
+            </aside>
           ) : null}
 
           <div className="grid cols-3" style={{ marginTop: 20 }}>

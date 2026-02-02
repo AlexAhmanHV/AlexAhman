@@ -533,8 +533,38 @@ h1,h2,h3{
 .homeFinal .btn:hover{
   background:#ffe8cf;
 }
+.homeFinal .btn-home-outline{
+  background:transparent;
+  color:#fff9f2;
+  border-color:#fff9f2;
+}
+.homeFinal .btn-home-outline:hover{
+  background:rgba(255,249,242,0.14);
+}
+
+.localSpotlight{
+  margin-top:24px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px;
+  background:
+    linear-gradient(140deg, #fff6eb 0%, #f2f8f7 100%);
+}
+.localSpotlight h3{
+  margin-top:10px;
+  font-size:28px;
+  line-height:1.05;
+}
+.localSpotlight p{
+  margin-top:10px;
+  max-width:62ch;
+}
+.localSpotlightSlim h3{
+  font-size:22px;
+}
 .contactPhotoCard{
-  margin:0;
+  margin:0 auto;
+  max-width:340px;
   border:1px solid var(--border);
   border-radius:12px;
   overflow:hidden;
@@ -543,9 +573,7 @@ h1,h2,h3{
 .contactPhoto{
   display:block;
   width:100%;
-  max-height:320px;
-  object-fit:cover;
-  object-position:center top;
+  height:auto;
 }
 
 @media (max-width: 760px){
