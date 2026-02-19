@@ -1,0 +1,21 @@
+{
+  "assets": [
+    { "path": "assets/symbols/s1.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s1" },
+    { "path": "assets/symbols/s2.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s2" },
+    { "path": "assets/symbols/s3.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s3" },
+    { "path": "assets/symbols/s4.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s4" },
+    { "path": "assets/symbols/s5.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s5" },
+    { "path": "assets/symbols/s6.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s6" },
+    { "path": "assets/symbols/s7.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s7" },
+    { "path": "assets/symbols/s8.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s8" },
+    { "path": "assets/symbols/s9.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s9" },
+    { "path": "assets/symbols/s10.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "symbol s10" },
+    { "path": "assets/symbols/wild.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "wild symbol" },
+    { "path": "assets/symbols/scatter.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "scatter symbol" },
+    { "path": "assets/symbols/bonus.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "bonus trigger symbol" },
+    { "path": "assets/ui/background.png", "recommendedWidth": 1920, "recommendedHeight": 1080, "usage": "main game background" },
+    { "path": "assets/ui/panel.png", "recommendedWidth": 1024, "recommendedHeight": 512, "usage": "panel texture for UI sections" },
+    { "path": "assets/ui/alexahman.ico", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "brand logo in footer" },
+    { "path": "assets/bonus/tile_back.png", "recommendedWidth": 256, "recommendedHeight": 256, "usage": "pick bonus hidden tile back" }
+  ]
+}
