@@ -1,4 +1,5 @@
-﻿import Seo from "../Seo";
+﻿import { Link } from "react-router-dom";
+import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
 
@@ -38,7 +39,7 @@ const copy = {
       ],
       [
         "Structured execution",
-        "Whether it’s a new build or improvements to an existing product, I work in a structured way—focusing on performance and quality.",
+        "Whether it’s a new build or improvements to an existing product, I work in a structured way, focusing on performance and quality.",
       ],
       [
         "Fast adaptation",
@@ -46,7 +47,7 @@ const copy = {
       ],
       [
         "Stable delivery",
-        "My goal is always to deliver solutions that work reliably day to day—for both users and the team that continues to develop them.",
+        "My goal is always to deliver solutions that work reliably day to day, for both users and the team that continues to develop them.",
       ],
     ],
   },
@@ -57,10 +58,7 @@ export default function About({ lang }) {
 
   const pathname = lang === "en" ? "/en/about" : "/about";
 
-  const seoTitle =
-    lang === "en"
-      ? "About | Alexander Åhman"
-      : "Om mig | Alexander Åhman";
+  const seoTitle = lang === "en" ? "About | Alexander Åhman" : "Om mig | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
@@ -95,6 +93,18 @@ export default function About({ lang }) {
                 <p style={{ marginTop: 10 }}>{text}</p>
               </div>
             ))}
+          </div>
+
+          <div className="card" style={{ marginTop: 18 }}>
+            <p>{lang === "en" ? "Related pages:" : "Relaterade sidor:"}</p>
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/services" : "/services"}>
+                {lang === "en" ? "Services" : "Tjänster"}
+              </Link>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/contact" : "/contact"}>
+                {lang === "en" ? "Contact" : "Kontakt"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -21,6 +21,7 @@ export default function Seo({
   svOnly = false,
 }) {
   const canonical = buildUrl(siteUrl, pathname);
+  const ogImage = buildUrl(siteUrl, "/Alex-1200.jpg");
 
   // Language alternates: sv lives on "/", en on "/en"
   const svPath = pathname.startsWith("/en") ? pathname.replace(/^\/en/, "") || "/" : pathname;
@@ -34,6 +35,16 @@ export default function Seo({
       <html lang={lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:locale" content={lang === "en" ? "en_US" : "sv_SE"} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
 
       <link rel="canonical" href={canonical} />
 

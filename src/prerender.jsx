@@ -5,74 +5,75 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 
 const SITE_URL = "https://alexahman.se";
+const OG_IMAGE = `${SITE_URL}/Alex-1200.jpg`;
 
 const SEO = {
   sv: {
     "/": {
-      title: "Systemutvecklare i Vastervik | Alex Ahman",
+      title: "Systemutvecklare i Västervik | Alex Åhman",
       description:
-        "Systemutvecklare i Vastervik med bred fullstackkompetens. Jag bygger snabba och lattforvaltade webblosningar - fran UI till API, databas och CMS.",
+        "Systemutvecklare i Västervik med bred fullstackkompetens. Jag bygger snabba och lättförvaltade webblösningar, från UI till API, databas och apputveckling.",
     },
     "/services": {
-      title: "Tjanster | Fullstackutveckling & hemsidor i Vastervik | Alex Ahman",
+      title: "Tjänster | Fullstackutveckling & hemsidor i Västervik | Alex Åhman",
       description:
-        "Fullstacktjanster i Vastervik: webbappar, API:er, databaser, CMS och teknisk SEO. Struktur som skalar, prestanda som haller och kod som ar latt att forvalta.",
+        "Fullstacktjänster i Västervik: webbappar, API:er, databaser, apputveckling och teknisk SEO. Struktur som skalar, prestanda som håller och kod som är lätt att förvalta.",
     },
     "/about": {
-      title: "Om | Systemutvecklare i Vastervik | Alex Ahman",
+      title: "Om | Systemutvecklare i Västervik | Alex Åhman",
       description:
-        "Teknisk profil med helhetsperspektiv mellan front-end och back-end. Strukturerat arbetssatt, snabb onboarding och stabil leverans. Baserad i Vastervik.",
+        "Teknisk profil med helhetsperspektiv mellan front-end och back-end. Strukturerat arbetssätt, snabb onboarding och stabil leverans. Baserad i Västervik.",
     },
     "/contact": {
-      title: "Kontakt | Alex Ahman - systemutvecklare i Vastervik",
+      title: "Kontakt | Alex Åhman - systemutvecklare i Västervik",
       description:
-        "Kontakta mig om jobb eller uppdrag inom systemutveckling. Jag finns i Vastervik och svarar sa snart jag kan.",
+        "Kontakta mig om jobb eller uppdrag inom systemutveckling. Jag finns i Västervik och svarar så snart jag kan.",
     },
     "/hemsida-vastervik": {
-      title: "Hemsida i Vastervik | Webbutveckling med Alex Ahman",
+      title: "Hemsida i Västervik | Webbutveckling med Alex Åhman",
       description:
-        "Behov av hemsida i Vastervik? Jag bygger snabba, moderna och sokmotorvanliga hemsidor med fokus pa kvalitet, prestanda och enkel forvaltning.",
+        "Behöver du en hemsida i Västervik? Jag bygger snabba, moderna och sökmotorvänliga hemsidor med fokus på kvalitet, prestanda och enkel förvaltning.",
     },
     "/terms": {
-      title: "Anvandarvillkor | Alex Ahman",
+      title: "Användarvillkor | Alex Åhman",
       description:
-        "Anvandarvillkor for alexahman.se: anvandning av innehall, ansvar och hur du begar tillstand att ateranvanda material.",
+        "Användarvillkor för alexahman.se: användning av innehåll, ansvar och hur du begär tillstånd att återanvända material.",
     },
     "/privacy": {
-      title: "Integritetspolicy | Alex Ahman",
+      title: "Integritetspolicy | Alex Åhman",
       description:
-        "Integritetspolicy for alexahman.se. Sidan samlar endast in uppgifter du skickar via kontaktformular och sparar dem bara sa lange det behovs.",
+        "Integritetspolicy för alexahman.se. Sidan samlar endast in uppgifter du skickar via kontaktformulär och sparar dem bara så länge det behövs.",
     },
   },
 
   en: {
     "/en": {
-      title: "Software Developer in Vastervik | Alex Ahman",
+      title: "Software Developer in Västervik | Alex Åhman",
       description:
-        "Software developer in Vastervik with a broad full-stack profile. I build fast, maintainable web solutions-from UI to APIs, databases, and CMS.",
+        "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web solutions from UI to APIs, databases, and app development.",
     },
     "/en/services": {
-      title: "Services | Full-Stack Development | Alex Ahman",
+      title: "Services | Full-Stack Development | Alex Åhman",
       description:
-        "Full-stack services: web apps, APIs, databases, CMS, and technical SEO-built for performance, clarity, and long-term maintainability.",
+        "Full-stack services: web apps, APIs, databases, app development, and technical SEO built for performance, clarity, and long-term maintainability.",
     },
     "/en/about": {
-      title: "About | Alex Ahman",
+      title: "About | Alex Åhman",
       description:
         "Technical profile with an end-to-end perspective across front end and back end. I build reliable solutions that are easy to maintain and evolve.",
     },
     "/en/contact": {
-      title: "Contact | Alex Ahman",
+      title: "Contact | Alex Åhman",
       description:
-        "Get in touch about roles or projects in software development. Based in Vastervik, Sweden.",
+        "Get in touch about roles or projects in software development. Based in Västervik, Sweden.",
     },
     "/en/terms": {
-      title: "Terms of Use | Alex Ahman",
+      title: "Terms of Use | Alex Åhman",
       description:
         "Terms of use for alexahman.se: content usage, liability, and how to request permission to reuse material.",
     },
     "/en/privacy": {
-      title: "Privacy Policy | Alex Ahman",
+      title: "Privacy Policy | Alex Åhman",
       description:
         "Privacy policy for alexahman.se. This site only collects information you submit through the contact form and keeps it only as needed.",
     },
@@ -135,6 +136,11 @@ export async function prerender({ url }) {
     { type: "meta", props: { property: "og:description", content: seo.description } },
     { type: "meta", props: { property: "og:url", content: canonical } },
     { type: "meta", props: { property: "og:type", content: "website" } },
+    { type: "meta", props: { property: "og:image", content: OG_IMAGE } },
+    { type: "meta", props: { name: "twitter:card", content: "summary_large_image" } },
+    { type: "meta", props: { name: "twitter:title", content: seo.title } },
+    { type: "meta", props: { name: "twitter:description", content: seo.description } },
+    { type: "meta", props: { name: "twitter:image", content: OG_IMAGE } },
     { type: "link", props: { rel: "canonical", href: canonical } },
     {
       type: "link",

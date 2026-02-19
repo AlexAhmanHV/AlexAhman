@@ -18,7 +18,7 @@ const copy = {
       ["PHP & Laravel", "Backendutveckling, validering och API:er."],
       ["SQL & databaser", "Datamodellering, queries och tydlig struktur."],
       ["C# & .NET", "Grundläggande erfarenhet av utveckling i C#/.NET."],
-      ["WordPress", "Teman, innehåll och enklare anpassningar."],
+      ["Apputveckling", "Bygger användarvänliga appar med tydliga flöden och stabil struktur."],
       ["SEO", "Grundläggande on-page-arbete i webbprojekt."],
     ],
   },
@@ -32,7 +32,7 @@ const copy = {
       ["PHP & Laravel", "Back-end development, validation, and APIs."],
       ["SQL & databases", "Data modeling, queries, and clear structure."],
       ["C# & .NET", "Foundational experience with C#/.NET development."],
-      ["WordPress", "Themes, content, and light customization."],
+      ["App Development", "Build user-friendly apps with clear flows and stable structure."],
       ["SEO", "Foundational on-page SEO work in web projects."],
     ],
   },
@@ -50,8 +50,8 @@ export default function Services({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Full-stack development services: React, Laravel/PHP, SQL, C#/.NET, WordPress, and technical SEO—focused on performance and maintainability."
-      : "Tjänster inom fullstackutveckling: React, Laravel/PHP, SQL, C#/.NET, WordPress och teknisk SEO – med fokus på prestanda och hållbar struktur.";
+      ? "Full-stack development services: React, Laravel/PHP, SQL, C#/.NET, app development, and technical SEO-focused on performance and maintainability."
+      : "Tjänster inom fullstackutveckling: React, Laravel/PHP, SQL, C#/.NET, apputveckling och teknisk SEO – med fokus på prestanda och hållbar struktur.";
 
   return (
     <>
@@ -91,6 +91,18 @@ export default function Services({ lang }) {
                 <p style={{ marginTop: 10 }}>{desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="card" style={{ marginTop: 20 }}>
+            <p>{lang === "en" ? "Related pages for context:" : "Relaterade sidor för mer kontext:"}</p>
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/about" : "/about"}>
+                {lang === "en" ? "About" : "Om mig"}
+              </Link>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/contact" : "/contact"}>
+                {lang === "en" ? "Contact" : "Kontakt"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

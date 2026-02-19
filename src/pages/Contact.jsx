@@ -1,7 +1,9 @@
 ﻿import { useState } from "react";
+import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 
 const copy = {
   sv: {
@@ -10,6 +12,11 @@ const copy = {
     lede: "",
     formTitle: "Skicka ett meddelande",
     formLead: "Jag återkommer så snart jag kan.",
+    responseTimeLabel: "Svarstid",
+    responseTimeValue: "Vanligtvis inom 24 timmar vardagar",
+    introCallLabel: "Första samtal",
+    introCallValue: "15-20 minuter, kostnadsfritt och utan förpliktelser",
+    bookingCta: "Boka ett första samtal",
     name: "Namn",
     email: "Email",
     message: "Meddelande",
@@ -31,6 +38,11 @@ const copy = {
     lede: "",
     formTitle: "Send a message",
     formLead: "I’ll get back to you as soon as I can.",
+    responseTimeLabel: "Response time",
+    responseTimeValue: "Usually within 24 hours on weekdays",
+    introCallLabel: "Intro call",
+    introCallValue: "15-20 minutes, free and with no obligations",
+    bookingCta: "Book an intro call",
     name: "Name",
     email: "Email",
     message: "Message",
@@ -48,8 +60,7 @@ const copy = {
 };
 
 const envFormId = import.meta.env.VITE_FORMSPREE_FORM_ID || "";
-const formId =
-  !envFormId || envFormId === "XXXXXXXX" ? "mkozqlqp" : envFormId;
+const formId = !envFormId || envFormId === "XXXXXXXX" ? "mkozqlqp" : envFormId;
 const formAction = `https://formspree.io/f/${formId}`;
 
 function LinkedInIcon() {
@@ -70,13 +81,11 @@ function InstagramIcon() {
 
 export default function Contact({ lang }) {
   const t = copy[lang] || copy.sv;
+  const hasBooking = Boolean(BOOKING_URL);
 
   const pathname = lang === "en" ? "/en/contact" : "/contact";
 
-  const seoTitle =
-    lang === "en"
-      ? "Contact | Alexander Åhman"
-      : "Kontakt | Alexander Åhman";
+  const seoTitle = lang === "en" ? "Contact | Alexander Åhman" : "Kontakt | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
@@ -137,45 +146,69 @@ export default function Contact({ lang }) {
 
           <div className="split" style={{ marginTop: 18 }}>
             <div>
-            <div className="card">
-              <p>
-                <b>Email:</b> Alex@AlexAhman.se
-              </p>
-              <p style={{ marginTop: 8 }}>
-                <b>{t.locationLabel}:</b> {t.locationValue}
-              </p>
-              <p style={{ marginTop: 8 }}>
-                <b>{t.remoteLabel}:</b> {t.remoteValue}
-              </p>
+              <div className="card">
+                <p>
+                  <b>Email:</b> Alex@AlexAhman.se
+                </p>
+                <p style={{ marginTop: 8 }}>
+                  <b>{t.locationLabel}:</b> {t.locationValue}
+                </p>
+                <p style={{ marginTop: 8 }}>
+                  <b>{t.remoteLabel}:</b> {t.remoteValue}
+                </p>
+                <p style={{ marginTop: 8 }}>
+                  <b>{t.responseTimeLabel}:</b> {t.responseTimeValue}
+                </p>
+                <p style={{ marginTop: 8 }}>
+                  <b>{t.introCallLabel}:</b> {t.introCallValue}
+                </p>
 
-              <div className="row" style={{ marginTop: 12, gap: 10 }}>
-                <a
-                  className="socialIcon"
-                  href="https://www.linkedin.com/in/alexander-%C3%A5hman/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
-                  title="LinkedIn"
-                >
-                  <LinkedInIcon />
-                </a>
-                <a
-                  className="socialIcon"
-                  href="https://www.instagram.com/AlexAhman"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Instagram"
-                  title="Instagram"
-                >
-                  <InstagramIcon />
-                </a>
+                {hasBooking ? (
+                  <div className="row" style={{ marginTop: 12 }}>
+                    <a className="btn btn-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
+                      {t.bookingCta}
+                    </a>
+                  </div>
+                ) : null}
+
+                <div className="row" style={{ marginTop: 12, gap: 10 }}>
+                  <a
+                    className="socialIcon"
+                    href="https://www.linkedin.com/in/alexander-%C3%A5hman/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    <LinkedInIcon />
+                  </a>
+                  <a
+                    className="socialIcon"
+                    href="https://www.instagram.com/AlexAhman"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    <InstagramIcon />
+                  </a>
+                </div>
+
+                <figure className="contactPhotoCard" style={{ marginTop: 14 }}>
+                <img
+                  className="contactPhoto"
+                  src="/Alex-680.jpg"
+                  srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
+                  sizes="(max-width: 760px) 100vw, 340px"
+                  alt={t.photoAlt}
+                  loading="lazy"
+                  decoding="async"
+                  width="680"
+                    height="907"
+                  />
+                </figure>
               </div>
-
-              <figure className="contactPhotoCard" style={{ marginTop: 14 }}>
-                <img className="contactPhoto" src="/Alex.jpg" alt={t.photoAlt} loading="lazy" />
-              </figure>
             </div>
-          </div>
 
             <form className="card" action={formAction} method="POST" onSubmit={handleSubmit}>
               <h3 style={{ fontSize: 18, fontWeight: 700 }}>{t.formTitle}</h3>
@@ -213,6 +246,18 @@ export default function Contact({ lang }) {
                 {isSubmitting ? t.sending : t.button}
               </button>
             </form>
+          </div>
+
+          <div className="card" style={{ marginTop: 18 }}>
+            <p>{lang === "en" ? "Related pages:" : "Relaterade sidor:"}</p>
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/services" : "/services"}>
+                {lang === "en" ? "Services" : "Tjänster"}
+              </Link>
+              <Link className="btn btn-outline" to={lang === "en" ? "/en/about" : "/about"}>
+                {lang === "en" ? "About" : "Om mig"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

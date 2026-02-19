@@ -3,28 +3,39 @@ import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 
 const copy = {
   sv: {
-    kicker: "Systemutvecklare & fullstackutvecklare",
-    headline: "Utveckling som lyfter hela din digitala lösning",
+    kicker: "Systemutvecklare i Västervik",
+    headline: "Jag bygger webblösningar som ger resultat, inte bara kod",
     lede:
-      "Jag hjälper team att gå från idé till fungerande webbtjänst. Struktur som skalar, snabb respons och en lösning som är lätt att förvalta.",
+      "För företag och team som vill växa digitalt: jag tar ansvar från idé till driftsatt lösning, med fokus på snabb prestanda, tydlig struktur och hög konvertering.",
     ctaPrimary: "Ta kontakt",
     ctaSecondary: "Se tjänster",
-    badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
+    ctaBook: "Boka första samtal",
+    badges: ["React", "Laravel", "Apputveckling", "SEO", "API", "SQL"],
+    availabilityTitle: "Tillgänglig för uppdrag",
+    availabilityText: "Öppen för konsultuppdrag, projektanställning och juniora roller.",
 
     checklist: [
       "Frontend, backend och API-utveckling",
       "Databaser, SQL och systemlogik i C#",
       "Integrationer mot externa tjänster och API:er",
       "Prestanda, tillgänglighet och responsivitet",
-      "Webb, CMS och teknisk SEO i samma leverans",
+      "Webb, apputveckling och teknisk SEO i samma leverans",
       "Säkerhet: validering, behörighet och dataskydd",
     ],
     servicesKicker: "Tjänster",
     servicesTitle: "Jag hjälper dig hela vägen",
     servicesStrengths: "Min styrka ligger i flexibiliteten.",
+    proofKicker: "Varför anlita mig",
+    proofTitle: "Fokus på effekt i varje leverans",
+    proofStats: [
+      ["Leveransfokus", "Från start till lansering i en sammanhållen process."],
+      ["Teknikbredd", "React, Laravel, C#, SQL, apputveckling och teknisk SEO."],
+      ["Arbetssätt", "Snabb återkoppling, tydliga beslut och kod som går att förvalta."],
+    ],
     localSpotlightKicker: "Lokalt i Västervik",
     localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
     localSpotlightText:
@@ -35,7 +46,7 @@ const copy = {
       ["C#", "Utvecklar robust affärslogik och tydliga backendlösningar i C#."],
       ["SQL", "Designar databaser, skriver effektiva queries och skapar stabil datamodellering."],
       ["Laravel", "Bygger backend i Laravel med tydlig arkitektur, validering och API-flöden."],
-      ["WordPress", "Skapar flexibla och lättredigerade WordPress-sidor med SEO i fokus."],
+      ["Apputveckling", "Bygger användarvänliga appar med stabil struktur och tydliga användarflöden."],
       ["SEO", "Arbetar med on-page SEO, metadata och tekniska förbättringar för bättre synlighet."],
     ],
     processKicker: "Arbetssätt",
@@ -45,18 +56,27 @@ const copy = {
       ["2. Produktion", "Jag utvecklar iterativt mot de mål vi satt upp, med fokus på snabbhet och kvalitet."],
       ["3. Optimering", "Vi finslipar innehåll, metadata och prestanda inför lansering."],
     ],
+    linksKicker: "Läs vidare",
+    linksTitle: "Utforska fler sidor",
+    links: [
+      ["Tjänster", "services"],
+      ["Om mig", "about"],
+      ["Kontakt", "contact"],
+    ],
     finalTitle: "Vill du ha en utvecklare som tar helhetsansvar?",
-    finalText: "Skicka ett meddelande så tar vi fram en lösning som matchar dina mål.",
+    finalText:
+      "Skicka ett meddelande eller boka ett första samtal. Du får en tydlig rekommendation för nästa steg utifrån dina mål.",
   },
 
   en: {
     kicker: "Software Developer & Full-Stack Developer",
-    headline: "Development that strengthens your digital product",
+    headline: "I build web solutions that drive outcomes, not just features",
     lede:
-      "I help teams go from idea to a working web service—built with scalable structure, fast performance, and long-term maintainability in mind.",
+      "I help teams move from idea to launched product with fast, maintainable implementation and a clear focus on user value and conversion.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "View services",
-    badges: ["React", "Laravel", "WordPress", "SEO", "API", "SQL"],
+    ctaBook: "Book intro call",
+    badges: ["React", "Laravel", "App Development", "SEO", "API", "SQL"],
     availabilityTitle: "Available for work",
     availabilityText: "Open to freelance work, part-time projects, and junior roles.",
     checklist: [
@@ -64,36 +84,49 @@ const copy = {
       "Databases, SQL, and business logic in C#",
       "Integrations with external services and APIs",
       "Performance, accessibility, and responsive UI",
-      "Web, CMS, and technical SEO—delivered together",
+      "Web, app development, and technical SEO delivered together",
       "Security: validation, auth, and data protection",
     ],
     servicesKicker: "Services",
     servicesTitle: "Support from start to launch",
-    servicesStrengths: "My strength is flexibility—I can step in where you need me most.",
+    servicesStrengths: "My strength is flexibility, I can step in where you need me most.",
+    proofKicker: "Why work with me",
+    proofTitle: "Execution with measurable impact in mind",
+    proofStats: [
+      ["Delivery ownership", "From discovery to launch in one coherent workflow."],
+      ["Technical range", "React, Laravel, C#, SQL, app development, and technical SEO."],
+      ["Collaboration style", "Fast feedback loops, clear tradeoffs, and maintainable code."],
+    ],
     services: [
       ["React", "Build fast, modern interfaces with a strong focus on UX, structure, and performance."],
       ["C#", "Develop robust business logic and clean back-end solutions in C#."],
       ["SQL", "Design databases, write efficient queries, and build reliable data models."],
       ["Laravel", "Build Laravel back ends with clear architecture, validation, and API flows."],
-      ["WordPress", "Create flexible WordPress sites that are easy to edit—built with SEO in mind."],
+      ["App Development", "Build user-friendly apps with stable architecture and clear user flows."],
       ["SEO", "Work with on-page SEO, metadata, and technical improvements to increase visibility."],
     ],
     processKicker: "Process",
     processTitle: "A simple process with clear results",
     process: [
       ["1. Strategy", "We define the audience, intent, and what success looks like."],
-      ["2. Build", "I develop iteratively toward our goals—prioritizing speed and quality."],
+      ["2. Build", "I develop iteratively toward our goals, prioritizing speed and quality."],
       ["3. Optimize", "We refine content, metadata, and performance before launch."],
     ],
+    linksKicker: "Continue",
+    linksTitle: "Explore more pages",
+    links: [
+      ["Services", "services"],
+      ["About", "about"],
+      ["Contact", "contact"],
+    ],
     finalTitle: "Need a developer who helps you all the way?",
-    finalText: "Send me a message and we’ll find the right solution for your goals.",
+    finalText: "Send a message or book an intro call. You will get a clear recommendation for the next step.",
   },
 };
 
 function pathFor(lang, path) {
   const base = lang === "en" ? "/en" : "";
 
-  // Normalize so both "contact" and "/contact" work, and avoid double slashes
   const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
 
   if (normalized === "/") return base || "/";
@@ -102,10 +135,10 @@ function pathFor(lang, path) {
 
 export default function Home({ lang }) {
   const t = copy[lang] || copy.sv;
+  const hasBooking = Boolean(BOOKING_URL);
 
   const pathname = lang === "en" ? "/en" : "/";
 
-  // SEO focused on your local keywords (SV) + clean EN version
   const seoTitle =
     lang === "en"
       ? "Software Developer in Västervik | Alexander Åhman"
@@ -113,8 +146,9 @@ export default function Home({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web services—from UI to APIs, databases, and CMS."
-      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger snabba och lättförvaltade webbtjänster – från UI till API, databas och CMS.";
+      ? "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web services, from UI to APIs, databases, and CMS."
+      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger snabba och lättförvaltade webbtjänster, från UI till API, databas och apputveckling.";
+
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -124,19 +158,41 @@ export default function Home({ lang }) {
     jobTitle: lang === "en" ? "Software Developer" : "Systemutvecklare",
     homeLocation: {
       "@type": "Place",
-      name: "Vastervik, Sweden",
+      name: "Västervik, Sweden",
     },
     sameAs: [
       "https://www.linkedin.com/in/alexander-%C3%A5hman/",
       "https://www.instagram.com/AlexAhman",
+      "https://github.com/alexahman",
     ],
-    knowsAbout: ["React", "Laravel", "WordPress", "C#", "SQL", "SEO"],
+    knowsAbout: ["React", "Laravel", "App Development", "C#", "SQL", "SEO"],
+  };
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Alexander Åhman",
+    url: SITE_URL,
+    logo: `${SITE_URL}/favicon.svg`,
+    sameAs: [
+      "https://www.linkedin.com/in/alexander-%C3%A5hman/",
+      "https://www.instagram.com/AlexAhman",
+      "https://github.com/alexahman",
+    ],
+  };
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Alexander Åhman",
+    url: SITE_URL,
+    inLanguage: ["sv", "en"],
   };
 
   return (
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(webSiteJsonLd)}</script>
       </Helmet>
 
       <Seo
@@ -163,6 +219,11 @@ export default function Home({ lang }) {
                   <Link className="btn btn-outline" to={pathFor(lang, "services")}>
                     {t.ctaSecondary}
                   </Link>
+                  {hasBooking ? (
+                    <a className="btn btn-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
+                      {t.ctaBook}
+                    </a>
+                  ) : null}
                 </div>
 
                 <div className="badges homeBadges">
@@ -187,6 +248,24 @@ export default function Home({ lang }) {
                 </div>
               </aside>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="kicker">{t.proofKicker}</div>
+          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
+            {t.proofTitle}
+          </h2>
+
+          <div className="grid cols-3 homeCards" style={{ marginTop: 22 }}>
+            {t.proofStats.map(([title, text]) => (
+              <div className="card homeCard" key={title}>
+                <h3 style={{ fontSize: 18, fontWeight: 700 }}>{title}</h3>
+                <p style={{ marginTop: 10 }}>{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -240,6 +319,27 @@ export default function Home({ lang }) {
         </div>
       </section>
 
+      <section className="section" style={{ paddingTop: 28 }}>
+        <div className="container">
+          <div className="kicker">{t.linksKicker}</div>
+          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
+            {t.linksTitle}
+          </h2>
+          <div className="row" style={{ marginTop: 14 }}>
+            {t.links.map(([label, to]) => (
+              <Link className="btn btn-outline" key={to} to={pathFor(lang, to)}>
+                {label}
+              </Link>
+            ))}
+            {lang === "sv" ? (
+              <Link className="btn btn-outline" to="/hemsida-vastervik">
+                Hemsida i Västervik
+              </Link>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
       <section className="section" style={{ paddingTop: 26 }}>
         <div className="container">
           <div className="homeFinal">
@@ -250,6 +350,11 @@ export default function Home({ lang }) {
               <Link className="btn" to={pathFor(lang, "contact")}>
                 {t.ctaPrimary}
               </Link>
+              {hasBooking ? (
+                <a className="btn btn-home-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
+                  {t.ctaBook}
+                </a>
+              ) : null}
             </div>
           </div>
         </div>
@@ -257,7 +362,3 @@ export default function Home({ lang }) {
     </>
   );
 }
-
-
-
-

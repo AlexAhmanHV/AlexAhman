@@ -88,6 +88,18 @@ export default function HemsidaVastervik() {
               </Link>
             </div>
           </div>
+
+          <div className="card" style={{ marginTop: 18 }}>
+            <p>Relaterade sidor för mer information:</p>
+            <div className="row" style={{ marginTop: 12 }}>
+              <Link className="btn btn-outline" to="/about">
+                Om mig
+              </Link>
+              <Link className="btn btn-outline" to="/contact">
+                Kontakt
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
