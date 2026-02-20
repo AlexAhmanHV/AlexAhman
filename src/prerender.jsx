@@ -29,6 +29,11 @@ const SEO = {
       description:
         "Kontakta mig om jobb eller uppdrag inom systemutveckling. Jag finns i Västervik och svarar så snart jag kan.",
     },
+    "/projects": {
+      title: "Projekt | Case | Alex Åhman",
+      description:
+        "Utvalda projekt med fokus på teknikval, resultat och affärsnytta inom webbutveckling.",
+    },
     "/hemsida-vastervik": {
       title: "Hemsida i Västervik | Webbutveckling med Alex Åhman",
       description:
@@ -66,6 +71,11 @@ const SEO = {
       title: "Contact | Alex Åhman",
       description:
         "Get in touch about roles or projects in software development. Based in Västervik, Sweden.",
+    },
+    "/en/projects": {
+      title: "Projects | Case Studies | Alex Åhman",
+      description:
+        "Selected projects with a focus on technical decisions, outcomes, and business impact.",
     },
     "/en/terms": {
       title: "Terms of Use | Alex Åhman",
@@ -170,6 +180,7 @@ export async function prerender({ url }) {
     "/services",
     "/about",
     "/contact",
+    "/projects",
     "/hemsida-vastervik",
     "/terms",
     "/privacy",
@@ -177,6 +188,7 @@ export async function prerender({ url }) {
     "/en/services",
     "/en/about",
     "/en/contact",
+    "/en/projects",
     "/en/terms",
     "/en/privacy",
   ]);

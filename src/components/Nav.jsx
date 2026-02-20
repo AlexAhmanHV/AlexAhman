@@ -54,6 +54,7 @@ export default function Nav({ lang }) {
   const t =
     {
       sv: {
+        projects: "Projekt",
         services: "Tjänster",
         about: "Om",
         contact: "Kontakt",
@@ -62,6 +63,7 @@ export default function Nav({ lang }) {
         logoAlt: "Alex Ahman logotyp",
       },
       en: {
+        projects: "Projects",
         services: "Services",
         about: "About",
         contact: "Contact",
@@ -79,6 +81,9 @@ export default function Nav({ lang }) {
         </Link>
 
         <div className="navLinks">
+          <NavLink to={pathFor(lang, "projects")} style={navLinkStyle}>
+            {t.projects}
+          </NavLink>
           <NavLink to={pathFor(lang, "services")} style={navLinkStyle}>
             {t.services}
           </NavLink>

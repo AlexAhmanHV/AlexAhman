@@ -11,37 +11,31 @@ const copy = {
       "Här visar jag konkreta leveranser med fokus på teknikval, effekt och hur lösningen skapar affärsnytta.",
     items: [
       {
-        title: "Interaktiv casinodemo",
-        status: "Live demo",
+        title: "Lördagsgolf",
+        status: "Live site",
         summary:
-          "Frontend-prototyp byggd i React för att demonstrera spelmekanik, state-flöde och UI-logik i en snabb, spelbar upplevelse.",
-        impact: "Visar förmåga att bygga interaktiv produktlogik med tydlig komponentstruktur.",
-        stack: "React, JavaScript, UI state management",
-        href: "/casinodemo/",
-        linkText: "Öppna demo",
+          "Frontend-projekt byggt som en SPA med tydlig informationsstruktur och användarvänlig presentation för besökare.",
+        impact: "Visar förmåga att leverera en publik webbplats med tydligt innehållsflöde och praktisk användarnytta.",
+        stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
+        image: "/projects/lordagsgolf.svg",
+        imageAlt: "Förhandsbild av Lördagsgolf",
+        href: "https://lordagsgolf.se/",
+        linkText: "Besök webbplats",
         external: true,
       },
       {
-        title: "alexahman.se (denna sajt)",
-        status: "Produktionssatt",
+        title: "Music Insights Hub",
+        status: "Live app",
         summary:
-          "Flerspråkig portfolio med prerendering, teknisk SEO, metadata och strukturerad intern länkning för bättre indexering.",
-        impact: "Byggd för snabb laddning, tydlig konvertering och bättre synlighet i lokala sökningar.",
-        stack: "React, Vite, prerender, schema.org",
-        href: "/",
-        linkText: "Till startsidan",
-        external: false,
-      },
-      {
-        title: "Lokal landningssida: Hemsida Västervik",
-        status: "SEO-fokuserad",
-        summary:
-          "Nischad landningssida för lokal sökintention med tydligt budskap, konverteringsfokus och relevant metadata.",
-        impact: "Ökar chansen att synas på lokala tjänstesökningar med högre köpintention.",
-        stack: "Content strategy, on-page SEO, conversion copy",
-        href: "/hemsida-vastervik",
-        linkText: "Se landningssidan",
-        external: false,
+          "Fullstack-projekt byggt som en monorepo med ett React-baserat frontend och ett Spring Boot-baserat backend för att analysera musikdata och presentera insikter på ett tydligt sätt.",
+        impact:
+          "Visar förmåga att leverera en komplett datadriven webbapplikation med både API-lager, databasmigreringar och modern, interaktiv visualisering i UI.",
+        stack: "Java 21, Spring Boot 3, PostgreSQL, Flyway, React, TypeScript, Vite, MUI, Recharts, Framer Motion",
+        image: "/projects/music-insights-hub.svg",
+        imageAlt: "Förhandsbild av Music Insights Hub",
+        href: "https://music-insights-hub.onrender.com/",
+        linkText: "Öppna appen",
+        external: true,
       },
     ],
     ctaTitle: "Vill du att nästa case blir ditt projekt?",
@@ -57,37 +51,31 @@ const copy = {
       "Concrete delivery examples with a focus on technical decisions, outcomes, and business impact.",
     items: [
       {
-        title: "Interactive casino demo",
-        status: "Live demo",
+        title: "Lördagsgolf",
+        status: "Live site",
         summary:
-          "React-based front-end prototype built to demonstrate game mechanics, state flow, and UI logic in a playable format.",
-        impact: "Demonstrates ability to build interactive product logic with a clear component structure.",
-        stack: "React, JavaScript, UI state management",
-        href: "/casinodemo/",
-        linkText: "Open demo",
+          "Frontend project built as a SPA with clear information architecture and a user-friendly presentation for visitors.",
+        impact: "Demonstrates ability to deliver a public-facing website with clear content flow and practical user value.",
+        stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
+        image: "/projects/lordagsgolf.svg",
+        imageAlt: "Preview image of Lördagsgolf",
+        href: "https://lordagsgolf.se/",
+        linkText: "Visit website",
         external: true,
       },
       {
-        title: "alexahman.se (this website)",
-        status: "Production",
+        title: "Music Insights Hub",
+        status: "Live app",
         summary:
-          "Bilingual portfolio with prerendering, technical SEO, metadata, and clean internal linking for indexing.",
-        impact: "Built for fast load times, better conversion, and stronger local search visibility.",
-        stack: "React, Vite, prerender, schema.org",
-        href: "/en",
-        linkText: "Go to homepage",
-        external: false,
-      },
-      {
-        title: "Local landing page: Website Västervik",
-        status: "SEO-focused",
-        summary:
-          "Dedicated landing page aligned with local search intent, conversion-first messaging, and relevant metadata.",
-        impact: "Improves visibility for local service queries with stronger buying intent.",
-        stack: "Content strategy, on-page SEO, conversion copy",
-        href: "/hemsida-vastervik",
-        linkText: "View landing page",
-        external: false,
+          "Full-stack project built as a monorepo with a React-based frontend and a Spring Boot-based backend to analyze music data and present insights clearly.",
+        impact:
+          "Demonstrates ability to deliver a complete data-driven web application with an API layer, database migrations, and modern interactive UI visualization.",
+        stack: "Java 21, Spring Boot 3, PostgreSQL, Flyway, React, TypeScript, Vite, MUI, Recharts, Framer Motion",
+        image: "/projects/music-insights-hub.svg",
+        imageAlt: "Preview image of Music Insights Hub",
+        href: "https://music-insights-hub.onrender.com/",
+        linkText: "Open app",
+        external: true,
       },
     ],
     ctaTitle: "Want your project to be the next case?",
@@ -141,7 +129,9 @@ export default function Projects({ lang }) {
           <div className="projectGrid">
             {t.items.map((item) => (
               <article className="projectCard" key={item.title}>
-                <div className="projectThumb" aria-hidden="true" />
+                <div className="projectThumb">
+                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                </div>
                 <div className="projectBody">
                   <span className="projectBadge">{item.status}</span>
                   <h3 style={{ marginTop: 8, fontSize: 18, fontWeight: 700 }}>{item.title}</h3>

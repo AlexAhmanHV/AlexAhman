@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import HemsidaVastervik from "./pages/HemsidaVastervik";
+import Projects from "./pages/Projects";
 
 function AppRoutes({ lang }) {
   return (
@@ -19,6 +20,7 @@ function AppRoutes({ lang }) {
         <Route path="services" element={<Services lang={lang} />} />
         <Route path="about" element={<About lang={lang} />} />
         <Route path="contact" element={<Contact lang={lang} />} />
+        <Route path="projects" element={<Projects lang={lang} />} />
         <Route path="privacy" element={<Privacy lang={lang} />} />
         <Route path="terms" element={<Terms lang={lang} />} />
         {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}

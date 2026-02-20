@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Lördagsgolf</title>
+  <desc id="desc">Project thumbnail for Lördagsgolf</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f3d2d"/>
+      <stop offset="55%" stop-color="#185943"/>
+      <stop offset="100%" stop-color="#2a7b5e"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.15" cy="0.15" r="0.45">
+      <stop offset="0%" stop-color="#f8db8f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f8db8f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#sun)"/>
+  <path d="M0 520 C 200 440, 420 560, 650 500 C 860 445, 1020 545, 1200 500 L 1200 630 L 0 630 Z" fill="#6ab26f" opacity="0.9"/>
+  <path d="M0 560 C 210 495, 450 600, 700 550 C 930 502, 1080 585, 1200 560 L 1200 630 L 0 630 Z" fill="#4a9c58" opacity="0.95"/>
+  <circle cx="835" cy="274" r="88" fill="#1f6d75" opacity="0.24"/>
+  <circle cx="835" cy="274" r="48" fill="#ff6b2c" opacity="0.82"/>
+  <text x="86" y="248" fill="#f7f3ea" font-size="44" font-family="Segoe UI, Arial, sans-serif" letter-spacing="4">PROJECT</text>
+  <text x="86" y="332" fill="#ffffff" font-size="90" font-weight="700" font-family="Segoe UI, Arial, sans-serif">LORDAGSGOLF</text>
+  <text x="90" y="390" fill="#dcecdf" font-size="28" font-family="Segoe UI, Arial, sans-serif">Frontend SPA with React + Vite</text>
+</svg>
