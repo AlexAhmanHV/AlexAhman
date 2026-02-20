@@ -14,7 +14,7 @@ const copy = {
         title: "Lördagsgolf",
         status: "Live site",
         summary:
-          "Frontend-projekt byggt som en SPA med tydlig informationsstruktur och användarvänlig presentation för besökare.",
+          "Frontend-projekt byggt som en SPA med tydlig informationsstruktur, fokuserad innehållshierarki och användarvänlig presentation för besökare som snabbt behöver hitta rätt information om banan, upplägg och kontaktvägar, med särskilt fokus på läsbarhet, tydliga call-to-actions och stabil upplevelse i både mobil och desktop.",
         impact: "Visar förmåga att leverera en publik webbplats med tydligt innehållsflöde och praktisk användarnytta.",
         stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
         image: "/projects/lordagsgolf.svg",
@@ -24,10 +24,24 @@ const copy = {
         external: true,
       },
       {
+        title: "FX Monitor",
+        status: "Live app",
+        summary:
+          "Fullstack-/data-projekt byggt som en monorepo med ett React/TypeScript-baserat frontend och en Python-baserad datapipeline som hämtar och publicerar ECB-växelkurser som statiska JSON-filer för visualisering och analys.",
+        impact:
+          "Visar förmåga att leverera en komplett datadriven webbapplikation utan backend-drift, med automatiserad datainsamling, daglig CI-uppdatering, robust KPI-beräkning och modern interaktiv UX (jämförelseläge, riskdiagram, tvåspråkighet och tema-stöd).",
+        stack: "Python 3.11, requests, pytest, ruff, GitHub Actions, React, TypeScript, Vite, Chart.js, Render Static Site",
+        image: "/projects/fx-monitor.svg",
+        imageAlt: "Förhandsbild av FX Monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        linkText: "Öppna appen",
+        external: true,
+      },
+      {
         title: "Music Insights Hub",
         status: "Live app",
         summary:
-          "Fullstack-projekt byggt som en monorepo med ett React-baserat frontend och ett Spring Boot-baserat backend för att analysera musikdata och presentera insikter på ett tydligt sätt.",
+          "Fullstack-projekt byggt som en monorepo med ett React-baserat frontend och ett Spring Boot-baserat backend för att analysera musikdata, bearbeta nyckeltal och presentera insikter i interaktiva vyer som stödjer snabb utforskning och jämförelse, inklusive filtrering, trendvisualisering och ett tydligt flöde från rådata till beslutsunderlag.",
         impact:
           "Visar förmåga att leverera en komplett datadriven webbapplikation med både API-lager, databasmigreringar och modern, interaktiv visualisering i UI.",
         stack: "Java 21, Spring Boot 3, PostgreSQL, Flyway, React, TypeScript, Vite, MUI, Recharts, Framer Motion",
@@ -54,7 +68,7 @@ const copy = {
         title: "Lördagsgolf",
         status: "Live site",
         summary:
-          "Frontend project built as a SPA with clear information architecture and a user-friendly presentation for visitors.",
+          "Frontend project built as a SPA with clear information architecture, focused content hierarchy, and a user-friendly presentation for visitors who need to quickly find key details about the course, setup, and contact paths, with emphasis on readability, clear calls to action, and a consistent experience across mobile and desktop.",
         impact: "Demonstrates ability to deliver a public-facing website with clear content flow and practical user value.",
         stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
         image: "/projects/lordagsgolf.svg",
@@ -64,10 +78,24 @@ const copy = {
         external: true,
       },
       {
+        title: "FX Monitor",
+        status: "Live app",
+        summary:
+          "Full-stack/data project built as a monorepo with a React/TypeScript frontend and a Python-based data pipeline that fetches and publishes ECB exchange rates as static JSON files for visualization and analysis.",
+        impact:
+          "Demonstrates the ability to deliver a complete data-driven web application without backend operations, with automated data collection, daily CI updates, robust KPI calculations, and a modern interactive UX (comparison mode, risk charts, bilingual support, and theme support).",
+        stack: "Python 3.11, requests, pytest, ruff, GitHub Actions, React, TypeScript, Vite, Chart.js, Render Static Site",
+        image: "/projects/fx-monitor.svg",
+        imageAlt: "Preview image of FX Monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        linkText: "Open app",
+        external: true,
+      },
+      {
         title: "Music Insights Hub",
         status: "Live app",
         summary:
-          "Full-stack project built as a monorepo with a React-based frontend and a Spring Boot-based backend to analyze music data and present insights clearly.",
+          "Full-stack project built as a monorepo with a React-based frontend and a Spring Boot-based backend to analyze music data, process key metrics, and present insights in interactive views that support quick exploration and comparison, including filtering, trend visualization, and a clear flow from raw data to decision support.",
         impact:
           "Demonstrates ability to deliver a complete data-driven web application with an API layer, database migrations, and modern interactive UI visualization.",
         stack: "Java 21, Spring Boot 3, PostgreSQL, Flyway, React, TypeScript, Vite, MUI, Recharts, Framer Motion",
