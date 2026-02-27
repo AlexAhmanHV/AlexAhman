@@ -1,0 +1,79 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">VenueFlow visual</title>
+  <desc id="desc">Modern booking platform card layout with schedule timeline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#131c31"/>
+      <stop offset="100%" stop-color="#1f2a44"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 120) rotate(40) scale(420 250)">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 620) rotate(-20) scale(500 280)">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heroCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020617" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect width="1200" height="720" fill="url(#glowA)"/>
+  <rect width="1200" height="720" fill="url(#glowB)"/>
+
+  <g opacity="0.22" stroke="#94a3b8" stroke-width="1">
+    <path d="M0 120H1200"/>
+    <path d="M0 220H1200"/>
+    <path d="M0 320H1200"/>
+    <path d="M0 420H1200"/>
+    <path d="M0 520H1200"/>
+    <path d="M0 620H1200"/>
+    <path d="M120 0V720"/>
+    <path d="M280 0V720"/>
+    <path d="M440 0V720"/>
+    <path d="M600 0V720"/>
+    <path d="M760 0V720"/>
+    <path d="M920 0V720"/>
+    <path d="M1080 0V720"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="82" width="1024" height="556" rx="28" fill="#0a1020" fill-opacity="0.9" stroke="#334155"/>
+
+    <rect x="122" y="118" width="420" height="108" rx="18" fill="url(#heroCard)"/>
+    <text x="152" y="164" fill="#ecfeff" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Guest booking flow</text>
+    <text x="152" y="194" fill="#e6fffb" font-size="15" font-family="Inter, Arial, sans-serif">Pick activity, slot, and details in minutes</text>
+
+    <rect x="122" y="246" width="420" height="108" rx="18" fill="#111b2f" stroke="#334155"/>
+    <text x="152" y="293" fill="#dbeafe" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Live availability</text>
+    <text x="152" y="323" fill="#94a3b8" font-size="15" font-family="Inter, Arial, sans-serif">Conflict-safe slot generation with buffers</text>
+
+    <rect x="122" y="374" width="420" height="108" rx="18" fill="#111b2f" stroke="#334155"/>
+    <text x="152" y="421" fill="#dbeafe" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Tenant isolation</text>
+    <text x="152" y="451" fill="#94a3b8" font-size="15" font-family="Inter, Arial, sans-serif">Restaurant-scoped data and role-based access</text>
+
+    <rect x="582" y="118" width="496" height="364" rx="18" fill="#0e172b" stroke="#334155"/>
+    <text x="616" y="154" fill="#e2e8f0" font-size="17" font-family="Inter, Arial, sans-serif" font-weight="700">Booking timeline</text>
+
+    <rect x="616" y="180" width="430" height="22" rx="11" fill="#1e293b"/>
+    <rect x="616" y="220" width="250" height="20" rx="10" fill="#0ea5e9"/>
+    <rect x="886" y="220" width="160" height="20" rx="10" fill="#14b8a6"/>
+    <rect x="616" y="256" width="330" height="20" rx="10" fill="#38bdf8"/>
+    <rect x="966" y="256" width="80" height="20" rx="10" fill="#2dd4bf"/>
+    <rect x="616" y="292" width="210" height="20" rx="10" fill="#06b6d4"/>
+    <rect x="846" y="292" width="200" height="20" rx="10" fill="#0ea5e9"/>
+    <rect x="616" y="328" width="430" height="20" rx="10" fill="#1e293b"/>
+    <rect x="616" y="364" width="280" height="20" rx="10" fill="#22d3ee"/>
+
+    <rect x="582" y="502" width="496" height="102" rx="16" fill="#0e172b" stroke="#334155"/>
+    <text x="616" y="544" fill="#ecfeff" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">VenueFlow</text>
+    <text x="616" y="572" fill="#94a3b8" font-size="16" font-family="Inter, Arial, sans-serif">Laravel 11 | Supabase Postgres | Render</text>
+  </g>
+</svg>
