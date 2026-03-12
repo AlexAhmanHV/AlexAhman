@@ -8,33 +8,37 @@ const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 const copy = {
   sv: {
     kicker: "Systemutvecklare i Västervik",
-    headline: "Jag bygger webblösningar som ger resultat, inte bara kod",
-    lede:
-      "För företag och team som vill växa digitalt: jag tar ansvar från idé till driftsatt lösning, med fokus på snabb prestanda, tydlig struktur och hög konvertering.",
+    headline: "Jag arbetar brett inom digital utveckling, från gränssnitt till backend och teknisk struktur",
+    lede: [
+      "Jag hjälper företag som behöver en bred utvecklare, team som behöver avlastning och arbetsgivare som söker en fullstackprofil med helhetstänk.",
+      "Jag tar ansvar från idé och struktur till färdig leverans, och kommer snabbt in i befintliga kodbaser, samarbeten och tekniska sammanhang där det behövs någon som kan bidra brett och bygga vidare på det som redan finns.",
+    ],
     ctaPrimary: "Ta kontakt",
     ctaSecondary: "Se tjänster",
     ctaBook: "Boka första samtal",
     badges: ["React", "Laravel", "Apputveckling", "SEO", "API", "SQL"],
     availabilityTitle: "Tillgänglig för uppdrag",
-    availabilityText: "Öppen för konsultuppdrag, projektanställning och juniora roller.",
+    availabilityText: "Öppen för konsultuppdrag, projektanställning och roller där en bred utvecklare kan bidra snabbt och ta ansvar.",
 
     checklist: [
       "Frontend, backend och API-utveckling",
       "Databaser, SQL och systemlogik i C#",
+      "Systemdesign, informationsflöden och teknisk struktur",
+      "Snabb i befintliga kodbaser och nya arbetssätt",
       "Integrationer mot externa tjänster och API:er",
       "Prestanda, tillgänglighet och responsivitet",
-      "Webb, apputveckling och teknisk SEO i samma leverans",
-      "Säkerhet: validering, behörighet och dataskydd",
+      "Samarbete med team, verksamhet och tydliga prioriteringar",
+      "Kod som går att förvalta, bygga vidare på och drifta tryggt",
     ],
     servicesKicker: "Tjänster",
     servicesTitle: "Jag hjälper dig hela vägen",
-    servicesStrengths: "Min styrka ligger i flexibiliteten.",
+    servicesStrengths: "Min styrka ligger i att kunna kliva in där behovet är störst, förstå helheten snabbt och bidra både i kod och teknisk struktur.",
     proofKicker: "Varför anlita mig",
-    proofTitle: "Fokus på effekt i varje leverans",
+    proofTitle: "Därför fungerar jag bra i både team och projekt",
     proofStats: [
-      ["Leveransfokus", "Från start till lansering i en sammanhållen process."],
-      ["Teknikbredd", "React, Laravel, C#, SQL, apputveckling och teknisk SEO."],
-      ["Arbetssätt", "Snabb återkoppling, tydliga beslut och kod som går att förvalta."],
+      ["Snabb uppstart", "Jag sätter mig snabbt in i befintliga kodbaser, verktyg och arbetssätt utan lång startsträcka."],
+      ["Bred nytta", "Jag kan bidra i gränssnitt, backend, API:er, databaser och tekniska vägval beroende på var behovet är störst."],
+      ["Hållbar leverans", "Jag bygger lösningar som är tydliga att förstå, enkla att samarbeta kring och möjliga att förvalta vidare."],
     ],
     localSpotlightKicker: "Lokalt i Västervik",
     localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
@@ -47,14 +51,14 @@ const copy = {
       ["SQL", "Designar databaser, skriver effektiva queries och skapar stabil datamodellering."],
       ["Laravel", "Bygger backend i Laravel med tydlig arkitektur, validering och API-flöden."],
       ["Apputveckling", "Bygger användarvänliga appar med stabil struktur och tydliga användarflöden."],
-      ["SEO", "Arbetar med on-page SEO, metadata och tekniska förbättringar för bättre synlighet."],
+      ["Systemarkitektur", "Hjälper till att forma teknisk struktur, dataflöden och lösningar som går att bygga vidare på."],
     ],
     processKicker: "Arbetssätt",
     processTitle: "Ett enkelt arbetssätt som ger tydliga resultat",
     process: [
-      ["1. Strategi", "Vi definierar målgrupp, intention och vilka mål som ska uppnås."],
-      ["2. Produktion", "Jag utvecklar iterativt mot de mål vi satt upp, med fokus på snabbhet och kvalitet."],
-      ["3. Optimering", "Vi finslipar innehåll, metadata och prestanda inför lansering."],
+      ["1. Strategi", "Vi definierar mål, målgrupp, kravbild och hur systemet behöver fungera i praktiken."],
+      ["2. Struktur", "Jag sätter en tydlig teknisk riktning för flöden, data, integrationer och arkitektur."],
+      ["3. Leverans", "Jag utvecklar, testar och optimerar lösningen inför lansering och vidare förvaltning."],
     ],
     linksKicker: "Läs vidare",
     linksTitle: "Utforska fler sidor",
@@ -63,39 +67,43 @@ const copy = {
       ["Om mig", "about"],
       ["Kontakt", "contact"],
     ],
-    finalTitle: "Vill du ha en utvecklare som tar helhetsansvar?",
+    finalTitle: "Vill du ha en utvecklare med helhetstänk?",
     finalText:
-      "Skicka ett meddelande eller boka ett första samtal. Du får en tydlig rekommendation för nästa steg utifrån dina mål.",
+      "Skicka ett meddelande eller boka ett första samtal. Du får en tydlig rekommendation för nästa steg, både tekniskt och affärsmässigt.",
   },
 
   en: {
     kicker: "Software Developer & Full-Stack Developer",
-    headline: "I build web solutions that drive outcomes, not just features",
-    lede:
-      "I help teams move from idea to launched product with fast, maintainable implementation and a clear focus on user value and conversion.",
+    headline: "I work broadly across digital development, from interfaces to back-end and technical structure",
+    lede: [
+      "I help companies that need a broad developer, teams that need extra capacity, and employers looking for a full-stack profile with an end-to-end mindset.",
+      "I take responsibility from idea and structure to delivery, and I ramp up quickly in existing codebases, collaborations, and technical contexts where broad contribution is needed and where existing systems need to be understood and improved.",
+    ],
     ctaPrimary: "Get in touch",
     ctaSecondary: "View services",
     ctaBook: "Book intro call",
     badges: ["React", "Laravel", "App Development", "SEO", "API", "SQL"],
     availabilityTitle: "Available for work",
-    availabilityText: "Open to freelance work, part-time projects, and junior roles.",
+    availabilityText: "Open to freelance work, project roles, and positions where a broad developer can contribute quickly and take ownership.",
     checklist: [
       "Front-end, back-end, and API development",
       "Databases, SQL, and business logic in C#",
+      "System design, data flows, and technical structure",
+      "Fast ramp-up in existing codebases and workflows",
       "Integrations with external services and APIs",
       "Performance, accessibility, and responsive UI",
-      "Web, app development, and technical SEO delivered together",
-      "Security: validation, auth, and data protection",
+      "Collaboration with teams, stakeholders, and clear priorities",
+      "Code that is maintainable, extendable, and safe to operate",
     ],
     servicesKicker: "Services",
     servicesTitle: "Support from start to launch",
-    servicesStrengths: "My strength is flexibility, I can step in where you need me most.",
+    servicesStrengths: "My strength is being able to step in where the need is greatest, understand the bigger picture quickly, and contribute both in code and technical structure.",
     proofKicker: "Why work with me",
-    proofTitle: "Execution with measurable impact in mind",
+    proofTitle: "Why I work well in both teams and projects",
     proofStats: [
-      ["Delivery ownership", "From discovery to launch in one coherent workflow."],
-      ["Technical range", "React, Laravel, C#, SQL, app development, and technical SEO."],
-      ["Collaboration style", "Fast feedback loops, clear tradeoffs, and maintainable code."],
+      ["Fast ramp-up", "I get productive quickly in existing codebases, tools, and workflows without a long onboarding curve."],
+      ["Broad contribution", "I can contribute across UI, back end, APIs, databases, and technical decisions depending on where the need is greatest."],
+      ["Maintainable delivery", "I build solutions that are easy to understand, easy to collaborate around, and realistic to maintain over time."],
     ],
     services: [
       ["React", "Build fast, modern interfaces with a strong focus on UX, structure, and performance."],
@@ -103,14 +111,14 @@ const copy = {
       ["SQL", "Design databases, write efficient queries, and build reliable data models."],
       ["Laravel", "Build Laravel back ends with clear architecture, validation, and API flows."],
       ["App Development", "Build user-friendly apps with stable architecture and clear user flows."],
-      ["SEO", "Work with on-page SEO, metadata, and technical improvements to increase visibility."],
+      ["System Architecture", "Help shape technical structure, data flows, and solutions that are built to evolve."],
     ],
     processKicker: "Process",
     processTitle: "A simple process with clear results",
     process: [
-      ["1. Strategy", "We define the audience, intent, and what success looks like."],
-      ["2. Build", "I develop iteratively toward our goals, prioritizing speed and quality."],
-      ["3. Optimize", "We refine content, metadata, and performance before launch."],
+      ["1. Strategy", "We define goals, requirements, audience, and how the system needs to work in practice."],
+      ["2. Structure", "I define a clear technical direction for flows, data, integrations, and architecture."],
+      ["3. Delivery", "I build, test, and optimize the solution for launch and long-term maintainability."],
     ],
     linksKicker: "Continue",
     linksTitle: "Explore more pages",
@@ -119,8 +127,8 @@ const copy = {
       ["About", "about"],
       ["Contact", "contact"],
     ],
-    finalTitle: "Need a developer who helps you all the way?",
-    finalText: "Send a message or book an intro call. You will get a clear recommendation for the next step.",
+    finalTitle: "Need a developer with an end-to-end mindset?",
+    finalText: "Send a message or book an intro call. You will get a clear recommendation for the next step, both technically and commercially.",
   },
 };
 
@@ -146,8 +154,8 @@ export default function Home({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web services, from UI to APIs, databases, and CMS."
-      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger snabba och lättförvaltade webbtjänster, från UI till API, databas och apputveckling.";
+      ? "Software developer in Västervik with a broad full-stack profile. I build maintainable digital systems from UI and APIs to databases, integrations, and technical structure."
+      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger hållbara digitala system från gränssnitt och API:er till databaser, integrationer och teknisk struktur.";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -210,7 +218,13 @@ export default function Home({ lang }) {
               <div className="homeHeroCopy">
                 <div className="kicker">{t.kicker}</div>
                 <h1 className="h1 homeHeadline">{t.headline}</h1>
-                <p className="lede">{t.lede}</p>
+                {Array.isArray(t.lede)
+                  ? t.lede.map((paragraph) => (
+                      <p className="lede" key={paragraph}>
+                        {paragraph}
+                      </p>
+                    ))
+                  : <p className="lede">{t.lede}</p>}
 
                 <div className="row" style={{ marginTop: 16 }}>
                   <Link className="btn" to={pathFor(lang, "contact")}>

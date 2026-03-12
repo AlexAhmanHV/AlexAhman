@@ -9,7 +9,8 @@ const copy = {
   sv: {
     kicker: "Kontakt",
     title: "Kontakt",
-    lede: "",
+    lede:
+      "Hör av dig om du behöver hjälp med hemsida i Västervik, ett konsultuppdrag eller letar efter en bred utvecklare som kan bidra snabbt i ett team.",
     formTitle: "Skicka ett meddelande",
     formLead: "Jag återkommer så snart jag kan.",
     responseTimeLabel: "Svarstid",
@@ -30,12 +31,19 @@ const copy = {
     remoteLabel: "Arbetssätt",
     remoteValue: "På plats eller distans",
     photoAlt: "Porträtt av Alexander Åhman",
+    fitTitle: "Det passar bra att kontakta mig om",
+    fitItems: [
+      "Hemsida eller vidareutveckling för företag i Västervik",
+      "Konsultuppdrag inom webb, backend, API:er eller teknisk struktur",
+      "Roller där ni söker en bred utvecklare med fullstackprofil och helhetstänk",
+    ],
   },
 
   en: {
     kicker: "Contact",
     title: "Contact",
-    lede: "",
+    lede:
+      "Reach out if you need help with a website in Västervik, a consulting project, or if you are looking for a broad developer who can contribute quickly in a team.",
     formTitle: "Send a message",
     formLead: "I’ll get back to you as soon as I can.",
     responseTimeLabel: "Response time",
@@ -56,6 +64,12 @@ const copy = {
     remoteLabel: "Work style",
     remoteValue: "On-site or remote",
     photoAlt: "Portrait of Alexander Ahman",
+    fitTitle: "Good reasons to get in touch",
+    fitItems: [
+      "Website projects or ongoing improvements for companies in Västervik",
+      "Consulting work across web, back end, APIs, or technical structure",
+      "Roles where you need a broad full-stack developer with an end-to-end mindset",
+    ],
   },
 };
 
@@ -89,8 +103,8 @@ export default function Contact({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Get in touch with Alexander Åhman, a software developer in Västervik. Available for junior roles and selected freelance projects."
-      : "Kontakta Alexander Åhman, systemutvecklare i Västervik. Tillgänglig för juniora roller och utvalda uppdrag.";
+      ? "Get in touch with Alexander Ahman in Västervik about website projects, consulting work, or roles for a broad full-stack developer."
+      : "Kontakta Alexander Åhman i Västervik om hemsideprojekt, konsultuppdrag eller roller för en bred fullstackutvecklare.";
 
   const [status, setStatus] = useState({ type: "", text: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -162,6 +176,19 @@ export default function Contact({ lang }) {
                 <p style={{ marginTop: 8 }}>
                   <b>{t.introCallLabel}:</b> {t.introCallValue}
                 </p>
+
+                <div style={{ marginTop: 14 }}>
+                  <p>
+                    <b>{t.fitTitle}:</b>
+                  </p>
+                  <div className="homeChecklist" style={{ marginTop: 12 }}>
+                    {t.fitItems.map((item) => (
+                      <div className="homeChecklistItem" key={item}>
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {hasBooking ? (
                   <div className="row" style={{ marginTop: 12 }}>

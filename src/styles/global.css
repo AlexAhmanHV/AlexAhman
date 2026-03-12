@@ -427,10 +427,10 @@ h1,h2,h3{
 }
 
 .homeHeadline{
-  max-width: 13ch;
+  max-width: 19ch;
   text-transform:none;
   line-height:0.95;
-  font-size: clamp(40px, 5.4vw, 76px);
+  font-size: clamp(30px, 4.3vw, 58px);
 }
 
 .homeBadges{

@@ -7,7 +7,7 @@ const copy = {
   sv: {
     kicker: "Tjänster",
     title: "Det jag kan hjälpa till med",
-    lede: "Bred fullstackkompetens med fokus på tydlig struktur och stabil leverans.",
+    lede: "Bred fullstackkompetens med fokus på tydlig struktur, stabil leverans och lösningar som fungerar som hela system.",
     localKicker: "Lokalt i Västervik",
     localTitle: "Hemsida i Västervik",
     localText:
@@ -19,21 +19,21 @@ const copy = {
       ["SQL & databaser", "Datamodellering, queries och tydlig struktur."],
       ["C# & .NET", "Grundläggande erfarenhet av utveckling i C#/.NET."],
       ["Apputveckling", "Bygger användarvänliga appar med tydliga flöden och stabil struktur."],
-      ["SEO", "Grundläggande on-page-arbete i webbprojekt."],
+      ["Systemdesign & arkitektur", "Hjälper till att strukturera dataflöden, integrationer och tekniska vägval så att lösningen håller över tid."],
     ],
   },
 
   en: {
     kicker: "Services",
     title: "What I can help with",
-    lede: "Broad full-stack skills with a focus on clear structure and reliable delivery.",
+    lede: "Broad full-stack skills with a focus on clear structure, reliable delivery, and solutions that work as complete systems.",
     items: [
       ["React & JavaScript", "Component-based UI and modern web apps."],
       ["PHP & Laravel", "Back-end development, validation, and APIs."],
       ["SQL & databases", "Data modeling, queries, and clear structure."],
       ["C# & .NET", "Foundational experience with C#/.NET development."],
       ["App Development", "Build user-friendly apps with clear flows and stable structure."],
-      ["SEO", "Foundational on-page SEO work in web projects."],
+      ["System Design & Architecture", "Help structure data flows, integrations, and technical decisions so the solution remains maintainable over time."],
     ],
   },
 };
@@ -50,8 +50,8 @@ export default function Services({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Full-stack development services: React, Laravel/PHP, SQL, C#/.NET, app development, and technical SEO-focused on performance and maintainability."
-      : "Tjänster inom fullstackutveckling: React, Laravel/PHP, SQL, C#/.NET, apputveckling och teknisk SEO – med fokus på prestanda och hållbar struktur.";
+      ? "Full-stack development services covering React, Laravel/PHP, SQL, C#/.NET, app development, and system design with a focus on performance and maintainability."
+      : "Tjänster inom fullstackutveckling: React, Laravel/PHP, SQL, C#/.NET, apputveckling och systemdesign med fokus på prestanda och hållbar struktur.";
 
   return (
     <>

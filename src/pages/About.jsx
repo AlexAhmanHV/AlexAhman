@@ -7,15 +7,15 @@ const copy = {
   sv: {
     kicker: "Om",
     title: "Teknisk profil",
-    intro: "Jag är systemutvecklare med en bred verktygslåda inom den digitala världen.",
+    intro: "Jag är systemutvecklare med en bred verktygslåda inom digitala produkter, och jag trivs bäst när jag får ta ansvar för både implementation och teknisk helhet.",
     highlights: [
       [
         "Helhetsperspektiv",
-        "Jag trivs i gränslandet mellan front-end och back-end, tar snabbt ansvar och bygger lösningar som är enkla att förstå och förvalta.",
+        "Jag trivs i gränslandet mellan front-end och back-end, tar snabbt ansvar och bygger lösningar som är enkla att förstå, förvalta och vidareutveckla.",
       ],
       [
-        "Strukturerat arbetssätt",
-        "Oavsett om det handlar om nyutveckling eller förbättring av en befintlig produkt arbetar jag strukturerat med fokus på prestanda och kvalitet.",
+        "Teknisk struktur",
+        "Jag tänker inte bara på hur något ska byggas, utan också på hur data, integrationer och systemdelar ska hänga ihop på ett hållbart sätt.",
       ],
       [
         "Snabb anpassning",
@@ -23,7 +23,7 @@ const copy = {
       ],
       [
         "Stabil leverans",
-        "Målet är alltid att leverera något som fungerar stabilt i vardagen, både för användare och för teamet som fortsätter utveckla det.",
+        "Målet är alltid att leverera något som fungerar stabilt i vardagen, både för användare och för teamet som fortsätter utveckla systemet.",
       ],
     ],
   },
@@ -31,15 +31,15 @@ const copy = {
   en: {
     kicker: "About",
     title: "Technical profile",
-    intro: "I’m a software developer with a broad toolbox across modern web development.",
+    intro: "I’m a software developer with a broad toolbox across digital products, and I do my best work when I can take responsibility for both implementation and the wider technical picture.",
     highlights: [
       [
         "End-to-end perspective",
-        "I enjoy working across the front end and back end, take ownership quickly, and build solutions that are easy to understand and maintain.",
+        "I enjoy working across the front end and back end, take ownership quickly, and build solutions that are easy to understand, maintain, and extend.",
       ],
       [
-        "Structured execution",
-        "Whether it’s a new build or improvements to an existing product, I work in a structured way, focusing on performance and quality.",
+        "Technical structure",
+        "I do not only think about how to build a feature, but also how data, integrations, and system parts should fit together over time.",
       ],
       [
         "Fast adaptation",
@@ -47,7 +47,7 @@ const copy = {
       ],
       [
         "Stable delivery",
-        "My goal is always to deliver solutions that work reliably day to day, for both users and the team that continues to develop them.",
+        "My goal is always to deliver solutions that work reliably day to day, for both users and the team that continues to develop the system.",
       ],
     ],
   },
@@ -62,8 +62,8 @@ export default function About({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Software developer in Västervik with a broad full-stack profile. I build solutions that are easy to maintain, fast, and reliable."
-      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger lösningar som är lättförvaltade, snabba och stabila.";
+      ? "Software developer in Västervik with a broad full-stack profile and an end-to-end mindset around systems, architecture, maintainability, and delivery."
+      : "Systemutvecklare i Västervik med bred fullstackprofil och helhetstänk kring system, arkitektur, förvaltning och leverans.";
 
   return (
     <>

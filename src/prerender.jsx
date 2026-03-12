@@ -35,9 +35,9 @@ const SEO = {
         "Utvalda projekt med fokus på teknikval, resultat och affärsnytta inom webbutveckling.",
     },
     "/hemsida-vastervik": {
-      title: "Hemsida i Västervik | Webbutveckling med Alex Åhman",
+      title: "Hemsida Västervik | Webbutveckling och hemsidor | Alex Åhman",
       description:
-        "Behöver du en hemsida i Västervik? Jag bygger snabba, moderna och sökmotorvänliga hemsidor med fokus på kvalitet, prestanda och enkel förvaltning.",
+        "Behöver du hjälp med hemsida i Västervik? Jag bygger snabba, moderna och sökmotorvänliga hemsidor för företag i Västervik med fokus på kvalitet, prestanda och enkel förvaltning.",
     },
     "/terms": {
       title: "Användarvillkor | Alex Åhman",
