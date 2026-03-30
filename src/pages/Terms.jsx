@@ -6,7 +6,7 @@ const copy = {
   sv: {
     kicker: "Villkor",
     title: "Användarvillkor",
-    lede: "Allt material på sidan tillhör Alex Ahmanse och får inte återanvändas utan tillstånd.",
+    lede: "Allt material på sidan tillhör Alexander Åhman och får inte återanvändas utan tillstånd.",
     items: [
       ["Användning", "Innehållet är endast för informationssyfte."],
       ["Ansvar", "Jag ansvarar inte för externa länkar eller tredjepartsinnehåll."],
@@ -17,11 +17,11 @@ const copy = {
   en: {
     kicker: "Terms",
     title: "Terms of use",
-    lede: "All content on this site belongs to Alex Ahmanse and may not be reused without permission.",
+    lede: "All content on this site belongs to Alexander Åhman and may not be reused without permission.",
     items: [
       ["Use", "The content is provided for informational purposes only."],
-      ["Liability", "I’m not responsible for external links or third-party content."],
-      ["Contact", "Get in touch if you’d like to use any of the material."],
+      ["Liability", "I'm not responsible for external links or third-party content."],
+      ["Contact", "Get in touch if you'd like to use any of the material."],
     ],
   },
 };

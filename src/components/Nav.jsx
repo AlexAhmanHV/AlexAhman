@@ -1,9 +1,9 @@
-﻿import { Link, NavLink, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 function pathFor(lang, path) {
   const base = lang === "en" ? "/en" : "";
 
-  // Normalize so both "services" and "/services" work, and avoid double slashes
   const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
 
   if (normalized === "/") return base || "/";
@@ -11,7 +11,6 @@ function pathFor(lang, path) {
 }
 
 function toggleLangPath(pathname) {
-  // Normalize trailing slash
   const clean = pathname.replace(/\/+$/, "") || "/";
 
   if (clean === "/en") return "/";
@@ -19,10 +18,9 @@ function toggleLangPath(pathname) {
   return clean === "/" ? "/en" : `/en${clean}`;
 }
 
-const navLinkStyle = ({ isActive }) => ({
-  color: isActive ? "var(--accent-3)" : "var(--muted)",
-  textDecoration: "none",
-});
+function navLinkClassName({ isActive }) {
+  return `navLink${isActive ? " isActive" : ""}`;
+}
 
 function UKFlagIcon() {
   return (
@@ -50,6 +48,8 @@ function SwedenFlagIcon() {
 
 export default function Nav({ lang }) {
   const { pathname } = useLocation();
+  const navLinksRef = useRef(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({ opacity: 0 });
 
   const t =
     {
@@ -58,7 +58,6 @@ export default function Nav({ lang }) {
         services: "Tjänster",
         about: "Om",
         contact: "Kontakt",
-        // Swedish UI → English label
         toggleLabel: "Switch to English",
         logoAlt: "Alex Ahman logotyp",
       },
@@ -67,11 +66,41 @@ export default function Nav({ lang }) {
         services: "Services",
         about: "About",
         contact: "Contact",
-        // English UI → Swedish label
         toggleLabel: "Byt till svenska",
         logoAlt: "Alex Ahman logo",
       },
     }[lang] || {};
+
+  useEffect(() => {
+    const updateIndicator = () => {
+      const navLinksNode = navLinksRef.current;
+
+      if (!navLinksNode) {
+        return;
+      }
+
+      const activeLink = navLinksNode.querySelector(".navLink.isActive");
+
+      if (!activeLink) {
+        setIndicatorStyle({ opacity: 0 });
+        return;
+      }
+
+      setIndicatorStyle({
+        opacity: 1,
+        width: `${activeLink.offsetWidth}px`,
+        height: `${activeLink.offsetHeight}px`,
+        transform: `translate(${activeLink.offsetLeft}px, ${activeLink.offsetTop}px)`,
+      });
+    };
+
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+
+    return () => {
+      window.removeEventListener("resize", updateIndicator);
+    };
+  }, [pathname]);
 
   return (
     <div className="nav">
@@ -80,17 +109,18 @@ export default function Nav({ lang }) {
           <img className="logoImg" src="/favicon.svg" alt={t.logoAlt} />
         </Link>
 
-        <div className="navLinks">
-          <NavLink to={pathFor(lang, "projects")} style={navLinkStyle}>
+        <div className="navLinks" ref={navLinksRef}>
+          <span className="navIndicator" aria-hidden="true" style={indicatorStyle} />
+          <NavLink to={pathFor(lang, "projects")} className={navLinkClassName}>
             {t.projects}
           </NavLink>
-          <NavLink to={pathFor(lang, "services")} style={navLinkStyle}>
+          <NavLink to={pathFor(lang, "services")} className={navLinkClassName}>
             {t.services}
           </NavLink>
-          <NavLink to={pathFor(lang, "about")} style={navLinkStyle}>
+          <NavLink to={pathFor(lang, "about")} className={navLinkClassName}>
             {t.about}
           </NavLink>
-          <NavLink to={pathFor(lang, "contact")} style={navLinkStyle}>
+          <NavLink to={pathFor(lang, "contact")} className={navLinkClassName}>
             {t.contact}
           </NavLink>
 

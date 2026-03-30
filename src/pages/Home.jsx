@@ -213,7 +213,7 @@ export default function Home({ lang }) {
 
       <section className="hero homeHero">
         <div className="container">
-          <div className="homeHeroPanel fadeUp">
+          <div className="homeHeroPanel fadeUp" data-parallax="hero">
             <div className="homeHeroGrid">
               <div className="homeHeroCopy">
                 <div className="kicker">{t.kicker}</div>
@@ -261,6 +261,12 @@ export default function Home({ lang }) {
                   ))}
                 </div>
               </aside>
+            </div>
+            <div className="heroScrollCue" aria-hidden="true">
+              <span className="heroScrollCueLabel">{lang === "en" ? "Scroll" : "Scrolla"}</span>
+              <span className="heroScrollCueTrack">
+                <span className="heroScrollCueDot" />
+              </span>
             </div>
           </div>
         </div>

@@ -129,7 +129,7 @@ export default function HemsidaVastervik() {
 
       <section className="hero homeHero" style={{ borderTop: "none" }}>
         <div className="container">
-          <div className="homeHeroPanel fadeUp">
+          <div className="homeHeroPanel fadeUp" data-parallax="hero">
             <div className="kicker">{copy.kicker}</div>
             <h1 className="h2" style={{ marginTop: 10 }}>
               {copy.title}

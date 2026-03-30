@@ -1,6 +1,8 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ScrollProgress";
+import useMotionEffects from "./hooks/useMotionEffects";
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -12,20 +14,28 @@ import HemsidaVastervik from "./pages/HemsidaVastervik";
 import Projects from "./pages/Projects";
 
 function AppRoutes({ lang }) {
+  const location = useLocation();
+  const routeKey = location.pathname;
+
+  useMotionEffects(routeKey);
+
   return (
     <>
+      <ScrollProgress />
       <Nav lang={lang} />
-      <Routes>
-        <Route index element={<Home lang={lang} />} />
-        <Route path="services" element={<Services lang={lang} />} />
-        <Route path="about" element={<About lang={lang} />} />
-        <Route path="contact" element={<Contact lang={lang} />} />
-        <Route path="projects" element={<Projects lang={lang} />} />
-        <Route path="privacy" element={<Privacy lang={lang} />} />
-        <Route path="terms" element={<Terms lang={lang} />} />
-        {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}
-        <Route path="*" element={<NotFound lang={lang} />} />
-      </Routes>
+      <main key={routeKey} className="pageShell routeTransition" data-page-shell>
+        <Routes>
+          <Route index element={<Home lang={lang} />} />
+          <Route path="services" element={<Services lang={lang} />} />
+          <Route path="about" element={<About lang={lang} />} />
+          <Route path="contact" element={<Contact lang={lang} />} />
+          <Route path="projects" element={<Projects lang={lang} />} />
+          <Route path="privacy" element={<Privacy lang={lang} />} />
+          <Route path="terms" element={<Terms lang={lang} />} />
+          {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}
+          <Route path="*" element={<NotFound lang={lang} />} />
+        </Routes>
+      </main>
       <Footer lang={lang} />
     </>
   );

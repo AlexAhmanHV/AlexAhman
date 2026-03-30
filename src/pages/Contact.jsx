@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
@@ -25,7 +25,6 @@ const copy = {
     sending: "Skickar...",
     success: "Tack! Ditt meddelande är skickat.",
     error: "Något gick fel. Försök igen eller maila mig direkt.",
-    setupError: "Formuläret är inte kopplat ännu. Lägg till ditt Formspree-ID först.",
     locationLabel: "Plats",
     locationValue: "Västervik, Sverige",
     remoteLabel: "Arbetssätt",
@@ -58,7 +57,6 @@ const copy = {
     sending: "Sending...",
     success: "Thanks! Your message was sent.",
     error: "Something went wrong. Please try again or email me directly.",
-    setupError: "The form is not connected yet. Add your Formspree ID first.",
     locationLabel: "Location",
     locationValue: "Västervik, Sweden",
     remoteLabel: "Work style",
@@ -108,6 +106,7 @@ export default function Contact({ lang }) {
 
   const [status, setStatus] = useState({ type: "", text: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [focusedField, setFocusedField] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -222,42 +221,68 @@ export default function Contact({ lang }) {
                 </div>
 
                 <figure className="contactPhotoCard" style={{ marginTop: 14 }}>
-                <img
-                  className="contactPhoto"
-                  src="/Alex-680.jpg"
-                  srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
-                  sizes="(max-width: 760px) 100vw, 340px"
-                  alt={t.photoAlt}
-                  loading="lazy"
-                  decoding="async"
-                  width="680"
+                  <img
+                    className="contactPhoto"
+                    src="/Alex-680.jpg"
+                    srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
+                    sizes="(max-width: 760px) 100vw, 340px"
+                    alt={t.photoAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width="680"
                     height="907"
                   />
                 </figure>
               </div>
             </div>
 
-            <form className="card" action={formAction} method="POST" onSubmit={handleSubmit}>
+            <form className="card contactFormCard" action={formAction} method="POST" onSubmit={handleSubmit}>
               <h3 style={{ fontSize: 18, fontWeight: 700 }}>{t.formTitle}</h3>
               <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
 
-              <label className="kicker">{t.name}</label>
-              <input name="name" required style={inputStyle} />
+              <div className={`inputGroup${focusedField === "name" ? " isFocused" : ""}`}>
+                <label className="kicker" htmlFor="contact-name">{t.name}</label>
+                <input
+                  id="contact-name"
+                  className="formInput"
+                  name="name"
+                  required
+                  onFocus={() => setFocusedField("name")}
+                  onBlur={() => setFocusedField("")}
+                />
+              </div>
 
-              <label className="kicker" style={{ marginTop: 12, display: "block" }}>
-                {t.email}
-              </label>
-              <input type="email" name="email" required style={inputStyle} />
+              <div className={`inputGroup${focusedField === "email" ? " isFocused" : ""}`}>
+                <label className="kicker" htmlFor="contact-email">{t.email}</label>
+                <input
+                  id="contact-email"
+                  className="formInput"
+                  type="email"
+                  name="email"
+                  required
+                  onFocus={() => setFocusedField("email")}
+                  onBlur={() => setFocusedField("")}
+                />
+              </div>
 
-              <label className="kicker" style={{ marginTop: 12, display: "block" }}>
-                {t.message}
-              </label>
-              <textarea name="message" rows="6" required style={inputStyle} />
+              <div className={`inputGroup${focusedField === "message" ? " isFocused" : ""}`}>
+                <label className="kicker" htmlFor="contact-message">{t.message}</label>
+                <textarea
+                  id="contact-message"
+                  className="formInput formTextarea"
+                  name="message"
+                  rows="6"
+                  required
+                  onFocus={() => setFocusedField("message")}
+                  onBlur={() => setFocusedField("")}
+                />
+              </div>
 
               {status.text ? (
                 <p
-                  className={`formNotice ${status.type === "success" ? "isSuccess" : "isError"}`}
+                  className={`formNotice formNoticeAnimated ${status.type === "success" ? "isSuccess" : "isError"}`}
                   role="status"
+                  aria-live="polite"
                   style={{ marginTop: 12 }}
                 >
                   {status.text}
@@ -291,14 +316,3 @@ export default function Contact({ lang }) {
     </>
   );
 }
-
-const inputStyle = {
-  width: "100%",
-  marginTop: 8,
-  padding: "12px 12px",
-  borderRadius: 12,
-  border: "1px solid var(--border)",
-  outline: "none",
-  font: "inherit",
-  background: "#fff",
-};

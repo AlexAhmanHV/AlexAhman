@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
@@ -57,6 +57,7 @@ const copy = {
       "Skicka dina mål och nuläge så återkommer jag med ett konkret upplägg för vad som bör byggas först.",
     ctaPrimary: "Kontakta mig",
     ctaSecondary: "Se tjänster",
+    impactLabel: "Effekt",
   },
   en: {
     kicker: "Portfolio",
@@ -111,6 +112,7 @@ const copy = {
       "Share your goals and current setup, and I will propose a concrete first-step implementation plan.",
     ctaPrimary: "Contact me",
     ctaSecondary: "View services",
+    impactLabel: "Impact",
   },
 };
 
@@ -119,6 +121,13 @@ function pathFor(lang, path) {
   const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
   if (normalized === "/") return base || "/";
   return `${base}${normalized}`;
+}
+
+function stackTokens(stack) {
+  return String(stack)
+    .split(",")
+    .map((token) => token.trim())
+    .filter(Boolean);
 }
 
 export default function Projects({ lang }) {
@@ -159,25 +168,34 @@ export default function Projects({ lang }) {
               <article className="projectCard" key={item.title}>
                 <div className="projectThumb">
                   <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                  <div className="projectThumbOverlay">
+                    <span className="projectOverlayLabel">{item.status}</span>
+                    <span className="projectOverlayLink">{item.linkText}</span>
+                  </div>
                 </div>
                 <div className="projectBody">
                   <span className="projectBadge">{item.status}</span>
                   <h3 style={{ marginTop: 8, fontSize: 18, fontWeight: 700 }}>{item.title}</h3>
                   <p style={{ marginTop: 8 }}>{item.summary}</p>
-                  <p style={{ marginTop: 8 }}>
-                    <b>Impact:</b> {item.impact}
-                  </p>
-                  <p style={{ marginTop: 8, fontSize: 13 }}>
-                    <b>Stack:</b> {item.stack}
+                  <p className="projectMetaLine" style={{ marginTop: 8 }}>
+                    <b>{t.impactLabel}:</b> {item.impact}
                   </p>
 
-                  <div className="row" style={{ marginTop: 12 }}>
+                  <div className="projectStack" style={{ marginTop: 12 }}>
+                    {stackTokens(item.stack).map((token) => (
+                      <span className="projectStackChip" key={`${item.title}-${token}`}>
+                        {token}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="row" style={{ marginTop: 16 }}>
                     {!item.external ? (
-                      <Link className="btn btn-outline" to={item.href}>
+                      <Link className="btn btn-outline projectCta" to={item.href}>
                         {item.linkText}
                       </Link>
                     ) : (
-                      <a className="btn btn-outline" href={item.href} target="_blank" rel="noreferrer">
+                      <a className="btn btn-outline projectCta" href={item.href} target="_blank" rel="noreferrer">
                         {item.linkText}
                       </a>
                     )}
