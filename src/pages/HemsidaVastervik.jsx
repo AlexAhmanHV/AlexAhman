@@ -167,9 +167,9 @@ export default function HemsidaVastervik() {
         <div className="container">
           <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{copy.localNeedsTitle}</h2>
 
-          <div className="homeChecklist" style={{ marginTop: 18 }}>
+          <div className="localNeedsList" style={{ marginTop: 18 }}>
             {copy.localNeeds.map((item) => (
-              <div className="homeChecklistItem" key={item}>
+              <div className="localNeedsItem" key={item}>
                 {item}
               </div>
             ))}

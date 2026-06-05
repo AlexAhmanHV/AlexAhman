@@ -805,6 +805,35 @@ h1,h2,h3{
   font-size:14px;
 }
 
+.localNeedsList{
+  display:grid;
+  gap:12px;
+}
+
+.localNeedsItem{
+  position:relative;
+  border:1px solid rgba(18,20,22,0.16);
+  border-radius:var(--radius);
+  padding:14px 16px 14px 44px;
+  background:#fffaf2;
+  color:var(--accent-3);
+  font-weight:700;
+  line-height:1.45;
+  box-shadow:0 10px 24px rgba(18,20,22,0.05);
+}
+
+.localNeedsItem::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  top:18px;
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(216,91,40,0.12);
+}
+
 .homeSectionTitle{
   text-transform:none;
   max-width:22ch;
