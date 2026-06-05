@@ -1,14 +1,15 @@
 :root{
-  --bg:#f6efe5;
+  --bg:#f3efe8;
   --text:#111111;
-  --muted:#5d5449;
-  --border:#ded2c3;
-  --card:#fff7ed;
+  --muted:#57524b;
+  --border:#d7d0c6;
+  --card:#fffaf2;
 
-  --accent:#ff6b2c;
-  --accent-2:#1f6d75;
-  --accent-3:#0e2136;
-  --radius:18px;
+  --accent:#d85b28;
+  --accent-2:#116f63;
+  --accent-3:#121416;
+  --code:#27231e;
+  --radius:8px;
 
   --container: 1160px;
 }
@@ -19,9 +20,10 @@ body{
   margin:0;
   font-family: "FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
   background:
-    radial-gradient(900px 500px at 12% -10%, #ffe9d5 0%, transparent 60%),
-    radial-gradient(900px 600px at 88% 0%, #e3f5f0 0%, transparent 55%),
+    linear-gradient(90deg, rgba(18,20,22,0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(18,20,22,0.035) 1px, transparent 1px),
     var(--bg);
+  background-size: 44px 44px;
   color:var(--text);
   overflow-x:hidden;
 }
@@ -626,13 +628,14 @@ h1,h2,h3{
 .homeHeroPanel{
   position:relative;
   border:1px solid var(--border);
-  border-radius: calc(var(--radius) + 10px);
+  border-radius: var(--radius);
   padding:36px;
   background:
-    radial-gradient(780px 420px at 10% 0%, rgba(255,107,44,0.22), transparent 58%),
-    radial-gradient(820px 460px at 92% 0%, rgba(31,109,117,0.2), transparent 60%),
-    linear-gradient(145deg, #fff4e8 0%, #eef7f3 62%, #ebf1f8 100%);
-  box-shadow: 0 18px 40px rgba(14,33,54,0.08);
+    linear-gradient(90deg, rgba(18,20,22,0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(18,20,22,0.04) 1px, transparent 1px),
+    #fffaf2;
+  background-size: 28px 28px;
+  box-shadow: 0 18px 40px rgba(18,20,22,0.07);
   transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0) rotate(var(--parallax-rotate, 0deg));
   transition: transform 220ms ease-out;
 }
@@ -640,11 +643,12 @@ h1,h2,h3{
 .homeHeroPanel::before{
   content:"";
   position:absolute;
-  inset:0;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
   border-radius:inherit;
-  background:
-    radial-gradient(500px 260px at 20% 16%, rgba(255,255,255,0.38), transparent 55%),
-    radial-gradient(420px 260px at 82% 20%, rgba(255,255,255,0.24), transparent 62%);
+  background:linear-gradient(90deg, var(--accent-3), var(--accent), var(--accent-2));
   pointer-events:none;
 }
 
@@ -664,10 +668,10 @@ h1,h2,h3{
 }
 
 .homeHeadline{
-  max-width: 19ch;
+  max-width: 16ch;
   text-transform:none;
-  line-height:0.95;
-  font-size: clamp(30px, 4.3vw, 58px);
+  line-height:0.9;
+  font-size: clamp(38px, 6vw, 78px);
 }
 
 .homeBadges{
@@ -675,16 +679,65 @@ h1,h2,h3{
 }
 
 .homeSignalCard{
-  border:1px solid rgba(14,33,54,0.13);
-  border-radius: calc(var(--radius) + 8px);
-  background: rgba(255,255,255,0.82);
+  border:1px solid rgba(18,20,22,0.18);
+  border-radius: var(--radius);
+  background: #161719;
   padding:24px;
-  backdrop-filter: blur(3px);
+  color:#fffaf2;
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 .homeSignalCard:hover{
   transform: translateY(-3px);
-  box-shadow: 0 16px 28px rgba(14,33,54,0.1);
+  box-shadow: 0 16px 28px rgba(18,20,22,0.16);
+}
+.homeSignalCard p,
+.homeSignalCard .kicker{
+  color:#d8d0c5;
+}
+
+.terminalHeader{
+  display:flex;
+  gap:7px;
+  padding-bottom:18px;
+  margin-bottom:18px;
+  border-bottom:1px solid rgba(255,250,242,0.14);
+}
+.terminalHeader span{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:#fffaf2;
+  opacity:0.42;
+}
+.terminalHeader span:nth-child(2){ opacity:0.28; }
+.terminalHeader span:nth-child(3){ opacity:0.18; }
+
+.homeMetaList{
+  display:grid;
+  gap:0;
+  margin:18px 0 0;
+  border:1px solid rgba(255,250,242,0.14);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.homeMetaRow{
+  display:grid;
+  grid-template-columns: 84px 1fr;
+  gap:12px;
+  padding:10px 12px;
+  border-top:1px solid rgba(255,250,242,0.12);
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:12px;
+}
+.homeMetaRow:first-child{
+  border-top:0;
+}
+.homeMetaRow dt{
+  color:#a8a096;
+}
+.homeMetaRow dd{
+  margin:0;
+  color:#fffaf2;
 }
 
 .heroScrollCue{
@@ -743,17 +796,18 @@ h1,h2,h3{
 }
 
 .homeChecklistItem{
-  border:1px solid var(--border);
-  border-radius:12px;
+  border:1px solid rgba(255,250,242,0.14);
+  border-radius:var(--radius);
   padding:12px 12px 12px 14px;
-  background:#fff9f2;
-  color:var(--accent-3);
+  background:rgba(255,250,242,0.05);
+  color:#fffaf2;
   font-weight:600;
+  font-size:14px;
 }
 
 .homeSectionTitle{
   text-transform:none;
-  max-width:18ch;
+  max-width:22ch;
 }
 
 .homeSectionTitleSingle{
@@ -775,6 +829,371 @@ h1,h2,h3{
   box-shadow: 0 14px 30px rgba(14,33,54,0.11);
 }
 
+.sectionIntroLine{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  align-items:end;
+}
+.textLink{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  width:max-content;
+  font-weight:800;
+  color:var(--accent-3);
+  border-bottom:1px solid currentColor;
+  letter-spacing:0.02em;
+}
+.textLink::after{
+  content:"->";
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:12px;
+}
+
+.selectedWorkList{
+  margin-top:30px;
+  display:grid;
+  gap:18px;
+}
+.selectedCase{
+  border-top:1px solid var(--accent-3);
+  padding:22px 24px 28px;
+  background:rgba(255,250,242,0.42);
+}
+.selectedCaseHeader{
+  display:grid;
+  grid-template-columns:42px minmax(0, 1fr) auto;
+  gap:20px;
+  align-items:start;
+}
+.caseIndex{
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  color:var(--accent);
+  font-weight:800;
+  font-size:14px;
+  padding-top:4px;
+}
+.caseMeta{
+  margin:0 0 6px;
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:12px;
+  color:var(--muted);
+}
+.selectedCase h3{
+  font-family:"FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
+  letter-spacing:0;
+  font-size: clamp(26px, 4vw, 46px);
+  line-height:0.95;
+  text-transform:uppercase;
+}
+.caseScanGrid{
+  display:grid;
+  gap:20px 28px;
+  margin-top:20px;
+  padding-left:62px;
+}
+@media (min-width: 860px){
+  .caseScanGrid{
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .caseScanGrid > div:nth-child(3),
+  .caseStackBlock{
+    grid-column: 1 / -1;
+  }
+}
+.caseScanGrid span{
+  display:block;
+  margin-bottom:7px;
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent-3);
+}
+.caseScanGrid p{
+  font-size:15px;
+  line-height:1.58;
+}
+.caseScanGrid h2,
+.selectedCase h2{
+  font-family:"FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
+  letter-spacing:0;
+  font-size: clamp(26px, 4vw, 46px);
+  line-height:0.95;
+  text-transform:uppercase;
+  margin:0;
+}
+.projectArchive{
+  margin-top:36px;
+}
+.caseScanGridWide{
+  row-gap:24px;
+}
+.detailList{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.detailList small{
+  border:1px solid rgba(18,20,22,0.12);
+  border-radius:var(--radius);
+  padding:8px 10px;
+  background:#fffaf2;
+  color:var(--accent-3);
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:11px;
+  font-weight:700;
+}
+
+@media (max-width: 760px){
+  .sectionIntroLine{
+    display:grid;
+    align-items:start;
+  }
+  .selectedCaseHeader{
+    grid-template-columns:34px minmax(0, 1fr);
+    gap:14px;
+  }
+  .selectedCaseLink{
+    grid-column:2;
+  }
+  .selectedCase{
+    padding:20px 16px 24px;
+  }
+  .caseScanGrid{
+    padding-left:48px;
+  }
+  .homeMetaRow{
+    grid-template-columns: 72px 1fr;
+  }
+}
+
+.pageEditorial{
+  padding-top:82px;
+}
+.pageTitle{
+  max-width:18ch;
+  text-transform:none;
+}
+.sectionCompact{
+  margin-top:44px;
+  padding-top:36px;
+  border-top:1px solid var(--border);
+}
+
+.serviceList{
+  display:grid;
+  gap:14px;
+  margin-top:30px;
+}
+.serviceRow{
+  display:grid;
+  gap:20px;
+  border-top:1px solid var(--accent-3);
+  padding:22px 24px 26px;
+  background:rgba(255,250,242,0.42);
+}
+.serviceRowHeader{
+  display:grid;
+  grid-template-columns:42px minmax(0, 1fr);
+  gap:20px;
+  align-items:start;
+}
+.serviceRowHeader h2,
+.toolsBand h2,
+.contactFormEditorial h2,
+.contactFit h2{
+  font-family:"FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
+  letter-spacing:0;
+  margin:0;
+}
+.serviceRowHeader h2{
+  font-size: clamp(22px, 3vw, 36px);
+  line-height:1;
+  text-transform:uppercase;
+}
+.serviceRowBody{
+  display:grid;
+  gap:20px 28px;
+  padding-left:62px;
+}
+@media (min-width: 860px){
+  .serviceRowBody{
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .serviceRowBody .caseStackBlock{
+    grid-column:1 / -1;
+  }
+}
+.serviceRowBody span{
+  display:block;
+  margin-bottom:7px;
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent-3);
+}
+.serviceRowBody p{
+  font-size:15px;
+  line-height:1.58;
+}
+
+.aboutHero{
+  display:grid;
+  gap:24px;
+}
+@media (min-width: 900px){
+  .aboutHero{
+    grid-template-columns:minmax(0, 1fr) 360px;
+    align-items:start;
+  }
+}
+.aboutSignal{
+  min-height:auto;
+}
+.principleList{
+  display:grid;
+  gap:0;
+  margin-top:28px;
+}
+.principleRow{
+  display:grid;
+  grid-template-columns:42px minmax(0, 1fr);
+  gap:20px;
+  padding:20px 0;
+  border-top:1px solid var(--border);
+}
+.principleRow:last-child{
+  border-bottom:1px solid var(--border);
+}
+.principleRow h3{
+  font-family:"FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
+  letter-spacing:0;
+  font-size:20px;
+  line-height:1.1;
+}
+.principleRow p{
+  margin-top:8px;
+  max-width:72ch;
+}
+.toolsBand{
+  display:grid;
+  gap:20px;
+}
+@media (min-width: 840px){
+  .toolsBand{
+    grid-template-columns:320px minmax(0, 1fr);
+    align-items:start;
+  }
+}
+.toolsBand h2{
+  margin-top:10px;
+  font-size:28px;
+  line-height:1;
+}
+
+.contactEditorialGrid{
+  display:grid;
+  gap:22px;
+  margin-top:28px;
+}
+@media (min-width: 920px){
+  .contactEditorialGrid{
+    grid-template-columns:0.9fr 1.1fr;
+    align-items:start;
+  }
+}
+.contactSignal{
+  position:relative;
+}
+.contactFit{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,250,242,0.14);
+}
+.contactFit h2{
+  color:#fffaf2;
+  font-size:18px;
+}
+.contactFit p{
+  margin-top:12px;
+  padding-left:14px;
+  border-left:2px solid rgba(255,250,242,0.18);
+  color:#d8d0c5;
+  font-size:14px;
+  line-height:1.55;
+}
+.contactPhotoEditorial{
+  margin-top:18px;
+  border-color:rgba(255,250,242,0.16);
+  background:#25211d;
+}
+.contactFormEditorial{
+  border-radius:var(--radius);
+  padding:26px;
+}
+.contactFormEditorial h2{
+  font-size:28px;
+  line-height:1;
+}
+.socialIconDark{
+  border-color:rgba(255,250,242,0.18);
+  background:rgba(255,250,242,0.08);
+  color:#fffaf2;
+}
+.socialIconDark:hover{
+  background:rgba(255,250,242,0.14);
+  border-color:rgba(255,250,242,0.3);
+}
+.relatedStrip{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+  margin-top:24px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+}
+.relatedStrip p{
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+}
+
+@media (max-width: 520px){
+  .selectedCase{
+    padding-left:14px;
+    padding-right:14px;
+  }
+  .caseScanGrid{
+    padding-left:0;
+  }
+  .serviceRow{
+    padding-left:14px;
+    padding-right:14px;
+  }
+  .serviceRowHeader{
+    grid-template-columns:34px minmax(0, 1fr);
+    gap:14px;
+  }
+  .serviceRowBody{
+    padding-left:0;
+  }
+  .principleRow{
+    grid-template-columns:34px minmax(0, 1fr);
+    gap:14px;
+  }
+  .relatedStrip{
+    display:grid;
+    align-items:start;
+  }
+}
+
 .homeProcessGrid{
   margin-top:22px;
   display:grid;
@@ -787,7 +1206,7 @@ h1,h2,h3{
 .homeProcessItem{
   border:1px solid var(--border);
   border-radius: var(--radius);
-  background:#fdf8f1;
+  background:#fffaf2;
   padding:20px;
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
@@ -797,11 +1216,26 @@ h1,h2,h3{
 }
 .homeProcessItem h3{
   font-family: "FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
-  font-size:18px;
+  font-size:16px;
   letter-spacing:0;
+  text-transform:uppercase;
 }
 .homeProcessItem p{
   margin-top:8px;
+}
+.howWorkShell{
+  display:grid;
+  gap:28px;
+}
+@media (min-width: 940px){
+  .howWorkShell{
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items:start;
+  }
+  .editorialProcess{
+    margin-top:0;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .homeFinal{
@@ -813,6 +1247,10 @@ h1,h2,h3{
 }
 .homeFinal .h2{
   color:#fff9f2;
+}
+.homeFinal .homeSectionTitleSingle{
+  max-width:18ch;
+  white-space:normal;
 }
 .homeFinal .lede{
   color:#dcebf0;

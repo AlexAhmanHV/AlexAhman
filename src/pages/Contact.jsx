@@ -8,15 +8,15 @@ const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 const copy = {
   sv: {
     kicker: "Kontakt",
-    title: "Kontakt",
+    title: "Skriv kort vad du bygger, så tar vi det därifrån",
     lede:
-      "Hör av dig om du behöver hjälp med hemsida i Västervik, ett konsultuppdrag eller letar efter en bred utvecklare som kan bidra snabbt i ett team.",
+      "Hör av dig om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll där någon behöver kunna röra sig mellan produkt, frontend och backend.",
     formTitle: "Skicka ett meddelande",
-    formLead: "Jag återkommer så snart jag kan.",
-    responseTimeLabel: "Svarstid",
-    responseTimeValue: "Vanligtvis inom 24 timmar vardagar",
-    introCallLabel: "Första samtal",
-    introCallValue: "15-20 minuter, kostnadsfritt och utan förpliktelser",
+    formLead: "Skriv nuläge, mål och vad som bromsar. Det räcker som start.",
+    responseTimeLabel: "svar",
+    responseTimeValue: "vanligtvis inom 24h vardagar",
+    introCallLabel: "samtal",
+    introCallValue: "15-20 min, kostnadsfritt",
     bookingCta: "Boka ett första samtal",
     name: "Namn",
     email: "Email",
@@ -25,30 +25,30 @@ const copy = {
     sending: "Skickar...",
     success: "Tack! Ditt meddelande är skickat.",
     error: "Något gick fel. Försök igen eller maila mig direkt.",
-    locationLabel: "Plats",
-    locationValue: "Västervik, Sverige",
-    remoteLabel: "Arbetssätt",
-    remoteValue: "På plats eller distans",
-    photoAlt: "Porträtt av Alexander Åhman",
-    fitTitle: "Det passar bra att kontakta mig om",
+    locationLabel: "plats",
+    locationValue: "Västervik / remote",
+    emailLabel: "email",
+    fitTitle: "Bra skäl att höra av sig",
     fitItems: [
-      "Hemsida eller vidareutveckling för företag i Västervik",
-      "Konsultuppdrag inom webb, backend, API:er eller teknisk struktur",
-      "Roller där ni söker en bred utvecklare med fullstackprofil och helhetstänk",
+      "Ni behöver få en idé eller halvfärdig lösning till körbar produkt.",
+      "Ni har ett systemflöde som behöver bli tydligare, snabbare eller lättare att förvalta.",
+      "Ni söker en fullstackutvecklare som kan bidra praktiskt utan lång startsträcka.",
     ],
+    photoAlt: "Porträtt av Alexander Åhman",
+    relatedLabel: "Läs vidare",
   },
 
   en: {
     kicker: "Contact",
-    title: "Contact",
+    title: "Send the short version of what you are building",
     lede:
-      "Reach out if you need help with a website in Västervik, a consulting project, or if you are looking for a broad developer who can contribute quickly in a team.",
+      "Reach out if you need a developer for a concrete project, consulting work, or a role where someone needs to move between product, frontend, and backend.",
     formTitle: "Send a message",
-    formLead: "I’ll get back to you as soon as I can.",
-    responseTimeLabel: "Response time",
-    responseTimeValue: "Usually within 24 hours on weekdays",
-    introCallLabel: "Intro call",
-    introCallValue: "15-20 minutes, free and with no obligations",
+    formLead: "Write the current state, goal, and what is slowing things down. That is enough to start.",
+    responseTimeLabel: "response",
+    responseTimeValue: "usually within 24h on weekdays",
+    introCallLabel: "call",
+    introCallValue: "15-20 min, free",
     bookingCta: "Book an intro call",
     name: "Name",
     email: "Email",
@@ -57,17 +57,17 @@ const copy = {
     sending: "Sending...",
     success: "Thanks! Your message was sent.",
     error: "Something went wrong. Please try again or email me directly.",
-    locationLabel: "Location",
-    locationValue: "Västervik, Sweden",
-    remoteLabel: "Work style",
-    remoteValue: "On-site or remote",
-    photoAlt: "Portrait of Alexander Ahman",
+    locationLabel: "location",
+    locationValue: "Västervik / remote",
+    emailLabel: "email",
     fitTitle: "Good reasons to get in touch",
     fitItems: [
-      "Website projects or ongoing improvements for companies in Västervik",
-      "Consulting work across web, back end, APIs, or technical structure",
-      "Roles where you need a broad full-stack developer with an end-to-end mindset",
+      "You need to turn an idea or unfinished solution into a runnable product.",
+      "You have a system flow that needs to become clearer, faster, or easier to maintain.",
+      "You are looking for a full-stack developer who can contribute practically without a long ramp-up.",
     ],
+    photoAlt: "Portrait of Alexander Ahman",
+    relatedLabel: "Continue",
   },
 };
 
@@ -94,15 +94,14 @@ function InstagramIcon() {
 export default function Contact({ lang }) {
   const t = copy[lang] || copy.sv;
   const hasBooking = Boolean(BOOKING_URL);
-
   const pathname = lang === "en" ? "/en/contact" : "/contact";
 
-  const seoTitle = lang === "en" ? "Contact | Alexander Åhman" : "Kontakt | Alexander Åhman";
+  const seoTitle = lang === "en" ? "Contact | Alexander Ahman" : "Kontakt | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
-      ? "Get in touch with Alexander Ahman in Västervik about website projects, consulting work, or roles for a broad full-stack developer."
-      : "Kontakta Alexander Åhman i Västervik om hemsideprojekt, konsultuppdrag eller roller för en bred fullstackutvecklare.";
+      ? "Contact Alexander Ahman in Västervik about full-stack development, consulting work, React, Laravel, APIs, data flows, and product-facing systems."
+      : "Kontakta Alexander Åhman i Västervik om fullstackutveckling, konsultuppdrag, React, Laravel, API:er, dataflöden och produktnära system.";
 
   const [status, setStatus] = useState({ type: "", text: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -149,95 +148,95 @@ export default function Contact({ lang }) {
         siteUrl={SITE_URL}
       />
 
-      <section className="section fadeUp" style={{ borderTop: "none" }}>
+      <section className="section fadeUp pageEditorial" style={{ borderTop: "none" }}>
         <div className="container">
           <div className="kicker">{t.kicker}</div>
-          <h1 className="h2" style={{ marginTop: 10 }}>
+          <h1 className="h2 pageTitle" style={{ marginTop: 10 }}>
             {t.title}
           </h1>
-          {t.lede ? <p className="lede">{t.lede}</p> : null}
+          <p className="lede">{t.lede}</p>
 
-          <div className="split" style={{ marginTop: 18 }}>
-            <div>
-              <div className="card">
-                <p>
-                  <b>Email:</b> Alex@AlexAhman.se
-                </p>
-                <p style={{ marginTop: 8 }}>
-                  <b>{t.locationLabel}:</b> {t.locationValue}
-                </p>
-                <p style={{ marginTop: 8 }}>
-                  <b>{t.remoteLabel}:</b> {t.remoteValue}
-                </p>
-                <p style={{ marginTop: 8 }}>
-                  <b>{t.responseTimeLabel}:</b> {t.responseTimeValue}
-                </p>
-                <p style={{ marginTop: 8 }}>
-                  <b>{t.introCallLabel}:</b> {t.introCallValue}
-                </p>
-
-                <div style={{ marginTop: 14 }}>
-                  <p>
-                    <b>{t.fitTitle}:</b>
-                  </p>
-                  <div className="homeChecklist" style={{ marginTop: 12 }}>
-                    {t.fitItems.map((item) => (
-                      <div className="homeChecklistItem" key={item}>
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {hasBooking ? (
-                  <div className="row" style={{ marginTop: 12 }}>
-                    <a className="btn btn-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
-                      {t.bookingCta}
-                    </a>
-                  </div>
-                ) : null}
-
-                <div className="row" style={{ marginTop: 12, gap: 10 }}>
-                  <a
-                    className="socialIcon"
-                    href="https://www.linkedin.com/in/alexander-%C3%A5hman/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                  >
-                    <LinkedInIcon />
-                  </a>
-                  <a
-                    className="socialIcon"
-                    href="https://www.instagram.com/AlexAhman"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    title="Instagram"
-                  >
-                    <InstagramIcon />
-                  </a>
-                </div>
-
-                <figure className="contactPhotoCard" style={{ marginTop: 14 }}>
-                  <img
-                    className="contactPhoto"
-                    src="/Alex-680.jpg"
-                    srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
-                    sizes="(max-width: 760px) 100vw, 340px"
-                    alt={t.photoAlt}
-                    loading="lazy"
-                    decoding="async"
-                    width="680"
-                    height="907"
-                  />
-                </figure>
+          <div className="contactEditorialGrid">
+            <aside className="homeSignalCard contactSignal">
+              <div className="terminalHeader" aria-hidden="true">
+                <span />
+                <span />
+                <span />
               </div>
-            </div>
+              <dl className="homeMetaList">
+                <div className="homeMetaRow">
+                  <dt>{t.emailLabel}</dt>
+                  <dd>Alex@AlexAhman.se</dd>
+                </div>
+                <div className="homeMetaRow">
+                  <dt>{t.locationLabel}</dt>
+                  <dd>{t.locationValue}</dd>
+                </div>
+                <div className="homeMetaRow">
+                  <dt>{t.responseTimeLabel}</dt>
+                  <dd>{t.responseTimeValue}</dd>
+                </div>
+                <div className="homeMetaRow">
+                  <dt>{t.introCallLabel}</dt>
+                  <dd>{t.introCallValue}</dd>
+                </div>
+              </dl>
 
-            <form className="card contactFormCard" action={formAction} method="POST" onSubmit={handleSubmit}>
-              <h3 style={{ fontSize: 18, fontWeight: 700 }}>{t.formTitle}</h3>
+              <div className="contactFit">
+                <h2>{t.fitTitle}</h2>
+                {t.fitItems.map((item) => (
+                  <p key={item}>{item}</p>
+                ))}
+              </div>
+
+              {hasBooking ? (
+                <div className="row" style={{ marginTop: 16 }}>
+                  <a className="btn btn-home-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
+                    {t.bookingCta}
+                  </a>
+                </div>
+              ) : null}
+
+              <div className="row" style={{ marginTop: 16, gap: 10 }}>
+                <a
+                  className="socialIcon socialIconDark"
+                  href="https://www.linkedin.com/in/alexander-%C3%A5hman/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <LinkedInIcon />
+                </a>
+                <a
+                  className="socialIcon socialIconDark"
+                  href="https://www.instagram.com/AlexAhman"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  title="Instagram"
+                >
+                  <InstagramIcon />
+                </a>
+              </div>
+
+              <figure className="contactPhotoCard contactPhotoEditorial">
+                <img
+                  className="contactPhoto"
+                  src="/Alex-680.jpg"
+                  srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
+                  sizes="(max-width: 760px) 100vw, 340px"
+                  alt={t.photoAlt}
+                  loading="lazy"
+                  decoding="async"
+                  width="680"
+                  height="907"
+                />
+              </figure>
+            </aside>
+
+            <form className="card contactFormCard contactFormEditorial" action={formAction} method="POST" onSubmit={handleSubmit}>
+              <h2>{t.formTitle}</h2>
               <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
 
               <div className={`inputGroup${focusedField === "name" ? " isFocused" : ""}`}>
@@ -300,13 +299,16 @@ export default function Contact({ lang }) {
             </form>
           </div>
 
-          <div className="card" style={{ marginTop: 18 }}>
-            <p>{lang === "en" ? "Related pages:" : "Relaterade sidor:"}</p>
-            <div className="row" style={{ marginTop: 12 }}>
-              <Link className="btn btn-outline" to={lang === "en" ? "/en/services" : "/services"}>
+          <div className="relatedStrip">
+            <p>{t.relatedLabel}</p>
+            <div className="row">
+              <Link className="textLink" to={lang === "en" ? "/en/projects" : "/projects"}>
+                {lang === "en" ? "Projects" : "Projekt"}
+              </Link>
+              <Link className="textLink" to={lang === "en" ? "/en/services" : "/services"}>
                 {lang === "en" ? "Services" : "Tjänster"}
               </Link>
-              <Link className="btn btn-outline" to={lang === "en" ? "/en/about" : "/about"}>
+              <Link className="textLink" to={lang === "en" ? "/en/about" : "/about"}>
                 {lang === "en" ? "About" : "Om mig"}
               </Link>
             </div>

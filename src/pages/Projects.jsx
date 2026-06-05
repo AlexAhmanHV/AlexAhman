@@ -5,114 +5,140 @@ const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
 
 const copy = {
   sv: {
-    kicker: "Portfolio",
-    title: "Case och projekt",
+    kicker: "Case archive",
+    title: "Projekt som visar systemtänk i praktiken",
     lede:
-      "Här visar jag konkreta leveranser med fokus på teknikval, effekt och hur lösningen skapar affärsnytta.",
+      "Tre leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
+    labels: {
+      problem: "Problem",
+      solution: "Lösning",
+      stack: "Teknik",
+      signal: "Vad projektet visar",
+      details: "Detaljer",
+    },
     items: [
       {
+        index: "01",
+        title: "VenueFlow",
+        meta: "multi-tenant booking / Laravel / live app",
+        problem:
+          "En verksamhetsnära bokningsprodukt behöver hantera gäster, resurser, tider, personalroller och konflikter utan att skapa friktion för användaren.",
+        solution:
+          "Jag byggde en Laravel-baserad plattform med publik bokning utan konto, admin- och staff-vyer, RBAC, tenant-isolering och transaktionssäker kontroll av bokningskrockar.",
+        signal:
+          "Visar att jag kan bygga system där affärsregler, datamodell och vardagsflöden måste sitta ihop, inte bara ett snyggt frontendskal.",
+        details: ["Tenant-isolering", "Rollbaserad åtkomst", "Konfliktkontroll", "Tidszonshantering", "Supabase + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        casePath: "projects/venueflow",
+        href: "https://venueflow-wjh1.onrender.com/",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "02",
+        title: "FX Monitor",
+        meta: "data pipeline / TypeScript / static delivery",
+        problem:
+          "Växelkurser behöver kunna jämföras över tid med KPI:er, diagram och riskindikatorer utan att kräva tung backenddrift.",
+        solution:
+          "Jag byggde en monorepo med React/TypeScript-frontend och en Python-pipeline som hämtar ECB-data, publicerar statiska JSON-filer och uppdateras dagligen via GitHub Actions.",
+        signal:
+          "Visar att jag kan koppla ihop data, CI, prestanda och interaktiv UX till en lösning som är enkel att drifta och lätt att resonera om.",
+        details: ["Daglig CI-uppdatering", "Statiska datafiler", "KPI-beräkning", "Jämförelseläge", "Tvåspråkigt UI"],
+        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        casePath: "projects/fx-monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "03",
         title: "Lördagsgolf",
-        status: "Live site",
-        summary:
-          "Frontend-projekt byggt som en SPA med tydlig informationsstruktur, fokuserad innehållshierarki och användarvänlig presentation för besökare som snabbt behöver hitta rätt information om banan, upplägg och kontaktvägar, med särskilt fokus på läsbarhet, tydliga call-to-actions och stabil upplevelse i både mobil och desktop.",
-        impact: "Visar förmåga att leverera en publik webbplats med tydligt innehållsflöde och praktisk användarnytta.",
-        stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
-        image: "/projects/lordagsgolf.svg",
-        imageAlt: "Förhandsbild av Lördagsgolf",
+        meta: "public site / React / information flow",
+        problem:
+          "Besökare behöver snabbt förstå bana, upplägg och kontaktvägar. Sidan måste vara lätt att scanna, särskilt i mobil.",
+        solution:
+          "Jag byggde en React/Vite-SPA med tydlig informationshierarki, fokuserade CTA:er och responsiva vyer som håller tempot i innehållet.",
+        signal:
+          "Visar att jag kan göra innehåll konkret, navigerbart och tekniskt lätt att vidareutveckla utan att överdesigna upplevelsen.",
+        details: ["SPA-struktur", "Responsiva vyer", "CTA-flöde", "Läsbar innehållshierarki", "Publik webb"],
+        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Besök webbplats",
-        external: true,
-      },
-      {
-        title: "FX Monitor",
-        status: "Live app",
-        summary:
-          "Fullstack-/data-projekt byggt som en monorepo med ett React/TypeScript-baserat frontend och en Python-baserad datapipeline som hämtar och publicerar ECB-växelkurser som statiska JSON-filer för visualisering och analys.",
-        impact:
-          "Visar förmåga att leverera en komplett datadriven webbapplikation utan backend-drift, med automatiserad datainsamling, daglig CI-uppdatering, robust KPI-beräkning och modern interaktiv UX (jämförelseläge, riskdiagram, tvåspråkighet och tema-stöd).",
-        stack: "Python 3.11, requests, pytest, ruff, GitHub Actions, React, TypeScript, Vite, Chart.js, Render Static Site",
-        image: "/projects/fx-monitor.svg",
-        imageAlt: "Förhandsbild av FX Monitor",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        linkText: "Öppna appen",
-        external: true,
-      },
-      {
-        title: "VenueFlow",
-        status: "Live app",
-        summary:
-          "Multi-tenant bokningsplattform för aktivitets- och restaurangmiljöer med publik gästbokning utan konto, intern admin/staff-panel, RBAC och robust konfliktkontroll för resurser och tider.",
-        impact:
-          "Visar förmåga att bygga en affärsnära SaaS-lösning med tenant-isolering, transaktionssäker bokningslogik, tidszonshantering och deployment mot Supabase + Render.",
-        stack: "Laravel 11, PHP 8.3, PostgreSQL (Supabase), Blade, Tailwind, Alpine.js, Policies/Gates, Mailables, Render",
-        image: "/projects/venueflow.svg",
-        imageAlt: "Förhandsbild av VenueFlow",
-        href: "https://venueflow-wjh1.onrender.com/",
-        linkText: "Öppna appen",
-        external: true,
       },
     ],
-    ctaTitle: "Vill du att nästa case blir ditt projekt?",
+    ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
-      "Skicka dina mål och nuläge så återkommer jag med ett konkret upplägg för vad som bör byggas först.",
+      "Skicka nuläge, mål och det som är oklart. Jag återkommer med ett konkret första steg och vad som bör byggas först.",
     ctaPrimary: "Kontakta mig",
     ctaSecondary: "Se tjänster",
-    impactLabel: "Effekt",
   },
   en: {
-    kicker: "Portfolio",
-    title: "Case studies and projects",
+    kicker: "Case archive",
+    title: "Projects that show systems thinking in practice",
     lede:
-      "Concrete delivery examples with a focus on technical decisions, outcomes, and business impact.",
+      "Three deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
+    labels: {
+      problem: "Problem",
+      solution: "Solution",
+      stack: "Tech",
+      signal: "What it shows",
+      details: "Details",
+    },
     items: [
       {
-        title: "Lördagsgolf",
-        status: "Live site",
-        summary:
-          "Frontend project built as a SPA with clear information architecture, focused content hierarchy, and a user-friendly presentation for visitors who need to quickly find key details about the course, setup, and contact paths, with emphasis on readability, clear calls to action, and a consistent experience across mobile and desktop.",
-        impact: "Demonstrates ability to deliver a public-facing website with clear content flow and practical user value.",
-        stack: "JavaScript, React, JSX, react-router-dom, Tailwind CSS v4, Vite, ESLint",
-        image: "/projects/lordagsgolf.svg",
-        imageAlt: "Preview image of Lördagsgolf",
-        href: "https://lordagsgolf.se/",
-        linkText: "Visit website",
-        external: true,
-      },
-      {
-        title: "FX Monitor",
-        status: "Live app",
-        summary:
-          "Full-stack/data project built as a monorepo with a React/TypeScript frontend and a Python-based data pipeline that fetches and publishes ECB exchange rates as static JSON files for visualization and analysis.",
-        impact:
-          "Demonstrates the ability to deliver a complete data-driven web application without backend operations, with automated data collection, daily CI updates, robust KPI calculations, and a modern interactive UX (comparison mode, risk charts, bilingual support, and theme support).",
-        stack: "Python 3.11, requests, pytest, ruff, GitHub Actions, React, TypeScript, Vite, Chart.js, Render Static Site",
-        image: "/projects/fx-monitor.svg",
-        imageAlt: "Preview image of FX Monitor",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        linkText: "Open app",
-        external: true,
-      },
-      {
+        index: "01",
         title: "VenueFlow",
-        status: "Live app",
-        summary:
-          "Multi-tenant booking platform for activity and restaurant venues with public guest booking without accounts, internal admin/staff panels, RBAC, and robust resource conflict control.",
-        impact:
-          "Demonstrates ability to deliver a business-facing SaaS product with tenant isolation, transaction-safe booking logic, timezone handling, and deployment on Supabase + Render.",
-        stack: "Laravel 11, PHP 8.3, PostgreSQL (Supabase), Blade, Tailwind, Alpine.js, Policies/Gates, Mailables, Render",
-        image: "/projects/venueflow.svg",
-        imageAlt: "Preview image of VenueFlow",
+        meta: "multi-tenant booking / Laravel / live app",
+        problem:
+          "A business-facing booking product needs to handle guests, resources, times, staff roles, and conflicts without creating friction for the user.",
+        solution:
+          "I built a Laravel platform with public booking without accounts, admin and staff views, RBAC, tenant isolation, and transaction-safe booking conflict checks.",
+        signal:
+          "Shows that I can build systems where business rules, data model, and daily workflows need to hold together, not just a polished frontend shell.",
+        details: ["Tenant isolation", "Role-based access", "Conflict checks", "Timezone handling", "Supabase + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        casePath: "projects/venueflow",
         href: "https://venueflow-wjh1.onrender.com/",
         linkText: "Open app",
-        external: true,
+      },
+      {
+        index: "02",
+        title: "FX Monitor",
+        meta: "data pipeline / TypeScript / static delivery",
+        problem:
+          "Exchange rates need comparison over time with KPIs, charts, and risk indicators without heavy backend operations.",
+        solution:
+          "I built a monorepo with a React/TypeScript frontend and Python pipeline that fetches ECB data, publishes static JSON files, and updates daily through GitHub Actions.",
+        signal:
+          "Shows that I can connect data, CI, performance, and interactive UX into a solution that is easy to operate and reason about.",
+        details: ["Daily CI update", "Static data files", "KPI calculation", "Comparison mode", "Bilingual UI"],
+        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        casePath: "projects/fx-monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        linkText: "Open app",
+      },
+      {
+        index: "03",
+        title: "Lördagsgolf",
+        meta: "public site / React / information flow",
+        problem:
+          "Visitors need to understand the course, setup, and contact paths quickly. The page needs to scan well, especially on mobile.",
+        solution:
+          "I built a React/Vite SPA with clear information hierarchy, focused CTAs, and responsive views that keep the content moving.",
+        signal:
+          "Shows that I can make content concrete, navigable, and technically easy to evolve without overdesigning the experience.",
+        details: ["SPA structure", "Responsive views", "CTA flow", "Readable hierarchy", "Public web"],
+        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        casePath: "projects/lordagsgolf",
+        href: "https://lordagsgolf.se/",
+        linkText: "Visit website",
       },
     ],
-    ctaTitle: "Want your project to be the next case?",
+    ctaTitle: "Want to see how your project would be broken down?",
     ctaText:
-      "Share your goals and current setup, and I will propose a concrete first-step implementation plan.",
+      "Send the current state, goal, and what is unclear. I will respond with a concrete first step and what should be built first.",
     ctaPrimary: "Contact me",
     ctaSecondary: "View services",
-    impactLabel: "Impact",
   },
 };
 
@@ -123,27 +149,19 @@ function pathFor(lang, path) {
   return `${base}${normalized}`;
 }
 
-function stackTokens(stack) {
-  return String(stack)
-    .split(",")
-    .map((token) => token.trim())
-    .filter(Boolean);
-}
-
 export default function Projects({ lang }) {
   const t = copy[lang] || copy.sv;
-
   const pathname = lang === "en" ? "/en/projects" : "/projects";
 
   const seoTitle =
     lang === "en"
-      ? "Projects | Case Studies | Alexander Åhman"
+      ? "Projects | Case Studies | Alexander Ahman"
       : "Projekt | Case | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
-      ? "Selected project work: interactive demos, multilingual web implementation, and SEO-focused landing pages."
-      : "Utvalda projekt: interaktiva demos, flerspråkig webbutveckling och SEO-fokuserade landningssidor.";
+      ? "Selected full-stack project work covering booking systems, data pipelines, React interfaces, Laravel, PostgreSQL, Python, and deployment."
+      : "Utvalda fullstackprojekt inom bokningssystem, datapipelines, React-gränssnitt, Laravel, PostgreSQL, Python och drift.";
 
   return (
     <>
@@ -155,57 +173,65 @@ export default function Projects({ lang }) {
         siteUrl={SITE_URL}
       />
 
-      <section className="section fadeUp" style={{ borderTop: "none" }}>
+      <section className="section fadeUp pageEditorial" style={{ borderTop: "none" }}>
         <div className="container">
           <div className="kicker">{t.kicker}</div>
-          <h1 className="h2" style={{ marginTop: 10 }}>
+          <h1 className="h2 pageTitle" style={{ marginTop: 10 }}>
             {t.title}
           </h1>
           <p className="lede">{t.lede}</p>
 
-          <div className="projectGrid">
+          <div className="selectedWorkList projectArchive">
             {t.items.map((item) => (
-              <article className="projectCard" key={item.title}>
-                <div className="projectThumb">
-                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
-                  <div className="projectThumbOverlay">
-                    <span className="projectOverlayLabel">{item.status}</span>
-                    <span className="projectOverlayLink">{item.linkText}</span>
+              <article className="selectedCase" key={item.title}>
+                <header className="selectedCaseHeader">
+                  <span className="caseIndex">{item.index}</span>
+                  <div>
+                    <p className="caseMeta">{item.meta}</p>
+                    <h2>{item.title}</h2>
                   </div>
-                </div>
-                <div className="projectBody">
-                  <span className="projectBadge">{item.status}</span>
-                  <h3 style={{ marginTop: 8, fontSize: 18, fontWeight: 700 }}>{item.title}</h3>
-                  <p style={{ marginTop: 8 }}>{item.summary}</p>
-                  <p className="projectMetaLine" style={{ marginTop: 8 }}>
-                    <b>{t.impactLabel}:</b> {item.impact}
-                  </p>
+                  <Link className="textLink selectedCaseLink" to={pathFor(lang, item.casePath)}>
+                    {lang === "en" ? "Read case" : "Läs case"}
+                  </Link>
+                </header>
 
-                  <div className="projectStack" style={{ marginTop: 12 }}>
-                    {stackTokens(item.stack).map((token) => (
-                      <span className="projectStackChip" key={`${item.title}-${token}`}>
-                        {token}
-                      </span>
-                    ))}
+                <div className="caseScanGrid caseScanGridWide">
+                  <div>
+                    <span>{t.labels.problem}</span>
+                    <p>{item.problem}</p>
                   </div>
-
-                  <div className="row" style={{ marginTop: 16 }}>
-                    {!item.external ? (
-                      <Link className="btn btn-outline projectCta" to={item.href}>
-                        {item.linkText}
-                      </Link>
-                    ) : (
-                      <a className="btn btn-outline projectCta" href={item.href} target="_blank" rel="noreferrer">
-                        {item.linkText}
-                      </a>
-                    )}
+                  <div>
+                    <span>{t.labels.solution}</span>
+                    <p>{item.solution}</p>
+                  </div>
+                  <div>
+                    <span>{t.labels.signal}</span>
+                    <p>{item.signal}</p>
+                  </div>
+                  <div>
+                    <span>{t.labels.details}</span>
+                    <div className="detailList">
+                      {item.details.map((detail) => (
+                        <small key={`${item.title}-${detail}`}>{detail}</small>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="caseStackBlock">
+                    <span>{t.labels.stack}</span>
+                    <div className="projectStack">
+                      {item.stack.map((token) => (
+                        <span className="projectStackChip" key={`${item.title}-${token}`}>
+                          {token}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="homeFinal" style={{ marginTop: 24 }}>
+          <div className="homeFinal" style={{ marginTop: 28 }}>
             <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{t.ctaTitle}</h2>
             <p className="lede">{t.ctaText}</p>
             <div className="row" style={{ marginTop: 14 }}>

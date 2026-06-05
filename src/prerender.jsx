@@ -10,29 +10,62 @@ const OG_IMAGE = `${SITE_URL}/Alex-1200.jpg`;
 const SEO = {
   sv: {
     "/": {
-      title: "Systemutvecklare i Västervik | Alex Åhman",
+      title: "Fullstackutvecklare i Västervik | Alexander Åhman",
       description:
-        "Systemutvecklare i Västervik med bred fullstackkompetens. Jag bygger snabba och lättförvaltade webblösningar, från UI till API, databas och apputveckling.",
+        "Fullstackutvecklare i Västervik som bygger riktiga digitala system över gränssnitt, API:er, data, integrationer, drift och produktflöden.",
     },
     "/services": {
-      title: "Tjänster | Fullstackutveckling & hemsidor i Västervik | Alex Åhman",
+      title: "Tjänster | Fullstackutveckling | Alexander Åhman",
       description:
-        "Fullstacktjänster i Västervik: webbappar, API:er, databaser, apputveckling och teknisk SEO. Struktur som skalar, prestanda som håller och kod som är lätt att förvalta.",
+        "Fullstacktjänster inom React, Laravel, API:er, PostgreSQL, Python-baserade dataflöden, automation och teknisk produktplanering.",
     },
     "/about": {
-      title: "Om | Systemutvecklare i Västervik | Alex Åhman",
+      title: "Om mig | Alexander Åhman",
       description:
-        "Teknisk profil med helhetsperspektiv mellan front-end och back-end. Strukturerat arbetssätt, snabb onboarding och stabil leverans. Baserad i Västervik.",
+        "Om Alexander Åhman, fullstackutvecklare i Västervik med fokus på produktnära system, React, Laravel, API:er, data och praktisk leverans.",
     },
     "/contact": {
-      title: "Kontakt | Alex Åhman - systemutvecklare i Västervik",
+      title: "Kontakt | Alexander Åhman",
       description:
-        "Kontakta mig om jobb eller uppdrag inom systemutveckling. Jag finns i Västervik och svarar så snart jag kan.",
+        "Kontakta Alexander Åhman i Västervik om fullstackutveckling, konsultuppdrag, React, Laravel, API:er, dataflöden och produktnära system.",
     },
     "/projects": {
-      title: "Projekt | Case | Alex Åhman",
+      title: "Projekt | Case | Alexander Åhman",
       description:
-        "Utvalda projekt med fokus på teknikval, resultat och affärsnytta inom webbutveckling.",
+        "Utvalda fullstackprojekt inom bokningssystem, datapipelines, React-gränssnitt, Laravel, PostgreSQL, Python och drift.",
+    },
+    "/projects/venueflow": {
+      title: "VenueFlow case | Bokningssystem i Laravel | Alexander Åhman",
+      description:
+        "Case om VenueFlow: ett multi-tenant bokningssystem byggt i Laravel, PostgreSQL och Supabase med RBAC, konfliktkontroll och publik gästbokning.",
+    },
+    "/projects/fx-monitor": {
+      title: "FX Monitor case | Datapipeline och React-dashboard | Alexander Åhman",
+      description:
+        "Case om FX Monitor: React- och TypeScript-dashboard med Python-pipeline, ECB-data, statiska JSON-filer och GitHub Actions.",
+    },
+    "/projects/lordagsgolf": {
+      title: "Lördagsgolf case | React-webbplats med tydligt informationsflöde | Alexander Åhman",
+      description:
+        "Case om Lördagsgolf: publik React- och Vite-webbplats med tydlig informationshierarki, responsiva vyer och fokuserade CTA:er.",
+    },
+    "/fullstackutvecklare-vastervik": {
+      title: "Fullstackutvecklare Västervik | Alexander Åhman",
+      description:
+        "Fullstackutvecklare i Västervik för webbappar, API:er, databaser, Laravel, React, PostgreSQL och produktnära systemutveckling.",
+      svOnly: true,
+    },
+    "/react-laravel-utvecklare": {
+      title: "React- och Laravel-utvecklare | Alexander Åhman",
+      description:
+        "React- och Laravel-utvecklare som bygger webbappar, API:er, adminflöden och databaser med tydlig koppling mellan frontend och backend.",
+      svOnly: true,
+    },
+    "/konsult-systemutvecklare": {
+      title: "Konsult systemutvecklare | Fullstack | Alexander Åhman",
+      description:
+        "Konsult inom systemutveckling och fullstackutveckling för team som behöver hjälp med React, Laravel, API:er, databaser, dataflöden och teknisk uppstart.",
+      svOnly: true,
     },
     "/hemsida-vastervik": {
       title: "Hemsida Västervik | Webbutveckling och hemsidor | Alex Åhman",
@@ -53,29 +86,50 @@ const SEO = {
 
   en: {
     "/en": {
-      title: "Software Developer in Västervik | Alex Åhman",
+      title: "Software Developer in Västervik | Alexander Åhman",
       description:
-        "Software developer in Västervik with a broad full-stack profile. I build fast, maintainable web solutions from UI to APIs, databases, and app development.",
+        "Full-stack software developer in Västervik building real digital systems across UI, APIs, data, integrations, deployment, and product workflows.",
     },
     "/en/services": {
-      title: "Services | Full-Stack Development | Alex Åhman",
+      title: "Services | Full-Stack Development | Alexander Ahman",
       description:
-        "Full-stack services: web apps, APIs, databases, app development, and technical SEO built for performance, clarity, and long-term maintainability.",
+        "Full-stack development services across React, Laravel, APIs, PostgreSQL, Python data flows, automation, and technical product planning.",
     },
     "/en/about": {
-      title: "About | Alex Åhman",
+      title: "About | Alexander Ahman",
       description:
-        "Technical profile with an end-to-end perspective across front end and back end. I build reliable solutions that are easy to maintain and evolve.",
+        "About Alexander Ahman, a full-stack developer in Västervik focused on product-facing systems, React, Laravel, APIs, data, and practical delivery.",
     },
     "/en/contact": {
-      title: "Contact | Alex Åhman",
+      title: "Contact | Alexander Ahman",
       description:
-        "Get in touch about roles or projects in software development. Based in Västervik, Sweden.",
+        "Contact Alexander Ahman in Västervik about full-stack development, consulting work, React, Laravel, APIs, data flows, and product-facing systems.",
     },
     "/en/projects": {
-      title: "Projects | Case Studies | Alex Åhman",
+      title: "Projects | Case Studies | Alexander Ahman",
       description:
-        "Selected projects with a focus on technical decisions, outcomes, and business impact.",
+        "Selected full-stack project work covering booking systems, data pipelines, React interfaces, Laravel, PostgreSQL, Python, and deployment.",
+    },
+    "/en/projects/venueflow": {
+      title: "VenueFlow case | Laravel booking system | Alexander Ahman",
+      description:
+        "Case study for VenueFlow: a multi-tenant booking system built with Laravel, PostgreSQL, Supabase, RBAC, conflict checks, and public guest booking.",
+    },
+    "/en/projects/fx-monitor": {
+      title: "FX Monitor case | Data pipeline and React dashboard | Alexander Ahman",
+      description:
+        "Case study for FX Monitor: React and TypeScript dashboard with a Python pipeline, ECB data, static JSON files, and GitHub Actions.",
+    },
+    "/en/projects/lordagsgolf": {
+      title: "Lördagsgolf case | React website with clear information flow | Alexander Ahman",
+      description:
+        "Case study for Lördagsgolf: public React and Vite website with clear information hierarchy, responsive views, and focused CTAs.",
+    },
+    "/en/fullstack-developer-vastervik": {
+      title: "Full-stack developer Västervik | Alexander Ahman",
+      description:
+        "Full-stack developer in Västervik building web apps, APIs, databases, Laravel, React, PostgreSQL, and product-facing systems.",
+      enOnly: true,
     },
     "/en/terms": {
       title: "Terms of Use | Alex Åhman",
@@ -100,7 +154,11 @@ function isEnglish(url) {
 }
 
 function isSvOnly(url) {
-  return url === "/hemsida-vastervik";
+  return url === "/hemsida-vastervik" || Boolean(SEO.sv[url]?.svOnly);
+}
+
+function isEnOnly(url) {
+  return Boolean(SEO.en[url]?.enOnly);
 }
 
 function canonicalFor(url) {
@@ -109,14 +167,18 @@ function canonicalFor(url) {
 
 function alternatesFor(url) {
   if (isSvOnly(url)) {
-    return { svUrl: url, enUrl: null };
+    return { svUrl: url, enUrl: null, xDefaultUrl: url };
+  }
+
+  if (isEnOnly(url)) {
+    return { svUrl: null, enUrl: url, xDefaultUrl: url };
   }
 
   const enUrl = url === "/" ? "/en" : url.startsWith("/en") ? url : `/en${url}`;
   const svUrl =
     url === "/en" ? "/" : url.startsWith("/en/") ? url.replace(/^\/en/, "") : url;
 
-  return { svUrl: svUrl || "/", enUrl };
+  return { svUrl: svUrl || "/", enUrl, xDefaultUrl: svUrl || "/" };
 }
 
 export async function prerender({ url }) {
@@ -137,7 +199,7 @@ export async function prerender({ url }) {
     </HelmetProvider>
   );
 
-  const { svUrl, enUrl } = alternatesFor(path);
+  const { svUrl, enUrl, xDefaultUrl } = alternatesFor(path);
   const canonical = canonicalFor(path);
 
   const headElements = [
@@ -152,14 +214,18 @@ export async function prerender({ url }) {
     { type: "meta", props: { name: "twitter:description", content: seo.description } },
     { type: "meta", props: { name: "twitter:image", content: OG_IMAGE } },
     { type: "link", props: { rel: "canonical", href: canonical } },
-    {
-      type: "link",
-      props: {
-        rel: "alternate",
-        hrefLang: "sv",
-        href: `${SITE_URL}${svUrl === "/" ? "" : svUrl}`,
-      },
-    },
+    ...(svUrl
+      ? [
+          {
+            type: "link",
+            props: {
+              rel: "alternate",
+              hrefLang: "sv",
+              href: `${SITE_URL}${svUrl === "/" ? "" : svUrl}`,
+            },
+          },
+        ]
+      : []),
     ...(enUrl
       ? [
           {
@@ -172,7 +238,14 @@ export async function prerender({ url }) {
           },
         ]
       : []),
-    { type: "link", props: { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}` } },
+    {
+      type: "link",
+      props: {
+        rel: "alternate",
+        hrefLang: "x-default",
+        href: `${SITE_URL}${xDefaultUrl === "/" ? "" : xDefaultUrl}`,
+      },
+    },
   ];
 
   const links = new Set([
@@ -181,7 +254,13 @@ export async function prerender({ url }) {
     "/about",
     "/contact",
     "/projects",
+    "/projects/venueflow",
+    "/projects/fx-monitor",
+    "/projects/lordagsgolf",
     "/hemsida-vastervik",
+    "/fullstackutvecklare-vastervik",
+    "/react-laravel-utvecklare",
+    "/konsult-systemutvecklare",
     "/terms",
     "/privacy",
     "/en",
@@ -189,6 +268,10 @@ export async function prerender({ url }) {
     "/en/about",
     "/en/contact",
     "/en/projects",
+    "/en/projects/venueflow",
+    "/en/projects/fx-monitor",
+    "/en/projects/lordagsgolf",
+    "/en/fullstack-developer-vastervik",
     "/en/terms",
     "/en/privacy",
   ]);

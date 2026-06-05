@@ -12,6 +12,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import HemsidaVastervik from "./pages/HemsidaVastervik";
 import Projects from "./pages/Projects";
+import ProjectCase from "./pages/ProjectCase";
+import ServiceLanding from "./pages/ServiceLanding";
 
 function AppRoutes({ lang }) {
   const location = useLocation();
@@ -30,6 +32,18 @@ function AppRoutes({ lang }) {
           <Route path="about" element={<About lang={lang} />} />
           <Route path="contact" element={<Contact lang={lang} />} />
           <Route path="projects" element={<Projects lang={lang} />} />
+          <Route path="projects/venueflow" element={<ProjectCase lang={lang} slug="venueflow" />} />
+          <Route path="projects/fx-monitor" element={<ProjectCase lang={lang} slug="fx-monitor" />} />
+          <Route path="projects/lordagsgolf" element={<ProjectCase lang={lang} slug="lordagsgolf" />} />
+          {lang === "sv" ? (
+            <>
+              <Route path="fullstackutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="fullstackutvecklare-vastervik" />} />
+              <Route path="react-laravel-utvecklare" element={<ServiceLanding lang={lang} slug="react-laravel-utvecklare" />} />
+              <Route path="konsult-systemutvecklare" element={<ServiceLanding lang={lang} slug="konsult-systemutvecklare" />} />
+            </>
+          ) : (
+            <Route path="fullstack-developer-vastervik" element={<ServiceLanding lang={lang} slug="fullstack-developer-vastervik" />} />
+          )}
           <Route path="privacy" element={<Privacy lang={lang} />} />
           <Route path="terms" element={<Terms lang={lang} />} />
           {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}

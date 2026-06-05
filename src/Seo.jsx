@@ -19,16 +19,23 @@ export default function Seo({
   description,
   siteUrl, // e.g. "https://alexahman.se"
   svOnly = false,
+  alternateSvPath,
+  alternateEnPath,
+  xDefaultPath,
 }) {
   const canonical = buildUrl(siteUrl, pathname);
   const ogImage = buildUrl(siteUrl, "/Alex-1200.jpg");
 
   // Language alternates: sv lives on "/", en on "/en"
-  const svPath = pathname.startsWith("/en") ? pathname.replace(/^\/en/, "") || "/" : pathname;
-  const enPath = svPath === "/" ? "/en" : `/en${svPath}`;
+  const derivedSvPath = pathname.startsWith("/en") ? pathname.replace(/^\/en/, "") || "/" : pathname;
+  const derivedEnPath = derivedSvPath === "/" ? "/en" : `/en${derivedSvPath}`;
+  const svPath = alternateSvPath !== undefined ? alternateSvPath : derivedSvPath;
+  const enPath = alternateEnPath !== undefined ? alternateEnPath : derivedEnPath;
+  const defaultPath = xDefaultPath !== undefined ? xDefaultPath : svPath;
 
-  const svUrl = buildUrl(siteUrl, svPath);
-  const enUrl = buildUrl(siteUrl, enPath);
+  const svUrl = svPath ? buildUrl(siteUrl, svPath) : null;
+  const enUrl = enPath ? buildUrl(siteUrl, enPath) : null;
+  const xDefaultUrl = defaultPath ? buildUrl(siteUrl, defaultPath) : canonical;
 
   return (
     <Helmet>
@@ -48,9 +55,9 @@ export default function Seo({
 
       <link rel="canonical" href={canonical} />
 
-      <link rel="alternate" hrefLang="sv" href={svUrl} />
-      {!svOnly ? <link rel="alternate" hrefLang="en" href={enUrl} /> : null}
-      <link rel="alternate" hrefLang="x-default" href={svUrl} />
+      {svUrl ? <link rel="alternate" hrefLang="sv" href={svUrl} /> : null}
+      {!svOnly && enUrl ? <link rel="alternate" hrefLang="en" href={enUrl} /> : null}
+      <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />
     </Helmet>
   );
 }

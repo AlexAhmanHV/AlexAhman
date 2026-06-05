@@ -12,6 +12,16 @@ function pathFor(lang, path) {
 
 function toggleLangPath(pathname) {
   const clean = pathname.replace(/\/+$/, "") || "/";
+  const unmatchedLanguagePages = new Map([
+    ["/fullstackutvecklare-vastervik", "/en"],
+    ["/react-laravel-utvecklare", "/en"],
+    ["/konsult-systemutvecklare", "/en"],
+    ["/en/fullstack-developer-vastervik", "/"],
+  ]);
+
+  if (unmatchedLanguagePages.has(clean)) {
+    return unmatchedLanguagePages.get(clean);
+  }
 
   if (clean === "/en") return "/";
   if (clean.startsWith("/en/")) return clean.replace(/^\/en/, "") || "/";

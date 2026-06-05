@@ -7,128 +7,196 @@ const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 
 const copy = {
   sv: {
-    kicker: "Systemutvecklare i Västervik",
-    headline: "Jag arbetar brett inom digital utveckling, från gränssnitt till backend och teknisk struktur",
+    kicker: "Alexander Åhman / systemutvecklare",
+    headline: "Jag bygger systemen bakom bra digitala upplevelser.",
     lede: [
-      "Jag hjälper företag som behöver en bred utvecklare, team som behöver avlastning och arbetsgivare som söker en fullstackprofil med helhetstänk.",
-      "Jag tar ansvar från idé och struktur till färdig leverans, och kommer snabbt in i befintliga kodbaser, samarbeten och tekniska sammanhang där det behövs någon som kan bidra brett och bygga vidare på det som redan finns.",
+      "Fullstackutvecklare som kan gå från affärsidé till körbar produkt: datamodell, API, gränssnitt, drift och de små beslut som gör systemet möjligt att leva med.",
+      "Jag passar bäst där någon behöver förstå nuläget snabbt, bryta ner ett rörigt problem och få fram en första fungerande version utan att tappa bort kvaliteten.",
     ],
     ctaPrimary: "Ta kontakt",
-    ctaSecondary: "Se tjänster",
+    ctaSecondary: "Se projekt",
     ctaBook: "Boka första samtal",
-    badges: ["React", "Laravel", "Apputveckling", "SEO", "API", "SQL"],
-    availabilityTitle: "Tillgänglig för uppdrag",
-    availabilityText: "Öppen för konsultuppdrag, projektanställning och roller där en bred utvecklare kan bidra snabbt och ta ansvar.",
+    badges: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "CI/CD"],
+    availabilityTitle: "Tillgänglig för uppdrag och roller",
+    availabilityText: "Öppen för konsultuppdrag, projektanställning och fullstackroller där praktiskt ansvar väger tyngre än mötespoesi.",
+    heroMeta: [
+      ["mode", "fullstack / produktnära"],
+      ["base", "Västervik, remote"],
+      ["focus", "bokning, data, webbappar"],
+    ],
 
     checklist: [
-      "Frontend, backend och API-utveckling",
-      "Databaser, SQL och systemlogik i C#",
-      "Systemdesign, informationsflöden och teknisk struktur",
-      "Snabb i befintliga kodbaser och nya arbetssätt",
-      "Integrationer mot externa tjänster och API:er",
-      "Prestanda, tillgänglighet och responsivitet",
-      "Samarbete med team, verksamhet och tydliga prioriteringar",
-      "Kod som går att förvalta, bygga vidare på och drifta tryggt",
+      "Sätter upp flöden från databas till UI",
+      "Hittar risker innan de blir dyra",
+      "Dokumenterar beslut så teamet kan fortsätta",
+      "Prioriterar det som får produkten i händerna på användare",
     ],
-    servicesKicker: "Tjänster",
-    servicesTitle: "Jag hjälper dig hela vägen",
-    servicesStrengths: "Min styrka ligger i att kunna kliva in där behovet är störst, förstå helheten snabbt och bidra både i kod och teknisk struktur.",
-    proofKicker: "Varför anlita mig",
-    proofTitle: "Därför fungerar jag bra i både team och projekt",
-    proofStats: [
-      ["Snabb uppstart", "Jag sätter mig snabbt in i befintliga kodbaser, verktyg och arbetssätt utan lång startsträcka."],
-      ["Bred nytta", "Jag kan bidra i gränssnitt, backend, API:er, databaser och tekniska vägval beroende på var behovet är störst."],
-      ["Hållbar leverans", "Jag bygger lösningar som är tydliga att förstå, enkla att samarbeta kring och möjliga att förvalta vidare."],
+    selectedKicker: "Selected work",
+    selectedTitle: "Tre projekt som visar hur jag tänker när det ska bli mer än en snygg vy.",
+    caseLabels: {
+      problem: "Problem",
+      solution: "Lösning",
+      stack: "Teknik",
+      signal: "Visar om mig",
+    },
+    selectedWork: [
+      {
+        index: "01",
+        title: "VenueFlow",
+        meta: "multi-tenant booking / live app",
+        problem: "Aktivitets- och restaurangmiljöer behöver hantera bokningar, resurser, personalroller och konflikter utan att göra gästen beroende av ett konto.",
+        solution: "En Laravel-baserad bokningsplattform med publik gästbokning, intern admin/staff-panel, RBAC, tenant-isolering och transaktionssäker konfliktkontroll.",
+        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Supabase", "Blade", "Alpine.js", "Render"],
+        signal: "Jag kan bygga affärsnära system där datamodell, behörighet och vardagsflöden måste hålla ihop.",
+        href: "https://venueflow-wjh1.onrender.com/",
+        casePath: "projects/venueflow",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "02",
+        title: "FX Monitor",
+        meta: "data pipeline / static delivery",
+        problem: "Växelkurser behöver följas över tid med jämförelser, KPI:er och riskindikatorer utan tung backenddrift.",
+        solution: "En monorepo med React/TypeScript-frontend och Python-pipeline som hämtar ECB-data, publicerar statiska JSON-filer och uppdateras via GitHub Actions.",
+        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        signal: "Jag gillar när drift, data och gränssnitt möts i en lösning som är enkel att förstå och billig att köra.",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        casePath: "projects/fx-monitor",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "03",
+        title: "Lördagsgolf",
+        meta: "public site / information flow",
+        problem: "Besökare behöver snabbt förstå bana, upplägg och kontaktvägar utan att gräva i text eller tappa tempo i mobilen.",
+        solution: "En React/Vite-SPA med tydlig informationshierarki, responsiva vyer och fokuserade CTA:er för ett enkelt publikt flöde.",
+        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        signal: "Jag kan göra innehåll konkret, snabbt att scanna och tekniskt lätt att vidareutveckla.",
+        href: "https://lordagsgolf.se/",
+        casePath: "projects/lordagsgolf",
+        linkText: "Besök webbplats",
+      },
+    ],
+    workCta: "Se fler detaljer",
+    workCtaPath: "projects",
+    howKicker: "How I work",
+    howTitle: "Jag arbetar nära problemet, inte bara briefen.",
+    howIntro:
+      "Min process är ganska rak: förstå vad som faktiskt ska hända i verksamheten, skissa systemet runt det och bygga i steg som går att testa tidigt.",
+    how: [
+      ["01 / Läs nuläget", "Jag börjar med användarflöde, datakällor, begränsningar och vad som redan finns. Det sparar tid senare."],
+      ["02 / Gör det körbart", "Jag prioriterar en version som fungerar på riktigt framför en stor plan som aldrig möter användare."],
+      ["03 / Skriv för nästa person", "Kod, namn, struktur och små anteckningar ska göra det lätt för mig eller någon annan att fortsätta."],
+      ["04 / Var tydlig med tradeoffs", "Jag säger vad som är snabbt, vad som är robust och vad som behöver vänta. Det gör beslut enklare."],
     ],
     localSpotlightKicker: "Lokalt i Västervik",
     localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
     localSpotlightText:
       "Behöver du en som tar helhetsansvar för det digitala? Jag finns lokalt för dig i Västervik och gör det enkelt att få fart på både synlighet och försäljning.",
     localSpotlightCta: "Jag bor i Västervik och vill ha hjälp!",
-    services: [
-      ["React", "Bygger snabba, moderna gränssnitt med fokus på UX, struktur och prestanda."],
-      ["C#", "Utvecklar robust affärslogik och tydliga backendlösningar i C#."],
-      ["SQL", "Designar databaser, skriver effektiva queries och skapar stabil datamodellering."],
-      ["Laravel", "Bygger backend i Laravel med tydlig arkitektur, validering och API-flöden."],
-      ["Apputveckling", "Bygger användarvänliga appar med stabil struktur och tydliga användarflöden."],
-      ["Systemarkitektur", "Hjälper till att forma teknisk struktur, dataflöden och lösningar som går att bygga vidare på."],
-    ],
-    processKicker: "Arbetssätt",
-    processTitle: "Ett enkelt arbetssätt som ger tydliga resultat",
-    process: [
-      ["1. Strategi", "Vi definierar mål, målgrupp, kravbild och hur systemet behöver fungera i praktiken."],
-      ["2. Struktur", "Jag sätter en tydlig teknisk riktning för flöden, data, integrationer och arkitektur."],
-      ["3. Leverans", "Jag utvecklar, testar och optimerar lösningen inför lansering och vidare förvaltning."],
-    ],
     linksKicker: "Läs vidare",
     linksTitle: "Utforska fler sidor",
     links: [
-      ["Tjänster", "services"],
+      ["Projekt", "projects"],
       ["Om mig", "about"],
       ["Kontakt", "contact"],
     ],
-    finalTitle: "Vill du ha en utvecklare med helhetstänk?",
+    finalTitle: "Behöver du en utvecklare som bygger på riktigt?",
     finalText:
-      "Skicka ett meddelande eller boka ett första samtal. Du får en tydlig rekommendation för nästa steg, både tekniskt och affärsmässigt.",
+      "Skicka ett meddelande med nuläge, mål och vad som skaver. Jag återkommer med ett konkret nästa steg.",
   },
 
   en: {
-    kicker: "Software Developer & Full-Stack Developer",
-    headline: "I work broadly across digital development, from interfaces to back-end and technical structure",
+    kicker: "Alexander Åhman / software developer",
+    headline: "I build the systems behind good digital experiences.",
     lede: [
-      "I help companies that need a broad developer, teams that need extra capacity, and employers looking for a full-stack profile with an end-to-end mindset.",
-      "I take responsibility from idea and structure to delivery, and I ramp up quickly in existing codebases, collaborations, and technical contexts where broad contribution is needed and where existing systems need to be understood and improved.",
+      "Full-stack developer who can move from business idea to running product: data model, API, interface, deployment, and the small decisions that make a system liveable.",
+      "I fit best where someone needs to understand the situation quickly, break down a messy problem, and ship a first working version without losing quality.",
     ],
     ctaPrimary: "Get in touch",
-    ctaSecondary: "View services",
+    ctaSecondary: "View projects",
     ctaBook: "Book intro call",
-    badges: ["React", "Laravel", "App Development", "SEO", "API", "SQL"],
+    badges: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "CI/CD"],
     availabilityTitle: "Available for work",
-    availabilityText: "Open to freelance work, project roles, and positions where a broad developer can contribute quickly and take ownership.",
+    availabilityText: "Open to freelance work, project roles, and full-stack positions where practical ownership matters more than meeting theatre.",
+    heroMeta: [
+      ["mode", "full-stack / product-minded"],
+      ["base", "Västervik, remote"],
+      ["focus", "booking, data, web apps"],
+    ],
     checklist: [
-      "Front-end, back-end, and API development",
-      "Databases, SQL, and business logic in C#",
-      "System design, data flows, and technical structure",
-      "Fast ramp-up in existing codebases and workflows",
-      "Integrations with external services and APIs",
-      "Performance, accessibility, and responsive UI",
-      "Collaboration with teams, stakeholders, and clear priorities",
-      "Code that is maintainable, extendable, and safe to operate",
+      "Connects database, API, and UI flows",
+      "Finds risks before they become expensive",
+      "Documents decisions so the team can continue",
+      "Prioritizes what gets the product in front of users",
     ],
-    servicesKicker: "Services",
-    servicesTitle: "Support from start to launch",
-    servicesStrengths: "My strength is being able to step in where the need is greatest, understand the bigger picture quickly, and contribute both in code and technical structure.",
-    proofKicker: "Why work with me",
-    proofTitle: "Why I work well in both teams and projects",
-    proofStats: [
-      ["Fast ramp-up", "I get productive quickly in existing codebases, tools, and workflows without a long onboarding curve."],
-      ["Broad contribution", "I can contribute across UI, back end, APIs, databases, and technical decisions depending on where the need is greatest."],
-      ["Maintainable delivery", "I build solutions that are easy to understand, easy to collaborate around, and realistic to maintain over time."],
+    selectedKicker: "Selected work",
+    selectedTitle: "Three projects that show how I think when the job is more than a good-looking view.",
+    caseLabels: {
+      problem: "Problem",
+      solution: "Solution",
+      stack: "Tech",
+      signal: "Shows about me",
+    },
+    selectedWork: [
+      {
+        index: "01",
+        title: "VenueFlow",
+        meta: "multi-tenant booking / live app",
+        problem: "Activity and restaurant venues need booking, resources, staff roles, and conflict handling without forcing guests into accounts.",
+        solution: "A Laravel booking platform with public guest booking, internal admin/staff panels, RBAC, tenant isolation, and transaction-safe conflict checks.",
+        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Supabase", "Blade", "Alpine.js", "Render"],
+        signal: "I can build business-facing systems where data model, permissions, and daily workflows need to hold together.",
+        href: "https://venueflow-wjh1.onrender.com/",
+        casePath: "projects/venueflow",
+        linkText: "Open app",
+      },
+      {
+        index: "02",
+        title: "FX Monitor",
+        meta: "data pipeline / static delivery",
+        problem: "Exchange rates need comparison, KPIs, and risk indicators over time without heavy backend operations.",
+        solution: "A monorepo with a React/TypeScript frontend and Python pipeline that fetches ECB data, publishes static JSON, and updates through GitHub Actions.",
+        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        signal: "I like solutions where operations, data, and interface meet in something simple to reason about and cheap to run.",
+        href: "https://fx-monitor-tlpr.onrender.com",
+        casePath: "projects/fx-monitor",
+        linkText: "Open app",
+      },
+      {
+        index: "03",
+        title: "Lördagsgolf",
+        meta: "public site / information flow",
+        problem: "Visitors need to understand the course, setup, and contact paths quickly without digging through text or losing pace on mobile.",
+        solution: "A React/Vite SPA with clear information hierarchy, responsive views, and focused CTAs for a simple public flow.",
+        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        signal: "I can make content concrete, easy to scan, and technically easy to keep evolving.",
+        href: "https://lordagsgolf.se/",
+        casePath: "projects/lordagsgolf",
+        linkText: "Visit website",
+      },
     ],
-    services: [
-      ["React", "Build fast, modern interfaces with a strong focus on UX, structure, and performance."],
-      ["C#", "Develop robust business logic and clean back-end solutions in C#."],
-      ["SQL", "Design databases, write efficient queries, and build reliable data models."],
-      ["Laravel", "Build Laravel back ends with clear architecture, validation, and API flows."],
-      ["App Development", "Build user-friendly apps with stable architecture and clear user flows."],
-      ["System Architecture", "Help shape technical structure, data flows, and solutions that are built to evolve."],
-    ],
-    processKicker: "Process",
-    processTitle: "A simple process with clear results",
-    process: [
-      ["1. Strategy", "We define goals, requirements, audience, and how the system needs to work in practice."],
-      ["2. Structure", "I define a clear technical direction for flows, data, integrations, and architecture."],
-      ["3. Delivery", "I build, test, and optimize the solution for launch and long-term maintainability."],
+    workCta: "View details",
+    workCtaPath: "projects",
+    howKicker: "How I work",
+    howTitle: "I work close to the problem, not just the brief.",
+    howIntro:
+      "My process is direct: understand what actually needs to happen in the business, sketch the system around it, and build in steps that can be tested early.",
+    how: [
+      ["01 / Read the current state", "I start with user flows, data sources, constraints, and what already exists. It saves time later."],
+      ["02 / Make it runnable", "I prioritize a version that works for real over a large plan that never meets users."],
+      ["03 / Write for the next person", "Code, names, structure, and small notes should make it easy for me or someone else to continue."],
+      ["04 / Be clear about tradeoffs", "I say what is fast, what is robust, and what needs to wait. That makes decisions easier."],
     ],
     linksKicker: "Continue",
     linksTitle: "Explore more pages",
     links: [
-      ["Services", "services"],
+      ["Projects", "projects"],
       ["About", "about"],
       ["Contact", "contact"],
     ],
-    finalTitle: "Need a developer with an end-to-end mindset?",
-    finalText: "Send a message or book an intro call. You will get a clear recommendation for the next step, both technically and commercially.",
+    finalTitle: "Need a developer who builds for real?",
+    finalText: "Send a message with your current state, goal, and what is getting in the way. I will respond with a concrete next step.",
   },
 };
 
@@ -154,8 +222,8 @@ export default function Home({ lang }) {
 
   const seoDescription =
     lang === "en"
-      ? "Software developer in Västervik with a broad full-stack profile. I build maintainable digital systems from UI and APIs to databases, integrations, and technical structure."
-      : "Systemutvecklare i Västervik med bred fullstackprofil. Jag bygger hållbara digitala system från gränssnitt och API:er till databaser, integrationer och teknisk struktur.";
+      ? "Full-stack software developer in Västervik building real digital systems across UI, APIs, data, integrations, deployment, and product workflows."
+      : "Fullstackutvecklare i Västervik som bygger riktiga digitala system över gränssnitt, API:er, data, integrationer, drift och produktflöden.";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -173,7 +241,7 @@ export default function Home({ lang }) {
       "https://www.instagram.com/AlexAhman",
       "https://github.com/alexahman",
     ],
-    knowsAbout: ["React", "Laravel", "App Development", "C#", "SQL", "SEO"],
+    knowsAbout: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "API development", "System design"],
   };
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -230,7 +298,7 @@ export default function Home({ lang }) {
                   <Link className="btn" to={pathFor(lang, "contact")}>
                     {t.ctaPrimary}
                   </Link>
-                  <Link className="btn btn-outline" to={pathFor(lang, "services")}>
+                  <Link className="btn btn-outline" to={pathFor(lang, "projects")}>
                     {t.ctaSecondary}
                   </Link>
                   {hasBooking ? (
@@ -250,8 +318,22 @@ export default function Home({ lang }) {
               </div>
 
               <aside className="homeSignalCard">
+                <div className="terminalHeader" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
                 <div className="kicker">{t.availabilityTitle}</div>
                 <p style={{ marginTop: 12 }}>{t.availabilityText}</p>
+
+                <dl className="homeMetaList">
+                  {t.heroMeta.map(([label, value]) => (
+                    <div className="homeMetaRow" key={label}>
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
 
                 <div className="homeChecklist">
                   {t.checklist.map((item) => (
@@ -274,35 +356,57 @@ export default function Home({ lang }) {
 
       <section className="section">
         <div className="container">
-          <div className="kicker">{t.proofKicker}</div>
-          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
-            {t.proofTitle}
-          </h2>
-
-          <div className="grid cols-3 homeCards" style={{ marginTop: 22 }}>
-            {t.proofStats.map(([title, text]) => (
-              <div className="card homeCard" key={title}>
-                <h3 style={{ fontSize: 18, fontWeight: 700 }}>{title}</h3>
-                <p style={{ marginTop: 10 }}>{text}</p>
-              </div>
-            ))}
+          <div className="sectionIntroLine">
+            <div>
+              <div className="kicker">{t.selectedKicker}</div>
+              <h2 className="h2 homeSectionTitle" style={{ marginTop: 10 }}>
+                {t.selectedTitle}
+              </h2>
+            </div>
+            <Link className="textLink" to={pathFor(lang, t.workCtaPath)}>
+              {t.workCta}
+            </Link>
           </div>
-        </div>
-      </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="kicker">{t.servicesKicker}</div>
-          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
-            {t.servicesTitle}
-          </h2>
-          <p style={{ marginTop: 12 }}>{t.servicesStrengths}</p>
-          <div className="grid cols-3 homeCards" style={{ marginTop: 24 }}>
-            {t.services.map(([title, desc], i) => (
-              <div className="card homeCard" key={`${title}-${i}`}>
-                <h3 style={{ fontSize: 18, fontWeight: 700 }}>{title}</h3>
-                <p style={{ marginTop: 10 }}>{desc}</p>
-              </div>
+          <div className="selectedWorkList">
+            {t.selectedWork.map((item) => (
+              <article className="selectedCase" key={item.title}>
+                <header className="selectedCaseHeader">
+                  <span className="caseIndex">{item.index}</span>
+                  <div>
+                    <p className="caseMeta">{item.meta}</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <Link className="textLink selectedCaseLink" to={pathFor(lang, item.casePath)}>
+                    {lang === "en" ? "Read case" : "Läs case"}
+                  </Link>
+                </header>
+
+                <div className="caseScanGrid">
+                  <div>
+                    <span>{t.caseLabels.problem}</span>
+                    <p>{item.problem}</p>
+                  </div>
+                  <div>
+                    <span>{t.caseLabels.solution}</span>
+                    <p>{item.solution}</p>
+                  </div>
+                  <div>
+                    <span>{t.caseLabels.signal}</span>
+                    <p>{item.signal}</p>
+                  </div>
+                  <div className="caseStackBlock">
+                    <span>{t.caseLabels.stack}</span>
+                    <div className="projectStack">
+                      {item.stack.map((token) => (
+                        <span className="projectStackChip" key={`${item.title}-${token}`}>
+                          {token}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
 
@@ -323,18 +427,23 @@ export default function Home({ lang }) {
 
       <section className="section">
         <div className="container">
-          <div className="kicker">{t.processKicker}</div>
-          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
-            {t.processTitle}
-          </h2>
+          <div className="howWorkShell">
+            <div>
+              <div className="kicker">{t.howKicker}</div>
+              <h2 className="h2 homeSectionTitle" style={{ marginTop: 10 }}>
+                {t.howTitle}
+              </h2>
+              <p className="lede">{t.howIntro}</p>
+            </div>
 
-          <div className="homeProcessGrid">
-            {t.process.map(([title, text]) => (
-              <div className="homeProcessItem" key={title}>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
+            <div className="homeProcessGrid editorialProcess">
+              {t.how.map(([title, text]) => (
+                <div className="homeProcessItem" key={title}>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
