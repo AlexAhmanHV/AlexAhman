@@ -62,6 +62,63 @@ const pages = {
       ctaText: "Skicka kort om uppdraget, tidsramen och teknisk miljö. Jag återkommer med om jag är rätt match.",
     },
   },
+  "webbutvecklare-vastervik": {
+    sv: {
+      kicker: "Webbutvecklare Västervik",
+      title: "Webbutvecklare i Västervik för företag som behöver mer än en broschyrsida",
+      seoTitle: "Webbutvecklare Västervik | Alexander Åhman",
+      seoDescription:
+        "Webbutvecklare i Västervik som bygger moderna webbplatser, webbappar, React-gränssnitt, API-kopplingar och tekniska lösningar för företag.",
+      lede:
+        "Jag hjälper företag i Västervik med webbplatser och webbappar där innehåll, användarflöde och teknik behöver hänga ihop. Det kan vara en ny publik webb, vidareutveckling eller ett mer systemnära webbprojekt.",
+      sections: [
+        ["När jag passar", "När ni behöver en webb som både är tydlig för besökaren och byggd på en teknisk grund som går att förvalta."],
+        ["Vad jag bygger", "Publika webbplatser, React-baserade gränssnitt, formulär, kontaktflöden, integrationer, landningssidor och enklare adminflöden."],
+        ["Lokalt och praktiskt", "Jag finns i Västervik men arbetar även remote. Fokus är att snabbt förstå behovet och få fram en lösning som hjälper verksamheten."],
+      ],
+      stack: ["React", "Vite", "JavaScript", "TypeScript", "API", "SEO", "Responsiv webb", "Formulär"],
+      ctaTitle: "Behöver du en webbutvecklare i Västervik?",
+      ctaText: "Skicka vad du vill förbättra eller bygga. Jag svarar med ett konkret upplägg för nästa steg.",
+    },
+  },
+  "react-utvecklare-vastervik": {
+    sv: {
+      kicker: "React-utvecklare Västervik",
+      title: "React-utvecklare i Västervik för snabba gränssnitt och webbappar",
+      seoTitle: "React-utvecklare Västervik | Alexander Åhman",
+      seoDescription:
+        "React-utvecklare i Västervik för webbappar, komponentbaserade gränssnitt, TypeScript, Vite, API-integrationer och produktnära frontend.",
+      lede:
+        "Jag bygger React-gränssnitt där användarflöde, komponentstruktur och API-kopplingar behöver vara begripliga från början. React passar särskilt bra för webbappar, dashboards och interaktiva tjänster.",
+      sections: [
+        ["Frontend som går att fortsätta på", "Komponenter, routing, formulär, tillstånd och vyer struktureras så att nästa steg inte blir en omskrivning."],
+        ["Koppling till backend", "Jag tänker React-flödet ihop med API:er, datamodeller och validering så att frontend inte blir en isolerad yta."],
+        ["Prestanda och läsbarhet", "Jag prioriterar snabba vyer, tydlig kod och gränssnitt som fungerar i både mobil och desktop."],
+      ],
+      stack: ["React", "TypeScript", "JavaScript", "Vite", "React Router", "API", "CSS", "ESLint"],
+      ctaTitle: "Behöver du hjälp med ett React-projekt?",
+      ctaText: "Beskriv vad appen ska göra, vilket API eller dataflöde som finns och var du behöver komma framåt.",
+    },
+  },
+  "laravel-utvecklare": {
+    sv: {
+      kicker: "Laravel-utvecklare",
+      title: "Laravel-utvecklare för API:er, bokningslogik och databaser",
+      seoTitle: "Laravel-utvecklare | API, PostgreSQL och bokningssystem | Alexander Åhman",
+      seoDescription:
+        "Laravel-utvecklare som bygger API:er, adminflöden, bokningslogik, PostgreSQL-databaser, behörighet och produktnära backends.",
+      lede:
+        "Jag använder Laravel när projektet behöver en tydlig backend för regler, data, behörighet och integrationer. Det passar särskilt bra för bokningssystem, adminflöden och API-drivna webbappar.",
+      sections: [
+        ["Affärslogik på rätt plats", "Validering, behörighet, bokningsregler och dataflöden hör hemma i backend, där de går att testa och förvalta."],
+        ["Databas och API", "Jag bygger datamodeller, endpoints, policies och adminflöden med fokus på hur systemet ska användas i vardagen."],
+        ["Från prototyp till drift", "Målet är att snabbt få fram en fungerande version utan att hoppa över de beslut som gör systemet hållbart."],
+      ],
+      stack: ["Laravel", "PHP", "PostgreSQL", "SQL", "Blade", "Policies", "Mailables", "Render"],
+      ctaTitle: "Behöver du en Laravel-utvecklare?",
+      ctaText: "Skicka vilken typ av backend eller systemflöde du behöver bygga. Jag återkommer med en rimlig teknisk väg framåt.",
+    },
+  },
 };
 
 const enPages = {

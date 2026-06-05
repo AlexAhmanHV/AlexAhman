@@ -55,10 +55,28 @@ const SEO = {
         "Fullstackutvecklare i Västervik för webbappar, API:er, databaser, Laravel, React, PostgreSQL och produktnära systemutveckling.",
       svOnly: true,
     },
+    "/webbutvecklare-vastervik": {
+      title: "Webbutvecklare Västervik | Alexander Åhman",
+      description:
+        "Webbutvecklare i Västervik som bygger moderna webbplatser, webbappar, React-gränssnitt, API-kopplingar och tekniska lösningar för företag.",
+      svOnly: true,
+    },
+    "/react-utvecklare-vastervik": {
+      title: "React-utvecklare Västervik | Alexander Åhman",
+      description:
+        "React-utvecklare i Västervik för webbappar, komponentbaserade gränssnitt, TypeScript, Vite, API-integrationer och produktnära frontend.",
+      svOnly: true,
+    },
     "/react-laravel-utvecklare": {
       title: "React- och Laravel-utvecklare | Alexander Åhman",
       description:
         "React- och Laravel-utvecklare som bygger webbappar, API:er, adminflöden och databaser med tydlig koppling mellan frontend och backend.",
+      svOnly: true,
+    },
+    "/laravel-utvecklare": {
+      title: "Laravel-utvecklare | API, PostgreSQL och bokningssystem | Alexander Åhman",
+      description:
+        "Laravel-utvecklare som bygger API:er, adminflöden, bokningslogik, PostgreSQL-databaser, behörighet och produktnära backends.",
       svOnly: true,
     },
     "/konsult-systemutvecklare": {
@@ -259,7 +277,10 @@ export async function prerender({ url }) {
     "/projects/lordagsgolf",
     "/hemsida-vastervik",
     "/fullstackutvecklare-vastervik",
+    "/webbutvecklare-vastervik",
+    "/react-utvecklare-vastervik",
     "/react-laravel-utvecklare",
+    "/laravel-utvecklare",
     "/konsult-systemutvecklare",
     "/terms",
     "/privacy",

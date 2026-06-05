@@ -38,7 +38,10 @@ function AppRoutes({ lang }) {
           {lang === "sv" ? (
             <>
               <Route path="fullstackutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="fullstackutvecklare-vastervik" />} />
+              <Route path="webbutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="webbutvecklare-vastervik" />} />
+              <Route path="react-utvecklare-vastervik" element={<ServiceLanding lang={lang} slug="react-utvecklare-vastervik" />} />
               <Route path="react-laravel-utvecklare" element={<ServiceLanding lang={lang} slug="react-laravel-utvecklare" />} />
+              <Route path="laravel-utvecklare" element={<ServiceLanding lang={lang} slug="laravel-utvecklare" />} />
               <Route path="konsult-systemutvecklare" element={<ServiceLanding lang={lang} slug="konsult-systemutvecklare" />} />
             </>
           ) : (

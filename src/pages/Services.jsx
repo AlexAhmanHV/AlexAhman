@@ -61,7 +61,10 @@ const copy = {
     focusLinksTitle: "Fokuserade tjänstesidor",
     focusLinks: [
       ["Fullstackutvecklare Västervik", "fullstackutvecklare-vastervik"],
+      ["Webbutvecklare Västervik", "webbutvecklare-vastervik"],
+      ["React-utvecklare Västervik", "react-utvecklare-vastervik"],
       ["React- och Laravel-utvecklare", "react-laravel-utvecklare"],
+      ["Laravel-utvecklare", "laravel-utvecklare"],
       ["Konsult systemutvecklare", "konsult-systemutvecklare"],
     ],
   },
