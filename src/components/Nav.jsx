@@ -99,11 +99,14 @@ export default function Nav({ lang }) {
         return;
       }
 
+      const navRect = navLinksNode.getBoundingClientRect();
+      const activeRect = activeLink.getBoundingClientRect();
+
       setIndicatorStyle({
         opacity: 1,
-        width: `${activeLink.offsetWidth}px`,
-        height: `${activeLink.offsetHeight}px`,
-        transform: `translate(${activeLink.offsetLeft}px, ${activeLink.offsetTop}px)`,
+        width: `${activeRect.width}px`,
+        height: `${activeRect.height}px`,
+        transform: `translate(${activeRect.left - navRect.left}px, ${activeRect.top - navRect.top}px)`,
       });
     };
 

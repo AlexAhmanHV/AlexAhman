@@ -197,7 +197,7 @@ export default function Contact({ lang }) {
                 </div>
               ) : null}
 
-              <div className="row" style={{ marginTop: 16, gap: 10 }}>
+              <div className="row contactSocialRow">
                 <a
                   className="socialIcon socialIconDark"
                   href="https://www.linkedin.com/in/alexander-%C3%A5hman/"

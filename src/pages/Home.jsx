@@ -8,28 +8,28 @@ const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 const copy = {
   sv: {
     kicker: "Alexander Åhman / systemutvecklare",
-    headline: "Jag bygger systemen bakom bra digitala upplevelser.",
+    headline: "Systemutvecklare som bygger praktiska webbappar och automationer.",
     lede: [
-      "Fullstackutvecklare som kan gå från affärsidé till körbar produkt: datamodell, API, gränssnitt, drift och de små beslut som gör systemet möjligt att leva med.",
-      "Jag passar bäst där någon behöver förstå nuläget snabbt, bryta ner ett rörigt problem och få fram en första fungerande version utan att tappa bort kvaliteten.",
+      "Jag hjälper team och företag att gå från rörigt problem till körbar lösning: datamodell, API, gränssnitt, automation och drift.",
+      "Du anlitar mig när du behöver någon som förstår nuläget snabbt, fattar rimliga tekniska beslut och bygger första versionen utan att tappa kvaliteten.",
     ],
-    ctaPrimary: "Ta kontakt",
+    ctaPrimary: "Kontakta mig",
     ctaSecondary: "Se projekt",
     ctaBook: "Boka första samtal",
     badges: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "CI/CD"],
-    availabilityTitle: "Tillgänglig för uppdrag och roller",
-    availabilityText: "Öppen för konsultuppdrag, projektanställning och fullstackroller där praktiskt ansvar väger tyngre än mötespoesi.",
+    availabilityTitle: "Produktnära systemutvecklare",
+    availabilityText: "Jag bygger användbara digitala flöden med praktiskt ansvar från problemförståelse till fungerande produkt.",
     heroMeta: [
       ["mode", "fullstack / produktnära"],
       ["base", "Västervik, remote"],
-      ["focus", "bokning, data, webbappar"],
+      ["focus", "webbappar, AI, automation"],
     ],
 
     checklist: [
-      "Sätter upp flöden från databas till UI",
+      "Bygger från databas och API till användbart gränssnitt",
       "Hittar risker innan de blir dyra",
       "Dokumenterar beslut så teamet kan fortsätta",
-      "Prioriterar det som får produkten i händerna på användare",
+      "Prioriterar det som får lösningen i händerna på användare",
     ],
     selectedKicker: "Selected work",
     selectedTitle: "Tre projekt som visar hur jag tänker när det ska bli mer än en snygg vy.",
@@ -108,27 +108,27 @@ const copy = {
 
   en: {
     kicker: "Alexander Åhman / software developer",
-    headline: "I build the systems behind good digital experiences.",
+    headline: "Software developer building practical web apps and automations.",
     lede: [
-      "Full-stack developer who can move from business idea to running product: data model, API, interface, deployment, and the small decisions that make a system liveable.",
-      "I fit best where someone needs to understand the situation quickly, break down a messy problem, and ship a first working version without losing quality.",
+      "I help teams move from messy problem to running product: data model, API, interface, automation, and deployment.",
+      "You bring me in when you need someone who understands the current state quickly, makes reasonable technical decisions, and ships the first version without losing quality.",
     ],
-    ctaPrimary: "Get in touch",
+    ctaPrimary: "Contact me",
     ctaSecondary: "View projects",
     ctaBook: "Book intro call",
     badges: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "CI/CD"],
-    availabilityTitle: "Available for work",
-    availabilityText: "Open to freelance work, project roles, and full-stack positions where practical ownership matters more than meeting theatre.",
+    availabilityTitle: "Product-minded software developer",
+    availabilityText: "I build useful digital workflows with practical ownership from problem understanding to working product.",
     heroMeta: [
       ["mode", "full-stack / product-minded"],
       ["base", "Västervik, remote"],
-      ["focus", "booking, data, web apps"],
+      ["focus", "web apps, AI, automation"],
     ],
     checklist: [
-      "Connects database, API, and UI flows",
+      "Builds from database and API to usable interface",
       "Finds risks before they become expensive",
       "Documents decisions so the team can continue",
-      "Prioritizes what gets the product in front of users",
+      "Prioritizes what gets the solution in front of users",
     ],
     selectedKicker: "Selected work",
     selectedTitle: "Three projects that show how I think when the job is more than a good-looking view.",
@@ -279,36 +279,41 @@ export default function Home({ lang }) {
         siteUrl={SITE_URL}
       />
 
-      <section className="hero homeHero">
+      <section className="hero homeHero portfolioRebuildHero boldPortfolioHero">
         <div className="container">
-          <div className="homeHeroPanel fadeUp" data-parallax="hero">
-            <div className="homeHeroGrid">
-              <div className="homeHeroCopy">
-                <div className="kicker">{t.kicker}</div>
-                <h1 className="h1 homeHeadline">{t.headline}</h1>
+          <div className="homeHeroPanel homeHeroRebuild workbenchHero boldHeroCanvas fadeUp" data-parallax="hero">
+            <div className="heroAmbient" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="workbenchTopline" aria-hidden="true">
+              <span>alexahman.se</span>
+              <span>systems / automations / product UI</span>
+            </div>
+            <div className="boldNameRail" aria-hidden="true">Alexander Åhman</div>
+            <div className="homeHeroGrid workbenchGrid boldHeroGrid">
+              <div className="homeHeroCopy homeHeroCommand workbenchCopy boldHeroCopy">
+                <div className="kicker heroKicker">{t.kicker}</div>
+                <h1 className="h1 homeHeadline workbenchHeadline">{t.headline}</h1>
                 {Array.isArray(t.lede)
                   ? t.lede.map((paragraph) => (
-                      <p className="lede" key={paragraph}>
+                      <p className="lede heroLede" key={paragraph}>
                         {paragraph}
                       </p>
                     ))
-                  : <p className="lede">{t.lede}</p>}
+                  : <p className="lede heroLede">{t.lede}</p>}
 
-                <div className="row" style={{ marginTop: 16 }}>
-                  <Link className="btn" to={pathFor(lang, "contact")}>
+                <div className="row heroActions" style={{ marginTop: 16 }}>
+                  <Link className="btn heroPrimary" to={pathFor(lang, "contact")}>
                     {t.ctaPrimary}
                   </Link>
-                  <Link className="btn btn-outline" to={pathFor(lang, "projects")}>
+                  <Link className="btn btn-outline heroSecondary" to={pathFor(lang, "projects")}>
                     {t.ctaSecondary}
                   </Link>
-                  {hasBooking ? (
-                    <a className="btn btn-outline" href={BOOKING_URL} target="_blank" rel="noreferrer">
-                      {t.ctaBook}
-                    </a>
-                  ) : null}
                 </div>
 
-                <div className="badges homeBadges">
+                <div className="badges homeBadges workbenchBadges">
                   {t.badges.map((badge) => (
                     <span className="badge" key={badge}>
                       {badge}
@@ -317,14 +322,44 @@ export default function Home({ lang }) {
                 </div>
               </div>
 
-              <aside className="homeSignalCard">
+              <div className="boldPortraitStack">
+                <figure className="boldPortraitCard">
+                  <img src="/Alex-680.jpg" alt="Alexander Åhman" />
+                  <figcaption>
+                    <span>{lang === "en" ? "Based in Västervik" : "Bas i Västervik"}</span>
+                    <strong>{lang === "en" ? "Building useful systems" : "Bygger användbara system"}</strong>
+                  </figcaption>
+                </figure>
+                <div className="boldBuildStrip" aria-hidden="true">
+                  <span>01 problem</span>
+                  <span>02 model</span>
+                  <span>03 interface</span>
+                  <span>04 ship</span>
+                </div>
+              </div>
+
+              <aside className="homeSignalCard homeHeroConsole workbenchConsole boldSignalPanel">
                 <div className="terminalHeader" aria-hidden="true">
                   <span />
                   <span />
                   <span />
                 </div>
+                <div className="consoleEyebrow" aria-hidden="true">
+                  <span>profile.ready</span>
+                  <span>vastervik / remote</span>
+                </div>
                 <div className="kicker">{t.availabilityTitle}</div>
                 <p style={{ marginTop: 12 }}>{t.availabilityText}</p>
+
+                <div className="systemMap" aria-hidden="true">
+                  <span className="systemNode systemNodeData">Data</span>
+                  <span className="systemLine systemLineOne" />
+                  <span className="systemNode systemNodeApi">API</span>
+                  <span className="systemLine systemLineTwo" />
+                  <span className="systemNode systemNodeUi">UI</span>
+                  <span className="systemLine systemLineThree" />
+                  <span className="systemNode systemNodeOps">Ops</span>
+                </div>
 
                 <dl className="homeMetaList">
                   {t.heroMeta.map(([label, value]) => (
@@ -342,19 +377,19 @@ export default function Home({ lang }) {
                     </div>
                   ))}
                 </div>
+                <div className="heroSystemStrip" aria-hidden="true">
+                  <span>API</span>
+                  <span>UI</span>
+                  <span>DATA</span>
+                  <span>AUTO</span>
+                </div>
               </aside>
-            </div>
-            <div className="heroScrollCue" aria-hidden="true">
-              <span className="heroScrollCueLabel">{lang === "en" ? "Scroll" : "Scrolla"}</span>
-              <span className="heroScrollCueTrack">
-                <span className="heroScrollCueDot" />
-              </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section homeWorkSection">
         <div className="container">
           <div className="sectionIntroLine">
             <div>
@@ -368,9 +403,9 @@ export default function Home({ lang }) {
             </Link>
           </div>
 
-          <div className="selectedWorkList">
+          <div className="selectedWorkList boldProofGrid">
             {t.selectedWork.map((item) => (
-              <article className="selectedCase" key={item.title}>
+              <article className="selectedCase selectedCaseRebuild proofCard boldProofCard" key={item.title}>
                 <header className="selectedCaseHeader">
                   <span className="caseIndex">{item.index}</span>
                   <div>
@@ -381,6 +416,12 @@ export default function Home({ lang }) {
                     {lang === "en" ? "Read case" : "Läs case"}
                   </Link>
                 </header>
+
+                <div className="proofRail" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
 
                 <div className="caseScanGrid">
                   <div>
@@ -411,21 +452,21 @@ export default function Home({ lang }) {
           </div>
 
           {lang === "sv" ? (
-            <aside className="localSpotlight">
-              <div className="kicker">{t.localSpotlightKicker}</div>
-              <h3>{t.localSpotlightTitle}</h3>
-              <p>{t.localSpotlightText}</p>
-              <div className="row" style={{ marginTop: 12 }}>
-                <Link className="btn btn-outline" to="/hemsida-vastervik">
-                  {t.localSpotlightCta}
-                </Link>
+            <aside className="localSpotlight localSpotlightRebuild">
+              <div>
+                <div className="kicker">{t.localSpotlightKicker}</div>
+                <h3>{t.localSpotlightTitle}</h3>
+                <p>{t.localSpotlightText}</p>
               </div>
+              <Link className="btn btn-outline" to="/hemsida-vastervik">
+                {t.localSpotlightCta}
+              </Link>
             </aside>
           ) : null}
         </div>
       </section>
 
-      <section className="section">
+      <section className="section homeProcessSection processWorkbench">
         <div className="container">
           <div className="howWorkShell">
             <div>
@@ -438,7 +479,7 @@ export default function Home({ lang }) {
 
             <div className="homeProcessGrid editorialProcess">
               {t.how.map(([title, text]) => (
-                <div className="homeProcessItem" key={title}>
+                <div className="homeProcessItem homeProcessItemRebuild" key={title}>
                   <h3>{title}</h3>
                   <p>{text}</p>
                 </div>
@@ -469,9 +510,9 @@ export default function Home({ lang }) {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 26 }}>
+      <section className="section finalWorkbenchSection" style={{ paddingTop: 26 }}>
         <div className="container">
-          <div className="homeFinal">
+          <div className="homeFinal finalWorkbench">
             <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{t.finalTitle}</h2>
             <p className="lede">{t.finalText}</p>
 
