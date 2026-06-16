@@ -127,9 +127,9 @@ export default function HemsidaVastervik() {
         svOnly
       />
 
-      <section className="hero homeHero" style={{ borderTop: "none" }}>
+      <section className="hero homeHero localWebsiteHero" style={{ borderTop: "none" }}>
         <div className="container">
-          <div className="homeHeroPanel fadeUp" data-parallax="hero">
+          <div className="homeHeroPanel localWebsiteHeroPanel fadeUp" data-parallax="hero">
             <div className="kicker">{copy.kicker}</div>
             <h1 className="h2" style={{ marginTop: 10 }}>
               {copy.title}
@@ -238,14 +238,14 @@ export default function HemsidaVastervik() {
             </div>
           </div>
 
-          <div className="card" style={{ marginTop: 18 }}>
+          <div className="card localRelatedCard" style={{ marginTop: 18 }}>
             <p>Relaterade sidor för mer information:</p>
-            <div className="row" style={{ marginTop: 12 }}>
-              <Link className="btn btn-outline" to="/about">
-                Om mig
+            <div className="row exploreButtonRow" style={{ marginTop: 12 }}>
+              <Link className="btn btn-outline exploreButton" to="/about">
+                Läs om utvecklaren
               </Link>
-              <Link className="btn btn-outline" to="/contact">
-                Kontakt
+              <Link className="btn btn-outline exploreButton exploreButtonLocal" to="/contact">
+                Starta hemsideprojektet
               </Link>
             </div>
           </div>
