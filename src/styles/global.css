@@ -3850,3 +3850,112 @@ body{
     margin-bottom:28px;
   }
 }
+
+/* Sharper action buttons and safer mobile hero typography. */
+.exploreButtonRow{
+  gap:10px;
+}
+
+.exploreButton,
+.localCtaButton{
+  position:relative;
+  border-radius:0;
+  border-color:#101312;
+  background:#fff8ea;
+  color:#101312;
+  box-shadow:4px 4px 0 rgba(16,19,18,0.16);
+}
+
+.exploreButton::after,
+.localCtaButton::after{
+  content:"";
+  width:7px;
+  height:7px;
+  border-right:2px solid currentColor;
+  border-top:2px solid currentColor;
+  transform:rotate(45deg);
+  transition:transform 180ms ease;
+}
+
+.exploreButton:hover,
+.localCtaButton:hover{
+  background:#efe2cc;
+  transform:translate(-2px, -2px);
+  box-shadow:7px 7px 0 rgba(16,19,18,0.16);
+}
+
+.exploreButton:hover::after,
+.localCtaButton:hover::after{
+  transform:translateX(3px) rotate(45deg);
+}
+
+.exploreButtonLocal{
+  background:#101312;
+  color:#fff8ea;
+}
+
+.localSpotlightRebuild .localCtaButton,
+.localSpotlightSlim .localCtaButton{
+  background:#fff8ea;
+  color:#101312;
+  border:1px solid #fff8ea;
+  box-shadow:5px 5px 0 rgba(225,84,47,0.75);
+}
+
+.localSpotlightRebuild .localCtaButton:hover,
+.localSpotlightSlim .localCtaButton:hover{
+  background:#f3dfc4;
+}
+
+.contactSubmitButton{
+  border-radius:0 !important;
+  border:1px solid #101312;
+  background:#101312;
+  color:#fff8ea;
+  box-shadow:6px 6px 0 rgba(16,19,18,0.14);
+}
+
+.contactSubmitButton::after{
+  content:"";
+  width:8px;
+  height:8px;
+  border-right:2px solid currentColor;
+  border-top:2px solid currentColor;
+  transform:rotate(45deg);
+}
+
+.contactSubmitButton:hover{
+  background:#22342f;
+  transform:translate(-2px, -2px);
+  box-shadow:9px 9px 0 rgba(16,19,18,0.14);
+}
+
+@media (max-width: 760px){
+  .boldHeroCopy .workbenchHeadline{
+    max-width:100%;
+    font-size:clamp(30px, 9.2vw, 36px);
+    line-height:1.04;
+    letter-spacing:-0.006em;
+    overflow-wrap:normal;
+    word-break:normal;
+    hyphens:none;
+  }
+
+  .exploreButtonRow{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:100%;
+  }
+
+  .exploreButton,
+  .localCtaButton{
+    width:100%;
+    min-height:48px;
+    white-space:normal;
+  }
+
+  .localSpotlightRebuild .localCtaButton,
+  .localSpotlightSlim .localCtaButton{
+    width:100%;
+  }
+}

@@ -21,7 +21,7 @@ const copy = {
     name: "Namn",
     email: "Email",
     message: "Meddelande",
-    button: "Skicka",
+    button: "Skicka meddelande",
     sending: "Skickar...",
     success: "Tack! Ditt meddelande är skickat.",
     error: "Något gick fel. Försök igen eller maila mig direkt.",
@@ -289,7 +289,7 @@ export default function Contact({ lang }) {
               ) : null}
 
               <button
-                className="btn"
+                className="btn contactSubmitButton"
                 type="submit"
                 style={{ marginTop: 14, width: "100%" }}
                 disabled={isSubmitting}

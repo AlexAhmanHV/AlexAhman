@@ -14,7 +14,7 @@ const copy = {
     localTitle: "Hemsida i Västervik",
     localText:
       "Söker du en lokal partner för hemsida och vidareutveckling? Jag hjälper med struktur, innehåll, implementation och nästa tekniska steg.",
-    localCta: "Jag behöver en hemsida i Västervik med omnejd",
+    localCta: "Planera en hemsida i Västervik",
     labels: {
       context: "När det passar",
       output: "Vad du får",
@@ -190,7 +190,7 @@ export default function Services({ lang }) {
               <h3>{t.localTitle}</h3>
               <p>{t.localText}</p>
               <div className="row" style={{ marginTop: 12 }}>
-                <Link className="btn btn-outline" to="/hemsida-vastervik">
+                <Link className="btn btn-outline localCtaButton" to="/hemsida-vastervik">
                   {t.localCta}
                 </Link>
               </div>

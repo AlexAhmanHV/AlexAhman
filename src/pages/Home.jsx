@@ -93,13 +93,13 @@ const copy = {
     localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
     localSpotlightText:
       "Behöver du en som tar helhetsansvar för det digitala? Jag finns lokalt för dig i Västervik och gör det enkelt att få fart på både synlighet och försäljning.",
-    localSpotlightCta: "Jag bor i Västervik och vill ha hjälp!",
+    localSpotlightCta: "Planera en hemsida i Västervik",
     linksKicker: "Läs vidare",
     linksTitle: "Utforska fler sidor",
     links: [
-      ["Projekt", "projects"],
-      ["Om mig", "about"],
-      ["Kontakt", "contact"],
+      ["Se case", "projects"],
+      ["Läs om Alex", "about"],
+      ["Starta dialog", "contact"],
     ],
     finalTitle: "Behöver du en utvecklare som bygger på riktigt?",
     finalText:
@@ -458,7 +458,7 @@ export default function Home({ lang }) {
                 <h3>{t.localSpotlightTitle}</h3>
                 <p>{t.localSpotlightText}</p>
               </div>
-              <Link className="btn btn-outline" to="/hemsida-vastervik">
+              <Link className="btn btn-outline localCtaButton" to="/hemsida-vastervik">
                 {t.localSpotlightCta}
               </Link>
             </aside>
@@ -495,15 +495,15 @@ export default function Home({ lang }) {
           <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 10 }}>
             {t.linksTitle}
           </h2>
-          <div className="row" style={{ marginTop: 14 }}>
+          <div className="row exploreButtonRow" style={{ marginTop: 14 }}>
             {t.links.map(([label, to]) => (
-              <Link className="btn btn-outline" key={to} to={pathFor(lang, to)}>
+              <Link className="btn btn-outline exploreButton" key={to} to={pathFor(lang, to)}>
                 {label}
               </Link>
             ))}
             {lang === "sv" ? (
-              <Link className="btn btn-outline" to="/hemsida-vastervik">
-                Hemsida i Västervik
+              <Link className="btn btn-outline exploreButton exploreButtonLocal" to="/hemsida-vastervik">
+                Lokal hemsida
               </Link>
             ) : null}
           </div>
