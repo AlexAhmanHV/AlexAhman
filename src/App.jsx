@@ -35,6 +35,7 @@ function AppRoutes({ lang }) {
           <Route path="projects/venueflow" element={<ProjectCase lang={lang} slug="venueflow" />} />
           <Route path="projects/fx-monitor" element={<ProjectCase lang={lang} slug="fx-monitor" />} />
           <Route path="projects/lordagsgolf" element={<ProjectCase lang={lang} slug="lordagsgolf" />} />
+          <Route path="projects/fairway" element={<ProjectCase lang={lang} slug="fairway" />} />
           {lang === "sv" ? (
             <>
               <Route path="fullstackutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="fullstackutvecklare-vastervik" />} />
