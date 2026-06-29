@@ -65,6 +65,22 @@ const copy = {
         href: "https://lordagsgolf.se/",
         linkText: "Besök webbplats",
       },
+      {
+        index: "04",
+        title: "Fairway",
+        meta: "golf scorecard / Next.js / Claude API",
+        problem:
+          "Att föra runda på papper ger ingen data att förbättra sig från. Golfare behöver ett sätt att logga rundor hål för hål och få konkret återkoppling på vad som faktiskt kostade slag.",
+        solution:
+          "Jag byggde en fullstack Next.js-app med hål-för-hål-scorecard, localStorage-lagring, statistikdiagram, screenshot-import via AI-vision och Claude-driven coachinganalys per runda.",
+        signal:
+          "Visar end-to-end produkttänk: säker AI-integration på serversidan, strukturerad data från ostrukturerad input och ett gränssnitt som håller under en runda.",
+        details: ["AI på serversidan", "Screenshot-import", "localStorage", "Hål-för-hål-statistik", "Coachingrapport"],
+        stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "Render"],
+        casePath: "projects/fairway",
+        href: "https://golf-scorecard-ok6r.onrender.com/",
+        linkText: "Öppna appen",
+      },
     ],
     ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
@@ -132,6 +148,22 @@ const copy = {
         casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Visit website",
+      },
+      {
+        index: "04",
+        title: "Fairway",
+        meta: "golf scorecard / Next.js / Claude API",
+        problem:
+          "Tracking a round on paper gives you no data to improve from. Golfers need a way to log rounds hole by hole and get concrete feedback on what actually cost strokes.",
+        solution:
+          "I built a full-stack Next.js app with a hole-by-hole scorecard, localStorage persistence, statistics charts, screenshot import via AI vision, and Claude-powered coaching analysis per round.",
+        signal:
+          "Shows end-to-end product thinking: secure server-side AI integration, structured data from unstructured input, and a UI that stays usable during a round.",
+        details: ["Server-side AI", "Screenshot import", "localStorage", "Hole-by-hole stats", "Coaching report"],
+        stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "Render"],
+        casePath: "projects/fairway",
+        href: "https://golf-scorecard-ok6r.onrender.com/",
+        linkText: "Open app",
       },
     ],
     ctaTitle: "Want to see how your project would be broken down?",

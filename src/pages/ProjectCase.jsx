@@ -109,6 +109,60 @@ const cases = {
       linkText: "Open FX Monitor",
     },
   },
+  fairway: {
+    sv: {
+      title: "Fairway",
+      kicker: "Case / golf scorecard",
+      meta: "Next.js / TypeScript / Claude API",
+      seoTitle: "Fairway case | Golf scorecard med AI-coachning | Alexander Åhman",
+      seoDescription:
+        "Case om Fairway: en Next.js-app för golf med hål-för-hål-scorecard, statistik, screenshot-import via AI-vision och Claude-driven coachinganalys.",
+      lede:
+        "Fairway är en fullstack-app för att logga golfrundor hål för hål, se statistik över tid och få en coachinganalys av Claude baserad på scorekortet.",
+      problem:
+        "Pappersscorekortet ger ingen data att agera på. Golfare som vill förbättra sig behöver spåra puttar, GIR och fairway-träffar per hål och få feedback på vad som faktiskt kostade slag.",
+      solution:
+        "Jag byggde en Next.js-app med ett hål-för-hål-formulär, localStorage-lagring utan konto, statistikdiagram, screenshot-import via Claude vision och en server-side AI-rutt som returnerar en strukturerad coachingrapport.",
+      decisions: [
+        "API-nyckeln hålls enbart på servern via en Next.js-routehandler — aldrig exponerad i klienten.",
+        "Zod-validering på både request och AI-response för att garantera strukturerad data.",
+        "localStorage för att appen ska fungera utan backend eller konto.",
+        "Dynamic import med ssr:false för WebGL-komponenter för att undvika SSR-problem.",
+        "Render för enkel deployment av en fullstack Next.js-app.",
+      ],
+      result:
+        "Projektet visar att jag kan bygga AI-integrationer på ett säkert och strukturerat sätt: rätt lager för rätt ansvar, utan att exponera känsliga nyckel eller returnera ovaliderad data.",
+      stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "WebGL", "Render"],
+      href: "https://golf-scorecard-ok6r.onrender.com/",
+      linkText: "Öppna Fairway",
+    },
+    en: {
+      title: "Fairway",
+      kicker: "Case / golf scorecard",
+      meta: "Next.js / TypeScript / Claude API",
+      seoTitle: "Fairway case | Golf scorecard with AI coaching | Alexander Ahman",
+      seoDescription:
+        "Case study for Fairway: a Next.js golf app with hole-by-hole scorecard, statistics, screenshot import via AI vision, and Claude-powered coaching analysis.",
+      lede:
+        "Fairway is a full-stack app for logging golf rounds hole by hole, tracking statistics over time, and receiving a Claude-powered coaching analysis based on the scorecard.",
+      problem:
+        "A paper scorecard gives no data to act on. Golfers who want to improve need to track putts, GIR, and fairway hits per hole and get feedback on what actually cost strokes.",
+      solution:
+        "I built a Next.js app with a hole-by-hole form, localStorage persistence without accounts, statistics charts, screenshot import via Claude vision, and a server-side AI route that returns a structured coaching report.",
+      decisions: [
+        "API key kept server-side only via a Next.js route handler — never exposed to the client.",
+        "Zod validation on both the request and the AI response to guarantee structured data.",
+        "localStorage so the app works without a backend or account.",
+        "Dynamic import with ssr:false for WebGL components to avoid SSR issues.",
+        "Render for straightforward deployment of a full-stack Next.js app.",
+      ],
+      result:
+        "The project shows that I can build AI integrations in a secure and structured way: the right layer for the right responsibility, without exposing sensitive keys or returning unvalidated data.",
+      stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "WebGL", "Render"],
+      href: "https://golf-scorecard-ok6r.onrender.com/",
+      linkText: "Open Fairway",
+    },
+  },
   lordagsgolf: {
     sv: {
       title: "Lördagsgolf",
