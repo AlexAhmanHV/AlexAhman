@@ -239,7 +239,7 @@ export default function Home({ lang }) {
     sameAs: [
       "https://www.linkedin.com/in/alexander-%C3%A5hman/",
       "https://www.instagram.com/AlexAhman",
-      "https://github.com/alexahman",
+      "https://github.com/AlexAhmanHV",
     ],
     knowsAbout: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "API development", "System design"],
   };
@@ -252,7 +252,7 @@ export default function Home({ lang }) {
     sameAs: [
       "https://www.linkedin.com/in/alexander-%C3%A5hman/",
       "https://www.instagram.com/AlexAhman",
-      "https://github.com/alexahman",
+      "https://github.com/AlexAhmanHV",
     ],
   };
   const webSiteJsonLd = {
