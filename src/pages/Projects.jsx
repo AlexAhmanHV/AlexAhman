@@ -44,7 +44,7 @@ const copy = {
         signal:
           "Visar att jag kan koppla ihop data, CI, prestanda och interaktiv UX till en lösning som är enkel att drifta och lätt att resonera om.",
         details: ["Daglig CI-uppdatering", "Statiska datafiler", "KPI-beräkning", "Jämförelseläge", "Tvåspråkigt UI"],
-        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
         casePath: "projects/fx-monitor",
         href: "https://fx-monitor-tlpr.onrender.com",
         linkText: "Öppna appen",
@@ -128,7 +128,7 @@ const copy = {
         signal:
           "Shows that I can connect data, CI, performance, and interactive UX into a solution that is easy to operate and reason about.",
         details: ["Daily CI update", "Static data files", "KPI calculation", "Comparison mode", "Bilingual UI"],
-        stack: ["React", "TypeScript", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
         casePath: "projects/fx-monitor",
         href: "https://fx-monitor-tlpr.onrender.com",
         linkText: "Open app",
