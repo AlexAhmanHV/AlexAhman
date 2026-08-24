@@ -81,6 +81,22 @@ const copy = {
         href: "https://golf-scorecard-ok6r.onrender.com/",
         linkText: "Öppna appen",
       },
+      {
+        index: "05",
+        title: "Kommunfotbollen",
+        meta: "hyperlokal data-hub / Next.js / Claude API",
+        problem:
+          "Lokalfotboll är utspridd över flera källor och lokaltidningar. Ingen enskild plats samlar tabeller, matcher och målskyttar för kommunens lag, uppdaterat automatiskt.",
+        solution:
+          "Jag byggde en Next.js-app som hämtar serier, matcher och tabeller från en extern sportkälla, och som låter Claude läsa lokaltidningarnas matchreferat för att bedöma relevans och extrahera målskyttar ur ostrukturerad text.",
+        signal:
+          "Visar att jag kan bygga en källagnostisk ingest-arkitektur och använda AI för strukturerad extraktion ur text, drivet av ett schemalagt, kostnadsfritt driftupplägg.",
+        details: ["Källagnostisk ingest", "AI-driven relevansfiltrering", "Målskytte-extraktion ur text", "Cron via GitHub Actions", "Supabase Postgres"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+        casePath: "projects/kommunfotboll",
+        href: "https://kommunfotboll.onrender.com/",
+        linkText: "Öppna appen",
+      },
     ],
     ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
@@ -163,6 +179,22 @@ const copy = {
         stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "Render"],
         casePath: "projects/fairway",
         href: "https://golf-scorecard-ok6r.onrender.com/",
+        linkText: "Open app",
+      },
+      {
+        index: "05",
+        title: "Kommunfotbollen",
+        meta: "hyperlocal data hub / Next.js / Claude API",
+        problem:
+          "Local football coverage is scattered across sources and local newspapers. No single place aggregates standings, matches, and goal scorers for a town's teams, kept automatically up to date.",
+        solution:
+          "I built a Next.js app that pulls leagues, matches, and standings from an external sports data source, and lets Claude read local newspaper match reports to judge relevance and extract goal scorers from unstructured text.",
+        signal:
+          "Shows that I can build a source-agnostic ingest architecture and apply AI to structured extraction from text, running on a scheduled, cost-free operational setup.",
+        details: ["Source-agnostic ingest", "AI-driven relevance filtering", "Goal-scorer extraction from text", "Cron via GitHub Actions", "Supabase Postgres"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+        casePath: "projects/kommunfotboll",
+        href: "https://kommunfotboll.onrender.com/",
         linkText: "Open app",
       },
     ],

@@ -219,6 +219,60 @@ const cases = {
       linkText: "Visit Lördagsgolf",
     },
   },
+  kommunfotboll: {
+    sv: {
+      title: "Kommunfotbollen",
+      kicker: "Case / hyperlokal data-hub",
+      meta: "Next.js / Claude API / GitHub Actions",
+      seoTitle: "Kommunfotbollen case | Lokalfotboll med AI-extraktion | Alexander Åhman",
+      seoDescription:
+        "Case om Kommunfotbollen: en Next.js-app som samlar tabeller och matcher för kommunens fotbollslag och använder Claude för att läsa lokaltidningarnas matchreferat och extrahera målskyttar.",
+      lede:
+        "Kommunfotbollen samlar tabeller, matcher och nyheter för en kommuns fotbollslag på ett ställe, uppdaterat automatiskt utan att någon behöver mata in data manuellt.",
+      problem:
+        "Lokalfotboll är utspridd över en extern sportkälla och flera lokaltidningar. Ingen plats samlade serier, matcher och målskyttar, och matchreferaten fanns bara som fritext utan struktur.",
+      solution:
+        "Jag byggde en Next.js-app med en källagnostisk ingest-arkitektur som hämtar serier och matcher, och en AI-pipeline där Claude läser lokaltidningarnas matchreferat, bedömer om artikeln är relevant för ett visst lag och extraherar målskyttar ur den ostrukturerade texten.",
+      decisions: [
+        "Källagnostisk ingest-arkitektur (MatchSource) så fler datakällor kan kopplas in utan att skriva om resten av appen.",
+        "Claude används för två separata AI-uppgifter: relevansfiltrering av nyheter och extraktion av målskyttar ur matchreferat.",
+        "Supabase Postgres via Drizzle istället för en inbäddad databas, för att appen ska kunna köras på en kostnadsfri driftplattform.",
+        "Synkning flyttad från in-process timers till schemalagd GitHub Actions-cron mot en autentiserad endpoint, så drift blir enkel och stateless.",
+        "Zod-validering av extern data för att hålla datamodellen pålitlig trots källor med varierande kvalitet.",
+      ],
+      result:
+        "Projektet visar att jag kan bygga integrationer mot flera externa datakällor, använda AI för strukturerad extraktion ur text, och göra medvetna arkitekturval för att hålla driftkostnaden nere.",
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+      href: "https://kommunfotboll.onrender.com/",
+      linkText: "Öppna Kommunfotbollen",
+    },
+    en: {
+      title: "Kommunfotbollen",
+      kicker: "Case / hyperlocal data hub",
+      meta: "Next.js / Claude API / GitHub Actions",
+      seoTitle: "Kommunfotbollen case | Local football with AI extraction | Alexander Ahman",
+      seoDescription:
+        "Case study for Kommunfotbollen: a Next.js app that aggregates standings and matches for a town's football teams and uses Claude to read local newspaper match reports and extract goal scorers.",
+      lede:
+        "Kommunfotbollen aggregates standings, matches, and news for a town's football teams in one place, kept automatically up to date without anyone entering data by hand.",
+      problem:
+        "Local football coverage was scattered across an external sports data source and several local newspapers. No single place aggregated leagues, matches, and goal scorers, and match reports existed only as unstructured free text.",
+      solution:
+        "I built a Next.js app with a source-agnostic ingest architecture that pulls leagues and matches, and an AI pipeline where Claude reads local newspaper match reports, judges whether an article is relevant to a given team, and extracts goal scorers from the unstructured text.",
+      decisions: [
+        "Source-agnostic ingest architecture (MatchSource) so more data sources can be added without rewriting the rest of the app.",
+        "Claude handles two separate AI tasks: news relevance filtering and goal-scorer extraction from match reports.",
+        "Supabase Postgres via Drizzle instead of an embedded database, so the app can run on a free-tier hosting platform.",
+        "Sync moved from in-process timers to a scheduled GitHub Actions cron hitting an authenticated endpoint, keeping operations simple and stateless.",
+        "Zod validation of external data to keep the data model reliable despite sources of varying quality.",
+      ],
+      result:
+        "The project shows that I can build integrations against multiple external data sources, use AI for structured extraction from text, and make deliberate architecture choices to keep operating costs down.",
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+      href: "https://kommunfotboll.onrender.com/",
+      linkText: "Open Kommunfotbollen",
+    },
+  },
 };
 
 function pathFor(lang, path) {

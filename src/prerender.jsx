@@ -49,6 +49,11 @@ const SEO = {
       description:
         "Case om Lördagsgolf: publik React- och Vite-webbplats med tydlig informationshierarki, responsiva vyer och fokuserade CTA:er.",
     },
+    "/projects/kommunfotboll": {
+      title: "Kommunfotbollen case | Lokalfotboll med AI-extraktion | Alexander Åhman",
+      description:
+        "Case om Kommunfotbollen: en Next.js-app som samlar tabeller och matcher för kommunens fotbollslag och använder Claude för att läsa lokaltidningarnas matchreferat och extrahera målskyttar.",
+    },
     "/fullstackutvecklare-vastervik": {
       title: "Fullstackutvecklare Västervik | Alexander Åhman",
       description:
@@ -142,6 +147,11 @@ const SEO = {
       title: "Lördagsgolf case | React website with clear information flow | Alexander Ahman",
       description:
         "Case study for Lördagsgolf: public React and Vite website with clear information hierarchy, responsive views, and focused CTAs.",
+    },
+    "/en/projects/kommunfotboll": {
+      title: "Kommunfotbollen case | Local football with AI extraction | Alexander Ahman",
+      description:
+        "Case study for Kommunfotbollen: a Next.js app that aggregates standings and matches for a town's football teams and uses Claude to read local newspaper match reports and extract goal scorers.",
     },
     "/en/fullstack-developer-vastervik": {
       title: "Full-stack developer Västervik | Alexander Ahman",
@@ -275,6 +285,7 @@ export async function prerender({ url }) {
     "/projects/venueflow",
     "/projects/fx-monitor",
     "/projects/lordagsgolf",
+    "/projects/kommunfotboll",
     "/hemsida-vastervik",
     "/fullstackutvecklare-vastervik",
     "/webbutvecklare-vastervik",
@@ -292,6 +303,7 @@ export async function prerender({ url }) {
     "/en/projects/venueflow",
     "/en/projects/fx-monitor",
     "/en/projects/lordagsgolf",
+    "/en/projects/kommunfotboll",
     "/en/fullstack-developer-vastervik",
     "/en/terms",
     "/en/privacy",
