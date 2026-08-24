@@ -236,7 +236,7 @@ const cases = {
       decisions: [
         "Källagnostisk ingest-arkitektur (MatchSource) så fler datakällor kan kopplas in utan att skriva om resten av appen.",
         "Claude används för två separata AI-uppgifter: relevansfiltrering av nyheter och extraktion av målskyttar ur matchreferat.",
-        "Supabase Postgres via Drizzle istället för en inbäddad databas, för att appen ska kunna köras på en kostnadsfri driftplattform.",
+        "Supabase Postgres via Drizzle istället för en inbäddad databas, så data överlever omstarter oberoende av var appen körs.",
         "Synkning flyttad från in-process timers till schemalagd GitHub Actions-cron mot en autentiserad endpoint, så drift blir enkel och stateless.",
         "Zod-validering av extern data för att hålla datamodellen pålitlig trots källor med varierande kvalitet.",
       ],
@@ -262,7 +262,7 @@ const cases = {
       decisions: [
         "Source-agnostic ingest architecture (MatchSource) so more data sources can be added without rewriting the rest of the app.",
         "Claude handles two separate AI tasks: news relevance filtering and goal-scorer extraction from match reports.",
-        "Supabase Postgres via Drizzle instead of an embedded database, so the app can run on a free-tier hosting platform.",
+        "Supabase Postgres via Drizzle instead of an embedded database, so data survives restarts independent of where the app runs.",
         "Sync moved from in-process timers to a scheduled GitHub Actions cron hitting an authenticated endpoint, keeping operations simple and stateless.",
         "Zod validation of external data to keep the data model reliable despite sources of varying quality.",
       ],

@@ -916,9 +916,6 @@ h1,h2,h3{
   transform:translateX(3px);
   color:var(--accent);
 }
-.textLink:hover::after{
-  transform:translateX(3px);
-}
 
 .selectedWorkList{
   margin-top:30px;
