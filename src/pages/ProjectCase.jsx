@@ -273,6 +273,60 @@ const cases = {
       linkText: "Open Kommunfotbollen",
     },
   },
+  kvitt: {
+    sv: {
+      title: "Kvitt",
+      kicker: "Case / delad utgiftsapp",
+      meta: "Laravel / Vue 3 / PostgreSQL",
+      seoTitle: "Kvitt case | Delad utgiftsapp med skuldförenkling | Alexander Åhman",
+      seoDescription:
+        "Case om Kvitt: en Laravel- och Vue-app för att dela utlägg i grupp, med en girig skuldförenklingsalgoritm och atomärt skyddade påminnelser.",
+      lede:
+        "Kvitt låter en grupp dela utlägg, se vem som är skyldig vem, och göra upp med så få betalningar som möjligt — istället för att alla ska hålla reda på det själva.",
+      problem:
+        "Att dela utlägg i grupp slutar ofta i ett virrvarr av småskulder korsvis mellan alla. Utan ett sätt att förenkla skulderna behöver varje person göra upp med varje annan person, även när nettoresultatet hade räckt med några få betalningar.",
+      solution:
+        "Jag byggde en Laravel + Inertia + Vue-app med grupper, utlägg med jämn eller anpassad delning, och en girig skuldförenklingsalgoritm som matchar den största fordran mot den största skulden om och om igen tills hela gruppen är uppgjord.",
+      decisions: [
+        "Skuldförenklingsalgoritmen räknar i heltalscent, inte flyttal, för att undvika avrundningsfel som annars smyger sig in vid upprepade delningar.",
+        "Påminnelsers nedkylning kontrolleras med en atomär villkorad UPDATE (WHERE last_reminded_at IS NULL OR < cutoff) istället för läs-sedan-skriv, för att undvika dubbla notiser vid samtidiga förfrågningar.",
+        "Inertia.js för SPA-känsla utan att bygga och underhålla ett separat API-lager.",
+        "Laravel Wayfinder för typade routes delade mellan backend och frontend.",
+        "Pest, Larastan och Pint i CI via GitHub Actions, pinnade till commit-SHA:n istället för flyttbara taggar.",
+      ],
+      result:
+        "Projektet visar att jag kan lösa ett riktigt algoritmproblem (skuldförenkling) och hantera race conditions korrekt, inte bara bygga formulär och tabeller.",
+      stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
+      href: "https://kvitt-web.onrender.com/",
+      linkText: "Öppna Kvitt",
+    },
+    en: {
+      title: "Kvitt",
+      kicker: "Case / shared expense app",
+      meta: "Laravel / Vue 3 / PostgreSQL",
+      seoTitle: "Kvitt case | Shared expense app with debt simplification | Alexander Ahman",
+      seoDescription:
+        "Case study for Kvitt: a Laravel and Vue app for splitting group expenses, with a greedy debt-simplification algorithm and atomically-protected reminders.",
+      lede:
+        "Kvitt lets a group split expenses, see who owes whom, and settle up with as few payments as possible — instead of everyone having to keep track themselves.",
+      problem:
+        "Splitting expenses in a group often turns into a tangle of small debts crossing between everyone. Without a way to simplify the debts, each person would need to settle with every other person, even when the net result could be handled with a handful of payments.",
+      solution:
+        "I built a Laravel + Inertia + Vue app with groups, expenses with even or custom splits, and a greedy debt-simplification algorithm that repeatedly matches the largest credit against the largest debt until the whole group is settled.",
+      decisions: [
+        "The debt-simplification algorithm works in integer cents, not floats, to avoid rounding errors that would otherwise creep in across repeated splits.",
+        "Reminder cooldowns are checked with an atomic conditional UPDATE (WHERE last_reminded_at IS NULL OR < cutoff) instead of read-then-write, to avoid duplicate notifications under concurrent requests.",
+        "Inertia.js for an SPA feel without building and maintaining a separate API layer.",
+        "Laravel Wayfinder for typed routes shared between backend and frontend.",
+        "Pest, Larastan, and Pint in CI via GitHub Actions, pinned to commit SHAs rather than movable tags.",
+      ],
+      result:
+        "The project shows I can solve a real algorithmic problem (debt simplification) and handle race conditions correctly, not just build forms and tables.",
+      stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
+      href: "https://kvitt-web.onrender.com/",
+      linkText: "Open Kvitt",
+    },
+  },
 };
 
 function pathFor(lang, path) {

@@ -97,6 +97,22 @@ const copy = {
         href: "https://kommunfotboll.onrender.com/",
         linkText: "Öppna appen",
       },
+      {
+        index: "06",
+        title: "Kvitt",
+        meta: "delad utgiftsapp / Laravel / Vue 3",
+        problem:
+          "Att dela utlägg i grupp (resa, sommarstuga, matlag) slutar ofta i ett virrvarr av småskulder korsvis mellan alla, och ingen vet riktigt vem som ska betala vem.",
+        solution:
+          "Jag byggde en Laravel + Inertia + Vue-app med grupper, delade utlägg och en girig skuldförenklingsalgoritm som räknar ut det minsta antalet transaktioner som krävs för att göra upp hela gruppens mellanhavanden, plus påminnelser med en atomärt skyddad nedkylning.",
+        signal:
+          "Visar att jag kan lösa ett riktigt algoritmproblem, inte bara bygga CRUD, och hantera race conditions korrekt med atomära databasoperationer.",
+        details: ["Skuldförenklingsalgoritm", "Grupper & delade utlägg", "Atomär påminnelse-cooldown", "Push- & e-postnotiser", "Schemalagda påminnelser"],
+        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Tailwind v4", "Render"],
+        casePath: "projects/kvitt",
+        href: "https://kvitt-web.onrender.com/",
+        linkText: "Öppna appen",
+      },
     ],
     ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
@@ -195,6 +211,22 @@ const copy = {
         stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
         casePath: "projects/kommunfotboll",
         href: "https://kommunfotboll.onrender.com/",
+        linkText: "Open app",
+      },
+      {
+        index: "06",
+        title: "Kvitt",
+        meta: "shared expense app / Laravel / Vue 3",
+        problem:
+          "Splitting expenses in a group (a trip, a shared cabin, a dinner club) quickly turns into a tangle of small debts crossing between everyone, and nobody's quite sure who owes whom.",
+        solution:
+          "I built a Laravel + Inertia + Vue app with groups, split expenses, and a greedy debt-simplification algorithm that computes the minimum number of transactions needed to settle the whole group, plus reminders with an atomically-protected cooldown.",
+        signal:
+          "Shows I can solve a real algorithmic problem, not just build CRUD, and handle race conditions correctly with atomic database operations.",
+        details: ["Debt-simplification algorithm", "Groups & split expenses", "Atomic reminder cooldown", "Push & email notifications", "Scheduled reminders"],
+        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Tailwind v4", "Render"],
+        casePath: "projects/kvitt",
+        href: "https://kvitt-web.onrender.com/",
         linkText: "Open app",
       },
     ],

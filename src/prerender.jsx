@@ -54,6 +54,11 @@ const SEO = {
       description:
         "Case om Kommunfotbollen: en Next.js-app som samlar tabeller och matcher för kommunens fotbollslag och använder Claude för att läsa lokaltidningarnas matchreferat och extrahera målskyttar.",
     },
+    "/projects/kvitt": {
+      title: "Kvitt case | Delad utgiftsapp med skuldförenkling | Alexander Åhman",
+      description:
+        "Case om Kvitt: en Laravel- och Vue-app för att dela utlägg i grupp, med en girig skuldförenklingsalgoritm och atomärt skyddade påminnelser.",
+    },
     "/fullstackutvecklare-vastervik": {
       title: "Fullstackutvecklare Västervik | Alexander Åhman",
       description:
@@ -152,6 +157,11 @@ const SEO = {
       title: "Kommunfotbollen case | Local football with AI extraction | Alexander Ahman",
       description:
         "Case study for Kommunfotbollen: a Next.js app that aggregates standings and matches for a town's football teams and uses Claude to read local newspaper match reports and extract goal scorers.",
+    },
+    "/en/projects/kvitt": {
+      title: "Kvitt case | Shared expense app with debt simplification | Alexander Ahman",
+      description:
+        "Case study for Kvitt: a Laravel and Vue app for splitting group expenses, with a greedy debt-simplification algorithm and atomically-protected reminders.",
     },
     "/en/fullstack-developer-vastervik": {
       title: "Full-stack developer Västervik | Alexander Ahman",
@@ -286,6 +296,7 @@ export async function prerender({ url }) {
     "/projects/fx-monitor",
     "/projects/lordagsgolf",
     "/projects/kommunfotboll",
+    "/projects/kvitt",
     "/hemsida-vastervik",
     "/fullstackutvecklare-vastervik",
     "/webbutvecklare-vastervik",
@@ -304,6 +315,7 @@ export async function prerender({ url }) {
     "/en/projects/fx-monitor",
     "/en/projects/lordagsgolf",
     "/en/projects/kommunfotboll",
+    "/en/projects/kvitt",
     "/en/fullstack-developer-vastervik",
     "/en/terms",
     "/en/privacy",
