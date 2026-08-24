@@ -76,7 +76,8 @@ const cases = {
         "Python-pipeline med tester för datainsamling och bearbetning.",
         "Chart.js för tydlig visualisering av jämförelser och risknivåer.",
         "Tvåspråkigt UI för att göra appen mer flexibel.",
-        "CI-pipeline med 57 tester, lint, bygge och sårbarhetsscanning (Dependabot, CodeQL) på varje ändring.",
+        "CI-pipeline med 67 tester, lint, bygge och sårbarhetsscanning (Dependabot, CodeQL) på varje ändring.",
+        "Feltolerant pipeline per valutapar med statusbadge på sajten, så drifthälsa syns utan att gräva i loggar.",
       ],
       result:
         "Projektet visar hur jag kopplar ihop data, automation, frontend och drift till en lösning som är lätt att förstå och billig att köra.",
@@ -102,7 +103,8 @@ const cases = {
         "Python pipeline with tests for data fetching and processing.",
         "Chart.js for clear comparison and risk-level visualization.",
         "Bilingual UI to make the app more flexible.",
-        "CI pipeline with 57 tests, lint, build, and vulnerability scanning (Dependabot, CodeQL) on every change.",
+        "CI pipeline with 67 tests, lint, build, and vulnerability scanning (Dependabot, CodeQL) on every change.",
+        "Fault-tolerant pipeline per currency pair with a live status badge, so operational health is visible without digging through logs.",
       ],
       result:
         "The project shows how I connect data, automation, frontend, and deployment into a solution that is easy to understand and cheap to run.",
