@@ -930,7 +930,7 @@ h1,h2,h3{
 .caseScreenshots{
   margin-top:28px;
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:16px;
 }
 .caseScreenshotThumb{
@@ -952,10 +952,10 @@ h1,h2,h3{
   object-position:top;
   display:block;
 }
-@media (min-width:800px){
-  .caseScreenshots{
-    grid-template-columns:repeat(3, 1fr);
-  }
+.caseScreenshotThumb.isPortrait img{
+  aspect-ratio:3 / 4;
+  object-fit:contain;
+  background:var(--bg);
 }
 .caseLightbox{
   position:fixed;

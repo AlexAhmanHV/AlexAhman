@@ -85,6 +85,11 @@ const cases = {
       stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions", "Render Static Site"],
       href: "https://fx-monitor-tlpr.onrender.com",
       linkText: "Öppna FX Monitor",
+      screenshots: [
+        { src: "/projects/fx-monitor/dashboard.png", alt: "Dashboard med kurshistorik, KPI-kort och marknadsöversikt" },
+        { src: "/projects/fx-monitor/comparison-mode.png", alt: "Jämförelseläge med tre valutapar normaliserade till index 100" },
+        { src: "/projects/fx-monitor/light-theme.png", alt: "Samma dashboard i ljust tema" },
+      ],
     },
     en: {
       title: "FX Monitor",
@@ -112,6 +117,11 @@ const cases = {
       stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions", "Render Static Site"],
       href: "https://fx-monitor-tlpr.onrender.com",
       linkText: "Open FX Monitor",
+      screenshots: [
+        { src: "/projects/fx-monitor/dashboard.png", alt: "Dashboard with rate history chart, KPI cards, and market snapshot" },
+        { src: "/projects/fx-monitor/comparison-mode.png", alt: "Comparison mode overlaying three currency pairs normalized to index 100" },
+        { src: "/projects/fx-monitor/light-theme.png", alt: "The same dashboard in light theme" },
+      ],
     },
   },
   fairway: {
@@ -140,6 +150,11 @@ const cases = {
       stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "WebGL", "Render"],
       href: "https://golf-scorecard-ok6r.onrender.com/",
       linkText: "Öppna Fairway",
+      screenshots: [
+        { src: "/projects/fairway/dashboard.png", alt: "Dashboard med rundhistorik och snabbåtgärder" },
+        { src: "/projects/fairway/scorecard.png", alt: "Hål-för-hål-scorekort med live-summering" },
+        { src: "/projects/fairway/stats.png", alt: "Statistikvy: score-trend, GIR/fairway-staplar och scorefördelning" },
+      ],
     },
     en: {
       title: "Fairway",
@@ -166,6 +181,11 @@ const cases = {
       stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "WebGL", "Render"],
       href: "https://golf-scorecard-ok6r.onrender.com/",
       linkText: "Open Fairway",
+      screenshots: [
+        { src: "/projects/fairway/dashboard.png", alt: "Dashboard with round history and quick actions" },
+        { src: "/projects/fairway/scorecard.png", alt: "Hole-by-hole scorecard with live running totals" },
+        { src: "/projects/fairway/stats.png", alt: "Statistics view: score trend, GIR/fairway bars, and score distribution" },
+      ],
     },
   },
   lordagsgolf: {
@@ -193,6 +213,11 @@ const cases = {
       stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
       href: "https://lordagsgolf.se/",
       linkText: "Besök Lördagsgolf",
+      screenshots: [
+        { src: "/projects/lordagsgolf/home.png", alt: "Startsida med hero och genvägar till säsong och spelare" },
+        { src: "/projects/lordagsgolf/season-results.png", alt: "Säsongsvy med senaste rundan och topplistor" },
+        { src: "/projects/lordagsgolf/players.png", alt: "Spelarkatalog med alla profiler" },
+      ],
     },
     en: {
       title: "Lördagsgolf",
@@ -218,6 +243,11 @@ const cases = {
       stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
       href: "https://lordagsgolf.se/",
       linkText: "Visit Lördagsgolf",
+      screenshots: [
+        { src: "/projects/lordagsgolf/home.png", alt: "Home page with hero and shortcuts to season and players" },
+        { src: "/projects/lordagsgolf/season-results.png", alt: "Season view with the latest round and leaderboards" },
+        { src: "/projects/lordagsgolf/players.png", alt: "Player directory with all profiles" },
+      ],
     },
   },
   kommunfotboll: {
@@ -246,6 +276,11 @@ const cases = {
       stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
       href: "https://kommunfotboll.onrender.com/",
       linkText: "Öppna Kommunfotbollen",
+      screenshots: [
+        { src: "/projects/kommunfotboll/home.png", alt: "Startsida med lokala lag, tabellplacering och form" },
+        { src: "/projects/kommunfotboll/news.png", alt: "AI-filtrerade nyheter om lagen, taggade per lag" },
+        { src: "/projects/kommunfotboll/standings.png", alt: "Serietabell med spelprogram" },
+      ],
     },
     en: {
       title: "Kommunfotbollen",
@@ -272,6 +307,11 @@ const cases = {
       stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
       href: "https://kommunfotboll.onrender.com/",
       linkText: "Open Kommunfotbollen",
+      screenshots: [
+        { src: "/projects/kommunfotboll/home.png", alt: "Home page with local teams, standings position, and form" },
+        { src: "/projects/kommunfotboll/news.png", alt: "AI-filtered news about the teams, tagged per team" },
+        { src: "/projects/kommunfotboll/standings.png", alt: "League table with fixtures" },
+      ],
     },
   },
   kvitt: {
@@ -300,6 +340,10 @@ const cases = {
       stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
       href: "https://kvitt-web.onrender.com/",
       linkText: "Öppna Kvitt",
+      screenshots: [
+        { src: "/projects/kvitt/group-overview.png", alt: "Gruppvy med utlägg, nettosaldo och föreslagna uppgörelser", portrait: true },
+        { src: "/projects/kvitt/new-expense.png", alt: "Formulär för nytt utlägg med jämn/anpassad delning", portrait: true },
+      ],
     },
     en: {
       title: "Kvitt",
@@ -326,6 +370,10 @@ const cases = {
       stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
       href: "https://kvitt-web.onrender.com/",
       linkText: "Open Kvitt",
+      screenshots: [
+        { src: "/projects/kvitt/group-overview.png", alt: "Group view with expenses, net balance, and suggested settlements", portrait: true },
+        { src: "/projects/kvitt/new-expense.png", alt: "New expense form with even/custom split", portrait: true },
+      ],
     },
   },
   flagforge: {
@@ -497,7 +545,7 @@ export default function ProjectCase({ lang, slug }) {
                 <button
                   key={shot.src}
                   type="button"
-                  className="caseScreenshotThumb"
+                  className={`caseScreenshotThumb${shot.portrait ? " isPortrait" : ""}`}
                   onClick={() => setLightboxShot(shot)}
                   aria-label={lang === "en" ? `Enlarge screenshot: ${shot.alt}` : `Förstora skärmbild: ${shot.alt}`}
                 >
