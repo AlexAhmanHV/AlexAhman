@@ -327,6 +327,60 @@ const cases = {
       linkText: "Open Kvitt",
     },
   },
+  flagforge: {
+    sv: {
+      title: "FlagForge",
+      kicker: "Case / feature-flag-plattform",
+      meta: "Laravel / PostgreSQL / RBAC",
+      seoTitle: "FlagForge case | Feature-flag-kontrollpanel med governance | Alexander Åhman",
+      seoDescription:
+        "Case om FlagForge: en Laravel-baserad feature-flag-plattform med RBAC, tvåpersonersgodkännande för kritiska flaggor och en omutlig audit-logg.",
+      lede:
+        "FlagForge är en feature-flag-kontrollpanel à la LaunchDarkly där team kan slå på och av funktioner per miljö, med kontroll över vem som godkänner ändringar och full spårbarhet bakåt.",
+      problem:
+        "Att styra funktionsflaggor i produktion utan governance är riskabelt: vem som helst kan publicera en ändring till alla användare, ingen vet vem som gjorde vad, och en trasig utrullning är svår att rulla tillbaka snabbt.",
+      solution:
+        "Jag byggde en Laravel-plattform med projekt-scopad RBAC, ett draft/publish-flöde per miljö, deterministisk rollout-hashning för konsekvent målgruppsstyrning, tvåpersonersgodkännande för kritiska flaggor, en \"break-glass\"-nödöppning för akuta lägen, och en omutlig audit-logg med kontrollsummekedja för att bevisa att historiken inte manipulerats.",
+      decisions: [
+        "Draft/publish-separation per miljö så en ändring aldrig når produktion utan ett explicit godkännandesteg.",
+        "Tvåpersonersgodkännande specifikt för flaggor märkta som kritiska, konfigurerbart per miljös policy.",
+        "Omutlig audit-logg med kontrollsummekedja — varje post innehåller ett hash av föregående post, så manipulation blir upptäckbar.",
+        "Deterministisk rollout-hashning (samma användare hamnar alltid i samma bucket) istället för slumpmässig procentutrullning.",
+        "Pest, Pint och GitHub Actions i CI; k6-lasttester för att hålla utvärderings-endpointen under en satt p95-SLO.",
+      ],
+      result:
+        "Projektet visar att jag kan designa behörighet, godkännandeflöden och spårbarhet för ett internt utvecklarverktyg — governance som förstaklassmedborgare, inte en eftertanke.",
+      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+      href: "https://flagforge-ira0.onrender.com/",
+      linkText: "Öppna FlagForge",
+    },
+    en: {
+      title: "FlagForge",
+      kicker: "Case / feature-flag platform",
+      meta: "Laravel / PostgreSQL / RBAC",
+      seoTitle: "FlagForge case | Feature-flag control plane with governance | Alexander Ahman",
+      seoDescription:
+        "Case study for FlagForge: a Laravel-based feature-flag platform with RBAC, two-person approval for critical flags, and an immutable audit log.",
+      lede:
+        "FlagForge is a feature-flag control plane in the style of LaunchDarkly, where teams can toggle features per environment with control over who approves changes and full traceability.",
+      problem:
+        "Controlling feature flags in production without governance is risky: anyone can publish a change to every user, nobody knows who did what, and a broken rollout is hard to reverse quickly.",
+      solution:
+        "I built a Laravel platform with project-scoped RBAC, a draft/publish workflow per environment, deterministic rollout hashing for consistent targeting, two-person approval for critical flags, a break-glass emergency override, and an immutable audit log with a checksum chain to prove the history hasn't been tampered with.",
+      decisions: [
+        "Draft/publish separation per environment so a change never reaches production without an explicit approval step.",
+        "Two-person approval specifically for flags marked critical, configurable per environment's policy.",
+        "Immutable audit log with a checksum chain — each entry hashes the previous one, making tampering detectable.",
+        "Deterministic rollout hashing (the same user always lands in the same bucket) instead of random percentage rollouts.",
+        "Pest, Pint, and GitHub Actions in CI; k6 load tests to keep the evaluation endpoint under a set p95 SLO.",
+      ],
+      result:
+        "The project shows I can design permissions, approval flows, and traceability for an internal developer tool — governance as a first-class citizen, not an afterthought.",
+      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+      href: "https://flagforge-ira0.onrender.com/",
+      linkText: "Open FlagForge",
+    },
+  },
 };
 
 function pathFor(lang, path) {

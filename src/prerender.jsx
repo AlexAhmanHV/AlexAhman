@@ -59,6 +59,11 @@ const SEO = {
       description:
         "Case om Kvitt: en Laravel- och Vue-app för att dela utlägg i grupp, med en girig skuldförenklingsalgoritm och atomärt skyddade påminnelser.",
     },
+    "/projects/flagforge": {
+      title: "FlagForge case | Feature-flag-kontrollpanel med governance | Alexander Åhman",
+      description:
+        "Case om FlagForge: en Laravel-baserad feature-flag-plattform med RBAC, tvåpersonersgodkännande för kritiska flaggor och en omutlig audit-logg.",
+    },
     "/fullstackutvecklare-vastervik": {
       title: "Fullstackutvecklare Västervik | Alexander Åhman",
       description:
@@ -162,6 +167,11 @@ const SEO = {
       title: "Kvitt case | Shared expense app with debt simplification | Alexander Ahman",
       description:
         "Case study for Kvitt: a Laravel and Vue app for splitting group expenses, with a greedy debt-simplification algorithm and atomically-protected reminders.",
+    },
+    "/en/projects/flagforge": {
+      title: "FlagForge case | Feature-flag control plane with governance | Alexander Ahman",
+      description:
+        "Case study for FlagForge: a Laravel-based feature-flag platform with RBAC, two-person approval for critical flags, and an immutable audit log.",
     },
     "/en/fullstack-developer-vastervik": {
       title: "Full-stack developer Västervik | Alexander Ahman",
@@ -297,6 +307,7 @@ export async function prerender({ url }) {
     "/projects/lordagsgolf",
     "/projects/kommunfotboll",
     "/projects/kvitt",
+    "/projects/flagforge",
     "/hemsida-vastervik",
     "/fullstackutvecklare-vastervik",
     "/webbutvecklare-vastervik",
@@ -316,6 +327,7 @@ export async function prerender({ url }) {
     "/en/projects/lordagsgolf",
     "/en/projects/kommunfotboll",
     "/en/projects/kvitt",
+    "/en/projects/flagforge",
     "/en/fullstack-developer-vastervik",
     "/en/terms",
     "/en/privacy",

@@ -113,6 +113,22 @@ const copy = {
         href: "https://kvitt-web.onrender.com/",
         linkText: "Öppna appen",
       },
+      {
+        index: "07",
+        title: "FlagForge",
+        meta: "feature-flag-plattform / Laravel / RBAC",
+        problem:
+          "Att slå på och av funktioner i produktion utan att kunna kontrollera vem som godkänner det, spåra vad som ändrades, eller rulla tillbaka snabbt är farligt i en verksamhet med flera miljöer och flera personer inblandade.",
+        solution:
+          "Jag byggde en Laravel-baserad feature-flag-kontrollpanel à la LaunchDarkly: projekt-scopade API-nycklar, deterministisk rollout-hashning, ett draft/publish-flöde per miljö med tvåpersonersgodkännande för kritiska flaggor, en \"break-glass\"-nödöppning, och en omutlig audit-logg med kontrollsummekedja.",
+        signal:
+          "Visar att jag kan designa styrning och behörighet för ett verktyg andra utvecklare litar på i produktion, inte bara bygga funktioner — governance, spårbarhet och race-condition-säkerhet är förstaklassmedborgare, inte eftertankar.",
+        details: ["RBAC per projekt", "Tvåpersonersgodkännande", "Omutlig audit-kedja", "Deterministisk rollout-hashning", "Break-glass-nödöppning"],
+        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+        casePath: "projects/flagforge",
+        href: "https://flagforge-ira0.onrender.com/",
+        linkText: "Öppna appen",
+      },
     ],
     ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
@@ -227,6 +243,22 @@ const copy = {
         stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Tailwind v4", "Render"],
         casePath: "projects/kvitt",
         href: "https://kvitt-web.onrender.com/",
+        linkText: "Open app",
+      },
+      {
+        index: "07",
+        title: "FlagForge",
+        meta: "feature-flag platform / Laravel / RBAC",
+        problem:
+          "Turning features on and off in production without control over who approves it, traceability for what changed, or a fast rollback path is dangerous once multiple environments and multiple people are involved.",
+        solution:
+          "I built a Laravel-based feature-flag control plane in the style of LaunchDarkly: project-scoped API keys, deterministic rollout hashing, a draft/publish workflow per environment with two-person approval for critical flags, a break-glass emergency override, and an immutable audit log with a checksum chain.",
+        signal:
+          "Shows I can design governance and permissions for a tool other developers trust in production, not just build features — governance, traceability, and race-condition safety are first-class citizens, not afterthoughts.",
+        details: ["Per-project RBAC", "Two-person approval", "Immutable audit chain", "Deterministic rollout hashing", "Break-glass override"],
+        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+        casePath: "projects/flagforge",
+        href: "https://flagforge-ira0.onrender.com/",
         linkText: "Open app",
       },
     ],
