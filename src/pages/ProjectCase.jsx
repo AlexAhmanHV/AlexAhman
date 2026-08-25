@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
@@ -409,6 +410,16 @@ function pathFor(lang, path) {
 export default function ProjectCase({ lang, slug }) {
   const item = cases[slug]?.[lang] || cases[slug]?.sv || cases.venueflow.sv;
   const pathname = lang === "en" ? `/en/projects/${slug}` : `/projects/${slug}`;
+  const [lightboxShot, setLightboxShot] = useState(null);
+
+  useEffect(() => {
+    if (!lightboxShot) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setLightboxShot(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxShot]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -483,8 +494,40 @@ export default function ProjectCase({ lang, slug }) {
           {item.screenshots?.length > 0 && (
             <div className="caseScreenshots">
               {item.screenshots.map((shot) => (
-                <img key={shot.src} src={shot.src} alt={shot.alt} loading="lazy" />
+                <button
+                  key={shot.src}
+                  type="button"
+                  className="caseScreenshotThumb"
+                  onClick={() => setLightboxShot(shot)}
+                  aria-label={lang === "en" ? `Enlarge screenshot: ${shot.alt}` : `Förstora skärmbild: ${shot.alt}`}
+                >
+                  <img src={shot.src} alt={shot.alt} loading="lazy" />
+                </button>
               ))}
+            </div>
+          )}
+
+          {lightboxShot && (
+            <div
+              className="caseLightbox"
+              role="dialog"
+              aria-modal="true"
+              aria-label={lightboxShot.alt}
+              onClick={() => setLightboxShot(null)}
+            >
+              <button
+                type="button"
+                className="caseLightboxClose"
+                onClick={() => setLightboxShot(null)}
+                aria-label={lang === "en" ? "Close" : "Stäng"}
+              >
+                ×
+              </button>
+              <img
+                src={lightboxShot.src}
+                alt={lightboxShot.alt}
+                onClick={(e) => e.stopPropagation()}
+              />
             </div>
           )}
 

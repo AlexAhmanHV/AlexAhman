@@ -930,22 +930,67 @@ h1,h2,h3{
 .caseScreenshots{
   margin-top:28px;
   display:grid;
+  grid-template-columns:repeat(2, 1fr);
   gap:16px;
 }
-.caseScreenshots img{
-  width:100%;
-  height:auto;
+.caseScreenshotThumb{
   display:block;
+  padding:0;
   border:1px solid var(--accent-3);
+  background:none;
+  cursor:pointer;
+  transition:opacity 0.15s ease;
+}
+.caseScreenshotThumb:hover,
+.caseScreenshotThumb:focus-visible{
+  opacity:0.8;
+}
+.caseScreenshotThumb img{
+  width:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+  object-position:top;
+  display:block;
 }
 @media (min-width:800px){
   .caseScreenshots{
-    grid-template-columns:1.1fr 1fr;
-    align-items:start;
+    grid-template-columns:repeat(3, 1fr);
   }
-  .caseScreenshots img:first-child{
-    grid-row:1 / span 2;
-  }
+}
+.caseLightbox{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  background:rgba(18,20,22,0.92);
+  cursor:zoom-out;
+}
+.caseLightbox img{
+  max-width:100%;
+  max-height:100%;
+  display:block;
+  cursor:default;
+  border:1px solid var(--accent-3);
+}
+.caseLightboxClose{
+  position:fixed;
+  top:20px;
+  right:24px;
+  width:40px;
+  height:40px;
+  border:1px solid var(--bg);
+  background:transparent;
+  color:var(--bg);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.caseLightboxClose:hover{
+  background:var(--bg);
+  color:var(--accent-3);
 }
 .selectedCaseHeader{
   display:grid;
