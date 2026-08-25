@@ -346,6 +346,7 @@ const cases = {
         "Tvåpersonersgodkännande specifikt för flaggor märkta som kritiska, konfigurerbart per miljös policy.",
         "Omutlig audit-logg med kontrollsummekedja — varje post innehåller ett hash av föregående post, så manipulation blir upptäckbar.",
         "Deterministisk rollout-hashning (samma användare hamnar alltid i samma bucket) istället för slumpmässig procentutrullning.",
+        "Signerade webhooks (HMAC-SHA256, köad leverans) vid publish/rollback så nedströmssystem kan ogiltigförklara sin cache istället för att polla.",
         "Pest, Pint och GitHub Actions i CI; k6-lasttester för att hålla utvärderings-endpointen under en satt p95-SLO.",
       ],
       result:
@@ -353,6 +354,8 @@ const cases = {
       stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Öppna FlagForge",
+      secondaryHref: "https://flagforge-ira0.onrender.com/status",
+      secondaryLinkText: "Se live-status (SLO, cache, audit-kedja)",
       screenshots: [
         { src: "/projects/flagforge/project-environments.png", alt: "Per-miljö release-flöde: policy, publicering, snapshots och test-utvärdering" },
         { src: "/projects/flagforge/login.png", alt: "Inloggningssidan med FlagForges kontrollpanel-hero" },
@@ -377,6 +380,7 @@ const cases = {
         "Two-person approval specifically for flags marked critical, configurable per environment's policy.",
         "Immutable audit log with a checksum chain — each entry hashes the previous one, making tampering detectable.",
         "Deterministic rollout hashing (the same user always lands in the same bucket) instead of random percentage rollouts.",
+        "Signed webhooks (HMAC-SHA256, queued delivery) on publish/rollback so downstream systems can invalidate their cache instead of polling.",
         "Pest, Pint, and GitHub Actions in CI; k6 load tests to keep the evaluation endpoint under a set p95 SLO.",
       ],
       result:
@@ -384,6 +388,8 @@ const cases = {
       stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Open FlagForge",
+      secondaryHref: "https://flagforge-ira0.onrender.com/status",
+      secondaryLinkText: "See live status (SLO, cache, audit chain)",
       screenshots: [
         { src: "/projects/flagforge/project-environments.png", alt: "Per-environment release workflow: policy, publish, snapshots, and test evaluation" },
         { src: "/projects/flagforge/login.png", alt: "Sign-in page with the FlagForge control plane hero" },
@@ -488,6 +494,11 @@ export default function ProjectCase({ lang, slug }) {
               <a className="textLink" href={item.href} target="_blank" rel="noreferrer">
                 {item.linkText}
               </a>
+              {item.secondaryHref && (
+                <a className="textLink" href={item.secondaryHref} target="_blank" rel="noreferrer">
+                  {item.secondaryLinkText}
+                </a>
+              )}
               <Link className="textLink" to={pathFor(lang, "projects")}>
                 {lang === "en" ? "All projects" : "Alla projekt"}
               </Link>
