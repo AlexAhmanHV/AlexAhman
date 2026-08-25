@@ -353,6 +353,11 @@ const cases = {
       stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Öppna FlagForge",
+      screenshots: [
+        { src: "/projects/flagforge/project-environments.png", alt: "Per-miljö release-flöde: policy, publicering, snapshots och test-utvärdering" },
+        { src: "/projects/flagforge/login.png", alt: "Inloggningssidan med FlagForges kontrollpanel-hero" },
+        { src: "/projects/flagforge/flag-rollout.png", alt: "En flaggas detaljvy: 25% utrullning i produktion, kritisk-markering och en beta-testers-segmentregel" },
+      ],
     },
     en: {
       title: "FlagForge",
@@ -379,6 +384,11 @@ const cases = {
       stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Open FlagForge",
+      screenshots: [
+        { src: "/projects/flagforge/project-environments.png", alt: "Per-environment release workflow: policy, publish, snapshots, and test evaluation" },
+        { src: "/projects/flagforge/login.png", alt: "Sign-in page with the FlagForge control plane hero" },
+        { src: "/projects/flagforge/flag-rollout.png", alt: "Flag detail view: a 25% prod rollout, a critical-flag marker, and a beta-testers segment rule" },
+      ],
     },
   },
 };
@@ -463,6 +473,14 @@ export default function ProjectCase({ lang, slug }) {
               </div>
             </div>
           </article>
+
+          {item.screenshots?.length > 0 && (
+            <div className="caseScreenshots">
+              {item.screenshots.map((shot) => (
+                <img key={shot.src} src={shot.src} alt={shot.alt} loading="lazy" />
+              ))}
+            </div>
+          )}
 
           <div className="relatedStrip">
             <p>{lang === "en" ? "Next" : "Nästa"}</p>

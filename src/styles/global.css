@@ -927,6 +927,26 @@ h1,h2,h3{
   padding:22px 24px 28px;
   background:rgba(255,250,242,0.42);
 }
+.caseScreenshots{
+  margin-top:28px;
+  display:grid;
+  gap:16px;
+}
+.caseScreenshots img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid var(--accent-3);
+}
+@media (min-width:800px){
+  .caseScreenshots{
+    grid-template-columns:1.1fr 1fr;
+    align-items:start;
+  }
+  .caseScreenshots img:first-child{
+    grid-row:1 / span 2;
+  }
+}
 .selectedCaseHeader{
   display:grid;
   grid-template-columns:42px minmax(0, 1fr) auto;
