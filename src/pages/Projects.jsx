@@ -27,8 +27,8 @@ const copy = {
           "Jag byggde en Laravel-baserad plattform med publik bokning utan konto, admin- och staff-vyer, RBAC, tenant-isolering och transaktionssäker kontroll av bokningskrockar.",
         signal:
           "Visar att jag kan bygga system där affärsregler, datamodell och vardagsflöden måste sitta ihop, inte bara ett snyggt frontendskal.",
-        details: ["Tenant-isolering", "Rollbaserad åtkomst", "Konfliktkontroll", "Tidszonshantering", "Supabase + Render"],
-        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        details: ["Tenant-isolering", "Rollbaserad åtkomst", "Konfliktkontroll", "Visuell golvplan", "Neon + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
         casePath: "projects/venueflow",
         href: "https://venueflow-wjh1.onrender.com/",
         linkText: "Öppna appen",
@@ -159,8 +159,8 @@ const copy = {
           "I built a Laravel platform with public booking without accounts, admin and staff views, RBAC, tenant isolation, and transaction-safe booking conflict checks.",
         signal:
           "Shows that I can build systems where business rules, data model, and daily workflows need to hold together, not just a polished frontend shell.",
-        details: ["Tenant isolation", "Role-based access", "Conflict checks", "Timezone handling", "Supabase + Render"],
-        stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        details: ["Tenant isolation", "Role-based access", "Conflict checks", "Visual floor plan", "Neon + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
         casePath: "projects/venueflow",
         href: "https://venueflow-wjh1.onrender.com/",
         linkText: "Open app",

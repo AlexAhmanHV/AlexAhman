@@ -13,7 +13,7 @@ const cases = {
       meta: "Laravel / PostgreSQL / multi-tenant booking",
       seoTitle: "VenueFlow case | Bokningssystem i Laravel | Alexander Åhman",
       seoDescription:
-        "Case om VenueFlow: ett multi-tenant bokningssystem byggt i Laravel, PostgreSQL och Supabase med RBAC, konfliktkontroll och publik gästbokning.",
+        "Case om VenueFlow: ett multi-tenant bokningssystem byggt i Laravel, Neon PostgreSQL och Alpine.js med RBAC, konfliktkontroll, visuell golvplan och publik gästbokning.",
       lede:
         "VenueFlow är ett bokningssystem för aktivitets- och restaurangmiljöer där gäster ska kunna boka utan konto och personalen behöver hantera resurser, tider och roller internt.",
       problem:
@@ -23,12 +23,17 @@ const cases = {
       decisions: [
         "Tenant-isolering för att hålla verksamheters data separerad.",
         "Policies/Gates för att göra behörigheter tydliga i koden.",
-        "PostgreSQL via Supabase för relationsdata och praktisk drift.",
+        "Neon (serverless PostgreSQL) för relationsdata utan manuell drift.",
         "Render-deployment för att få appen live utan onödig driftkomplexitet.",
       ],
       result:
         "Projektet visar min förmåga att bygga affärsnära system där datamodell, användarflöde, behörighet och deployment behöver fungera ihop.",
-      stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Supabase", "Blade", "Tailwind", "Alpine.js", "Render"],
+      stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+      screenshots: [
+        { src: "/projects/venueflow/landing.png", alt: "Publik restaurangsida med bokningsstatus och steg-för-steg-guide" },
+        { src: "/projects/venueflow/booking.png", alt: "Gästbokningsflöde: välj aktivitet och lediga tider" },
+        { src: "/projects/venueflow/floor-plan.png", alt: "Live board med visuell golvplan, färgkodad efter beläggning" },
+      ],
       href: "https://venueflow-wjh1.onrender.com/",
       linkText: "Öppna VenueFlow",
     },
@@ -38,7 +43,7 @@ const cases = {
       meta: "Laravel / PostgreSQL / multi-tenant booking",
       seoTitle: "VenueFlow case | Laravel booking system | Alexander Ahman",
       seoDescription:
-        "Case study for VenueFlow: a multi-tenant booking system built with Laravel, PostgreSQL, Supabase, RBAC, conflict checks, and public guest booking.",
+        "Case study for VenueFlow: a multi-tenant booking system built with Laravel, Neon PostgreSQL, and Alpine.js, with RBAC, conflict checks, a visual floor plan, and public guest booking.",
       lede:
         "VenueFlow is a booking system for activity and restaurant venues where guests can book without accounts while staff manage resources, times, and roles internally.",
       problem:
@@ -48,12 +53,17 @@ const cases = {
       decisions: [
         "Tenant isolation to keep business data separated.",
         "Policies/Gates to make permissions explicit in code.",
-        "PostgreSQL through Supabase for relational data and practical operations.",
+        "Neon (serverless PostgreSQL) for relational data with no manual operations.",
         "Render deployment to get the app live without unnecessary operational complexity.",
       ],
       result:
         "The project shows my ability to build business-facing systems where data model, user flow, permissions, and deployment need to work together.",
-      stack: ["Laravel 11", "PHP 8.3", "PostgreSQL", "Supabase", "Blade", "Tailwind", "Alpine.js", "Render"],
+      stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+      screenshots: [
+        { src: "/projects/venueflow/landing.png", alt: "Public restaurant page with booking status and a step-by-step guide" },
+        { src: "/projects/venueflow/booking.png", alt: "Guest booking flow: choosing an activity and an available time" },
+        { src: "/projects/venueflow/floor-plan.png", alt: "Live board with a visual floor plan, color-coded by occupancy" },
+      ],
       href: "https://venueflow-wjh1.onrender.com/",
       linkText: "Open VenueFlow",
     },

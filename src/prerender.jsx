@@ -37,7 +37,7 @@ const SEO = {
     "/projects/venueflow": {
       title: "VenueFlow case | Bokningssystem i Laravel | Alexander Åhman",
       description:
-        "Case om VenueFlow: ett multi-tenant bokningssystem byggt i Laravel, PostgreSQL och Supabase med RBAC, konfliktkontroll och publik gästbokning.",
+        "Case om VenueFlow: ett multi-tenant bokningssystem byggt i Laravel, Neon PostgreSQL och Alpine.js med RBAC, konfliktkontroll, visuell golvplan och publik gästbokning.",
     },
     "/projects/fx-monitor": {
       title: "FX Monitor case | Datapipeline och React-dashboard | Alexander Åhman",
@@ -146,7 +146,7 @@ const SEO = {
     "/en/projects/venueflow": {
       title: "VenueFlow case | Laravel booking system | Alexander Ahman",
       description:
-        "Case study for VenueFlow: a multi-tenant booking system built with Laravel, PostgreSQL, Supabase, RBAC, conflict checks, and public guest booking.",
+        "Case study for VenueFlow: a multi-tenant booking system built with Laravel, Neon PostgreSQL, and Alpine.js, with RBAC, conflict checks, a visual floor plan, and public guest booking.",
     },
     "/en/projects/fx-monitor": {
       title: "FX Monitor case | Data pipeline and React dashboard | Alexander Ahman",
