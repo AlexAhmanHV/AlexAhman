@@ -8,7 +8,7 @@ const copy = {
     kicker: "Case archive",
     title: "Projekt som visar systemtänk i praktiken",
     lede:
-      "Tre leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
+      "Sju leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
     labels: {
       problem: "Problem",
       solution: "Lösning",
@@ -52,15 +52,15 @@ const copy = {
       {
         index: "03",
         title: "Lördagsgolf",
-        meta: "public site / React / information flow",
+        meta: "publik webb + adminpanel / React / JWT-API",
         problem:
-          "Besökare behöver snabbt förstå bana, upplägg och kontaktvägar. Sidan måste vara lätt att scanna, särskilt i mobil.",
+          "Besökare ska snabbt förstå bana, upplägg och resultat, samtidigt som arrangörerna behöver ett säkert sätt att registrera spelare, rundor och banor utan att röra databasen direkt.",
         solution:
-          "Jag byggde en React/Vite-SPA med tydlig informationshierarki, fokuserade CTA:er och responsiva vyer som håller tempot i innehållet.",
+          "Jag byggde en React/Vite-frontend som pratar med en egen ASP.NET Core-backend: publika säsongs- och spelarsidor, en adminpanel bakom JWT-inloggning för att hantera spelare, rundor och banor, samt ett adapterlager som normaliserar API-svarens skiftande form.",
         signal:
-          "Visar att jag kan göra innehåll konkret, navigerbart och tekniskt lätt att vidareutveckla utan att överdesigna upplevelsen.",
-        details: ["SPA-struktur", "Responsiva vyer", "CTA-flöde", "Läsbar innehållshierarki", "Publik webb"],
-        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+          "Visar att jag kan bygga och koppla ihop en frontend mot en egen autentiserad backend över två repon, med adapters och en robust API-klient som håller UI:t oberoende av backendens exakta svarsform.",
+        details: ["JWT-säkrad adminpanel", "CRUD för spelare/rundor/banor", "Adapterlager mot API-kontrakt", "API-klient med timeout/retry", "Spelarstatistik per säsong"],
+        stack: ["React 19", "Vite", "React Router", "Tailwind", "ASP.NET Core", "JWT", "Render"],
         casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Besök webbplats",
@@ -108,7 +108,7 @@ const copy = {
         signal:
           "Visar att jag kan lösa ett riktigt algoritmproblem, inte bara bygga CRUD, och hantera race conditions korrekt med atomära databasoperationer.",
         details: ["Skuldförenklingsalgoritm", "Grupper & delade utlägg", "Atomär påminnelse-cooldown", "Push- & e-postnotiser", "Schemalagda påminnelser"],
-        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Tailwind v4", "Render"],
+        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
         casePath: "projects/kvitt",
         href: "https://kvitt-web.onrender.com/",
         linkText: "Öppna appen",
@@ -124,7 +124,7 @@ const copy = {
         signal:
           "Visar att jag kan designa styrning och behörighet för ett verktyg andra utvecklare litar på i produktion, inte bara bygga funktioner — governance, spårbarhet och race-condition-säkerhet är förstaklassmedborgare, inte eftertankar.",
         details: ["RBAC per projekt", "Tvåpersonersgodkännande", "Omutlig audit-kedja", "Deterministisk rollout-hashning", "Break-glass-nödöppning"],
-        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
         casePath: "projects/flagforge",
         href: "https://flagforge-ira0.onrender.com/",
         linkText: "Öppna appen",
@@ -140,7 +140,7 @@ const copy = {
     kicker: "Case archive",
     title: "Projects that show systems thinking in practice",
     lede:
-      "Three deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
+      "Seven deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
     labels: {
       problem: "Problem",
       solution: "Solution",
@@ -184,15 +184,15 @@ const copy = {
       {
         index: "03",
         title: "Lördagsgolf",
-        meta: "public site / React / information flow",
+        meta: "public site + admin panel / React / JWT API",
         problem:
-          "Visitors need to understand the course, setup, and contact paths quickly. The page needs to scan well, especially on mobile.",
+          "Visitors need to understand the course, setup, and results quickly, while the organizers need a secure way to register players, rounds, and courses without touching the database directly.",
         solution:
-          "I built a React/Vite SPA with clear information hierarchy, focused CTAs, and responsive views that keep the content moving.",
+          "I built a React/Vite frontend that talks to a purpose-built ASP.NET Core backend: public season and player pages, an admin panel behind JWT login for managing players, rounds, and courses, and an adapter layer that normalizes the API's varying response shapes.",
         signal:
-          "Shows that I can make content concrete, navigable, and technically easy to evolve without overdesigning the experience.",
-        details: ["SPA structure", "Responsive views", "CTA flow", "Readable hierarchy", "Public web"],
-        stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+          "Shows that I can build and wire a frontend to a self-authored authenticated backend across two repos, with adapters and a resilient API client that keep the UI decoupled from the backend's exact response shape.",
+        details: ["JWT-protected admin panel", "CRUD for players/rounds/courses", "Adapter layer over the API contract", "API client with timeout/retry", "Per-season player stats"],
+        stack: ["React 19", "Vite", "React Router", "Tailwind", "ASP.NET Core", "JWT", "Render"],
         casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Visit website",
@@ -240,7 +240,7 @@ const copy = {
         signal:
           "Shows I can solve a real algorithmic problem, not just build CRUD, and handle race conditions correctly with atomic database operations.",
         details: ["Debt-simplification algorithm", "Groups & split expenses", "Atomic reminder cooldown", "Push & email notifications", "Scheduled reminders"],
-        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Tailwind v4", "Render"],
+        stack: ["Laravel 13", "PHP 8.3", "Inertia.js", "Vue 3", "PostgreSQL", "Pest", "Larastan", "Tailwind v4", "Render"],
         casePath: "projects/kvitt",
         href: "https://kvitt-web.onrender.com/",
         linkText: "Open app",
@@ -256,7 +256,7 @@ const copy = {
         signal:
           "Shows I can design governance and permissions for a tool other developers trust in production, not just build features — governance, traceability, and race-condition safety are first-class citizens, not afterthoughts.",
         details: ["Per-project RBAC", "Two-person approval", "Immutable audit chain", "Deterministic rollout hashing", "Break-glass override"],
-        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+        stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
         casePath: "projects/flagforge",
         href: "https://flagforge-ira0.onrender.com/",
         linkText: "Open app",

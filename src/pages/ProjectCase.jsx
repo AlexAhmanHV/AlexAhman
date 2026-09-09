@@ -201,26 +201,27 @@ const cases = {
   lordagsgolf: {
     sv: {
       title: "Lördagsgolf",
-      kicker: "Case / publik webb",
-      meta: "React / Vite / informationsflöde",
-      seoTitle: "Lördagsgolf case | React-webbplats med tydligt informationsflöde | Alexander Åhman",
+      kicker: "Case / publik webb + adminpanel",
+      meta: "React / JWT-säkrad API / adminpanel",
+      seoTitle: "Lördagsgolf case | React-frontend mot JWT-säkrad API | Alexander Åhman",
       seoDescription:
-        "Case om Lördagsgolf: publik React- och Vite-webbplats med tydlig informationshierarki, responsiva vyer och fokuserade CTA:er.",
+        "Case om Lördagsgolf: en React/Vite-frontend som konsumerar en egen JWT-säkrad ASP.NET Core-backend, med adminpanel för spelare, rundor och banor.",
       lede:
-        "Lördagsgolf är en publik webbplats där besökaren snabbt ska förstå bana, upplägg och kontaktvägar, särskilt i mobil.",
+        "Lördagsgolf är en publik säsongswebb med en adminpanel bakom JWT-inloggning, där arrangörerna registrerar spelare, rundor och banor mot en egen backend-API.",
       problem:
-        "Innehållstunga webbplatser tappar ofta tempo. Om besökaren inte snabbt förstår vad som erbjuds, var informationen finns och hur man går vidare minskar nyttan.",
+        "Besökare ska snabbt förstå bana, upplägg och resultat, samtidigt som arrangörerna behöver ett sätt att mata in rundor, spelare och banor utan att röra databasen direkt eller riskera att obehöriga kan skriva data.",
       solution:
-        "Jag byggde en React/Vite-SPA med fokuserad informationshierarki, responsiva vyer och CTA:er som gör nästa steg tydligt.",
+        "Jag byggde en React/Vite-frontend som pratar med en egen ASP.NET Core-backend: publika sidor för säsongsresultat och spelarprofiler, en adminpanel bakom JWT-inloggning för att hantera spelare, rundor och banor, ett adapterlager som normaliserar API-svarens skiftande form, och en API-klient med timeout och retry.",
       decisions: [
-        "SPA-struktur med React Router för snabb navigering.",
-        "Tydlig innehållsordning för att minska friktion i mobil.",
-        "Responsiva sektioner som prioriterar läsbarhet framför dekoration.",
-        "Lätt teknisk grund som kan byggas vidare på.",
+        "Adapterlager (src/services/adapters) som normaliserar API-kontraktet — t.ex. $values-wrappers och skiftande casing — så UI-komponenterna aldrig behöver känna till backendens råa form.",
+        "Central API-konfiguration via miljövariabler, med fallback-URL:er om env saknas.",
+        "Auth-token med utgångstid lagrat i sessionStorage, rensas automatiskt vid 401 från backend.",
+        "Backend (ASP.NET Core) kräver JWT för alla skrivande anrop (POST/PUT/DELETE) på spelare, rundor och banor, med IP-baserad rate limiting på inloggning.",
+        "GitHub Actions kör lint, test och bygge på varje push/PR mot main.",
       ],
       result:
-        "Projektet visar att jag kan göra en publik webbplats konkret, scannbar och tekniskt enkel att förvalta.",
-      stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        "Projektet visar att jag kan bygga och koppla ihop en frontend mot en egen autentiserad backend över två repon, med adapters och en robust API-klient som håller UI:t oberoende av backendens exakta svarsform.",
+      stack: ["React 19", "Vite 6", "React Router 7", "Tailwind CSS 4", "Vitest", "ASP.NET Core", "JWT", "Render"],
       href: "https://lordagsgolf.se/",
       linkText: "Besök Lördagsgolf",
       screenshots: [
@@ -231,26 +232,27 @@ const cases = {
     },
     en: {
       title: "Lördagsgolf",
-      kicker: "Case / public web",
-      meta: "React / Vite / information flow",
-      seoTitle: "Lördagsgolf case | React website with clear information flow | Alexander Ahman",
+      kicker: "Case / public site + admin panel",
+      meta: "React / JWT-protected API / admin panel",
+      seoTitle: "Lördagsgolf case | React frontend for a JWT-protected API | Alexander Ahman",
       seoDescription:
-        "Case study for Lördagsgolf: public React and Vite website with clear information hierarchy, responsive views, and focused CTAs.",
+        "Case study for Lördagsgolf: a React/Vite frontend consuming a purpose-built, JWT-protected ASP.NET Core backend, with an admin panel for players, rounds, and courses.",
       lede:
-        "Lördagsgolf is a public website where visitors need to quickly understand the course, setup, and contact paths, especially on mobile.",
+        "Lördagsgolf is a public season site with an admin panel behind JWT login, where organizers register players, rounds, and courses against a purpose-built backend API.",
       problem:
-        "Content-heavy websites often lose pace. If visitors do not quickly understand what is offered, where the information is, and how to continue, the value drops.",
+        "Visitors need to quickly understand the course, setup, and results, while organizers need a way to enter rounds, players, and courses without touching the database directly or risking unauthorized writes.",
       solution:
-        "I built a React/Vite SPA with focused information hierarchy, responsive views, and CTAs that make the next step clear.",
+        "I built a React/Vite frontend that talks to a purpose-built ASP.NET Core backend: public pages for season results and player profiles, an admin panel behind JWT login for managing players, rounds, and courses, an adapter layer that normalizes the API's varying response shapes, and an API client with timeout and retry.",
       decisions: [
-        "SPA structure with React Router for fast navigation.",
-        "Clear content order to reduce friction on mobile.",
-        "Responsive sections that prioritize readability over decoration.",
-        "Light technical foundation that can keep evolving.",
+        "Adapter layer (src/services/adapters) that normalizes the API contract — e.g. $values wrappers and inconsistent casing — so UI components never need to know the backend's raw shape.",
+        "Central API configuration via environment variables, with fallback URLs if the env is missing.",
+        "Auth token with an expiry stored in sessionStorage, cleared automatically on a 401 from the backend.",
+        "The backend (ASP.NET Core) requires JWT for every write (POST/PUT/DELETE) on players, rounds, and courses, with IP-based rate limiting on login.",
+        "GitHub Actions runs lint, test, and build on every push/PR against main.",
       ],
       result:
-        "The project shows that I can make a public website concrete, scannable, and technically easy to maintain.",
-      stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
+        "The project shows that I can build and wire a frontend to a self-authored authenticated backend across two repos, with adapters and a resilient API client that keep the UI decoupled from the backend's exact response shape.",
+      stack: ["React 19", "Vite 6", "React Router 7", "Tailwind CSS 4", "Vitest", "ASP.NET Core", "JWT", "Render"],
       href: "https://lordagsgolf.se/",
       linkText: "Visit Lördagsgolf",
       screenshots: [
@@ -406,11 +408,11 @@ const cases = {
         "Omutlig audit-logg med kontrollsummekedja — varje post innehåller ett hash av föregående post, så manipulation blir upptäckbar.",
         "Deterministisk rollout-hashning (samma användare hamnar alltid i samma bucket) istället för slumpmässig procentutrullning.",
         "Signerade webhooks (HMAC-SHA256, köad leverans) vid publish/rollback så nedströmssystem kan ogiltigförklara sin cache istället för att polla.",
-        "Pest, Pint och GitHub Actions i CI; k6-lasttester för att hålla utvärderings-endpointen under en satt p95-SLO.",
+        "PHPUnit, Pint och GitHub Actions i CI; k6-lasttester för att hålla utvärderings-endpointen under en satt p95-SLO.",
       ],
       result:
         "Projektet visar att jag kan designa behörighet, godkännandeflöden och spårbarhet för ett internt utvecklarverktyg — governance som förstaklassmedborgare, inte en eftertanke.",
-      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Öppna FlagForge",
       secondaryHref: "https://flagforge-ira0.onrender.com/status",
@@ -440,11 +442,11 @@ const cases = {
         "Immutable audit log with a checksum chain — each entry hashes the previous one, making tampering detectable.",
         "Deterministic rollout hashing (the same user always lands in the same bucket) instead of random percentage rollouts.",
         "Signed webhooks (HMAC-SHA256, queued delivery) on publish/rollback so downstream systems can invalidate their cache instead of polling.",
-        "Pest, Pint, and GitHub Actions in CI; k6 load tests to keep the evaluation endpoint under a set p95 SLO.",
+        "PHPUnit, Pint, and GitHub Actions in CI; k6 load tests to keep the evaluation endpoint under a set p95 SLO.",
       ],
       result:
         "The project shows I can design permissions, approval flows, and traceability for an internal developer tool — governance as a first-class citizen, not an afterthought.",
-      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "Pest", "Pint", "GitHub Actions", "Render"],
+      stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
       href: "https://flagforge-ira0.onrender.com/",
       linkText: "Open FlagForge",
       secondaryHref: "https://flagforge-ira0.onrender.com/status",
