@@ -88,11 +88,11 @@ const copy = {
         problem:
           "Lokalfotboll är utspridd över flera källor och lokaltidningar. Ingen enskild plats samlar tabeller, matcher och målskyttar för kommunens lag, uppdaterat automatiskt.",
         solution:
-          "Jag byggde en Next.js-app som hämtar serier, matcher och tabeller från en extern sportkälla, och som låter Claude läsa lokaltidningarnas matchreferat för att bedöma relevans och extrahera målskyttar ur ostrukturerad text.",
+          "Jag byggde en Next.js-app som varje kväll hämtar fem serier från Everysport och artiklar från tre lokaltidningar. Claude bedömer vilka artiklar som handlar om lagen och läser matchreferaten för att plocka ut målskyttar ur fritext. Varje lokalt lag har en egen sida med nästa match, tabellutdrag, matcher och nyheter.",
         signal:
-          "Visar att jag kan bygga en källagnostisk ingest-arkitektur och använda AI för strukturerad extraktion ur text, drivet av ett schemalagt, kostnadsfritt driftupplägg.",
-        details: ["Källagnostisk ingest", "AI-driven relevansfiltrering", "Målskytte-extraktion ur text", "Cron via GitHub Actions", "Supabase Postgres"],
-        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+          "Visar att jag kan bygga en källagnostisk ingest-arkitektur, använda AI för strukturerad extraktion ur text och driva det dygnet runt på gratisnivåer utan att slå i minnes- eller anslutningstak.",
+        details: ["Källagnostisk ingest", "AI-driven relevansfiltrering", "Målskytte-extraktion ur text", "Egen schemaläggning i appen", "Lagsidor med bilder"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
         casePath: "projects/kommunfotboll",
         href: "https://kommunfotboll.onrender.com/",
         linkText: "Öppna appen",
@@ -220,11 +220,11 @@ const copy = {
         problem:
           "Local football coverage is scattered across sources and local newspapers. No single place aggregates standings, matches, and goal scorers for a town's teams, kept automatically up to date.",
         solution:
-          "I built a Next.js app that pulls leagues, matches, and standings from an external sports data source, and lets Claude read local newspaper match reports to judge relevance and extract goal scorers from unstructured text.",
+          "I built a Next.js app that pulls five leagues from Everysport and articles from three local newspapers every evening. Claude decides which articles are about the teams and reads match reports to pull goal scorers out of free text. Every local team has its own page with the next match, a table excerpt, results, and news.",
         signal:
-          "Shows that I can build a source-agnostic ingest architecture and apply AI to structured extraction from text, running on a scheduled, cost-free operational setup.",
-        details: ["Source-agnostic ingest", "AI-driven relevance filtering", "Goal-scorer extraction from text", "Cron via GitHub Actions", "Supabase Postgres"],
-        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "GitHub Actions", "Render"],
+          "Shows that I can build a source-agnostic ingest architecture, apply AI to structured extraction from text, and run it around the clock on free tiers without hitting memory or connection limits.",
+        details: ["Source-agnostic ingest", "AI-driven relevance filtering", "Goal-scorer extraction from text", "In-app scheduling", "Team pages with photos"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
         casePath: "projects/kommunfotboll",
         href: "https://kommunfotboll.onrender.com/",
         linkText: "Open app",
