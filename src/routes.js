@@ -15,6 +15,7 @@ export const ROUTES = [
   "/projects",
   ...CASES.map((slug) => `/projects/${slug}`),
   "/hemsida-vastervik",
+  "/guide/hemsida-for-lokala-foretag",
   "/fullstackutvecklare-vastervik",
   "/webbutvecklare-vastervik",
   "/terms",

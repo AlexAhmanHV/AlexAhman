@@ -349,6 +349,9 @@ export default function HemsidaVastervik() {
               <Link className="btn btn-outline exploreButton" to="/about">
                 Läs om utvecklaren
               </Link>
+              <Link className="btn btn-outline exploreButton" to="/guide/hemsida-for-lokala-foretag">
+                Guide: vad hemsidan ska innehålla
+              </Link>
               <Link className="btn btn-outline exploreButton exploreButtonLocal" to="/contact">
                 Starta hemsideprojektet
               </Link>

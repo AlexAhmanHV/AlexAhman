@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import HemsidaVastervik from "./pages/HemsidaVastervik";
+import GuideHemsida from "./pages/GuideHemsida";
 import Projects from "./pages/Projects";
 import ProjectCase from "./pages/ProjectCase";
 import ServiceLanding from "./pages/ServiceLanding";
@@ -109,6 +110,7 @@ function AppRoutes({ lang }) {
           <Route path="privacy" element={<Privacy lang={lang} />} />
           <Route path="terms" element={<Terms lang={lang} />} />
           {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}
+          {lang === "sv" ? <Route path="guide/hemsida-for-lokala-foretag" element={<GuideHemsida />} /> : null}
           <Route path="*" element={<NotFound lang={lang} />} />
         </Routes>
       </main>

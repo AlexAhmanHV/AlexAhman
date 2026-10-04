@@ -63,6 +63,7 @@ const copy = {
       ["Hemsida Västervik", "hemsida-vastervik"],
       ["Hemsidor för hantverkare, butiker och föreningar", "webbutvecklare-vastervik"],
       ["Utvecklare och konsult i Västervik", "fullstackutvecklare-vastervik"],
+      ["Guide: vad en hemsida för lokala företag ska innehålla", "guide/hemsida-for-lokala-foretag"],
     ],
   },
 

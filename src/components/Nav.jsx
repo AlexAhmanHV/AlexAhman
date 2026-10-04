@@ -14,6 +14,7 @@ function toggleLangPath(pathname) {
   const clean = pathname.replace(/\/+$/, "") || "/";
   const unmatchedLanguagePages = new Map([
     ["/hemsida-vastervik", "/en"],
+    ["/guide/hemsida-for-lokala-foretag", "/en"],
     ["/fullstackutvecklare-vastervik", "/en/fullstack-developer-vastervik"],
     ["/webbutvecklare-vastervik", "/en"],
     ["/en/fullstack-developer-vastervik", "/fullstackutvecklare-vastervik"],

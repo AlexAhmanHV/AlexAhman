@@ -73,6 +73,7 @@ export default function Footer({ lang }) {
 
           <nav className="footerLinks" aria-label={lang === "en" ? "Footer" : "Sidfot"}>
             {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
+            {lang === "sv" ? <a href="/guide/hemsida-for-lokala-foretag">Guide: hemsida för företag</a> : null}
             <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
             <a href={pathFor(lang, "terms")}>{termsLabel}</a>
           </nav>

@@ -4323,3 +4323,84 @@ body{
   flex-wrap:wrap;
   gap:8px 18px;
 }
+
+/* Guide: en läsvänlig textkolumn med luft mellan avsnitten. */
+.guideColumn{
+  max-width:760px;
+}
+
+.guideTitle{
+  margin-top:10px;
+  max-width:20ch;
+  text-transform:none;
+}
+
+.guideByline{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.guideToc{
+  margin-top:26px;
+  padding:18px 20px;
+  border:1px solid rgba(16,19,18,0.14);
+  background:#fff8ea;
+}
+
+.guideToc ol{
+  margin:10px 0 0;
+  padding-left:20px;
+  display:grid;
+  gap:6px;
+}
+
+.guideToc a{
+  color:var(--text);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.guideSection{
+  margin-top:44px;
+  scroll-margin-top:96px;
+}
+
+.guideSection h2{
+  font-size:clamp(24px, 3vw, 32px);
+  line-height:1.15;
+}
+
+.guideSection p{
+  margin-top:14px;
+  line-height:1.7;
+}
+
+.guideList{
+  margin:14px 0 0;
+  padding-left:22px;
+  display:grid;
+  gap:8px;
+  line-height:1.6;
+}
+
+.guidePoints{
+  margin:16px 0 0;
+  display:grid;
+  gap:12px;
+}
+
+.guidePoints div{
+  padding:14px 16px;
+  border-left:3px solid var(--bold-red);
+  background:rgba(255,248,234,0.7);
+}
+
+.guidePoints dt{
+  font-weight:700;
+}
+
+.guidePoints dd{
+  margin:4px 0 0;
+  line-height:1.6;
+}
