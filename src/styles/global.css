@@ -4289,3 +4289,37 @@ body{
 #root > .pageShell{
   flex:1 0 auto;
 }
+
+/* Smala skärmar: knappar och textlänkar får radbrytas i stället för att
+   trycka ut sidan i sidled (t.ex. "Starta hemsideprojektet" i en halv kolumn). */
+@media (max-width: 760px){
+  .exploreButton,
+  .localCtaButton{
+    white-space:normal;
+    text-align:center;
+    justify-content:center;
+  }
+
+  .textLink{
+    width:auto;
+    max-width:100%;
+  }
+}
+
+@media (max-width: 420px){
+  /* Två knappar bredvid varandra ryms inte när en etikett är ett långt
+     ord som "hemsideprojektet"; stapla dem hellre än att dela ordet. */
+  .exploreButtonRow{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 370px){
+  .navLink{ padding:9px 3px; }
+}
+
+.footerLinks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+}

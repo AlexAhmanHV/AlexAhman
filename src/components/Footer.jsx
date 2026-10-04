@@ -71,9 +71,11 @@ export default function Footer({ lang }) {
             <InstagramIcon />
           </a>
 
-          {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
-          <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
-          <a href={pathFor(lang, "terms")}>{termsLabel}</a>
+          <nav className="footerLinks" aria-label={lang === "en" ? "Footer" : "Sidfot"}>
+            {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
+            <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
+            <a href={pathFor(lang, "terms")}>{termsLabel}</a>
+          </nav>
         </div>
       </div>
     </footer>
