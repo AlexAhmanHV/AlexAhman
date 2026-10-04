@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
+import { BUSINESS } from "../business";
 
 import { SITE_URL } from "../routes";
 const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
@@ -10,7 +11,7 @@ const copy = {
     kicker: "Kontakt",
     title: "Skriv kort vad du bygger, så tar vi det därifrån",
     lede:
-      "Hör av dig om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll där någon behöver kunna röra sig mellan produkt, frontend och backend.",
+      "Hör av dig om ditt företag eller din förening behöver en ny hemsida, eller om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll mellan produkt, frontend och backend.",
     formTitle: "Skicka ett meddelande",
     formLead: "Skriv nuläge, mål och vad som bromsar. Det räcker som start.",
     responseTimeLabel: "svar",
@@ -30,6 +31,7 @@ const copy = {
     emailLabel: "email",
     fitTitle: "Bra skäl att höra av sig",
     fitItems: [
+      "Ditt företag eller din förening behöver en ny hemsida, eller en som syns bättre när kunder i Västervik söker.",
       "Ni behöver få en idé eller halvfärdig lösning till körbar produkt.",
       "Ni har ett systemflöde som behöver bli tydligare, snabbare eller lättare att förvalta.",
       "Ni söker en fullstackutvecklare som kan bidra praktiskt utan lång startsträcka.",
@@ -42,7 +44,7 @@ const copy = {
     kicker: "Contact",
     title: "Send the short version of what you are building",
     lede:
-      "Reach out if you need a developer for a concrete project, consulting work, or a role where someone needs to move between product, frontend, and backend.",
+      "Reach out if your business or club needs a new website, or if you need a developer for a concrete project, consulting work, or a role between product, frontend, and backend.",
     formTitle: "Send a message",
     formLead: "Write the current state, goal, and what is slowing things down. That is enough to start.",
     responseTimeLabel: "response",
@@ -62,6 +64,7 @@ const copy = {
     emailLabel: "email",
     fitTitle: "Good reasons to get in touch",
     fitItems: [
+      "Your business or club needs a new website, or one that shows up better in local searches.",
       "You need to turn an idea or unfinished solution into a runnable product.",
       "You have a system flow that needs to become clearer, faster, or easier to maintain.",
       "You are looking for a full-stack developer who can contribute practically without a long ramp-up.",
@@ -150,11 +153,27 @@ export default function Contact({ lang }) {
 
       <section className="section fadeUp pageEditorial" style={{ borderTop: "none" }}>
         <div className="container">
-          <div className="kicker">{t.kicker}</div>
-          <h1 className="h2 pageTitle" style={{ marginTop: 10 }}>
-            {t.title}
-          </h1>
-          <p className="lede">{t.lede}</p>
+          <div className="contactHeader">
+            <div>
+              <div className="kicker">{t.kicker}</div>
+              <h1 className="h2 pageTitle" style={{ marginTop: 10 }}>
+                {t.title}
+              </h1>
+              <p className="lede">{t.lede}</p>
+            </div>
+            <figure className="contactPhotoCard contactPhotoEditorial">
+              <img
+                className="contactPhoto"
+                src="/Alex-680.jpg"
+                srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
+                sizes="(max-width: 760px) 100vw, 340px"
+                alt={t.photoAlt}
+                decoding="async"
+                width="680"
+                height="907"
+              />
+            </figure>
+          </div>
 
           <div className="contactEditorialGrid">
             <aside className="homeSignalCard contactSignal">
@@ -166,7 +185,7 @@ export default function Contact({ lang }) {
               <dl className="homeMetaList">
                 <div className="homeMetaRow">
                   <dt>{t.emailLabel}</dt>
-                  <dd>Alex@AlexAhman.se</dd>
+                  <dd>{BUSINESS.email}</dd>
                 </div>
                 <div className="homeMetaRow">
                   <dt>{t.locationLabel}</dt>
@@ -220,19 +239,6 @@ export default function Contact({ lang }) {
                 </a>
               </div>
 
-              <figure className="contactPhotoCard contactPhotoEditorial">
-                <img
-                  className="contactPhoto"
-                  src="/Alex-680.jpg"
-                  srcSet="/Alex-340.jpg 340w, /Alex-680.jpg 680w, /Alex-1200.jpg 1200w"
-                  sizes="(max-width: 760px) 100vw, 340px"
-                  alt={t.photoAlt}
-                  loading="lazy"
-                  decoding="async"
-                  width="680"
-                  height="907"
-                />
-              </figure>
             </aside>
 
             <form className="card contactFormCard contactFormEditorial" action={formAction} method="POST" onSubmit={handleSubmit}>

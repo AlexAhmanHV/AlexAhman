@@ -4,7 +4,7 @@ import { SITE_URL } from "./routes";
 // framtida Google Företagsprofil — ändra här, inte på flera ställen.
 export const BUSINESS = {
   name: "Alexander Åhman",
-  email: "alexhvahman@gmail.com",
+  email: "alex@alexahman.se",
   city: "Västervik",
   region: "Kalmar län",
   sameAs: [

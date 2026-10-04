@@ -65,6 +65,12 @@ const copy = {
       casePath: "/projects/ankarsrums-jsk",
       href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
     },
+    {
+      title: "Lördagsgolfen",
+      text: "Hemsida för golfgänget i Västervik, med resultat, statistik och spelarprofiler som uppdateras varje säsong.",
+      casePath: "/projects/lordagsgolf",
+      href: "https://lordagsgolf.se/",
+    },
   ],
   includedTitle: "Det här ingår",
   included: [
@@ -167,13 +173,36 @@ export default function HemsidaVastervik() {
       <section className="hero homeHero localWebsiteHero" style={{ borderTop: "none" }}>
         <div className="container">
           <div className="homeHeroPanel localWebsiteHeroPanel fadeUp" data-parallax="hero">
-            <div className="kicker">{copy.kicker}</div>
-            <h1 className="h2" style={{ marginTop: 10 }}>
-              {copy.title}
-            </h1>
-            <p className="lede">{copy.lede}</p>
+            <div className="localHeroGrid">
+              <div>
+                <div className="kicker">{copy.kicker}</div>
+                <h1 className="localHeroTitle">{copy.title}</h1>
+                <p className="lede">{copy.lede}</p>
+                <div className="row" style={{ marginTop: 18 }}>
+                  <Link className="btn" to="/contact">
+                    {copy.ctaPrimary}
+                  </Link>
+                  <a className="btn btn-home-outline" href="#exempel">
+                    Se exempel
+                  </a>
+                </div>
+              </div>
 
-            <div className="grid cols-3" style={{ marginTop: 20 }}>
+              <figure className="localHeroShowcase">
+                <img
+                  className="localHeroShot isBack"
+                  src="/projects/ankarsrums-jsk/home.png"
+                  alt="Hemsida för Ankarsrums Jaktskytteklubb"
+                />
+                <img
+                  className="localHeroShot isFront"
+                  src="/projects/brod-och-deli/home.png"
+                  alt="Hemsida för Bröd & Deli i Västervik"
+                />
+              </figure>
+            </div>
+
+            <div className="grid cols-3 localHeroHighlights">
               {copy.highlights.map(([title, text]) => (
                 <div className="card" key={title}>
                   <h3 style={{ fontSize: 18, fontWeight: 700 }}>{title}</h3>
@@ -187,9 +216,11 @@ export default function HemsidaVastervik() {
 
       <section className="section" style={{ paddingTop: 24 }}>
         <div className="container">
-          <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{copy.examplesTitle}</h2>
+          <h2 className="h2 homeSectionTitle homeSectionTitleSingle" id="exempel">
+            {copy.examplesTitle}
+          </h2>
 
-          <div className="grid cols-2" style={{ marginTop: 18 }}>
+          <div className="grid cols-3" style={{ marginTop: 18 }}>
             {copy.examples.map((example) => (
               <div className="card" key={example.title}>
                 <h3 style={{ fontSize: 18, fontWeight: 700 }}>{example.title}</h3>

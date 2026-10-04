@@ -51,38 +51,6 @@ const copy = {
       },
       {
         index: "03",
-        title: "VenueFlow",
-        meta: "multi-tenant booking / Laravel / live app",
-        problem:
-          "En verksamhetsnära bokningsprodukt behöver hantera gäster, resurser, tider, personalroller och konflikter utan att skapa friktion för användaren.",
-        solution:
-          "Jag byggde en Laravel-baserad plattform med publik bokning utan konto, admin- och staff-vyer, RBAC, tenant-isolering och transaktionssäker kontroll av bokningskrockar.",
-        signal:
-          "Visar att jag kan bygga system där affärsregler, datamodell och vardagsflöden måste sitta ihop, inte bara ett snyggt frontendskal.",
-        details: ["Tenant-isolering", "Rollbaserad åtkomst", "Konfliktkontroll", "Visuell golvplan", "Neon + Render"],
-        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
-        casePath: "projects/venueflow",
-        href: "https://venueflow-wjh1.onrender.com/",
-        linkText: "Öppna appen",
-      },
-      {
-        index: "04",
-        title: "FX Monitor",
-        meta: "data pipeline / TypeScript / static delivery",
-        problem:
-          "Växelkurser behöver kunna jämföras över tid med KPI:er, diagram och riskindikatorer utan att kräva tung backenddrift.",
-        solution:
-          "Jag byggde en monorepo med React/TypeScript-frontend och en Python-pipeline som hämtar ECB-data, publicerar statiska JSON-filer och uppdateras dagligen via GitHub Actions.",
-        signal:
-          "Visar att jag kan koppla ihop data, CI, prestanda och interaktiv UX till en lösning som är enkel att drifta och lätt att resonera om.",
-        details: ["Daglig CI-uppdatering", "Statiska datafiler", "KPI-beräkning", "Jämförelseläge", "Tvåspråkigt UI"],
-        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
-        casePath: "projects/fx-monitor",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        linkText: "Öppna appen",
-      },
-      {
-        index: "05",
         title: "Lördagsgolf",
         meta: "publik webb + adminpanel / React / JWT-API",
         problem:
@@ -96,6 +64,38 @@ const copy = {
         casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Besök webbplats",
+      },
+      {
+        index: "04",
+        title: "Kommunfotbollen",
+        meta: "hyperlokal data-hub / Next.js / Claude API",
+        problem:
+          "Lokalfotboll är utspridd över flera källor och lokaltidningar. Ingen enskild plats samlar tabeller, matcher och målskyttar för kommunens lag, uppdaterat automatiskt.",
+        solution:
+          "Jag byggde en Next.js-app som varje kväll hämtar fem serier från Everysport och artiklar från tre lokaltidningar. Claude bedömer vilka artiklar som handlar om lagen och läser matchreferaten för att plocka ut målskyttar ur fritext. Varje lokalt lag har en egen sida med nästa match, tabellutdrag, matcher och nyheter.",
+        signal:
+          "Visar att jag kan bygga en källagnostisk ingest-arkitektur, använda AI för strukturerad extraktion ur text och driva det dygnet runt på gratisnivåer utan att slå i minnes- eller anslutningstak.",
+        details: ["Källagnostisk ingest", "AI-driven relevansfiltrering", "Målskytte-extraktion ur text", "Egen schemaläggning i appen", "Lagsidor med bilder"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
+        casePath: "projects/kommunfotboll",
+        href: "https://kommunfotboll.onrender.com/",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "05",
+        title: "VenueFlow",
+        meta: "multi-tenant booking / Laravel / live app",
+        problem:
+          "En verksamhetsnära bokningsprodukt behöver hantera gäster, resurser, tider, personalroller och konflikter utan att skapa friktion för användaren.",
+        solution:
+          "Jag byggde en Laravel-baserad plattform med publik bokning utan konto, admin- och staff-vyer, RBAC, tenant-isolering och transaktionssäker kontroll av bokningskrockar.",
+        signal:
+          "Visar att jag kan bygga system där affärsregler, datamodell och vardagsflöden måste sitta ihop, inte bara ett snyggt frontendskal.",
+        details: ["Tenant-isolering", "Rollbaserad åtkomst", "Konfliktkontroll", "Visuell golvplan", "Neon + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        casePath: "projects/venueflow",
+        href: "https://venueflow-wjh1.onrender.com/",
+        linkText: "Öppna appen",
       },
       {
         index: "06",
@@ -115,22 +115,6 @@ const copy = {
       },
       {
         index: "07",
-        title: "Kommunfotbollen",
-        meta: "hyperlokal data-hub / Next.js / Claude API",
-        problem:
-          "Lokalfotboll är utspridd över flera källor och lokaltidningar. Ingen enskild plats samlar tabeller, matcher och målskyttar för kommunens lag, uppdaterat automatiskt.",
-        solution:
-          "Jag byggde en Next.js-app som varje kväll hämtar fem serier från Everysport och artiklar från tre lokaltidningar. Claude bedömer vilka artiklar som handlar om lagen och läser matchreferaten för att plocka ut målskyttar ur fritext. Varje lokalt lag har en egen sida med nästa match, tabellutdrag, matcher och nyheter.",
-        signal:
-          "Visar att jag kan bygga en källagnostisk ingest-arkitektur, använda AI för strukturerad extraktion ur text och driva det dygnet runt på gratisnivåer utan att slå i minnes- eller anslutningstak.",
-        details: ["Källagnostisk ingest", "AI-driven relevansfiltrering", "Målskytte-extraktion ur text", "Egen schemaläggning i appen", "Lagsidor med bilder"],
-        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
-        casePath: "projects/kommunfotboll",
-        href: "https://kommunfotboll.onrender.com/",
-        linkText: "Öppna appen",
-      },
-      {
-        index: "08",
         title: "Kvitt",
         meta: "delad utgiftsapp / Laravel / Vue 3",
         problem:
@@ -146,7 +130,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "09",
+        index: "08",
         title: "FlagForge",
         meta: "feature-flag-plattform / Laravel / RBAC",
         problem:
@@ -159,6 +143,22 @@ const copy = {
         stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
         casePath: "projects/flagforge",
         href: "https://flagforge-ira0.onrender.com/",
+        linkText: "Öppna appen",
+      },
+      {
+        index: "09",
+        title: "FX Monitor",
+        meta: "data pipeline / TypeScript / static delivery",
+        problem:
+          "Växelkurser behöver kunna jämföras över tid med KPI:er, diagram och riskindikatorer utan att kräva tung backenddrift.",
+        solution:
+          "Jag byggde en monorepo med React/TypeScript-frontend och en Python-pipeline som hämtar ECB-data, publicerar statiska JSON-filer och uppdateras dagligen via GitHub Actions.",
+        signal:
+          "Visar att jag kan koppla ihop data, CI, prestanda och interaktiv UX till en lösning som är enkel att drifta och lätt att resonera om.",
+        details: ["Daglig CI-uppdatering", "Statiska datafiler", "KPI-beräkning", "Jämförelseläge", "Tvåspråkigt UI"],
+        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        casePath: "projects/fx-monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
         linkText: "Öppna appen",
       },
     ],
@@ -215,38 +215,6 @@ const copy = {
       },
       {
         index: "03",
-        title: "VenueFlow",
-        meta: "multi-tenant booking / Laravel / live app",
-        problem:
-          "A business-facing booking product needs to handle guests, resources, times, staff roles, and conflicts without creating friction for the user.",
-        solution:
-          "I built a Laravel platform with public booking without accounts, admin and staff views, RBAC, tenant isolation, and transaction-safe booking conflict checks.",
-        signal:
-          "Shows that I can build systems where business rules, data model, and daily workflows need to hold together, not just a polished frontend shell.",
-        details: ["Tenant isolation", "Role-based access", "Conflict checks", "Visual floor plan", "Neon + Render"],
-        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
-        casePath: "projects/venueflow",
-        href: "https://venueflow-wjh1.onrender.com/",
-        linkText: "Open app",
-      },
-      {
-        index: "04",
-        title: "FX Monitor",
-        meta: "data pipeline / TypeScript / static delivery",
-        problem:
-          "Exchange rates need comparison over time with KPIs, charts, and risk indicators without heavy backend operations.",
-        solution:
-          "I built a monorepo with a React/TypeScript frontend and Python pipeline that fetches ECB data, publishes static JSON files, and updates daily through GitHub Actions.",
-        signal:
-          "Shows that I can connect data, CI, performance, and interactive UX into a solution that is easy to operate and reason about.",
-        details: ["Daily CI update", "Static data files", "KPI calculation", "Comparison mode", "Bilingual UI"],
-        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
-        casePath: "projects/fx-monitor",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        linkText: "Open app",
-      },
-      {
-        index: "05",
         title: "Lördagsgolf",
         meta: "public site + admin panel / React / JWT API",
         problem:
@@ -260,6 +228,38 @@ const copy = {
         casePath: "projects/lordagsgolf",
         href: "https://lordagsgolf.se/",
         linkText: "Visit website",
+      },
+      {
+        index: "04",
+        title: "Kommunfotbollen",
+        meta: "hyperlocal data hub / Next.js / Claude API",
+        problem:
+          "Local football coverage is scattered across sources and local newspapers. No single place aggregates standings, matches, and goal scorers for a town's teams, kept automatically up to date.",
+        solution:
+          "I built a Next.js app that pulls five leagues from Everysport and articles from three local newspapers every evening. Claude decides which articles are about the teams and reads match reports to pull goal scorers out of free text. Every local team has its own page with the next match, a table excerpt, results, and news.",
+        signal:
+          "Shows that I can build a source-agnostic ingest architecture, apply AI to structured extraction from text, and run it around the clock on free tiers without hitting memory or connection limits.",
+        details: ["Source-agnostic ingest", "AI-driven relevance filtering", "Goal-scorer extraction from text", "In-app scheduling", "Team pages with photos"],
+        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
+        casePath: "projects/kommunfotboll",
+        href: "https://kommunfotboll.onrender.com/",
+        linkText: "Open app",
+      },
+      {
+        index: "05",
+        title: "VenueFlow",
+        meta: "multi-tenant booking / Laravel / live app",
+        problem:
+          "A business-facing booking product needs to handle guests, resources, times, staff roles, and conflicts without creating friction for the user.",
+        solution:
+          "I built a Laravel platform with public booking without accounts, admin and staff views, RBAC, tenant isolation, and transaction-safe booking conflict checks.",
+        signal:
+          "Shows that I can build systems where business rules, data model, and daily workflows need to hold together, not just a polished frontend shell.",
+        details: ["Tenant isolation", "Role-based access", "Conflict checks", "Visual floor plan", "Neon + Render"],
+        stack: ["Laravel 11", "PHP 8.3", "Neon PostgreSQL", "Blade", "Tailwind", "Alpine.js", "Render"],
+        casePath: "projects/venueflow",
+        href: "https://venueflow-wjh1.onrender.com/",
+        linkText: "Open app",
       },
       {
         index: "06",
@@ -279,22 +279,6 @@ const copy = {
       },
       {
         index: "07",
-        title: "Kommunfotbollen",
-        meta: "hyperlocal data hub / Next.js / Claude API",
-        problem:
-          "Local football coverage is scattered across sources and local newspapers. No single place aggregates standings, matches, and goal scorers for a town's teams, kept automatically up to date.",
-        solution:
-          "I built a Next.js app that pulls five leagues from Everysport and articles from three local newspapers every evening. Claude decides which articles are about the teams and reads match reports to pull goal scorers out of free text. Every local team has its own page with the next match, a table excerpt, results, and news.",
-        signal:
-          "Shows that I can build a source-agnostic ingest architecture, apply AI to structured extraction from text, and run it around the clock on free tiers without hitting memory or connection limits.",
-        details: ["Source-agnostic ingest", "AI-driven relevance filtering", "Goal-scorer extraction from text", "In-app scheduling", "Team pages with photos"],
-        stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Supabase", "Zod", "Tailwind v4", "Anthropic SDK", "sharp", "Render"],
-        casePath: "projects/kommunfotboll",
-        href: "https://kommunfotboll.onrender.com/",
-        linkText: "Open app",
-      },
-      {
-        index: "08",
         title: "Kvitt",
         meta: "shared expense app / Laravel / Vue 3",
         problem:
@@ -310,7 +294,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "09",
+        index: "08",
         title: "FlagForge",
         meta: "feature-flag platform / Laravel / RBAC",
         problem:
@@ -323,6 +307,22 @@ const copy = {
         stack: ["Laravel 12", "PHP 8.3", "PostgreSQL", "PHPUnit", "Pint", "GitHub Actions", "Render"],
         casePath: "projects/flagforge",
         href: "https://flagforge-ira0.onrender.com/",
+        linkText: "Open app",
+      },
+      {
+        index: "09",
+        title: "FX Monitor",
+        meta: "data pipeline / TypeScript / static delivery",
+        problem:
+          "Exchange rates need comparison over time with KPIs, charts, and risk indicators without heavy backend operations.",
+        solution:
+          "I built a monorepo with a React/TypeScript frontend and Python pipeline that fetches ECB data, publishes static JSON files, and updates daily through GitHub Actions.",
+        signal:
+          "Shows that I can connect data, CI, performance, and interactive UX into a solution that is easy to operate and reason about.",
+        details: ["Daily CI update", "Static data files", "KPI calculation", "Comparison mode", "Bilingual UI"],
+        stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
+        casePath: "projects/fx-monitor",
+        href: "https://fx-monitor-tlpr.onrender.com",
         linkText: "Open app",
       },
     ],

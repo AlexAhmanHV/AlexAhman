@@ -4092,3 +4092,146 @@ body{
   .navLink{ padding:9px 4px; }
   .langToggle{ padding:6px 2px; }
 }
+
+/* Startsidans checklista i högerpanelen: numrerade rader med tunna linjer
+   i stället för egna beige rutor, så att den hänger ihop med tabellen ovanför. */
+.boldSignalPanel .homeChecklist{
+  counter-reset:check;
+  gap:0;
+  margin-top:18px;
+  border-top:1px solid rgba(16,19,18,0.12);
+}
+
+.boldSignalPanel .homeChecklistItem{
+  counter-increment:check;
+  padding:11px 0 11px 34px;
+  border:0;
+  border-bottom:1px solid rgba(16,19,18,0.12);
+  border-radius:0;
+  background:transparent;
+  color:#101312;
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.45;
+}
+
+.boldSignalPanel .homeChecklistItem::before{
+  content:counter(check, decimal-leading-zero);
+  top:12px;
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:none;
+  color:var(--bold-red);
+  font-family:"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.04em;
+}
+
+/* Hemsida Västervik: rubrik som flyter i en bred kolumn och riktiga
+   kundsajter till höger i stället för den dekorativa gradientytan. */
+.localWebsiteHeroPanel{
+  padding:clamp(22px, 3.2vw, 44px);
+}
+
+.localWebsiteHeroPanel::before{
+  content:none;
+}
+
+.localHeroGrid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.15fr) minmax(0, 1fr);
+  gap:clamp(24px, 4vw, 56px);
+  align-items:center;
+}
+
+.localWebsiteHeroPanel .localHeroTitle{
+  max-width:20ch;
+  margin-top:10px;
+  font-size:clamp(34px, 4.2vw, 56px);
+  line-height:1.06;
+  letter-spacing:-0.01em;
+  text-transform:none;
+}
+
+.localHeroShowcase{
+  position:relative;
+  margin:0;
+  min-height:clamp(240px, 30vw, 380px);
+}
+
+.localHeroShot{
+  position:absolute;
+  width:84%;
+  height:auto;
+  border:1px solid rgba(16,19,18,0.16);
+  background:#fff;
+  box-shadow:0 22px 48px rgba(16,19,18,0.16);
+}
+
+.localHeroShot.isBack{
+  top:0;
+  right:0;
+}
+
+.localHeroShot.isFront{
+  bottom:0;
+  left:0;
+}
+
+.localHeroHighlights{
+  margin-top:clamp(22px, 3vw, 36px);
+}
+
+@media (max-width: 860px){
+  .localHeroGrid{
+    grid-template-columns:1fr;
+  }
+
+  .localHeroShowcase{
+    min-height:clamp(200px, 56vw, 320px);
+  }
+}
+
+/* Kontakt: fotot bredvid rubriken i stället för längst ner i det mörka kortet,
+   så att kortet och formuläret blir lika höga. */
+.contactHeader{
+  display:grid;
+  gap:24px;
+  align-items:center;
+}
+
+.contactHeader .contactPhotoEditorial{
+  margin:0;
+  width:min(100%, 240px);
+  aspect-ratio:4 / 5;
+  border-radius:var(--radius);
+}
+
+.contactHeader .contactPhoto{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 30%;
+}
+
+@media (min-width: 920px){
+  .contactHeader{
+    grid-template-columns:minmax(0, 1fr) 240px;
+    gap:48px;
+  }
+
+  .contactHeader .pageTitle{
+    max-width:22ch;
+  }
+
+  .contactEditorialGrid{
+    grid-template-columns:1fr 1fr;
+    align-items:stretch;
+  }
+}
+
+.localWebsiteHeroPanel::after{
+  content:none;
+}
