@@ -4235,3 +4235,57 @@ body{
 .localWebsiteHeroPanel::after{
   content:none;
 }
+
+/* Sidfot: egen mörk yta som matchar menyn, ovanför den fasta dekorramen
+   (body::before), så att rutnätet och ramens linje inte syns genom den. */
+.footer{
+  position:relative;
+  z-index:1;
+  padding:36px 0 40px;
+  border-top:0;
+  background:#131715;
+  color:rgba(255,250,243,0.62);
+}
+
+.footer .container{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  align-items:center;
+  gap:18px 32px;
+}
+
+.footer .container > .row{
+  flex-wrap:wrap;
+  gap:8px 18px !important;
+}
+
+.footer a{
+  color:rgba(255,250,243,0.86);
+}
+
+.footer a:hover{
+  color:#fffaf2;
+}
+
+.footer .socialIcon{
+  border-color:rgba(255,250,243,0.2);
+  background:transparent;
+  color:#fffaf2;
+}
+
+@media (max-width: 700px){
+  .footer .container{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Sidfoten ska ligga mot fönstrets nederkant även på korta sidor. */
+#root{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+#root > .pageShell{
+  flex:1 0 auto;
+}

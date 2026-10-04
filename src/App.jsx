@@ -1,4 +1,5 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect, useLayoutEffect } from "react";
+import { Routes, Route, Navigate, useLocation, useNavigationType } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { REDIRECTS } from "./routes";
 import Nav from "./components/Nav";
@@ -17,11 +18,62 @@ import Projects from "./pages/Projects";
 import ProjectCase from "./pages/ProjectCase";
 import ServiceLanding from "./pages/ServiceLanding";
 
+// React Router behåller scrollpositionen mellan sidor. Nya sidor ska börja
+// högst upp (eller vid #ankaret); bakåt/framåt återställer positionen sidan
+// hade. Webbläsarens egen återställning slår fel i en SPA, så den stängs av.
+const scrollPositions = new Map();
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
+// Scrollpositionen läses av när en navigering startar (klick eller
+// bakåt/framåt), innan React byter DOM och webbläsaren klämmer window.scrollY
+// mot den nya, kortare sidan. Lyssnarna registreras före React Routers.
+let lastScrollY = 0;
+if (typeof window !== "undefined") {
+  const remember = () => {
+    lastScrollY = window.scrollY;
+  };
+  window.addEventListener("click", remember, true);
+  window.addEventListener("popstate", remember);
+}
+
+// Sidan kan vara kortare än den sparade positionen tills bilderna laddats,
+// så försök igen en stund tills positionen nås.
+function restoreScroll(y, attempt = 0) {
+  window.scrollTo(0, y);
+  if (Math.abs(window.scrollY - y) > 2 && attempt < 20) {
+    setTimeout(() => restoreScroll(y, attempt + 1), 50);
+  }
+}
+
+function useScrollToTopOnNavigate() {
+  const { key, pathname, hash } = useLocation();
+  const navigationType = useNavigationType();
+
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
+
+  useIsomorphicLayoutEffect(() => () => scrollPositions.set(key, lastScrollY), [key]);
+
+  useIsomorphicLayoutEffect(() => {
+    if (navigationType === "POP" && scrollPositions.has(key)) {
+      restoreScroll(scrollPositions.get(key));
+      return;
+    }
+    if (hash) {
+      document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+      return;
+    }
+    window.scrollTo(0, 0);
+  }, [key, pathname, hash, navigationType]);
+}
+
 function AppRoutes({ lang }) {
   const location = useLocation();
   const routeKey = location.pathname;
 
   useMotionEffects(routeKey);
+  useScrollToTopOnNavigate();
 
   return (
     <>
