@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const copy = {
   kicker: "Lokal webbutveckling",
@@ -51,9 +51,33 @@ const copy = {
       "Behöver du hjälp med hemsida i Västervik får du en direkt kontakt med utvecklaren som faktiskt bygger lösningen.",
     ],
   ],
+  examplesTitle: "Hemsidor jag byggt i Västerviks kommun",
+  examples: [
+    {
+      title: "Bröd & Deli",
+      text: "Hemsida för ett bageri och deli på Allén i Västervik, med sortimentet i bilder, öppettider och karta.",
+      casePath: "/projects/brod-och-deli",
+      href: "https://brodochdeli.se/",
+    },
+    {
+      title: "Ankarsrums Jaktskytteklubb",
+      text: "Ny hemsida för skytteklubben vid Tjursbo utanför Ankarsrum, med nyheter, kalender för banbokningar och ett adminläge där styrelsen uppdaterar själv.",
+      casePath: "/projects/ankarsrums-jsk",
+      href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
+    },
+  ],
+  includedTitle: "Det här ingår",
+  included: [
+    "Struktur och texter planerade utifrån vad dina kunder söker efter",
+    "Mobilanpassad design som laddar snabbt",
+    "Teknisk SEO: titlar, beskrivningar, sitemap och strukturerad data",
+    "Kontaktformulär eller förfrågningsformulär",
+    "Hjälp med domän, hosting och Google Företagsprofil",
+    "Adminläge för nyheter, kalender eller öppettider när det behövs",
+  ],
   processTitle: "Så jobbar vi",
   process: [
-    ["1. Behov & mål", "Vi går igenom målgrupp, innehåll och vad sidan ska leverera."],
+    ["1. Behov & mål", "Vi går igenom målgrupp, innehåll och vad sidan ska leverera, och sätter en tidsplan för utkast och lansering."],
     ["2. Bygg & förfining", "Jag bygger lösningen och vi justerar löpande tills allt sitter."],
     ["3. Lansering & nästa steg", "Vi publicerar, följer upp och planerar vidareutveckling vid behov."],
   ],
@@ -71,6 +95,26 @@ const copy = {
       "Vad får jag för typ av lösning?",
       "Du får en snabb, modern och lättförvaltad webbplats med tydlig struktur, mobilanpassning och en teknisk grund som går att bygga vidare på över tid.",
     ],
+    [
+      "Kan jag uppdatera hemsidan själv?",
+      "Ja, om du vill. Behöver du ofta lägga in nyheter, öppettider eller evenemang bygger jag ett enkelt adminläge, som för Ankarsrums Jaktskytteklubb. Ändras innehållet sällan kan jag sköta uppdateringarna åt dig.",
+    ],
+    [
+      "Vem äger hemsidan och domänen?",
+      "Du. Domänen registreras i ditt namn och du får tillgång till koden och kontona, så att du aldrig är låst till mig.",
+    ],
+    [
+      "Hjälper du till med Google?",
+      "Ja. Hemsidan byggs med teknisk SEO från start, och jag hjälper dig att sätta upp Google Företagsprofil och Search Console så att uppgifterna stämmer överallt.",
+    ],
+    [
+      "Vad händer efter lanseringen?",
+      "Vi följer upp hur sidan används och vad som behöver justeras. Jag finns kvar för ändringar och vidareutveckling när verksamheten förändras.",
+    ],
+    [
+      "Jobbar du bara i Västervik?",
+      "Jag bor i Västervik och hjälper gärna verksamheter i hela kommunen, från Gamleby till Ankarsrum. Vi kan träffas på plats eller ta allt digitalt, och jag tar även uppdrag utanför kommunen.",
+    ],
   ],
   ctaTitle: "Vill du ha hjälp med hemsida i Västervik?",
   ctaText: "Skicka ett meddelande så tar vi ett första, enkelt samtal om vad du behöver och vilken lösning som passar bäst.",
@@ -83,15 +127,8 @@ export default function HemsidaVastervik() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Hemsida i Västervik",
-    provider: {
-      "@type": "Person",
-      name: "Alexander Åhman",
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "Place",
-      name: "Västervik, Sweden",
-    },
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: { "@type": "City", name: "Västervik" },
     serviceType: "Webbutveckling och hemsidor",
     description:
       "Hjälp med hemsida i Västervik: ny hemsida, vidareutveckling, teknisk SEO, prestanda och struktur för företag som vill synas bättre online.",
@@ -150,6 +187,29 @@ export default function HemsidaVastervik() {
 
       <section className="section" style={{ paddingTop: 24 }}>
         <div className="container">
+          <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{copy.examplesTitle}</h2>
+
+          <div className="grid cols-2" style={{ marginTop: 18 }}>
+            {copy.examples.map((example) => (
+              <div className="card" key={example.title}>
+                <h3 style={{ fontSize: 18, fontWeight: 700 }}>{example.title}</h3>
+                <p style={{ marginTop: 10 }}>{example.text}</p>
+                <div className="row" style={{ marginTop: 14 }}>
+                  <Link className="btn btn-outline exploreButton" to={example.casePath}>
+                    Läs caset
+                  </Link>
+                  <a className="btn btn-outline exploreButton" href={example.href} target="_blank" rel="noreferrer">
+                    Besök sajten
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="container">
           <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{copy.audienceTitle}</h2>
 
           <div className="grid cols-3" style={{ marginTop: 18 }}>
@@ -186,6 +246,20 @@ export default function HemsidaVastervik() {
               <div className="card" key={title}>
                 <h3 style={{ fontSize: 18, fontWeight: 700 }}>{title}</h3>
                 <p style={{ marginTop: 10 }}>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="container">
+          <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{copy.includedTitle}</h2>
+
+          <div className="localNeedsList" style={{ marginTop: 18 }}>
+            {copy.included.map((item) => (
+              <div className="localNeedsItem" key={item}>
+                {item}
               </div>
             ))}
           </div>

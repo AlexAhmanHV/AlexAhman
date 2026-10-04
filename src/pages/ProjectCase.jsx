@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const cases = {
   venueflow: {
@@ -461,6 +461,130 @@ const cases = {
         { src: "/projects/flagforge/project-environments.png", alt: "Per-environment release workflow: policy, publish, snapshots, and test evaluation" },
         { src: "/projects/flagforge/login.png", alt: "Sign-in page with the FlagForge control plane hero" },
         { src: "/projects/flagforge/flag-rollout.png", alt: "Flag detail view: a 25% prod rollout, a critical-flag marker, and a beta-testers segment rule" },
+      ],
+    },
+  },
+  "brod-och-deli": {
+    sv: {
+      title: "Bröd & Deli",
+      kicker: "Case / hemsida för lokalt bageri",
+      meta: "Next.js / statisk export / lokal SEO",
+      seoTitle: "Bröd & Deli case | Hemsida för bageri i Västervik | Alexander Åhman",
+      seoDescription:
+        "Case om hemsidan för Guldkringlans Bröd & Deli på Allén i Västervik: sortiment i bilder, öppettider, karta och lokal SEO, byggd som en snabb statisk Next.js-sajt.",
+      lede:
+        "Guldkringlans Bröd & Deli är ett bageri och deli på Allén 68 i Västervik. Hemsidan visar sortimentet, öppettiderna och vägen dit, och är byggd för att hittas när någon i Västervik söker efter bageri, smörgåstårta eller lunch.",
+      problem:
+        "Ett lokalt bageri behöver att kunderna snabbt hittar öppettider, adress och vad som finns att köpa, oftast i mobilen och ofta strax innan de ska handla. Utan en egen tydlig hemsida hamnar den informationen utspridd eller inaktuell.",
+      solution:
+        "Jag byggde en hemsida med sortimentet uppdelat i åtta kategorier med egna sidor och bilder, en kontaktsida med öppettider, karta och lunchleverans till företag, och en startsida som direkt säger vad bageriet erbjuder och var det ligger.",
+      decisions: [
+        "Statisk export av Next.js, så att sidorna levereras färdiga och laddar snabbt i mobilen utan någon server som behöver drivas.",
+        "En egen sida per sortimentskategori, så att varje produkttyp kan hittas och delas för sig.",
+        "Titlar, beskrivningar, sitemap och robots byggda kring sökningar i Västervik, och egen domän: brodochdeli.se.",
+        "Öppettider, adress och telefon på samma ställe som kartan, eftersom det är det besökaren oftast letar efter.",
+      ],
+      result:
+        "Bageriet har en snabb hemsida på egen domän som visar sortimentet och gör det enkelt att hitta dit. Projektet visar hur jag bygger hemsidor för lokala företag: tydligt innehåll, bra i mobilen och byggt för att synas i lokala sökningar.",
+      stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Statisk export", "Render"],
+      href: "https://brodochdeli.se/",
+      linkText: "Besök brodochdeli.se",
+      screenshots: [
+        { src: "/projects/brod-och-deli/home.png", alt: "Startsida för Guldkringlans Bröd & Deli i Västervik" },
+        { src: "/projects/brod-och-deli/sortiment.png", alt: "Sortimentet i åtta kategorier med bilder" },
+        { src: "/projects/brod-och-deli/kontakt.png", alt: "Kontaktsida med öppettider, adress och karta" },
+      ],
+    },
+    en: {
+      title: "Bröd & Deli",
+      kicker: "Case / website for a local bakery",
+      meta: "Next.js / static export / local SEO",
+      seoTitle: "Bröd & Deli case | Website for a bakery in Västervik | Alexander Ahman",
+      seoDescription:
+        "Case study for the website of Guldkringlans Bröd & Deli in Västervik: the product range in photos, opening hours, a map, and local SEO, built as a fast static Next.js site.",
+      lede:
+        "Guldkringlans Bröd & Deli is a bakery and deli on Allén 68 in Västervik. The website shows the range, the opening hours, and how to get there, and is built to be found when someone in Västervik searches for a bakery, sandwich cake, or lunch.",
+      problem:
+        "A local bakery needs customers to quickly find opening hours, the address, and what is for sale, usually on a phone and often right before they head out. Without a clear website of its own, that information ends up scattered or out of date.",
+      solution:
+        "I built a website with the range split into eight categories with their own pages and photos, a contact page with opening hours, a map, and lunch delivery for workplaces, and a home page that says straight away what the bakery offers and where it is.",
+      decisions: [
+        "Static export from Next.js, so pages are delivered ready-made and load fast on phones with no server to run.",
+        "One page per product category, so every kind of product can be found and shared on its own.",
+        "Titles, descriptions, sitemap, and robots built around searches in Västervik, on its own domain: brodochdeli.se.",
+        "Opening hours, address, and phone next to the map, since that is what visitors look for most.",
+      ],
+      result:
+        "The bakery has a fast website on its own domain that shows the range and makes it easy to find the shop. The project shows how I build websites for local businesses: clear content, good on phones, and built to show up in local searches.",
+      stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Static export", "Render"],
+      href: "https://brodochdeli.se/",
+      linkText: "Visit brodochdeli.se",
+      screenshots: [
+        { src: "/projects/brod-och-deli/home.png", alt: "Home page for Guldkringlans Bröd & Deli in Västervik" },
+        { src: "/projects/brod-och-deli/sortiment.png", alt: "The range in eight categories with photos" },
+        { src: "/projects/brod-och-deli/kontakt.png", alt: "Contact page with opening hours, address, and map" },
+      ],
+    },
+  },
+  "ankarsrums-jsk": {
+    sv: {
+      title: "Ankarsrums Jaktskytteklubb",
+      kicker: "Case / hemsida för förening",
+      meta: "Next.js / Postgres / adminläge",
+      seoTitle: "Ankarsrums Jaktskytteklubb case | Hemsida för förening | Alexander Åhman",
+      seoDescription:
+        "Case om nya hemsidan för Ankarsrums Jaktskytteklubb utanför Ankarsrum: nyheter, kalender för banbokningar och ett adminläge där styrelsen uppdaterar själv, byggd i Next.js med Postgres.",
+      lede:
+        "Ankarsrums Jaktskytteklubb har skjutbanor vid Tjursbo utanför Ankarsrum sedan 1962. Klubbens gamla hemsida låg nere, så jag byggde en ny där styrelsen själv kan lägga in nyheter och banbokningar.",
+      problem:
+        "Klubbens gamla sajt var nere, och informationen om banor, öppettider, medlemskap och jägarexamen fanns bara kvar i webbarkivet. En förening behöver dessutom kunna uppdatera nyheter och kalender löpande utan att någon i styrelsen behöver kunna koda.",
+      solution:
+        "Jag återskapade innehållet från den gamla sajten och byggde en ny hemsida med sidor för banor, medlemskap, bokningsregler, jägarexamen och kontakt, plus ett inloggat adminläge där styrelsen hanterar nyheter, kalender och fler adminkonton.",
+      decisions: [
+        "Next.js med Postgres för nyheter och kalender, så att innehållet som ändras ofta ligger i en databas och resten är snabba statiska sidor.",
+        "Adminläge med inloggning, ett huvudkonto som kan skapa konton åt resten av styrelsen och spärr efter upprepade felaktiga inloggningsförsök.",
+        "Bilderna förskalas innan de laddas upp, så att servern aldrig behöver bildbearbeta och minnet räcker gott.",
+        "Telefonnummer till enskilda styrelsemedlemmar publiceras inte, av integritetsskäl.",
+      ],
+      result:
+        "Klubben har fått en modern hemsida som styrelsen själv kan hålla aktuell. Sajten granskas just nu av styrelsen innan den ersätter den gamla adressen. Projektet visar hur jag bygger hemsidor för föreningar: enkelt att uppdatera, tydligt för medlemmar och nya besökare.",
+      stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Neon Postgres", "Render"],
+      href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
+      linkText: "Besök klubbens nya sajt",
+      screenshots: [
+        { src: "/projects/ankarsrums-jsk/home.png", alt: "Startsida för Ankarsrums Jaktskytteklubb" },
+        { src: "/projects/ankarsrums-jsk/klubben.png", alt: "Om klubben med öppettider, banor och medlemskap" },
+        { src: "/projects/ankarsrums-jsk/banor.png", alt: "Sidan om klubbens banor vid Tjursbo" },
+      ],
+    },
+    en: {
+      title: "Ankarsrums Jaktskytteklubb",
+      kicker: "Case / website for a club",
+      meta: "Next.js / Postgres / admin mode",
+      seoTitle: "Ankarsrums Jaktskytteklubb case | Website for a club | Alexander Ahman",
+      seoDescription:
+        "Case study for the new website of Ankarsrums Jaktskytteklubb, a shooting club near Ankarsrum: news, a calendar for range bookings, and an admin mode where the board updates content itself, built with Next.js and Postgres.",
+      lede:
+        "Ankarsrums Jaktskytteklubb has run shooting ranges at Tjursbo near Ankarsrum since 1962. The club's old website was down, so I built a new one where the board can add news and range bookings themselves.",
+      problem:
+        "The club's old site was down, and the information about ranges, opening hours, membership, and the hunting exam only survived in the web archive. A club also needs to keep news and the calendar up to date without anyone on the board having to code.",
+      solution:
+        "I recovered the content from the old site and built a new website with pages for ranges, membership, booking rules, the hunting exam, and contact, plus a logged-in admin mode where the board manages news, the calendar, and more admin accounts.",
+      decisions: [
+        "Next.js with Postgres for news and the calendar, so frequently changing content lives in a database and everything else is fast static pages.",
+        "An admin mode with login, a main account that can create accounts for the rest of the board, and a lockout after repeated failed login attempts.",
+        "Photos are pre-scaled before upload, so the server never has to process images and memory stays comfortable.",
+        "Phone numbers of individual board members are not published, for privacy.",
+      ],
+      result:
+        "The club has a modern website the board can keep current on its own. The site is currently being reviewed by the board before it replaces the old address. The project shows how I build websites for clubs: easy to update, clear for members and new visitors.",
+      stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Neon Postgres", "Render"],
+      href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
+      linkText: "Visit the club's new site",
+      screenshots: [
+        { src: "/projects/ankarsrums-jsk/home.png", alt: "Home page for Ankarsrums Jaktskytteklubb" },
+        { src: "/projects/ankarsrums-jsk/klubben.png", alt: "About the club with opening hours, ranges, and membership" },
+        { src: "/projects/ankarsrums-jsk/banor.png", alt: "The page about the club's ranges at Tjursbo" },
       ],
     },
   },

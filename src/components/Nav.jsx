@@ -13,13 +13,10 @@ function pathFor(lang, path) {
 function toggleLangPath(pathname) {
   const clean = pathname.replace(/\/+$/, "") || "/";
   const unmatchedLanguagePages = new Map([
-    ["/fullstackutvecklare-vastervik", "/en"],
+    ["/hemsida-vastervik", "/en"],
+    ["/fullstackutvecklare-vastervik", "/en/fullstack-developer-vastervik"],
     ["/webbutvecklare-vastervik", "/en"],
-    ["/react-utvecklare-vastervik", "/en"],
-    ["/react-laravel-utvecklare", "/en"],
-    ["/laravel-utvecklare", "/en"],
-    ["/konsult-systemutvecklare", "/en"],
-    ["/en/fullstack-developer-vastervik", "/"],
+    ["/en/fullstack-developer-vastervik", "/fullstackutvecklare-vastervik"],
   ]);
 
   if (unmatchedLanguagePages.has(clean)) {
@@ -67,6 +64,7 @@ export default function Nav({ lang }) {
   const t =
     {
       sv: {
+        websites: "Hemsidor",
         projects: "Projekt",
         services: "Tjänster",
         about: "Om",
@@ -127,6 +125,11 @@ export default function Nav({ lang }) {
 
         <div className="navLinks" ref={navLinksRef}>
           <span className="navIndicator" aria-hidden="true" style={indicatorStyle} />
+          {lang === "sv" ? (
+            <NavLink to="/hemsida-vastervik" className={navLinkClassName}>
+              {t.websites}
+            </NavLink>
+          ) : null}
           <NavLink to={pathFor(lang, "projects")} className={navLinkClassName}>
             {t.projects}
           </NavLink>

@@ -361,6 +361,11 @@ h1,h2,h3{
   font-size:14px;
 }
 
+.footerBusiness{
+  display:grid;
+  gap:4px;
+}
+
 .socialLink{
   font-weight:700;
   color:var(--accent-3);
@@ -4079,4 +4084,11 @@ body{
 .localRelatedCard p{
   color:#51483f;
   font-weight:700;
+}
+
+/* Fem menyval + språkflagga ska rymmas utan sidledsscroll på 375 px breda telefoner. */
+@media (max-width: 420px){
+  .navLinks{ gap:0; }
+  .navLink{ padding:9px 4px; }
+  .langToggle{ padding:6px 2px; }
 }

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { businessJsonLd } from "./business";
 
 function normalizePath(pathname) {
   if (!pathname) return "/";
@@ -58,6 +59,8 @@ export default function Seo({
       {svUrl ? <link rel="alternate" hrefLang="sv" href={svUrl} /> : null}
       {!svOnly && enUrl ? <link rel="alternate" hrefLang="en" href={enUrl} /> : null}
       <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />
+
+      <script type="application/ld+json">{JSON.stringify(businessJsonLd)}</script>
     </Helmet>
   );
 }

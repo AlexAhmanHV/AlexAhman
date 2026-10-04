@@ -1,6 +1,6 @@
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const copy = {
   sv: {

@@ -1,4 +1,6 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { REDIRECTS } from "./routes";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
@@ -39,14 +41,15 @@ function AppRoutes({ lang }) {
           <Route path="projects/kommunfotboll" element={<ProjectCase lang={lang} slug="kommunfotboll" />} />
           <Route path="projects/kvitt" element={<ProjectCase lang={lang} slug="kvitt" />} />
           <Route path="projects/flagforge" element={<ProjectCase lang={lang} slug="flagforge" />} />
+          <Route path="projects/brod-och-deli" element={<ProjectCase lang={lang} slug="brod-och-deli" />} />
+          <Route path="projects/ankarsrums-jsk" element={<ProjectCase lang={lang} slug="ankarsrums-jsk" />} />
           {lang === "sv" ? (
             <>
               <Route path="fullstackutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="fullstackutvecklare-vastervik" />} />
               <Route path="webbutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="webbutvecklare-vastervik" />} />
-              <Route path="react-utvecklare-vastervik" element={<ServiceLanding lang={lang} slug="react-utvecklare-vastervik" />} />
-              <Route path="react-laravel-utvecklare" element={<ServiceLanding lang={lang} slug="react-laravel-utvecklare" />} />
-              <Route path="laravel-utvecklare" element={<ServiceLanding lang={lang} slug="laravel-utvecklare" />} />
-              <Route path="konsult-systemutvecklare" element={<ServiceLanding lang={lang} slug="konsult-systemutvecklare" />} />
+              {Object.entries(REDIRECTS).map(([from, to]) => (
+                <Route key={from} path={from.slice(1)} element={<Navigate to={to} replace />} />
+              ))}
             </>
           ) : (
             <Route path="fullstack-developer-vastervik" element={<ServiceLanding lang={lang} slug="fullstack-developer-vastervik" />} />
@@ -65,6 +68,9 @@ function AppRoutes({ lang }) {
 function NotFound({ lang }) {
   return (
     <div className="container section">
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <h1 className="h2">{lang === "en" ? "Not found" : "Sidan hittades inte"}</h1>
     </div>
   );

@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const copy = {
   sv: {
     kicker: "Case archive",
     title: "Projekt som visar systemtänk i praktiken",
     lede:
-      "Sju leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
+      "Nio leveranser där värdet sitter i mer än ytan: hemsidor för lokala kunder, bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
     labels: {
       problem: "Problem",
       solution: "Lösning",
@@ -19,6 +19,38 @@ const copy = {
     items: [
       {
         index: "01",
+        title: "Bröd & Deli",
+        meta: "hemsida för lokalt bageri / Next.js / Västervik",
+        problem:
+          "Ett bageri på Allén i Västervik behövde en hemsida där kunderna snabbt hittar sortiment, öppettider och vägen dit, oftast i mobilen.",
+        solution:
+          "En snabb statisk Next.js-sajt med sortimentet i åtta kategorier med bilder, en kontaktsida med öppettider och karta, och egen domän: brodochdeli.se.",
+        signal:
+          "Visar hur jag bygger hemsidor för lokala företag: tydligt innehåll, snabb i mobilen och byggd för att synas i lokala sökningar.",
+        details: ["Sortiment i bilder", "Öppettider och karta", "Lokal SEO", "Egen domän", "Statisk export"],
+        stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Render"],
+        casePath: "projects/brod-och-deli",
+        href: "https://brodochdeli.se/",
+        linkText: "Besök sajten",
+      },
+      {
+        index: "02",
+        title: "Ankarsrums Jaktskytteklubb",
+        meta: "hemsida för förening / Next.js / adminläge",
+        problem:
+          "Skytteklubbens gamla hemsida låg nere, och styrelsen behövde kunna uppdatera nyheter och banbokningar utan att koda.",
+        solution:
+          "En ny hemsida med innehållet återskapat från den gamla sajten, sidor för banor, medlemskap och jägarexamen, och ett inloggat adminläge för nyheter och kalender.",
+        signal:
+          "Visar hur jag bygger hemsidor för föreningar: enkelt för styrelsen att hålla aktuell och tydlig för medlemmar och nya besökare.",
+        details: ["Adminläge för styrelsen", "Nyheter och kalender", "Återskapat innehåll", "Förskalade bilder", "Neon Postgres"],
+        stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Neon Postgres", "Render"],
+        casePath: "projects/ankarsrums-jsk",
+        href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
+        linkText: "Besök sajten",
+      },
+      {
+        index: "03",
         title: "VenueFlow",
         meta: "multi-tenant booking / Laravel / live app",
         problem:
@@ -34,7 +66,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "02",
+        index: "04",
         title: "FX Monitor",
         meta: "data pipeline / TypeScript / static delivery",
         problem:
@@ -50,7 +82,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "03",
+        index: "05",
         title: "Lördagsgolf",
         meta: "publik webb + adminpanel / React / JWT-API",
         problem:
@@ -66,7 +98,7 @@ const copy = {
         linkText: "Besök webbplats",
       },
       {
-        index: "04",
+        index: "06",
         title: "Fairway",
         meta: "golf scorecard / Next.js / Claude API",
         problem:
@@ -82,7 +114,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "05",
+        index: "07",
         title: "Kommunfotbollen",
         meta: "hyperlokal data-hub / Next.js / Claude API",
         problem:
@@ -98,7 +130,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "06",
+        index: "08",
         title: "Kvitt",
         meta: "delad utgiftsapp / Laravel / Vue 3",
         problem:
@@ -114,7 +146,7 @@ const copy = {
         linkText: "Öppna appen",
       },
       {
-        index: "07",
+        index: "09",
         title: "FlagForge",
         meta: "feature-flag-plattform / Laravel / RBAC",
         problem:
@@ -140,7 +172,7 @@ const copy = {
     kicker: "Case archive",
     title: "Projects that show systems thinking in practice",
     lede:
-      "Seven deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
+      "Nine deliveries where the value is more than the surface: websites for local clients, booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
     labels: {
       problem: "Problem",
       solution: "Solution",
@@ -151,6 +183,38 @@ const copy = {
     items: [
       {
         index: "01",
+        title: "Bröd & Deli",
+        meta: "website for a local bakery / Next.js / Västervik",
+        problem:
+          "A bakery on Allén in Västervik needed a website where customers quickly find the range, opening hours, and the way there, usually on a phone.",
+        solution:
+          "A fast static Next.js site with the range in eight categories with photos, a contact page with opening hours and a map, on its own domain: brodochdeli.se.",
+        signal:
+          "Shows how I build websites for local businesses: clear content, fast on phones, and built to show up in local searches.",
+        details: ["Range in photos", "Opening hours and map", "Local SEO", "Own domain", "Static export"],
+        stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Render"],
+        casePath: "projects/brod-och-deli",
+        href: "https://brodochdeli.se/",
+        linkText: "Visit site",
+      },
+      {
+        index: "02",
+        title: "Ankarsrums Jaktskytteklubb",
+        meta: "website for a club / Next.js / admin mode",
+        problem:
+          "The shooting club's old website was down, and the board needed to update news and range bookings without coding.",
+        solution:
+          "A new website with content recovered from the old site, pages for ranges, membership, and the hunting exam, and a logged-in admin mode for news and the calendar.",
+        signal:
+          "Shows how I build websites for clubs: easy for the board to keep current and clear for members and new visitors.",
+        details: ["Admin mode for the board", "News and calendar", "Recovered content", "Pre-scaled images", "Neon Postgres"],
+        stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Neon Postgres", "Render"],
+        casePath: "projects/ankarsrums-jsk",
+        href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
+        linkText: "Visit site",
+      },
+      {
+        index: "03",
         title: "VenueFlow",
         meta: "multi-tenant booking / Laravel / live app",
         problem:
@@ -166,7 +230,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "02",
+        index: "04",
         title: "FX Monitor",
         meta: "data pipeline / TypeScript / static delivery",
         problem:
@@ -182,7 +246,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "03",
+        index: "05",
         title: "Lördagsgolf",
         meta: "public site + admin panel / React / JWT API",
         problem:
@@ -198,7 +262,7 @@ const copy = {
         linkText: "Visit website",
       },
       {
-        index: "04",
+        index: "06",
         title: "Fairway",
         meta: "golf scorecard / Next.js / Claude API",
         problem:
@@ -214,7 +278,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "05",
+        index: "07",
         title: "Kommunfotbollen",
         meta: "hyperlocal data hub / Next.js / Claude API",
         problem:
@@ -230,7 +294,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "06",
+        index: "08",
         title: "Kvitt",
         meta: "shared expense app / Laravel / Vue 3",
         problem:
@@ -246,7 +310,7 @@ const copy = {
         linkText: "Open app",
       },
       {
-        index: "07",
+        index: "09",
         title: "FlagForge",
         meta: "feature-flag platform / Laravel / RBAC",
         problem:

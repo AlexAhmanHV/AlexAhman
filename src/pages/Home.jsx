@@ -2,15 +2,15 @@
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 
 const copy = {
   sv: {
-    kicker: "Alexander Åhman / systemutvecklare",
-    headline: "Systemutvecklare som bygger praktiska webbappar och automationer.",
+    kicker: "Alexander Åhman / webbutvecklare i Västervik",
+    headline: "Hemsidor och webbappar för företag i Västervik, byggda för att fungera på riktigt.",
     lede: [
-      "Jag hjälper team och företag att gå från rörigt problem till körbar lösning: datamodell, API, gränssnitt, automation och drift.",
+      "Jag bygger hemsidor åt lokala företag och föreningar, och webbappar, integrationer och automation när behovet är större än en hemsida.",
       "Du anlitar mig när du behöver någon som förstår nuläget snabbt, fattar rimliga tekniska beslut och bygger första versionen utan att tappa kvaliteten.",
     ],
     ctaPrimary: "Kontakta mig",
@@ -22,7 +22,7 @@ const copy = {
     heroMeta: [
       ["mode", "fullstack / produktnära"],
       ["base", "Västervik, remote"],
-      ["focus", "webbappar, AI, automation"],
+      ["focus", "hemsidor, webbappar, AI"],
     ],
 
     checklist: [
@@ -218,12 +218,12 @@ export default function Home({ lang }) {
   const seoTitle =
     lang === "en"
       ? "Software Developer in Västervik | Alexander Åhman"
-      : "Systemutvecklare i Västervik | Alexander Åhman";
+      : "Hemsidor och webbutveckling i Västervik | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
       ? "Full-stack software developer in Västervik building real digital systems across UI, APIs, data, integrations, deployment, and product workflows."
-      : "Fullstackutvecklare i Västervik som bygger riktiga digitala system över gränssnitt, API:er, data, integrationer, drift och produktflöden.";
+      : "Webbutvecklare i Västervik som bygger snabba, moderna hemsidor åt företag och föreningar, och webbappar, integrationer och automation när behovet är större.";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -243,18 +243,6 @@ export default function Home({ lang }) {
     ],
     knowsAbout: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "API development", "System design"],
   };
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Alexander Åhman",
-    url: SITE_URL,
-    logo: `${SITE_URL}/favicon.svg`,
-    sameAs: [
-      "https://www.linkedin.com/in/alexander-%C3%A5hman/",
-      "https://www.instagram.com/AlexAhman",
-      "https://github.com/AlexAhmanHV",
-    ],
-  };
   const webSiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -267,7 +255,6 @@ export default function Home({ lang }) {
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(organizationJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(webSiteJsonLd)}</script>
       </Helmet>
 

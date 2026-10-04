@@ -2,121 +2,53 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const pages = {
   "fullstackutvecklare-vastervik": {
     sv: {
-      kicker: "Fullstackutvecklare Västervik",
-      title: "Fullstackutvecklare i Västervik för webbappar, API:er och systemflöden",
-      seoTitle: "Fullstackutvecklare Västervik | Alexander Åhman",
+      kicker: "Utvecklare och konsult i Västervik",
+      title: "Fullstackutvecklare och konsult i Västervik för webbappar, API:er och system",
+      seoTitle: "Fullstackutvecklare och konsult i Västervik | Alexander Åhman",
       seoDescription:
-        "Fullstackutvecklare i Västervik för webbappar, API:er, databaser, Laravel, React, PostgreSQL och produktnära systemutveckling.",
+        "Fullstackutvecklare och konsult i Västervik: React- och Laravel-webbappar, API:er, PostgreSQL, dataflöden och teknisk uppstart för företag och team, på plats eller remote.",
       lede:
         "Jag hjälper företag i och runt Västervik, samt remote-team, att gå från behov till fungerande digitala system. Ofta handlar det om webbappar, API:er, databaser och gränssnitt som behöver byggas snabbt men seriöst.",
       sections: [
         ["När jag passar in", "När ni behöver någon som kan förstå affären, bygga gränssnittet, hantera backendlogik och ta ansvar för hur lösningen faktiskt ska fungera i vardagen."],
-        ["Vad jag bygger", "React-baserade gränssnitt, Laravel-backends, API:er, PostgreSQL-databaser, datapipelines, adminvyer och publika webbflöden."],
+        ["Frontend med React", "Komponentbaserade gränssnitt i React och TypeScript med routing, formulär och tillstånd, byggda runt användarens faktiska flöde och kopplade till API:er från början."],
+        ["Backend med Laravel", "API:er, validering, behörighet, bokningsregler, adminvyer och datamodeller i Laravel och PostgreSQL, där affärslogiken går att testa och förvalta."],
+        ["Som konsult i ert team", "Jag tar uppdrag där teamet behöver någon som snabbt förstår systemet, hittar nästa rimliga steg och bidrar i koden utan lång startsträcka."],
         ["Hur jag arbetar", "Jag börjar med nuläge och risker, bryter ner första rimliga versionen och bygger så att systemet går att testa, drifta och fortsätta utveckla."],
       ],
-      stack: ["React", "Laravel", "TypeScript", "PHP", "PostgreSQL", "Python", "API", "GitHub Actions"],
-      ctaTitle: "Behöver du en fullstackutvecklare i Västervik?",
+      stack: ["React", "TypeScript", "Laravel", "PHP", "PostgreSQL", "Python", "API", "CI/CD"],
+      ctaTitle: "Behöver du en utvecklare eller konsult i Västervik?",
       ctaText: "Skicka vad du bygger och vad som finns i dag. Jag svarar med ett konkret nästa steg.",
-    },
-  },
-  "react-laravel-utvecklare": {
-    sv: {
-      kicker: "React / Laravel",
-      title: "React- och Laravel-utvecklare för produktnära webbsystem",
-      seoTitle: "React- och Laravel-utvecklare | Alexander Åhman",
-      seoDescription:
-        "React- och Laravel-utvecklare som bygger webbappar, API:er, adminflöden och databaser med tydlig koppling mellan frontend och backend.",
-      lede:
-        "React och Laravel passar bra när ett projekt behöver både ett snabbt, tydligt gränssnitt och en backend som hanterar regler, data och integrationer på ett begripligt sätt.",
-      sections: [
-        ["Frontend med React", "Komponentstruktur, routing, formulär, tillstånd, responsiva vyer och gränssnitt som är byggda runt användarens faktiska flöde."],
-        ["Backend med Laravel", "API:er, validering, behörighet, datamodeller, adminvyer, mailflöden och affärslogik som inte göms i frontend."],
-        ["Varför kombinationen fungerar", "React gör upplevelsen snabb och flexibel. Laravel ger en stabil plats för regler, data och drift. Tillsammans blir det ett system, inte två lösa delar."],
-      ],
-      stack: ["React", "Vite", "TypeScript", "Laravel", "PHP", "PostgreSQL", "Blade", "Alpine.js"],
-      ctaTitle: "Har du ett React/Laravel-projekt som behöver fart?",
-      ctaText: "Beskriv mål, kodläge och vad som stoppar er. Jag kan hjälpa till med både byggande och tekniska vägval.",
-    },
-  },
-  "konsult-systemutvecklare": {
-    sv: {
-      kicker: "Konsult systemutvecklare",
-      title: "Konsult inom systemutveckling när ni behöver praktiskt ansvar snabbt",
-      seoTitle: "Konsult systemutvecklare | Fullstack | Alexander Åhman",
-      seoDescription:
-        "Konsult inom systemutveckling och fullstackutveckling för team som behöver hjälp med React, Laravel, API:er, databaser, dataflöden och teknisk uppstart.",
-      lede:
-        "Jag tar konsultuppdrag där teamet behöver någon som kan komma in, förstå systemet, hitta nästa rimliga steg och bidra i koden utan lång startsträcka.",
-      sections: [
-        ["Uppdrag där jag gör nytta", "Nyutveckling, vidareutveckling, teknisk uppstart, API- och backendarbete, frontendflöden, datamodellering och mindre produktteam som behöver extra kapacitet."],
-        ["Så minskar jag startsträckan", "Jag läser nuläge, användarflöden, data och begränsningar först. Sedan prioriterar jag konkret leverans framför stora abstrakta planer."],
-        ["Vad ni får", "En utvecklare som kan ta egna beslut, kommunicera tradeoffs och lämna efter sig kod som teamet kan fortsätta arbeta med."],
-      ],
-      stack: ["Fullstack", "React", "Laravel", "API", "SQL", "PostgreSQL", "Python", "CI/CD"],
-      ctaTitle: "Behöver teamet en konsult som kan komma igång snabbt?",
-      ctaText: "Skicka kort om uppdraget, tidsramen och teknisk miljö. Jag återkommer med om jag är rätt match.",
     },
   },
   "webbutvecklare-vastervik": {
     sv: {
       kicker: "Webbutvecklare Västervik",
-      title: "Webbutvecklare i Västervik för företag som behöver mer än en broschyrsida",
-      seoTitle: "Webbutvecklare Västervik | Alexander Åhman",
+      title: "Webbutvecklare i Västervik för hantverkare, butiker, restauranger och föreningar",
+      seoTitle: "Webbutvecklare Västervik | Hemsidor för lokala företag | Alexander Åhman",
       seoDescription:
-        "Webbutvecklare i Västervik som bygger moderna webbplatser, webbappar, React-gränssnitt, API-kopplingar och tekniska lösningar för företag.",
+        "Webbutvecklare i Västervik som bygger hemsidor efter branschens behov: hantverkare, butiker, caféer, restauranger och föreningar. Förfrågningar, öppettider, meny, kalender och nyheter.",
       lede:
-        "Jag hjälper företag i Västervik med webbplatser och webbappar där innehåll, användarflöde och teknik behöver hänga ihop. Det kan vara en ny publik webb, vidareutveckling eller ett mer systemnära webbprojekt.",
+        "Olika verksamheter behöver olika saker av sin hemsida. En hantverkare behöver förfrågningar, ett café behöver öppettider och sortiment, och en förening behöver nyheter och en kalender som styrelsen kan uppdatera själv. Jag bygger hemsidan runt det som ska hända när en kund hittar dig.",
       sections: [
-        ["När jag passar", "När ni behöver en webb som både är tydlig för besökaren och byggd på en teknisk grund som går att förvalta."],
-        ["Vad jag bygger", "Publika webbplatser, React-baserade gränssnitt, formulär, kontaktflöden, integrationer, landningssidor och enklare adminflöden."],
-        ["Lokalt och praktiskt", "Jag finns i Västervik men arbetar även remote. Fokus är att snabbt förstå behovet och få fram en lösning som hjälper verksamheten."],
+        ["Hantverkare och tjänsteföretag", "Tydliga tjänster, bilder från riktiga jobb, området du jobbar i och ett formulär som gör det lätt att be om offert. Byggt för att synas när någon söker efter din tjänst i Västervik."],
+        ["Butiker, caféer och restauranger", "Öppettider, adress och karta, sortiment eller meny med bilder, och en sida som laddar snabbt i mobilen. Bröd & Deli på Allén i Västervik är ett exempel."],
+        ["Föreningar och klubbar", "Nyheter, kalender, medlemsinformation och ett enkelt adminläge där styrelsen själv lägger in det som händer, utan att koda. Ankarsrums Jaktskytteklubb är ett exempel."],
+        ["Det som alla behöver", "Mobilanpassning, snabb laddning, teknisk SEO och uppgifter som stämmer med din Google-profil, på en grund som går att bygga vidare på."],
       ],
-      stack: ["React", "Vite", "JavaScript", "TypeScript", "API", "SEO", "Responsiv webb", "Formulär"],
-      ctaTitle: "Behöver du en webbutvecklare i Västervik?",
-      ctaText: "Skicka vad du vill förbättra eller bygga. Jag svarar med ett konkret upplägg för nästa steg.",
-    },
-  },
-  "react-utvecklare-vastervik": {
-    sv: {
-      kicker: "React-utvecklare Västervik",
-      title: "React-utvecklare i Västervik för snabba gränssnitt och webbappar",
-      seoTitle: "React-utvecklare Västervik | Alexander Åhman",
-      seoDescription:
-        "React-utvecklare i Västervik för webbappar, komponentbaserade gränssnitt, TypeScript, Vite, API-integrationer och produktnära frontend.",
-      lede:
-        "Jag bygger React-gränssnitt där användarflöde, komponentstruktur och API-kopplingar behöver vara begripliga från början. React passar särskilt bra för webbappar, dashboards och interaktiva tjänster.",
-      sections: [
-        ["Frontend som går att fortsätta på", "Komponenter, routing, formulär, tillstånd och vyer struktureras så att nästa steg inte blir en omskrivning."],
-        ["Koppling till backend", "Jag tänker React-flödet ihop med API:er, datamodeller och validering så att frontend inte blir en isolerad yta."],
-        ["Prestanda och läsbarhet", "Jag prioriterar snabba vyer, tydlig kod och gränssnitt som fungerar i både mobil och desktop."],
+      examples: [
+        ["Case: Bröd & Deli", "/projects/brod-och-deli"],
+        ["Case: Ankarsrums Jaktskytteklubb", "/projects/ankarsrums-jsk"],
+        ["Så jobbar jag med hemsidor", "/hemsida-vastervik"],
       ],
-      stack: ["React", "TypeScript", "JavaScript", "Vite", "React Router", "API", "CSS", "ESLint"],
-      ctaTitle: "Behöver du hjälp med ett React-projekt?",
-      ctaText: "Beskriv vad appen ska göra, vilket API eller dataflöde som finns och var du behöver komma framåt.",
-    },
-  },
-  "laravel-utvecklare": {
-    sv: {
-      kicker: "Laravel-utvecklare",
-      title: "Laravel-utvecklare för API:er, bokningslogik och databaser",
-      seoTitle: "Laravel-utvecklare | API, PostgreSQL och bokningssystem | Alexander Åhman",
-      seoDescription:
-        "Laravel-utvecklare som bygger API:er, adminflöden, bokningslogik, PostgreSQL-databaser, behörighet och produktnära backends.",
-      lede:
-        "Jag använder Laravel när projektet behöver en tydlig backend för regler, data, behörighet och integrationer. Det passar särskilt bra för bokningssystem, adminflöden och API-drivna webbappar.",
-      sections: [
-        ["Affärslogik på rätt plats", "Validering, behörighet, bokningsregler och dataflöden hör hemma i backend, där de går att testa och förvalta."],
-        ["Databas och API", "Jag bygger datamodeller, endpoints, policies och adminflöden med fokus på hur systemet ska användas i vardagen."],
-        ["Från prototyp till drift", "Målet är att snabbt få fram en fungerande version utan att hoppa över de beslut som gör systemet hållbart."],
-      ],
-      stack: ["Laravel", "PHP", "PostgreSQL", "SQL", "Blade", "Policies", "Mailables", "Render"],
-      ctaTitle: "Behöver du en Laravel-utvecklare?",
-      ctaText: "Skicka vilken typ av backend eller systemflöde du behöver bygga. Jag återkommer med en rimlig teknisk väg framåt.",
+      stack: ["Responsiv webb", "Teknisk SEO", "Kontaktformulär", "Öppettider och karta", "Adminläge", "Next.js", "React"],
+      ctaTitle: "Vill du ha en hemsida som passar din verksamhet?",
+      ctaText: "Berätta vad du gör och vad kunderna behöver hitta. Jag återkommer med ett förslag på upplägg.",
     },
   },
 };
@@ -157,17 +89,13 @@ export default function ServiceLanding({ lang, slug }) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Alexander Åhman",
-    url: `${SITE_URL}${pathname}`,
-    areaServed: lang === "en" ? "Västervik, Sweden and remote" : "Västervik, Sverige och remote",
+    "@type": "Service",
+    name: t.kicker,
     serviceType: t.kicker,
     description: t.seoDescription,
-    founder: {
-      "@type": "Person",
-      name: "Alexander Åhman",
-      jobTitle: lang === "en" ? "Full-stack developer" : "Fullstackutvecklare",
-    },
+    url: `${SITE_URL}${pathname}`,
+    areaServed: { "@type": "City", name: "Västervik" },
+    provider: { "@id": `${SITE_URL}/#business` },
   };
 
   return (
@@ -214,6 +142,16 @@ export default function ServiceLanding({ lang, slug }) {
               </article>
             ))}
           </div>
+
+          {t.examples ? (
+            <div className="row exploreButtonRow" style={{ marginTop: 18 }}>
+              {t.examples.map(([label, to]) => (
+                <Link className="btn btn-outline exploreButton" to={to} key={to}>
+                  {label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
 
           <section className="sectionCompact toolsBand">
             <div>

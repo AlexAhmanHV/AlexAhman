@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://example.com";
+import { SITE_URL } from "../routes";
 
 const copy = {
   sv: {
@@ -60,12 +60,9 @@ const copy = {
     ctaSecondary: "Se projekt",
     focusLinksTitle: "Fokuserade tjänstesidor",
     focusLinks: [
-      ["Fullstackutvecklare Västervik", "fullstackutvecklare-vastervik"],
-      ["Webbutvecklare Västervik", "webbutvecklare-vastervik"],
-      ["React-utvecklare Västervik", "react-utvecklare-vastervik"],
-      ["React- och Laravel-utvecklare", "react-laravel-utvecklare"],
-      ["Laravel-utvecklare", "laravel-utvecklare"],
-      ["Konsult systemutvecklare", "konsult-systemutvecklare"],
+      ["Hemsida Västervik", "hemsida-vastervik"],
+      ["Hemsidor för hantverkare, butiker och föreningar", "webbutvecklare-vastervik"],
+      ["Utvecklare och konsult i Västervik", "fullstackutvecklare-vastervik"],
     ],
   },
 

@@ -1,4 +1,6 @@
-﻿function pathFor(lang, path) {
+﻿import { BUSINESS } from "../business";
+
+function pathFor(lang, path) {
   const base = lang === "en" ? "/en" : "";
 
   // Normalize the incoming path so both "privacy" and "/privacy" work
@@ -37,7 +39,14 @@ export default function Footer({ lang }) {
   return (
     <footer className="footer">
       <div className="container row" style={{ justifyContent: "space-between" }}>
-        <div>© {year} Alexander Åhman. {text}</div>
+        <div className="footerBusiness">
+          <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {text}</div>
+          <div>
+            {lang === "en" ? "Websites and web development in Västervik" : "Hemsidor och webbutveckling i Västervik"}
+            {" · "}
+            <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+          </div>
+        </div>
 
         <div className="row" style={{ gap: 12 }}>
           <a
@@ -62,6 +71,7 @@ export default function Footer({ lang }) {
             <InstagramIcon />
           </a>
 
+          {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
           <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
           <a href={pathFor(lang, "terms")}>{termsLabel}</a>
         </div>
