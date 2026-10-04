@@ -3,7 +3,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
-import { ROUTES, REDIRECTS, SITE_URL } from "./routes";
+import { ROUTES } from "./routes";
 
 // Titel, meta, canonical, språkalternativ och JSON-LD sätts av sidorna själva
 // via <Seo> och <Helmet>. Här samlas det Helmet producerade under
@@ -25,24 +25,8 @@ function decodeEntities(str) {
     .replace(/&amp;/g, "&");
 }
 
-function redirectPage(path) {
-  const target = `${SITE_URL}${REDIRECTS[path]}`;
-  return {
-    html: `<p>Sidan har flyttat till <a href="${REDIRECTS[path]}">${target}</a>.</p>`,
-    head: {
-      lang: "sv",
-      title: "Sidan har flyttat | Alexander Åhman",
-      elements: new Set([
-        { type: "meta", props: { "http-equiv": "refresh", content: `0; url=${target}` } },
-        { type: "link", props: { rel: "canonical", href: target } },
-      ]),
-    },
-  };
-}
-
 export async function prerender({ url }) {
   const path = normalizeUrl(url);
-  if (REDIRECTS[path]) return redirectPage(path);
 
   const helmetContext = {};
   const html = renderToString(
@@ -64,6 +48,6 @@ export async function prerender({ url }) {
       title,
       elements: new Set([helmet.meta.toString(), helmet.link.toString(), helmet.script.toString()]),
     },
-    links: new Set([...ROUTES, ...Object.keys(REDIRECTS)]),
+    links: new Set(ROUTES),
   };
 }

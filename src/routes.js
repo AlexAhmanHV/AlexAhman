@@ -30,9 +30,9 @@ export const ROUTES = [
   "/en/privacy",
 ];
 
-// Gamla adresser som slagits ihop. De förrenderas som omdirigeringar
-// (meta refresh + canonical), eftersom en statisk sajt på Render inte kan
-// skicka 301 från koden.
+// Gamla adresser som slagits ihop. 301:an sätts i Render (Redirects/Rewrites)
+// och fungerar bara om ingen fil finns på adressen, så de förrenderas inte.
+// I appen omdirigerar React Router dit (App.jsx).
 export const REDIRECTS = {
   "/react-utvecklare-vastervik": "/fullstackutvecklare-vastervik",
   "/react-laravel-utvecklare": "/fullstackutvecklare-vastervik",
