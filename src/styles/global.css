@@ -3251,6 +3251,7 @@ body{
 
 .boldHeroCopy .heroKicker{
   width:max-content;
+  max-width:100%;
   padding:8px 10px;
   background:var(--bold-red);
   color:#fff8ea;

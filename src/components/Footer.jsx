@@ -45,6 +45,8 @@ export default function Footer({ lang }) {
             {lang === "en" ? "Websites and web development in Västervik" : "Hemsidor och webbutveckling i Västervik"}
             {" · "}
             <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+            {" · "}
+            <a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phone}</a>
           </div>
         </div>
 

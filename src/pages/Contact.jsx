@@ -29,6 +29,7 @@ const copy = {
     locationLabel: "plats",
     locationValue: "Västervik / remote",
     emailLabel: "email",
+    phoneLabel: "telefon",
     fitTitle: "Bra skäl att höra av sig",
     fitItems: [
       "Ditt företag eller din förening behöver en ny hemsida, eller en som syns bättre när kunder i Västervik söker.",
@@ -62,6 +63,7 @@ const copy = {
     locationLabel: "location",
     locationValue: "Västervik / remote",
     emailLabel: "email",
+    phoneLabel: "phone",
     fitTitle: "Good reasons to get in touch",
     fitItems: [
       "Your business or club needs a new website, or one that shows up better in local searches.",
@@ -186,6 +188,10 @@ export default function Contact({ lang }) {
                 <div className="homeMetaRow">
                   <dt>{t.emailLabel}</dt>
                   <dd>{BUSINESS.email}</dd>
+                </div>
+                <div className="homeMetaRow">
+                  <dt>{t.phoneLabel}</dt>
+                  <dd><a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phone}</a></dd>
                 </div>
                 <div className="homeMetaRow">
                   <dt>{t.locationLabel}</dt>
