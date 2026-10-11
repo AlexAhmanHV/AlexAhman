@@ -15,6 +15,7 @@ export const BUSINESS = {
     "https://www.linkedin.com/in/alexander-%C3%A5hman/",
     "https://www.instagram.com/AlexAhman",
     "https://github.com/AlexAhmanHV",
+    "https://share.google/yniRyqonsNftpZaSt",
   ],
 };
 
