@@ -96,11 +96,6 @@ export default function Priser() {
                   <a className="textLink priceExample" href={p.demo.href}>
                     {p.demo.label}
                   </a>
-                  {p.customer ? (
-                    <Link className="textLink priceExample" to={p.customer.to}>
-                      {p.customer.label}
-                    </Link>
-                  ) : null}
                 </div>
               </article>
             ))}

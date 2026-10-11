@@ -17,7 +17,6 @@ export const PACKAGES = [
     ],
     delivery: "ca 2 veckor",
     demo: { label: "Se exempel: Tallmo Snickeri", href: "/exempel/snickare/" },
-    customer: null,
   },
   {
     id: "foretag",
@@ -34,7 +33,6 @@ export const PACKAGES = [
     ],
     delivery: "ca 3–4 veckor",
     demo: { label: "Se exempel: Café Ankarlänken", href: "/exempel/cafe/" },
-    customer: { label: "Riktig kund: Bröd & Deli", to: "/projects/brod-och-deli" },
   },
   {
     id: "admin",
@@ -49,7 +47,6 @@ export const PACKAGES = [
     ],
     delivery: "ca 4–6 veckor",
     demo: { label: "Se exempel och testa adminläget", href: "/exempel/forening/" },
-    customer: { label: "Riktig kund: Ankarsrums JSK", to: "/projects/ankarsrums-jsk" },
   },
 ];
 
