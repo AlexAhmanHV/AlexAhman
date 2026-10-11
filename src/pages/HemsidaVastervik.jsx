@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 
 import { SITE_URL } from "../routes";
+import { PACKAGES, formatKr } from "../packages";
 
 const copy = {
   kicker: "Lokal webbutveckling",
@@ -279,6 +280,28 @@ export default function HemsidaVastervik() {
                 <p style={{ marginTop: 10 }}>{text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="container">
+          <div className="priceTeaser">
+            <div>
+              <h2 className="h2 homeSectionTitle homeSectionTitleSingle">Paket med fast pris</h2>
+              <p className="lede">Ingen moms tillkommer. Drift och underhåll väljer ni till om ni vill.</p>
+            </div>
+            <ul className="priceTeaserList">
+              {PACKAGES.map((p) => (
+                <li key={p.id}>
+                  <span>{p.name}</span>
+                  <strong>från {formatKr(p.price)}</strong>
+                </li>
+              ))}
+            </ul>
+            <Link className="btn" to="/priser">
+              Se paket och priser
+            </Link>
           </div>
         </div>
       </section>

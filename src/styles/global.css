@@ -4643,3 +4643,279 @@ body{
   }
 }
 
+/* Paket och priser */
+.pricePageTitle{
+  margin-top:10px;
+  text-transform:none;
+}
+
+.pricePageLede{
+  max-width:60ch;
+}
+
+.priceGrid{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:20px;
+  align-items:stretch;
+}
+
+.priceCard{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:28px 24px 24px;
+  border:1px solid var(--border);
+  border-radius:calc(var(--radius) + 6px);
+  background:var(--surface);
+}
+
+.priceCard.isFeatured{
+  border-color:var(--ink);
+  background:var(--ink);
+  color:#f6f1e9;
+  box-shadow:0 24px 50px -28px rgba(16,19,18,0.6);
+}
+
+.priceBadge{
+  position:absolute;
+  top:-12px;
+  left:24px;
+  padding:4px 12px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+
+.priceName{
+  font-family:"Canela","Garamond",serif;
+  font-size:28px;
+  line-height:1.1;
+}
+
+.priceFit{
+  margin-top:8px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.priceCard.isFeatured .priceFit{
+  color:rgba(246,241,233,0.72);
+}
+
+.priceAmount{
+  margin-top:22px;
+  font-family:"Canela","Garamond",serif;
+  font-size:clamp(34px, 3.4vw, 42px);
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.priceCard.isFeatured .priceName,
+.priceCard.isFeatured .priceAmount,
+.priceCard.isFeatured .priceIncludes{
+  color:#f6f1e9;
+}
+
+.priceFrom{
+  font-family:inherit;
+  font-size:16px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+.priceCard.isFeatured .priceFrom{
+  color:rgba(246,241,233,0.6);
+}
+
+.priceIncludes{
+  list-style:none;
+  margin:22px 0 0;
+  padding:16px 0 0;
+  border-top:1px solid var(--border);
+  display:grid;
+  gap:10px;
+  line-height:1.45;
+}
+
+.priceCard.isFeatured .priceIncludes{
+  border-top-color:rgba(246,241,233,0.18);
+}
+
+.priceIncludes li{
+  position:relative;
+  padding-left:22px;
+}
+
+.priceIncludes li::before{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:0.45em;
+  width:9px;
+  height:5px;
+  border-left:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);
+  transform:rotate(-45deg);
+}
+
+.priceDelivery{
+  margin-top:18px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.priceCard.isFeatured .priceDelivery{
+  color:rgba(246,241,233,0.6);
+}
+
+.priceActions{
+  margin-top:auto;
+  padding-top:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+}
+
+.priceCard .priceCta{
+  width:100%;
+}
+
+.priceCard.isFeatured .priceCta{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+
+.priceCard.isFeatured .priceExample{
+  color:#f6f1e9;
+}
+
+.priceSectionTitle{
+  font-family:"Canela","Garamond",serif;
+  font-size:clamp(24px, 3vw, 32px);
+  line-height:1.15;
+}
+
+.priceHosting{
+  margin-top:64px;
+}
+
+.priceHostingLede{
+  margin-top:10px;
+  color:var(--muted);
+}
+
+.priceHostingGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:0 40px;
+  border-top:2px solid var(--accent);
+}
+
+.priceHostingItem{
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.55;
+}
+
+.priceHostingName{
+  font-weight:700;
+}
+
+.priceHostingName span{
+  margin-left:8px;
+  font-weight:600;
+  color:var(--accent);
+}
+
+.priceHostingItem p + p{
+  margin-top:4px;
+  color:var(--muted);
+}
+
+.priceNote{
+  margin-top:14px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.priceReview{
+  margin-top:56px;
+}
+
+.priceFaq{
+  margin-top:56px;
+}
+
+.priceFaqList{
+  margin:18px 0 0;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:0 40px;
+  border-top:2px solid var(--accent);
+}
+
+.priceFaqList > div{
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.priceFaqList dt{
+  font-weight:700;
+}
+
+.priceFaqList dd{
+  margin:6px 0 0;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.priceTeaser{
+  display:grid;
+  grid-template-columns:minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  gap:28px;
+  align-items:center;
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:calc(var(--radius) + 6px);
+  background:var(--surface);
+}
+
+.priceTeaserList{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.priceTeaserList li{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.priceTeaserList strong{
+  white-space:nowrap;
+}
+
+@media (max-width: 900px){
+  .priceGrid,
+  .priceHostingGrid,
+  .priceFaqList,
+  .priceTeaser{
+    grid-template-columns:minmax(0, 1fr);
+  }
+  .priceGrid{
+    gap:28px;
+  }
+}
