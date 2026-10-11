@@ -93,15 +93,20 @@ export default function Priser() {
                   <Link className="btn priceCta" to="/contact">
                     Välj {p.name}
                   </Link>
-                  {p.example ? (
-                    <Link className="textLink priceExample" to={p.example.to}>
-                      {p.example.label}
+                  <a className="textLink priceExample" href={p.demo.href}>
+                    {p.demo.label}
+                  </a>
+                  {p.customer ? (
+                    <Link className="textLink priceExample" to={p.customer.to}>
+                      {p.customer.label}
                     </Link>
                   ) : null}
                 </div>
               </article>
             ))}
           </div>
+
+          <p className="priceNote">Exemplen är påhittade verksamheter med bilder från Unsplash. Riktiga kunder får sina egna bilder.</p>
 
           <section className="priceHosting" aria-labelledby="drift">
             <h2 id="drift" className="priceSectionTitle">

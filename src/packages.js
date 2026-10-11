@@ -16,7 +16,8 @@ export const PACKAGES = [
       "1 ändringsrunda",
     ],
     delivery: "ca 2 veckor",
-    example: null,
+    demo: { label: "Se exempel: Tallmo Snickeri", href: "/exempel/snickare/" },
+    customer: null,
   },
   {
     id: "foretag",
@@ -32,7 +33,8 @@ export const PACKAGES = [
       "2 ändringsrundor",
     ],
     delivery: "ca 3–4 veckor",
-    example: { label: "Se exempel: Bröd & Deli", to: "/projects/brod-och-deli" },
+    demo: { label: "Se exempel: Café Ankarlänken", href: "/exempel/cafe/" },
+    customer: { label: "Riktig kund: Bröd & Deli", to: "/projects/brod-och-deli" },
   },
   {
     id: "admin",
@@ -46,7 +48,8 @@ export const PACKAGES = [
       "2 ändringsrundor",
     ],
     delivery: "ca 4–6 veckor",
-    example: { label: "Se exempel: Ankarsrums JSK", to: "/projects/ankarsrums-jsk" },
+    demo: { label: "Se exempel och testa adminläget", href: "/exempel/forening/" },
+    customer: { label: "Riktig kund: Ankarsrums JSK", to: "/projects/ankarsrums-jsk" },
   },
 ];
 

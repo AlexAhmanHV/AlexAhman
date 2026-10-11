@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[18389,["/exempel/forening/_next/static/chunks/0wdgc88u-esan.js","/exempel/forening/_next/static/chunks/3l21891non86p.js"],"default"]
+3:I[34965,["/exempel/forening/_next/static/chunks/0wdgc88u-esan.js","/exempel/forening/_next/static/chunks/3l21891non86p.js"],"default"]
+4:[]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"lK9pxv-luqvt4GMZsFJoK"}
