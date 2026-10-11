@@ -2,5 +2,5 @@
 2:I[66246,["/exempel/forening/_next/static/chunks/0wdgc88u-esan.js","/exempel/forening/_next/static/chunks/3l21891non86p.js","/exempel/forening/_next/static/chunks/1e2-apbxjr6wl.js"],"NewsArticle"]
 3:I[12689,["/exempel/forening/_next/static/chunks/0wdgc88u-esan.js","/exempel/forening/_next/static/chunks/3l21891non86p.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"nyborjarkurs-i-var"}],[["$","script","script-0",{"src":"/exempel/forening/_next/static/chunks/1e2-apbxjr6wl.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lK9pxv-luqvt4GMZsFJoK"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"nyborjarkurs-i-var"}],[["$","script","script-0",{"src":"/exempel/forening/_next/static/chunks/1e2-apbxjr6wl.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"jFufzAjqzvxfKjnjMjcEF"}
 5:null
