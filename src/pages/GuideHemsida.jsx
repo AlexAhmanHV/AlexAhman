@@ -6,6 +6,8 @@ import { SITE_URL } from "../routes";
 
 const PATH = "/guide/hemsida-for-lokala-foretag";
 const PUBLISHED = "2026-10-04";
+const MODIFIED = "2026-10-11";
+const SHARE_IMAGE = "/guide/butik-och-hemsida-dela.jpg";
 const CHECKLIST_KEY = "guide-hemsida-checklista";
 
 const copy = {
@@ -131,7 +133,8 @@ const articleJsonLd = {
   description: copy.seoDescription,
   inLanguage: "sv",
   datePublished: PUBLISHED,
-  dateModified: PUBLISHED,
+  dateModified: MODIFIED,
+  image: `${SITE_URL}${SHARE_IMAGE}`,
   mainEntityOfPage: `${SITE_URL}${PATH}`,
   author: { "@type": "Person", name: "Alexander Åhman", url: SITE_URL },
   publisher: { "@id": `${SITE_URL}/#business` },
@@ -220,6 +223,8 @@ export default function GuideHemsida() {
         description={copy.seoDescription}
         siteUrl={SITE_URL}
         svOnly
+        image={SHARE_IMAGE}
+        type="article"
       />
 
       <article className="section fadeUp guideArticle" style={{ borderTop: "none" }}>

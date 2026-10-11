@@ -23,9 +23,11 @@ export default function Seo({
   alternateSvPath,
   alternateEnPath,
   xDefaultPath,
+  image = "/Alex-1200.jpg", // share image path
+  type = "website", // og:type, "article" for guides
 }) {
   const canonical = buildUrl(siteUrl, pathname);
-  const ogImage = buildUrl(siteUrl, "/Alex-1200.jpg");
+  const ogImage = buildUrl(siteUrl, image);
 
   // Language alternates: sv lives on "/", en on "/en"
   const derivedSvPath = pathname.startsWith("/en") ? pathname.replace(/^\/en/, "") || "/" : pathname;
@@ -45,7 +47,7 @@ export default function Seo({
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content={lang === "en" ? "en_US" : "sv_SE"} />
