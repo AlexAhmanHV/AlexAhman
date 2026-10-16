@@ -12,7 +12,7 @@ const copy = {
     kicker: "Kontakt",
     title: "Skriv kort vad du bygger, så tar vi det därifrån",
     lede:
-      "Hör av dig om ditt företag eller din förening behöver en ny hemsida, eller om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll mellan produkt, frontend och backend.",
+      "Hör av dig om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll mellan produkt, frontend och backend.",
     formTitle: "Skicka ett meddelande",
     formLead: "Skriv nuläge, mål och vad som bromsar. Det räcker som start.",
     responseTimeLabel: "svar",
@@ -33,7 +33,7 @@ const copy = {
     phoneLabel: "telefon",
     fitTitle: "Bra skäl att höra av sig",
     fitItems: [
-      "Ditt företag eller din förening behöver en ny hemsida, eller en som syns bättre när kunder i Västervik söker.",
+      "Ni behöver en utvecklare till ett konkret projekt eller en tidsbegränsad insats.",
       "Ni behöver få en idé eller halvfärdig lösning till körbar produkt.",
       "Ni har ett systemflöde som behöver bli tydligare, snabbare eller lättare att förvalta.",
       "Ni söker en fullstackutvecklare som kan bidra praktiskt utan lång startsträcka.",
@@ -62,7 +62,7 @@ const copy = {
     kicker: "Contact",
     title: "Send the short version of what you are building",
     lede:
-      "Reach out if your business or club needs a new website, or if you need a developer for a concrete project, consulting work, or a role between product, frontend, and backend.",
+      "Reach out if you need a developer for a concrete project, consulting work, or a role between product, frontend, and backend.",
     formTitle: "Send a message",
     formLead: "Write the current state, goal, and what is slowing things down. That is enough to start.",
     responseTimeLabel: "response",
@@ -83,7 +83,7 @@ const copy = {
     phoneLabel: "phone",
     fitTitle: "Good reasons to get in touch",
     fitItems: [
-      "Your business or club needs a new website, or one that shows up better in local searches.",
+      "You need a developer for a concrete project or a time-limited engagement.",
       "You need to turn an idea or unfinished solution into a runnable product.",
       "You have a system flow that needs to become clearer, faster, or easier to maintain.",
       "You are looking for a full-stack developer who can contribute practically without a long ramp-up.",

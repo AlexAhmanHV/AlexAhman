@@ -4935,3 +4935,25 @@ body{
 .navCross:focus-visible{
   color:#fffaf3;
 }
+
+/* Under 480 px rymmer pillen inte alla val plus spårlänken. Spårlänken läggs
+   då på en egen rad under menyn, så att inget hamnar utanför skärmen. */
+@media (max-width: 480px){
+  .navInner{
+    flex-wrap:wrap;
+  }
+  .navLinks{
+    flex-wrap:wrap;
+    overflow-x:visible;
+    border-radius:22px;
+  }
+  .langToggle{
+    order:1;
+  }
+  .navCross{
+    order:2;
+    flex-basis:100%;
+    padding:6px 8px;
+    text-align:left;
+  }
+}

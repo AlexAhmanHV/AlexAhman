@@ -17,7 +17,7 @@ function InstagramIcon() {
   );
 }
 
-export default function Footer({ lang, links = [] }) {
+export default function Footer({ lang, links = [], track }) {
   const year = new Date().getFullYear();
 
   const text = lang === "en" ? "All rights reserved." : "Alla rättigheter förbehållna.";
@@ -27,13 +27,23 @@ export default function Footer({ lang, links = [] }) {
   const privacyLabel = lang === "en" ? "Privacy policy" : "Integritetspolicy";
   const termsLabel = lang === "en" ? "Terms of service" : "Villkor";
 
+  // Sloganen följer spåret. Hemsidor och det neutrala skalet behåller originalet.
+  const tagline =
+    track === "dev"
+      ? lang === "en"
+        ? "Software development in Västervik"
+        : "Systemutveckling i Västervik"
+      : lang === "en"
+        ? "Websites and web development in Västervik"
+        : "Hemsidor och webbutveckling i Västervik";
+
   return (
     <footer className="footer">
       <div className="container row" style={{ justifyContent: "space-between" }}>
         <div className="footerBusiness">
           <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {text}</div>
           <div>
-            {lang === "en" ? "Websites and web development in Västervik" : "Hemsidor och webbutveckling i Västervik"}
+            {tagline}
             {" · "}
             <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
             {" · "}

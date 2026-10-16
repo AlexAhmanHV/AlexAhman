@@ -33,7 +33,7 @@ test("toggleLangPath växlar språk och faller tillbaka till /en eller /", () =>
 });
 
 test("alla menylänkar pekar på adresser som förrenderas", () => {
-  const all = [...TRACK_NAV.hemsidor, ...TRACK_NAV.dev.sv, ...TRACK_NAV.dev.en];
+  const all = [...TRACK_NAV.hemsidor, ...TRACK_NAV.dev.sv, ...TRACK_NAV.dev.en, ...TRACK_NAV.neutral.sv, ...TRACK_NAV.neutral.en];
   for (const item of all) assert.ok(ROUTES.includes(item.to), item.to);
   for (const link of [CROSS_LINK.hemsidor, CROSS_LINK.dev.sv, CROSS_LINK.dev.en]) assert.ok(ROUTES.includes(link.to), link.to);
 });

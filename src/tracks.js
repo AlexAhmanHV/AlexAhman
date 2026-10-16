@@ -21,6 +21,18 @@ export const TRACK_NAV = {
       { label: "Contact", to: pagePath("devKontakt", "en") },
     ],
   },
+  // Neutralt skal för sidor som tillhör båda spåren (villkor, integritet, 404):
+  // länkar bara till de två spåren.
+  neutral: {
+    sv: [
+      { label: "Hemsidor", to: pagePath("hemsidor") },
+      { label: "Systemutveckling", to: pagePath("dev") },
+    ],
+    en: [
+      { label: "Websites (in Swedish)", to: pagePath("hemsidor") },
+      { label: "Software development", to: pagePath("dev", "en") },
+    ],
+  },
 };
 
 // Länk till det andra spåret, visas sist i menyn.

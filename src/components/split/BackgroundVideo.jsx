@@ -1,4 +1,5 @@
 import { useState, useSyncExternalStore } from "react";
+import { AVAILABLE_CLIPS } from "./availableClips";
 
 // Stillbilden ligger alltid kvar som bakgrund. Videon läggs till först efter
 // window.load och tonas in vid canplay. Saknas filen eller går det sakta
@@ -35,7 +36,7 @@ export default function BackgroundVideo({ name, reducedMotion }) {
   const [readyFor, setReadyFor] = useState(null);
 
   const suffix = isWide ? "" : "-720";
-  const showVideo = loaded && !reducedMotion && !prefersReduced && failedFor !== suffix;
+  const showVideo = AVAILABLE_CLIPS.includes(name) && loaded && !reducedMotion && !prefersReduced && failedFor !== suffix;
   const ready = readyFor === suffix;
 
   function handleError() {

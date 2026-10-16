@@ -70,8 +70,7 @@ function useScrollToTopOnNavigate() {
   }, [key, pathname, hash, navigationType]);
 }
 
-// Utvecklarspåret per språk. Layoutrouten saknar egen adress, så även
-// /privacy, /terms och okända adresser (NotFound) får utvecklarspårets meny.
+// Utvecklarspåret per språk.
 function devTrackRoutes(lang) {
   return (
     <Route key={lang} element={<TrackLayout lang={lang} track="dev" />}>
@@ -82,6 +81,15 @@ function devTrackRoutes(lang) {
       ))}
       <Route path={pagePath("devOm", lang)} element={<About lang={lang} />} />
       <Route path={pagePath("devKontakt", lang)} element={<Contact lang={lang} track="dev" />} />
+    </Route>
+  );
+}
+
+// Neutralt skal för sidor som tillhör båda spåren: villkor, integritet och
+// okända adresser. Okända adresser under /hemsidor får hemsidespårets skal.
+function neutralRoutes(lang) {
+  return (
+    <Route key={lang} element={<TrackLayout lang={lang} track="neutral" />}>
       <Route path={pagePath("privacy", lang)} element={<Privacy lang={lang} />} />
       <Route path={pagePath("terms", lang)} element={<Terms lang={lang} />} />
       <Route path={lang === "en" ? "/en/*" : "*"} element={<NotFound lang={lang} />} />
@@ -124,10 +132,13 @@ export default function App() {
           ))}
           <Route path={pagePath("hemsidorGuide")} element={<GuideHemsida />} />
           <Route path={pagePath("hemsidorKontakt")} element={<Contact lang="sv" track="hemsidor" />} />
+          <Route path={`${pagePath("hemsidor")}/*`} element={<NotFound lang="sv" />} />
         </Route>
 
         {devTrackRoutes("sv")}
         {devTrackRoutes("en")}
+        {neutralRoutes("sv")}
+        {neutralRoutes("en")}
 
         {/* Gamla adresser. 301:an sätts i Render, här omdirigerar React Router vid klientnavigering. */}
         {Object.entries(REDIRECTS).map(([from, to]) => (
