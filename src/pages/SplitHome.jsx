@@ -9,6 +9,7 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { SwedenFlagIcon, UKFlagIcon } from "../components/FlagIcons";
 import Terminal from "../components/split/Terminal";
 import DeviceShowcase from "../components/split/DeviceShowcase";
+import BackgroundVideo from "../components/split/BackgroundVideo";
 
 import { SITE_URL } from "../routes";
 
@@ -121,8 +122,8 @@ export default function SplitHome({ lang }) {
   useEffect(() => () => clearTimeout(timerRef.current), []);
 
   const halves = [
-    { track: "hemsidor", to: pagePath("hemsidor"), text: t.hemsidor, poster: "/split/poster-hemsidor.webp" },
-    { track: "dev", to: pagePath("dev", lang), text: t.dev, poster: "/split/poster-dev.webp" },
+    { track: "hemsidor", to: pagePath("hemsidor"), text: t.hemsidor },
+    { track: "dev", to: pagePath("dev", lang), text: t.dev },
   ];
 
   // Bara riktig hover: på pekskärmar ska ett tryck navigera direkt.
@@ -194,7 +195,7 @@ export default function SplitHome({ lang }) {
             onFocus={(event) => handleFocus(event, half.track)}
             onBlur={() => clearActive(half.track)}
           >
-            <img className="splitPoster" src={half.poster} alt="" />
+            <BackgroundVideo name={half.track} reducedMotion={reducedMotion} />
 
             <div className="splitInner">
               <div className="splitStage">

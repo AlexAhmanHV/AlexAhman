@@ -120,9 +120,23 @@ html:has(.splitHome) body{
   object-fit:cover;
 }
 
-/* Mörk slöja för textkontrast, framför allt när videon kommer. */
-.splitHome .splitHalf::after{
-  content:"";
+.splitHome .splitVideo{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 800ms ease;
+}
+
+.splitHome .splitVideo[data-ready]{
+  opacity:1;
+}
+
+/* Mörk slöja för textkontrast över både stillbild och video. */
+.splitHome .splitOverlay{
   position:absolute;
   inset:0;
   z-index:-1;
@@ -553,6 +567,7 @@ html:has(.splitHome) body{
   .splitHome .splitText,
   .splitHome .splitSeam,
   .splitHome .splitShot,
+  .splitHome .splitVideo,
   .splitHome .splitCtaArrow{
     transition:none;
   }
