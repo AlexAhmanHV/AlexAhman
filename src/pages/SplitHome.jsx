@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 import { pagePath, toggleLangPath } from "../paths";
-import { LOWEST_PRICE, formatKr } from "../packages";
 import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { SwedenFlagIcon, UKFlagIcon } from "../components/FlagIcons";
@@ -26,7 +25,7 @@ const copy = {
     hemsidor: {
       kicker: "Hemsidor",
       heading: "Hemsidor för företag i Västervik",
-      meta: `Från ${formatKr(LOWEST_PRICE)} · klart på ca 2 veckor`,
+      meta: "Fast pris · klart på ca 2 veckor",
       cta: "Se paket",
     },
     dev: {
