@@ -5,6 +5,7 @@ import Seo from "../Seo";
 import { pagePath, toggleLangPath } from "../paths";
 import { LOWEST_PRICE, formatKr } from "../packages";
 import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
+import useMediaQuery from "../hooks/useMediaQuery";
 import { SwedenFlagIcon, UKFlagIcon } from "../components/FlagIcons";
 import Terminal from "../components/split/Terminal";
 import DeviceShowcase from "../components/split/DeviceShowcase";
@@ -63,6 +64,8 @@ const TERMINAL_LINES = [
   { text: "$ render deploy fx-monitor", tone: "cmd" },
   { text: "✓ live on onrender.com", tone: "ok" },
 ];
+// På mobil hoppas den första raden över, så att terminalen blir kortare.
+const TERMINAL_LINES_SHORT = TERMINAL_LINES.slice(1);
 
 const SHOTS = {
   sv: {
@@ -109,7 +112,10 @@ export default function SplitHome({ lang }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const reducedMotion = usePrefersReducedMotion();
+  const isWide = useMediaQuery("(min-width: 768px)");
   const [expanding, setExpanding] = useState(null);
+  // Halvan med hover eller tangentbordsfokus. Styr 62/38 och nedtoningen.
+  const [active, setActive] = useState(null);
   const timerRef = useRef(null);
 
   useEffect(() => () => clearTimeout(timerRef.current), []);
@@ -118,6 +124,19 @@ export default function SplitHome({ lang }) {
     { track: "hemsidor", to: pagePath("hemsidor"), text: t.hemsidor, poster: "/split/poster-hemsidor.webp" },
     { track: "dev", to: pagePath("dev", lang), text: t.dev, poster: "/split/poster-dev.webp" },
   ];
+
+  // Bara riktig hover: på pekskärmar ska ett tryck navigera direkt.
+  function handlePointerEnter(track) {
+    if (window.matchMedia("(hover: hover)").matches) setActive(track);
+  }
+
+  function handleFocus(event, track) {
+    if (event.target.matches(":focus-visible")) setActive(track);
+  }
+
+  function clearActive(track) {
+    setActive((current) => (current === track ? null : current));
+  }
 
   function handleClick(event, half) {
     // Ny flik, nytt fönster eller minskad rörelse: låt länken göra som vanligt.
@@ -132,7 +151,7 @@ export default function SplitHome({ lang }) {
 
   return (
     <main
-      className="splitHome routeTransition"
+      className="splitHome"
       data-page-shell
       data-expanding={expanding || undefined}
     >
@@ -149,7 +168,7 @@ export default function SplitHome({ lang }) {
 
       <h1 className="srOnly">{t.title}</h1>
 
-      <div className="splitTopbar">
+      <div className="splitTopbar routeTransition">
         <Link className="splitLogo" to={pagePath("home", lang)}>
           <img src="/favicon.svg" alt={t.logoAlt} width="28" height="28" />
         </Link>
@@ -160,7 +179,7 @@ export default function SplitHome({ lang }) {
         </Link>
       </div>
 
-      <div className="splitHalves">
+      <div className="splitHalves routeTransition" data-active={active || undefined}>
         {halves.map((half) => (
           <Link
             key={half.track}
@@ -170,13 +189,17 @@ export default function SplitHome({ lang }) {
             data-expanding={expanding === half.track || undefined}
             aria-labelledby={`split-${half.track}-heading split-${half.track}-meta`}
             onClick={(event) => handleClick(event, half)}
+            onPointerEnter={() => handlePointerEnter(half.track)}
+            onPointerLeave={() => clearActive(half.track)}
+            onFocus={(event) => handleFocus(event, half.track)}
+            onBlur={() => clearActive(half.track)}
           >
             <img className="splitPoster" src={half.poster} alt="" />
 
             <div className="splitInner">
               <div className="splitStage">
                 {half.track === "dev" ? (
-                  <Terminal lines={TERMINAL_LINES} reducedMotion={reducedMotion} label={t.terminalLabel} />
+                  <Terminal lines={isWide ? TERMINAL_LINES : TERMINAL_LINES_SHORT} reducedMotion={reducedMotion} label={t.terminalLabel} />
                 ) : (
                   <DeviceShowcase desktop={shots.desktop} mobile={shots.mobile} reducedMotion={reducedMotion} />
                 )}

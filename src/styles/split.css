@@ -25,6 +25,13 @@
   font-family:"FK Grotesk","Suisse Intl","Avenir Next","Helvetica Neue",sans-serif;
 }
 
+/* Sidans ljusa bakgrund får aldrig synas bakom startsidan (övergång,
+   överscroll). Ren CSS, så det gäller redan i den förrenderade HTML:en. */
+html:has(.splitHome),
+html:has(.splitHome) body{
+  background:#0e1110;
+}
+
 .splitHome .srOnly{
   position:absolute;
   width:1px;
@@ -232,64 +239,46 @@
   transition:left 600ms var(--split-ease), opacity 300ms ease;
 }
 
-/* Hover och fokus: halvan växer till 62 procent och den andra tonas ner. */
-@media (hover: hover) and (min-width: 768px){
-  .splitHome:not([data-expanding]) .splitHalves:has(.splitHalf:hover) .splitHalf{
+/* Aktiv halva (hover eller tangentbordsfokus, satt från React som
+   data-active): den växer till 62 procent och den andra tonas ner. */
+@media (min-width: 768px){
+  .splitHome:not([data-expanding]) .splitHalves[data-active] .splitHalf{
     flex-basis:38%;
   }
 
-  .splitHome:not([data-expanding]) .splitHalves:has(.splitHalf:hover) .splitHalf:hover{
+  .splitHome:not([data-expanding]) .splitHalves[data-active="hemsidor"] .splitHalf[data-track="hemsidor"],
+  .splitHome:not([data-expanding]) .splitHalves[data-active="dev"] .splitHalf[data-track="dev"]{
     flex-basis:62%;
   }
 
-  .splitHome .splitHalves:has(.splitHalf[data-track="hemsidor"]:hover) .splitSeam{
+  .splitHome .splitHalves[data-active="hemsidor"] .splitSeam{
     left:62%;
   }
 
-  .splitHome .splitHalves:has(.splitHalf[data-track="dev"]:hover) .splitSeam{
+  .splitHome .splitHalves[data-active="dev"] .splitSeam{
     left:38%;
   }
 
-  .splitHome .splitHalf:hover .splitCtaArrow{
+  .splitHome .splitHalves[data-active="hemsidor"] .splitHalf[data-track="hemsidor"] .splitCtaArrow,
+  .splitHome .splitHalves[data-active="dev"] .splitHalf[data-track="dev"] .splitCtaArrow{
     transform:translateX(4px);
   }
 }
 
-@media (hover: hover){
-  .splitHome .splitHalves:has(.splitHalf:hover) .splitHalf:not(:hover) .splitText{
-    opacity:0.7;
-  }
+.splitHome .splitHalves[data-active="hemsidor"] .splitHalf[data-track="dev"] .splitText,
+.splitHome .splitHalves[data-active="dev"] .splitHalf[data-track="hemsidor"] .splitText{
+  opacity:0.7;
+}
 
+@media (hover: hover){
   .splitHome .splitLogo:hover,
   .splitHome .splitLang:hover{
     opacity:0.72;
   }
 }
 
-@media (min-width: 768px){
-  .splitHome:not([data-expanding]) .splitHalves:has(.splitHalf:focus-visible) .splitHalf{
-    flex-basis:38%;
-  }
-
-  .splitHome:not([data-expanding]) .splitHalves:has(.splitHalf:focus-visible) .splitHalf:focus-visible{
-    flex-basis:62%;
-  }
-
-  .splitHome .splitHalves:has(.splitHalf[data-track="hemsidor"]:focus-visible) .splitSeam{
-    left:62%;
-  }
-
-  .splitHome .splitHalves:has(.splitHalf[data-track="dev"]:focus-visible) .splitSeam{
-    left:38%;
-  }
-}
-
-.splitHome .splitHalves:has(.splitHalf:focus-visible) .splitHalf:not(:focus-visible) .splitText{
-  opacity:0.7;
-}
-
-/* Klick: halvan fyller skärmen innan navigeringen. Hover- och fokusreglerna
-   ovan gäller bara när ingen halva expanderar. */
+/* Klick: halvan fyller skärmen innan navigeringen. Storlekarna för den
+   aktiva halvan ovan gäller bara när ingen halva expanderar. */
 .splitHome[data-expanding] .splitHalves .splitHalf[data-expanding]{
   flex:1 1 100%;
   transition-duration:500ms;
@@ -353,6 +342,17 @@
 
 @keyframes splitBlink{
   50%{ opacity:0; }
+}
+
+/* Surfplatta: kolumnen är smal, så raderna hålls på en rad. */
+@media (min-width: 768px) and (max-width: 1023px){
+  .splitHome .splitTerminalBar{ padding:9px 14px; }
+
+  .splitHome .splitTerminalBody{
+    padding:14px;
+    font-size:11px;
+    min-height:calc(var(--rows) * 1.8em + 28px);
+  }
 }
 
 /* Laptop- och mobilramen */

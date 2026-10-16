@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const SWAP_MS = 7000;
 
@@ -29,9 +30,12 @@ function Screen({ shots, index }) {
   );
 }
 
-// Laptop- och mobilram med riktiga kundsajter. Laptopen döljs under 768 px.
+// Laptop- och mobilram med riktiga kundsajter. Laptopen döljs under 768 px och
+// får sina bilder först när fönstret är minst 768 px brett, så att mobilen
+// aldrig hämtar desktopbilderna.
 export default function DeviceShowcase({ desktop, mobile, reducedMotion }) {
   const [index, setIndex] = useState(0);
+  const isWide = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     if (reducedMotion) return undefined;
@@ -45,7 +49,7 @@ export default function DeviceShowcase({ desktop, mobile, reducedMotion }) {
     <div className={`splitDevices${reducedMotion ? " isStill" : ""}`}>
       <div className="splitLaptop">
         <div className="splitLaptopLid">
-          <Screen shots={desktop} index={shown} />
+          <Screen shots={isWide ? desktop : []} index={shown} />
         </div>
         <div className="splitLaptopBase" />
       </div>
