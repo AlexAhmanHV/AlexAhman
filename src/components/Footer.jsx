@@ -26,6 +26,7 @@ export default function Footer({ lang, links = [], track }) {
   // Swedish kept close to your original, but slightly more standard.
   const privacyLabel = lang === "en" ? "Privacy policy" : "Integritetspolicy";
   const termsLabel = lang === "en" ? "Terms of service" : "Villkor";
+  const taxLabel = lang === "en" ? "Approved for F-tax (F-skatt)." : "Godkänd för F-skatt.";
 
   // Sloganen följer spåret. Hemsidor och det neutrala skalet behåller originalet.
   const tagline =
@@ -41,7 +42,7 @@ export default function Footer({ lang, links = [], track }) {
     <footer className="footer">
       <div className="container row" style={{ justifyContent: "space-between" }}>
         <div className="footerBusiness">
-          <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {text}</div>
+          <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {taxLabel} {text}</div>
           <div>
             {tagline}
             {" · "}

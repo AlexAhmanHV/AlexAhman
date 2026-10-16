@@ -47,7 +47,7 @@ const copy = {
     kicker: "Kontakt",
     title: "Berätta om ditt företag",
     lede:
-      "Skriv några rader om verksamheten, vad hemsidan ska göra och när du vill komma igång. Jag svarar inom ett dygn med ett förslag och ett pris.",
+      "Skriv några rader om verksamheten, vad hemsidan ska göra och när du vill komma igång. Jag svarar inom ett dygn med ett förslag och ett pris. Fast pris, ingen moms och godkänd för F-skatt.",
     formLead: "Berätta om verksamheten, vad sidan ska göra och när den behöver vara klar. Det räcker som start.",
     fitTitle: "Bra att skriva med",
     fitItems: [

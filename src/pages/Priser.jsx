@@ -17,6 +17,10 @@ const faq = [
     "Jag driver en momsbefriad enskild firma, så priset är slutpriset. Det gäller även för föreningar och företag som inte kan dra av moms.",
   ],
   [
+    "Har du F-skatt?",
+    "Ja, jag är godkänd för F-skatt. Ni betalar bara fakturan och behöver inte dra skatt eller betala arbetsgivaravgifter på den.",
+  ],
+  [
     "Vem äger hemsidan och domänen?",
     "Ni. Domänen registreras i ert namn och ni får tillgång till koden och kontona, så att ni aldrig är låsta till mig.",
   ],
