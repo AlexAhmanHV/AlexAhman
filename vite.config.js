@@ -3,16 +3,21 @@ import react from "@vitejs/plugin-react";
 import { vitePrerenderPlugin } from "vite-prerender-plugin";
 import { resolve } from "node:path";
 import { ROUTES, SITE_URL } from "./src/routes.js";
+import { DEV_CASES, HEMSIDOR_CASES, hemsidorCasePath } from "./src/paths.js";
+
+// Case som finns i båda spåren har canonical mot utvecklarspåret. De
+// förrenderas men lämnas ur sitemapen, som bara ska ange kanoniska adresser.
+const NON_CANONICAL = new Set(HEMSIDOR_CASES.filter((slug) => DEV_CASES.includes(slug)).map(hemsidorCasePath));
 
 // sitemap.xml skrivs vid varje bygge från samma adresslista som förrenderas,
-// så att den aldrig hamnar ur fas med sajten. Omdirigeringar tas inte med.
+// så att den aldrig hamnar ur fas med sajten. Omdirigeringar och adresser med annan canonical tas inte med.
 function sitemapPlugin() {
   return {
     name: "sitemap",
     apply: "build",
     generateBundle() {
       const lastmod = new Date().toISOString().slice(0, 10);
-      const urls = ROUTES.map(
+      const urls = ROUTES.filter((path) => !NON_CANONICAL.has(path)).map(
         (path) => `  <url><loc>${SITE_URL}${path === "/" ? "/" : path}</loc><lastmod>${lastmod}</lastmod></url>`,
       ).join("\n");
       this.emitFile({

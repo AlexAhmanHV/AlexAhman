@@ -2,23 +2,23 @@ import { useEffect, useLayoutEffect } from "react";
 import { Routes, Route, Navigate, useLocation, useNavigationType } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { REDIRECTS } from "./routes";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import { DEV_CASES, HEMSIDOR_CASES, devCasePath, hemsidorCasePath, pagePath } from "./paths";
+import TrackLayout from "./components/TrackLayout";
 import ScrollProgress from "./components/ScrollProgress";
 import useMotionEffects from "./hooks/useMotionEffects";
 
-import Home from "./pages/Home";
-import Services from "./pages/Services";
+import SplitHome from "./pages/SplitHome";
+import DevHome from "./pages/DevHome";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import HemsidaVastervik from "./pages/HemsidaVastervik";
+import HemsidorExempel from "./pages/HemsidorExempel";
 import GuideHemsida from "./pages/GuideHemsida";
 import Priser from "./pages/Priser";
 import Projects from "./pages/Projects";
 import ProjectCase from "./pages/ProjectCase";
-import ServiceLanding from "./pages/ServiceLanding";
 
 // React Router behåller scrollpositionen mellan sidor. Nya sidor ska börja
 // högst upp (eller vid #ankaret); bakåt/framåt återställer positionen sidan
@@ -70,54 +70,30 @@ function useScrollToTopOnNavigate() {
   }, [key, pathname, hash, navigationType]);
 }
 
-function AppRoutes({ lang }) {
-  const location = useLocation();
-  const routeKey = location.pathname;
-
-  useMotionEffects(routeKey);
-  useScrollToTopOnNavigate();
-
+// Utvecklarspåret per språk.
+function devTrackRoutes(lang) {
   return (
-    <>
-      <ScrollProgress />
-      <Nav lang={lang} />
-      <main key={routeKey} className="pageShell routeTransition" data-page-shell>
-        <Routes>
-          <Route index element={<Home lang={lang} />} />
-          <Route path="services" element={<Services lang={lang} />} />
-          <Route path="about" element={<About lang={lang} />} />
-          <Route path="contact" element={<Contact lang={lang} />} />
-          <Route path="projects" element={<Projects lang={lang} />} />
-          <Route path="projects/venueflow" element={<ProjectCase lang={lang} slug="venueflow" />} />
-          <Route path="projects/fx-monitor" element={<ProjectCase lang={lang} slug="fx-monitor" />} />
-          <Route path="projects/lordagsgolf" element={<ProjectCase lang={lang} slug="lordagsgolf" />} />
-          <Route path="projects/fairway" element={<ProjectCase lang={lang} slug="fairway" />} />
-          <Route path="projects/kommunfotboll" element={<ProjectCase lang={lang} slug="kommunfotboll" />} />
-          <Route path="projects/kvitt" element={<ProjectCase lang={lang} slug="kvitt" />} />
-          <Route path="projects/flagforge" element={<ProjectCase lang={lang} slug="flagforge" />} />
-          <Route path="projects/brod-och-deli" element={<ProjectCase lang={lang} slug="brod-och-deli" />} />
-          <Route path="projects/ankarsrums-jsk" element={<ProjectCase lang={lang} slug="ankarsrums-jsk" />} />
-          {lang === "sv" ? (
-            <>
-              <Route path="fullstackutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="fullstackutvecklare-vastervik" />} />
-              <Route path="webbutvecklare-vastervik" element={<ServiceLanding lang={lang} slug="webbutvecklare-vastervik" />} />
-              {Object.entries(REDIRECTS).map(([from, to]) => (
-                <Route key={from} path={from.slice(1)} element={<Navigate to={to} replace />} />
-              ))}
-            </>
-          ) : (
-            <Route path="fullstack-developer-vastervik" element={<ServiceLanding lang={lang} slug="fullstack-developer-vastervik" />} />
-          )}
-          <Route path="privacy" element={<Privacy lang={lang} />} />
-          <Route path="terms" element={<Terms lang={lang} />} />
-          {lang === "sv" ? <Route path="hemsida-vastervik" element={<HemsidaVastervik />} /> : null}
-          {lang === "sv" ? <Route path="guide/hemsida-for-lokala-foretag" element={<GuideHemsida />} /> : null}
-          {lang === "sv" ? <Route path="priser" element={<Priser />} /> : null}
-          <Route path="*" element={<NotFound lang={lang} />} />
-        </Routes>
-      </main>
-      <Footer lang={lang} />
-    </>
+    <Route key={lang} element={<TrackLayout lang={lang} track="dev" />}>
+      <Route path={pagePath("dev", lang)} element={<DevHome lang={lang} />} />
+      <Route path={pagePath("devProjekt", lang)} element={<Projects lang={lang} />} />
+      {DEV_CASES.map((slug) => (
+        <Route key={slug} path={devCasePath(slug, lang)} element={<ProjectCase lang={lang} slug={slug} track="dev" />} />
+      ))}
+      <Route path={pagePath("devOm", lang)} element={<About lang={lang} />} />
+      <Route path={pagePath("devKontakt", lang)} element={<Contact lang={lang} track="dev" />} />
+    </Route>
+  );
+}
+
+// Neutralt skal för sidor som tillhör båda spåren: villkor, integritet och
+// okända adresser. Okända adresser under /hemsidor får hemsidespårets skal.
+function neutralRoutes(lang) {
+  return (
+    <Route key={lang} element={<TrackLayout lang={lang} track="neutral" />}>
+      <Route path={pagePath("privacy", lang)} element={<Privacy lang={lang} />} />
+      <Route path={pagePath("terms", lang)} element={<Terms lang={lang} />} />
+      <Route path={lang === "en" ? "/en/*" : "*"} element={<NotFound lang={lang} />} />
+    </Route>
   );
 }
 
@@ -133,10 +109,42 @@ function NotFound({ lang }) {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+
+  useMotionEffects(pathname);
+  useScrollToTopOnNavigate();
+
   return (
-    <Routes>
-      <Route path="/en/*" element={<AppRoutes lang="en" />} />
-      <Route path="/*" element={<AppRoutes lang="sv" />} />
-    </Routes>
+    <>
+      <ScrollProgress />
+      <Routes>
+        {/* Startsidorna har ingen meny eller sidfot. key gör att / och /en monteras om vid byte. */}
+        <Route path={pagePath("home")} element={<SplitHome key="sv" lang="sv" />} />
+        <Route path={pagePath("home", "en")} element={<SplitHome key="en" lang="en" />} />
+
+        {/* Hemsidespåret, bara på svenska */}
+        <Route element={<TrackLayout lang="sv" track="hemsidor" />}>
+          <Route path={pagePath("hemsidor")} element={<HemsidaVastervik />} />
+          <Route path={pagePath("hemsidorPriser")} element={<Priser />} />
+          <Route path={pagePath("hemsidorExempel")} element={<HemsidorExempel />} />
+          {HEMSIDOR_CASES.map((slug) => (
+            <Route key={slug} path={hemsidorCasePath(slug)} element={<ProjectCase lang="sv" slug={slug} track="hemsidor" />} />
+          ))}
+          <Route path={pagePath("hemsidorGuide")} element={<GuideHemsida />} />
+          <Route path={pagePath("hemsidorKontakt")} element={<Contact lang="sv" track="hemsidor" />} />
+          <Route path={`${pagePath("hemsidor")}/*`} element={<NotFound lang="sv" />} />
+        </Route>
+
+        {devTrackRoutes("sv")}
+        {devTrackRoutes("en")}
+        {neutralRoutes("sv")}
+        {neutralRoutes("en")}
+
+        {/* Gamla adresser. 301:an sätts i Render, här omdirigerar React Router vid klientnavigering. */}
+        {Object.entries(REDIRECTS).map(([from, to]) => (
+          <Route key={from} path={from} element={<Navigate to={to} replace />} />
+        ))}
+      </Routes>
+    </>
   );
 }

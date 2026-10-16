@@ -1,14 +1,5 @@
 ﻿import { BUSINESS } from "../business";
-
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-
-  // Normalize the incoming path so both "privacy" and "/privacy" work
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
+import { pagePath } from "../paths";
 
 function LinkedInIcon() {
   return (
@@ -26,7 +17,7 @@ function InstagramIcon() {
   );
 }
 
-export default function Footer({ lang }) {
+export default function Footer({ lang, links = [], track }) {
   const year = new Date().getFullYear();
 
   const text = lang === "en" ? "All rights reserved." : "Alla rättigheter förbehållna.";
@@ -35,14 +26,25 @@ export default function Footer({ lang }) {
   // Swedish kept close to your original, but slightly more standard.
   const privacyLabel = lang === "en" ? "Privacy policy" : "Integritetspolicy";
   const termsLabel = lang === "en" ? "Terms of service" : "Villkor";
+  const taxLabel = lang === "en" ? "Approved for F-tax (F-skatt)." : "Godkänd för F-skatt.";
+
+  // Sloganen följer spåret. Hemsidor och det neutrala skalet behåller originalet.
+  const tagline =
+    track === "dev"
+      ? lang === "en"
+        ? "Software development in Västervik"
+        : "Systemutveckling i Västervik"
+      : lang === "en"
+        ? "Websites and web development in Västervik"
+        : "Hemsidor och webbutveckling i Västervik";
 
   return (
     <footer className="footer">
       <div className="container row" style={{ justifyContent: "space-between" }}>
         <div className="footerBusiness">
-          <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {text}</div>
+          <div>© {year} {BUSINESS.name}, {BUSINESS.city}. {taxLabel} {text}</div>
           <div>
-            {lang === "en" ? "Websites and web development in Västervik" : "Hemsidor och webbutveckling i Västervik"}
+            {tagline}
             {" · "}
             <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
             {" · "}
@@ -74,11 +76,11 @@ export default function Footer({ lang }) {
           </a>
 
           <nav className="footerLinks" aria-label={lang === "en" ? "Footer" : "Sidfot"}>
-            {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
-            {lang === "sv" ? <a href="/priser">Paket och priser</a> : null}
-            {lang === "sv" ? <a href="/guide/hemsida-for-lokala-foretag">Guide: hemsida för företag</a> : null}
-            <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
-            <a href={pathFor(lang, "terms")}>{termsLabel}</a>
+            {links.map((link) => (
+              <a key={link.to} href={link.to}>{link.label}</a>
+            ))}
+            <a href={pagePath("privacy", lang)}>{privacyLabel}</a>
+            <a href={pagePath("terms", lang)}>{termsLabel}</a>
           </nav>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
+import { pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 
@@ -93,16 +94,9 @@ const copy = {
   },
 };
 
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
-
 export default function About({ lang }) {
   const t = copy[lang] || copy.sv;
-  const pathname = lang === "en" ? "/en/about" : "/about";
+  const pathname = pagePath("devOm", lang);
 
   const seoTitle = lang === "en" ? "About | Alexander Ahman" : "Om mig | Alexander Åhman";
 
@@ -190,10 +184,10 @@ export default function About({ lang }) {
             <h2 className="h2 homeSectionTitle homeSectionTitleSingle">{t.ctaTitle}</h2>
             <p className="lede">{t.ctaText}</p>
             <div className="row" style={{ marginTop: 14 }}>
-              <Link className="btn" to={pathFor(lang, "projects")}>
+              <Link className="btn" to={pagePath("devProjekt", lang)}>
                 {t.ctaPrimary}
               </Link>
-              <Link className="btn btn-home-outline" to={pathFor(lang, "contact")}>
+              <Link className="btn btn-home-outline" to={pagePath("devKontakt", lang)}>
                 {t.ctaSecondary}
               </Link>
             </div>

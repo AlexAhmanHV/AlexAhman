@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { BUSINESS } from "../business";
+import { pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
@@ -11,7 +12,7 @@ const copy = {
     kicker: "Kontakt",
     title: "Skriv kort vad du bygger, så tar vi det därifrån",
     lede:
-      "Hör av dig om ditt företag eller din förening behöver en ny hemsida, eller om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll mellan produkt, frontend och backend.",
+      "Hör av dig om du behöver en utvecklare för ett konkret projekt, ett konsultuppdrag eller en roll mellan produkt, frontend och backend.",
     formTitle: "Skicka ett meddelande",
     formLead: "Skriv nuläge, mål och vad som bromsar. Det räcker som start.",
     responseTimeLabel: "svar",
@@ -32,7 +33,7 @@ const copy = {
     phoneLabel: "telefon",
     fitTitle: "Bra skäl att höra av sig",
     fitItems: [
-      "Ditt företag eller din förening behöver en ny hemsida, eller en som syns bättre när kunder i Västervik söker.",
+      "Ni behöver en utvecklare till ett konkret projekt eller en tidsbegränsad insats.",
       "Ni behöver få en idé eller halvfärdig lösning till körbar produkt.",
       "Ni har ett systemflöde som behöver bli tydligare, snabbare eller lättare att förvalta.",
       "Ni söker en fullstackutvecklare som kan bidra praktiskt utan lång startsträcka.",
@@ -41,11 +42,27 @@ const copy = {
     relatedLabel: "Läs vidare",
   },
 
+  // Hemsidespåret (bara svenska): samma formulär, men texten riktar sig till företag.
+  hemsidor: {
+    kicker: "Kontakt",
+    title: "Berätta om ditt företag",
+    lede:
+      "Skriv några rader om verksamheten, vad hemsidan ska göra och när du vill komma igång. Jag svarar inom ett dygn med ett förslag och ett pris. Fast pris, ingen moms och godkänd för F-skatt.",
+    formLead: "Berätta om verksamheten, vad sidan ska göra och när den behöver vara klar. Det räcker som start.",
+    fitTitle: "Bra att skriva med",
+    fitItems: [
+      "Vad verksamheten gör och vilka kunderna är.",
+      "Vad hemsidan ska hjälpa till med: bli hittad, visa sortiment eller meny, ta emot förfrågningar eller bokningar.",
+      "När du vill att sidan ska vara klar.",
+      "Om du redan har en hemsida, domän, logga eller bilder att utgå från.",
+    ],
+  },
+
   en: {
     kicker: "Contact",
     title: "Send the short version of what you are building",
     lede:
-      "Reach out if your business or club needs a new website, or if you need a developer for a concrete project, consulting work, or a role between product, frontend, and backend.",
+      "Reach out if you need a developer for a concrete project, consulting work, or a role between product, frontend, and backend.",
     formTitle: "Send a message",
     formLead: "Write the current state, goal, and what is slowing things down. That is enough to start.",
     responseTimeLabel: "response",
@@ -66,7 +83,7 @@ const copy = {
     phoneLabel: "phone",
     fitTitle: "Good reasons to get in touch",
     fitItems: [
-      "Your business or club needs a new website, or one that shows up better in local searches.",
+      "You need a developer for a concrete project or a time-limited engagement.",
       "You need to turn an idea or unfinished solution into a runnable product.",
       "You have a system flow that needs to become clearer, faster, or easier to maintain.",
       "You are looking for a full-stack developer who can contribute practically without a long ramp-up.",
@@ -96,15 +113,21 @@ function InstagramIcon() {
   );
 }
 
-export default function Contact({ lang }) {
-  const t = copy[lang] || copy.sv;
+export default function Contact({ lang, track }) {
+  const isHemsidor = track === "hemsidor";
+  const t = isHemsidor ? { ...copy.sv, ...copy.hemsidor } : copy[lang] || copy.sv;
   const hasBooking = Boolean(BOOKING_URL);
-  const pathname = lang === "en" ? "/en/contact" : "/contact";
+  const pathname = isHemsidor ? pagePath("hemsidorKontakt") : pagePath("devKontakt", lang);
 
-  const seoTitle = lang === "en" ? "Contact | Alexander Ahman" : "Kontakt | Alexander Åhman";
+  const seoTitle = isHemsidor
+    ? "Kontakt – hemsida för ditt företag | Alexander Åhman"
+    : lang === "en"
+      ? "Contact | Alexander Ahman"
+      : "Kontakt | Alexander Åhman";
 
-  const seoDescription =
-    lang === "en"
+  const seoDescription = isHemsidor
+    ? "Kontakta Alexander Åhman i Västervik om en ny hemsida för ditt företag eller din förening. Berätta om verksamheten så får du ett förslag och ett pris."
+    : lang === "en"
       ? "Contact Alexander Ahman in Västervik about full-stack development, consulting work, React, Laravel, APIs, data flows, and product-facing systems."
       : "Kontakta Alexander Åhman i Västervik om fullstackutveckling, konsultuppdrag, React, Laravel, API:er, dataflöden och produktnära system.";
 
@@ -249,6 +272,7 @@ export default function Contact({ lang }) {
 
             <form className="card contactFormCard contactFormEditorial" action={formAction} method="POST" onSubmit={handleSubmit}>
               <h2>{t.formTitle}</h2>
+              <input type="hidden" name="spår" value={isHemsidor ? "hemsidor" : "systemutveckling"} />
               <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
 
               <div className={`inputGroup${focusedField === "name" ? " isFocused" : ""}`}>
@@ -313,17 +337,31 @@ export default function Contact({ lang }) {
 
           <div className="relatedStrip">
             <p>{t.relatedLabel}</p>
-            <div className="row">
-              <Link className="textLink" to={lang === "en" ? "/en/projects" : "/projects"}>
-                {lang === "en" ? "Projects" : "Projekt"}
-              </Link>
-              <Link className="textLink" to={lang === "en" ? "/en/services" : "/services"}>
-                {lang === "en" ? "Services" : "Tjänster"}
-              </Link>
-              <Link className="textLink" to={lang === "en" ? "/en/about" : "/about"}>
-                {lang === "en" ? "About" : "Om mig"}
-              </Link>
-            </div>
+            {isHemsidor ? (
+              <div className="row">
+                <Link className="textLink" to={pagePath("hemsidorPriser")}>
+                  Priser
+                </Link>
+                <Link className="textLink" to={pagePath("hemsidorExempel")}>
+                  Exempel
+                </Link>
+                <Link className="textLink" to={pagePath("hemsidorGuide")}>
+                  Guide
+                </Link>
+              </div>
+            ) : (
+              <div className="row">
+                <Link className="textLink" to={pagePath("devProjekt", lang)}>
+                  {lang === "en" ? "Projects" : "Projekt"}
+                </Link>
+                <Link className="textLink" to={pagePath("dev", lang)}>
+                  {lang === "en" ? "Services" : "Tjänster"}
+                </Link>
+                <Link className="textLink" to={pagePath("devOm", lang)}>
+                  {lang === "en" ? "About" : "Om mig"}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </section>

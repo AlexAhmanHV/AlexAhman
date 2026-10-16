@@ -4,6 +4,7 @@ import Seo from "../Seo";
 
 import { SITE_URL } from "../routes";
 import { PACKAGES, formatKr } from "../packages";
+import { hemsidorCasePath, pagePath } from "../paths";
 
 const copy = {
   kicker: "Lokal webbutveckling",
@@ -57,19 +58,19 @@ const copy = {
     {
       title: "Bröd & Deli",
       text: "Hemsida för ett bageri och deli på Allén i Västervik, med sortimentet i bilder, öppettider och karta.",
-      casePath: "/projects/brod-och-deli",
+      casePath: hemsidorCasePath("brod-och-deli"),
       href: "https://brodochdeli.se/",
     },
     {
       title: "Ankarsrums Jaktskytteklubb",
       text: "Ny hemsida för skytteklubben vid Tjursbo utanför Ankarsrum, med nyheter, kalender för banbokningar och ett adminläge där styrelsen uppdaterar själv.",
-      casePath: "/projects/ankarsrums-jsk",
+      casePath: hemsidorCasePath("ankarsrums-jsk"),
       href: "https://ankarsrums-jaktskytteklubb.onrender.com/",
     },
     {
       title: "Lördagsgolfen",
       text: "Hemsida för golfgänget i Västervik, med resultat, statistik och spelarprofiler som uppdateras varje säsong.",
-      casePath: "/projects/lordagsgolf",
+      casePath: hemsidorCasePath("lordagsgolf"),
       href: "https://lordagsgolf.se/",
     },
   ],
@@ -126,7 +127,7 @@ const copy = {
   ctaTitle: "Vill du ha hjälp med hemsida i Västervik?",
   ctaText: "Skicka ett meddelande så tar vi ett första, enkelt samtal om vad du behöver och vilken lösning som passar bäst.",
   ctaPrimary: "Ta kontakt",
-  ctaSecondary: "Se alla tjänster",
+  ctaSecondary: "Se paket och priser",
 };
 
 export default function HemsidaVastervik() {
@@ -139,7 +140,7 @@ export default function HemsidaVastervik() {
     serviceType: "Webbutveckling och hemsidor",
     description:
       "Hjälp med hemsida i Västervik: ny hemsida, vidareutveckling, teknisk SEO, prestanda och struktur för företag som vill synas bättre online.",
-    url: `${SITE_URL}/hemsida-vastervik`,
+    url: `${SITE_URL}${pagePath("hemsidor")}`,
   };
 
   const faqJsonLd = {
@@ -164,7 +165,7 @@ export default function HemsidaVastervik() {
 
       <Seo
         lang="sv"
-        pathname="/hemsida-vastervik"
+        pathname={pagePath("hemsidor")}
         title="Hemsida Västervik | Webbutveckling och hemsidor | Alexander Åhman"
         description="Behöver du hjälp med hemsida i Västervik? Jag bygger snabba, moderna och sökmotorvänliga hemsidor för företag i Västervik med fokus på kvalitet, prestanda och enkel förvaltning."
         siteUrl={SITE_URL}
@@ -180,7 +181,7 @@ export default function HemsidaVastervik() {
                 <h1 className="localHeroTitle">{copy.title}</h1>
                 <p className="lede">{copy.lede}</p>
                 <div className="row" style={{ marginTop: 18 }}>
-                  <Link className="btn" to="/contact">
+                  <Link className="btn" to={pagePath("hemsidorKontakt")}>
                     {copy.ctaPrimary}
                   </Link>
                   <a className="btn btn-home-outline" href="#exempel">
@@ -299,7 +300,7 @@ export default function HemsidaVastervik() {
                 </li>
               ))}
             </ul>
-            <Link className="btn" to="/priser">
+            <Link className="btn" to={pagePath("hemsidorPriser")}>
               Se paket och priser
             </Link>
           </div>
@@ -357,10 +358,10 @@ export default function HemsidaVastervik() {
             <p className="lede">{copy.ctaText}</p>
 
             <div className="row" style={{ marginTop: 14 }}>
-              <Link className="btn" to="/contact">
+              <Link className="btn" to={pagePath("hemsidorKontakt")}>
                 {copy.ctaPrimary}
               </Link>
-              <Link className="btn btn-home-outline" to="/services">
+              <Link className="btn btn-home-outline" to={pagePath("hemsidorPriser")}>
                 {copy.ctaSecondary}
               </Link>
             </div>
@@ -369,13 +370,13 @@ export default function HemsidaVastervik() {
           <div className="card localRelatedCard" style={{ marginTop: 18 }}>
             <p>Relaterade sidor för mer information:</p>
             <div className="row exploreButtonRow" style={{ marginTop: 12 }}>
-              <Link className="btn btn-outline exploreButton" to="/about">
+              <Link className="btn btn-outline exploreButton" to={pagePath("devOm")}>
                 Läs om utvecklaren
               </Link>
-              <Link className="btn btn-outline exploreButton" to="/guide/hemsida-for-lokala-foretag">
+              <Link className="btn btn-outline exploreButton" to={pagePath("hemsidorGuide")}>
                 Guide: vad hemsidan ska innehålla
               </Link>
-              <Link className="btn btn-outline exploreButton exploreButtonLocal" to="/contact">
+              <Link className="btn btn-outline exploreButton exploreButtonLocal" to={pagePath("hemsidorKontakt")}>
                 Starta hemsideprojektet
               </Link>
             </div>
