@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "node --test tests/*.test.js",
+    "redirects": "node scripts/print-redirects.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
