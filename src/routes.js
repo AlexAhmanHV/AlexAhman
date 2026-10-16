@@ -47,3 +47,9 @@ for (const slug of OLD_CASES) {
   REDIRECTS[`/projects/${slug}`] = isHemsida ? hemsidorCasePath(slug) : devCasePath(slug);
   REDIRECTS[`/en/projects/${slug}`] = isHemsida ? hemsidorCasePath(slug) : devCasePath(slug, "en");
 }
+
+// Slår upp en adress i REDIRECTS. Ett avslutande snedstreck ignoreras, men "/" lämnas orörd.
+export function redirectTarget(pathname) {
+  const path = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+  return REDIRECTS[path] ?? null;
+}

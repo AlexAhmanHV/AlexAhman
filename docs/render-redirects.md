@@ -2,6 +2,8 @@
 
 Reglerna läggs in i Render (Redirects/Rewrites) vid lansering, inte nu.
 
+Kontrollera i Render vid lansering att även varianten med avslutande snedstreck av varje källa (t.ex. /projects/fairway/) matchar, och lägg till en regel om Render inte gör det.
+
 | Source | Destination | Action |
 |---|---|---|
 | `/hemsida-vastervik` | `/hemsidor` | Redirect |

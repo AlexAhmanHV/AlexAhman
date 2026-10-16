@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ROUTES, REDIRECTS } from "../src/routes.js";
+import { ROUTES, REDIRECTS, redirectTarget } from "../src/routes.js";
 
 test("ROUTES har inga dubbletter och inga gamla adresser", () => {
   assert.equal(new Set(ROUTES).size, ROUTES.length);
@@ -30,4 +30,18 @@ test("gamla nyckeladresser omdirigeras rätt", () => {
   assert.equal(REDIRECTS["/projects/fairway"], "/systemutveckling/projekt/fairway");
   assert.equal(REDIRECTS["/en/about"], "/en/software-development/about");
   assert.equal(REDIRECTS["/laravel-utvecklare"], "/systemutveckling");
+});
+
+test("redirectTarget ger samma mål med och utan avslutande snedstreck", () => {
+  for (const [from, to] of Object.entries(REDIRECTS)) {
+    assert.equal(redirectTarget(from), to, from);
+    assert.equal(redirectTarget(from + "/"), to, from + "/");
+  }
+  assert.equal(redirectTarget("/hemsidor"), null);
+  assert.equal(redirectTarget("/"), null);
+});
+
+test("engelska case-adresser omdirigeras rätt", () => {
+  assert.equal(REDIRECTS["/en/projects/brod-och-deli"], "/hemsidor/exempel/brod-och-deli");
+  assert.equal(REDIRECTS["/en/projects/fairway"], "/en/software-development/projects/fairway");
 });
