@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 import { SITE_URL } from "../routes";
 import { HOSTING, PACKAGES, formatKr } from "../packages";
+import { pagePath } from "../paths";
 
-const PATH = "/priser";
+const PATH = pagePath("hemsidorPriser");
 
 const faq = [
   [
@@ -90,7 +91,7 @@ export default function Priser() {
                 </ul>
                 <p className="priceDelivery">Leverans {p.delivery}</p>
                 <div className="priceActions">
-                  <Link className="btn priceCta" to="/contact">
+                  <Link className="btn priceCta" to={pagePath("hemsidorKontakt")}>
                     Välj {p.name}
                   </Link>
                   <a className="textLink priceExample" href={p.demo.href}>
@@ -133,10 +134,10 @@ export default function Priser() {
               anlitar mig eller inte.
             </p>
             <div className="row" style={{ marginTop: 14 }}>
-              <Link className="btn" to="/contact">
+              <Link className="btn" to={pagePath("hemsidorKontakt")}>
                 Boka en gratis genomgång
               </Link>
-              <Link className="btn btn-home-outline" to="/hemsida-vastervik">
+              <Link className="btn btn-home-outline" to={pagePath("hemsidor")}>
                 Så jobbar jag
               </Link>
             </div>

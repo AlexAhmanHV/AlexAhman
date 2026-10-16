@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
+import { DEV_CASES, devCasePath, hemsidorCasePath, pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 
@@ -590,16 +591,12 @@ const cases = {
   },
 };
 
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
-
-export default function ProjectCase({ lang, slug }) {
+export default function ProjectCase({ lang, slug, track }) {
   const item = cases[slug]?.[lang] || cases[slug]?.sv || cases.venueflow.sv;
-  const pathname = lang === "en" ? `/en/projects/${slug}` : `/projects/${slug}`;
+  const isHemsidor = track === "hemsidor";
+  const pathname = isHemsidor ? hemsidorCasePath(slug) : devCasePath(slug, lang);
+  // Ett case som finns i båda spåren indexeras bara under utvecklarspåret.
+  const canonicalPath = isHemsidor && DEV_CASES.includes(slug) ? devCasePath(slug) : undefined;
   const [lightboxShot, setLightboxShot] = useState(null);
 
   useEffect(() => {
@@ -617,7 +614,7 @@ export default function ProjectCase({ lang, slug }) {
     name: item.title,
     headline: item.seoTitle,
     description: item.seoDescription,
-    url: `${SITE_URL}${pathname}`,
+    url: `${SITE_URL}${canonicalPath ?? pathname}`,
     author: {
       "@type": "Person",
       name: "Alexander Åhman",
@@ -634,6 +631,7 @@ export default function ProjectCase({ lang, slug }) {
       <Seo
         lang={lang === "en" ? "en" : "sv"}
         pathname={pathname}
+        canonicalPath={canonicalPath}
         title={item.seoTitle}
         description={item.seoDescription}
         siteUrl={SITE_URL}
@@ -732,10 +730,16 @@ export default function ProjectCase({ lang, slug }) {
                   {item.secondaryLinkText}
                 </a>
               )}
-              <Link className="textLink" to={pathFor(lang, "projects")}>
-                {lang === "en" ? "All projects" : "Alla projekt"}
-              </Link>
-              <Link className="textLink" to={pathFor(lang, "contact")}>
+              {isHemsidor ? (
+                <Link className="textLink" to={pagePath("hemsidorExempel")}>
+                  Alla exempel
+                </Link>
+              ) : (
+                <Link className="textLink" to={pagePath("devProjekt", lang)}>
+                  {lang === "en" ? "All projects" : "Alla projekt"}
+                </Link>
+              )}
+              <Link className="textLink" to={pagePath(isHemsidor ? "hemsidorKontakt" : "devKontakt", lang)}>
                 {lang === "en" ? "Contact" : "Kontakt"}
               </Link>
             </div>

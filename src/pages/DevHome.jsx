@@ -1,16 +1,19 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
+import { devCasePath, pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
 
+// Startsidan för utvecklarspåret: hero och utvalda case (tidigare Home) och
+// tjänsterna (tidigare Services).
 const copy = {
   sv: {
-    kicker: "Alexander Åhman / webbutvecklare i Västervik",
-    headline: "Hemsidor och webbappar för företag i Västervik, byggda för att fungera på riktigt.",
+    kicker: "Alexander Åhman / systemutvecklare i Västervik",
+    headline: "Systemutvecklare som bygger webbappar och automation som fungerar på riktigt.",
     lede: [
-      "Jag bygger hemsidor åt lokala företag och föreningar, och webbappar, integrationer och automation när behovet är större än en hemsida.",
+      "Jag hjälper team att gå från rörigt problem till körbar produkt: datamodell, API, gränssnitt, automation och driftsättning.",
       "Du anlitar mig när du behöver någon som förstår nuläget snabbt, fattar rimliga tekniska beslut och bygger första versionen utan att tappa kvaliteten.",
     ],
     ctaPrimary: "Kontakta mig",
@@ -22,7 +25,7 @@ const copy = {
     heroMeta: [
       ["mode", "fullstack / produktnära"],
       ["base", "Västervik, remote"],
-      ["focus", "hemsidor, webbappar, AI"],
+      ["focus", "webbappar, AI, automation"],
     ],
 
     checklist: [
@@ -48,9 +51,7 @@ const copy = {
         solution: "En fullstack Next.js-app med hål-för-hål-scorecard, localStorage-lagring, statistikdiagram, screenshot-import via AI-vision och Claude-driven coachinganalys per runda.",
         stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "Render"],
         signal: "Jag kan bygga säkra AI-integrationer med rätt ansvarsfördelning: nyckel på servern, validerad data, ett gränssnitt som fungerar på banan.",
-        href: "https://golf-scorecard-ok6r.onrender.com/",
-        casePath: "projects/fairway",
-        linkText: "Öppna appen",
+        slug: "fairway",
       },
       {
         index: "02",
@@ -60,9 +61,7 @@ const copy = {
         solution: "En monorepo med React/TypeScript-frontend och Python-pipeline som hämtar ECB-data, publicerar statiska JSON-filer och uppdateras via GitHub Actions.",
         stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
         signal: "Jag gillar när drift, data och gränssnitt möts i en lösning som är enkel att förstå och billig att köra.",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        casePath: "projects/fx-monitor",
-        linkText: "Öppna appen",
+        slug: "fx-monitor",
       },
       {
         index: "03",
@@ -72,13 +71,53 @@ const copy = {
         solution: "En React/Vite-SPA med tydlig informationshierarki, responsiva vyer och fokuserade CTA:er för ett enkelt publikt flöde.",
         stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
         signal: "Jag kan göra innehåll konkret, snabbt att scanna och tekniskt lätt att vidareutveckla.",
-        href: "https://lordagsgolf.se/",
-        casePath: "projects/lordagsgolf",
-        linkText: "Besök webbplats",
+        slug: "lordagsgolf",
       },
     ],
     workCta: "Se fler detaljer",
-    workCtaPath: "projects",
+    servicesKicker: "Tjänster",
+    servicesTitle: "Jag hjälper där produkt, kod och verklighet möts",
+    servicesLede:
+      "Jag tar uppdrag där det behövs någon som kan förstå problemet, välja rimlig teknisk riktning och bygga en version som faktiskt går att använda.",
+    serviceLabels: {
+      context: "När det passar",
+      output: "Vad du får",
+      stack: "Typisk teknik",
+    },
+    services: [
+      {
+        index: "01",
+        title: "Webbappar och gränssnitt",
+        meta: "frontend / UX / produktflöden",
+        context: "När en idé, intern vy eller publik tjänst behöver bli snabb, begriplig och möjlig att vidareutveckla.",
+        output: "React-baserade vyer, komponentstruktur, routing, formulär, tillstånd, responsivitet och UI som är byggt för riktiga användarflöden.",
+        stack: ["React", "TypeScript", "JavaScript", "Vite", "React Router", "CSS"],
+      },
+      {
+        index: "02",
+        title: "Backend, API och affärslogik",
+        meta: "server / data / regler",
+        context: "När systemet behöver hantera bokningar, roller, validering, integrationer eller andra regler som inte får bli lösa trådar.",
+        output: "API:er, datamodeller, behörighet, validering, adminflöden och backendkod som går att testa och förvalta.",
+        stack: ["Laravel", "PHP", "PostgreSQL", "SQL", "Policies", "Mailables"],
+      },
+      {
+        index: "03",
+        title: "Dataflöden och automation",
+        meta: "pipelines / CI / statisk leverans",
+        context: "När data ska hämtas, bearbetas, publiceras eller visualiseras utan att göra driften onödigt tung.",
+        output: "Datapipelines, schemalagda uppdateringar, statiska JSON-flöden, testbar bearbetning och dashboards.",
+        stack: ["Python", "GitHub Actions", "pytest", "ruff", "JSON", "Chart.js"],
+      },
+      {
+        index: "04",
+        title: "Teknisk riktning och uppstart",
+        meta: "audit / planning / execution",
+        context: "När du vet vad du vill uppnå men behöver få ner det till rätt första bygge, teknikval och prioritering.",
+        output: "Genomgång av nuläge, risker, systemskiss, prioriterad backlog och en konkret plan för vad som bör byggas först.",
+        stack: ["Systemskiss", "Datamodell", "API-plan", "Roadmap", "Risklista"],
+      },
+    ],
     howKicker: "How I work",
     howTitle: "Jag arbetar nära problemet, inte bara briefen.",
     howIntro:
@@ -89,17 +128,12 @@ const copy = {
       ["03 / Skriv för nästa person", "Kod, namn, struktur och små anteckningar ska göra det lätt för mig eller någon annan att fortsätta."],
       ["04 / Var tydlig med tradeoffs", "Jag säger vad som är snabbt, vad som är robust och vad som behöver vänta. Det gör beslut enklare."],
     ],
-    localSpotlightKicker: "Lokalt i Västervik",
-    localSpotlightTitle: "Bor du i Västervik med omnejd och behöver en utvecklare?",
-    localSpotlightText:
-      "Behöver du en som tar helhetsansvar för det digitala? Jag finns lokalt för dig i Västervik och gör det enkelt att få fart på både synlighet och försäljning.",
-    localSpotlightCta: "Planera en hemsida i Västervik",
     linksKicker: "Läs vidare",
     linksTitle: "Utforska fler sidor",
     links: [
-      ["Se case", "projects"],
-      ["Läs om Alex", "about"],
-      ["Starta dialog", "contact"],
+      ["Se case", "devProjekt"],
+      ["Läs om Alex", "devOm"],
+      ["Starta dialog", "devKontakt"],
     ],
     finalTitle: "Behöver du en utvecklare som bygger på riktigt?",
     finalText:
@@ -147,9 +181,7 @@ const copy = {
         solution: "A full-stack Next.js app with hole-by-hole scorecard, localStorage persistence, statistics charts, screenshot import via AI vision, and Claude-powered coaching analysis per round.",
         stack: ["Next.js 16", "TypeScript", "Tailwind v4", "Anthropic SDK", "Zod", "Render"],
         signal: "I can build secure AI integrations with the right separation of concerns: key server-side, validated data, an interface that works on the course.",
-        href: "https://golf-scorecard-ok6r.onrender.com/",
-        casePath: "projects/fairway",
-        linkText: "Open app",
+        slug: "fairway",
       },
       {
         index: "02",
@@ -159,9 +191,7 @@ const copy = {
         solution: "A monorepo with a React/TypeScript frontend and Python pipeline that fetches ECB data, publishes static JSON, and updates through GitHub Actions.",
         stack: ["React", "TypeScript", "Vitest", "Python", "pytest", "ruff", "Chart.js", "GitHub Actions"],
         signal: "I like solutions where operations, data, and interface meet in something simple to reason about and cheap to run.",
-        href: "https://fx-monitor-tlpr.onrender.com",
-        casePath: "projects/fx-monitor",
-        linkText: "Open app",
+        slug: "fx-monitor",
       },
       {
         index: "03",
@@ -171,13 +201,53 @@ const copy = {
         solution: "A React/Vite SPA with clear information hierarchy, responsive views, and focused CTAs for a simple public flow.",
         stack: ["React", "Vite", "JSX", "React Router", "Tailwind", "ESLint"],
         signal: "I can make content concrete, easy to scan, and technically easy to keep evolving.",
-        href: "https://lordagsgolf.se/",
-        casePath: "projects/lordagsgolf",
-        linkText: "Visit website",
+        slug: "lordagsgolf",
       },
     ],
     workCta: "View details",
-    workCtaPath: "projects",
+    servicesKicker: "Services",
+    servicesTitle: "I help where product, code, and reality meet",
+    servicesLede:
+      "I take on work where someone needs to understand the problem, choose a reasonable technical direction, and build a version people can actually use.",
+    serviceLabels: {
+      context: "When it fits",
+      output: "What you get",
+      stack: "Typical tech",
+    },
+    services: [
+      {
+        index: "01",
+        title: "Web apps and interfaces",
+        meta: "frontend / UX / product flows",
+        context: "When an idea, internal view, or public service needs to become fast, understandable, and possible to keep evolving.",
+        output: "React-based views, component structure, routing, forms, state, responsiveness, and UI built for real user flows.",
+        stack: ["React", "TypeScript", "JavaScript", "Vite", "React Router", "CSS"],
+      },
+      {
+        index: "02",
+        title: "Backend, API, and business logic",
+        meta: "server / data / rules",
+        context: "When the system needs to handle bookings, roles, validation, integrations, or other rules that cannot become loose ends.",
+        output: "APIs, data models, permissions, validation, admin flows, and backend code that can be tested and maintained.",
+        stack: ["Laravel", "PHP", "PostgreSQL", "SQL", "Policies", "Mailables"],
+      },
+      {
+        index: "03",
+        title: "Data flows and automation",
+        meta: "pipelines / CI / static delivery",
+        context: "When data needs to be fetched, processed, published, or visualized without making operations unnecessarily heavy.",
+        output: "Data pipelines, scheduled updates, static JSON flows, testable processing, and dashboards.",
+        stack: ["Python", "GitHub Actions", "pytest", "ruff", "JSON", "Chart.js"],
+      },
+      {
+        index: "04",
+        title: "Technical direction and ramp-up",
+        meta: "audit / planning / execution",
+        context: "When you know what you want to achieve but need to turn it into the right first build, technical choices, and priorities.",
+        output: "Current-state review, risks, system sketch, prioritized backlog, and a concrete plan for what should be built first.",
+        stack: ["System sketch", "Data model", "API plan", "Roadmap", "Risk list"],
+      },
+    ],
     howKicker: "How I work",
     howTitle: "I work close to the problem, not just the brief.",
     howIntro:
@@ -191,39 +261,30 @@ const copy = {
     linksKicker: "Continue",
     linksTitle: "Explore more pages",
     links: [
-      ["Projects", "projects"],
-      ["About", "about"],
-      ["Contact", "contact"],
+      ["Projects", "devProjekt"],
+      ["About", "devOm"],
+      ["Contact", "devKontakt"],
     ],
     finalTitle: "Need a developer who builds for real?",
     finalText: "Send a message with your current state, goal, and what is getting in the way. I will respond with a concrete next step.",
   },
 };
 
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
-
-export default function Home({ lang }) {
+export default function DevHome({ lang }) {
   const t = copy[lang] || copy.sv;
   const hasBooking = Boolean(BOOKING_URL);
 
-  const pathname = lang === "en" ? "/en" : "/";
+  const pathname = pagePath("dev", lang);
 
   const seoTitle =
     lang === "en"
-      ? "Software Developer in Västervik | Alexander Åhman"
-      : "Hemsidor och webbutveckling i Västervik | Alexander Åhman";
+      ? "Software developer in Västervik – full-stack, React, Laravel | Alexander Ahman"
+      : "Systemutvecklare i Västervik – fullstack, React, Laravel | Alexander Åhman";
 
   const seoDescription =
     lang === "en"
-      ? "Full-stack software developer in Västervik building real digital systems across UI, APIs, data, integrations, deployment, and product workflows."
-      : "Webbutvecklare i Västervik som bygger snabba, moderna hemsidor åt företag och föreningar, och webbappar, integrationer och automation när behovet är större.";
+      ? "Full-stack developer in Västervik building web apps, APIs, databases, and product-facing systems with React, Laravel, and PostgreSQL, on site or remote."
+      : "Fullstackutvecklare och webbutvecklare i Västervik: React- och Laravel-webbappar, API:er, PostgreSQL, dataflöden och teknisk uppstart för företag och team, på plats eller remote.";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -243,19 +304,32 @@ export default function Home({ lang }) {
     ],
     knowsAbout: ["React", "Laravel", "TypeScript", "Python", "PostgreSQL", "API development", "System design"],
   };
-  const webSiteJsonLd = {
+  const serviceJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Alexander Åhman",
-    url: SITE_URL,
-    inLanguage: ["sv", "en"],
+    "@type": "ItemList",
+    name: lang === "en" ? "Full-stack development services" : "Fullstacktjänster",
+    itemListElement: t.services.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: item.title,
+        description: item.output,
+        provider: {
+          "@type": "Person",
+          name: "Alexander Åhman",
+          url: SITE_URL,
+        },
+        areaServed: lang === "en" ? "Sweden and remote" : "Sverige och remote",
+      },
+    })),
   };
 
   return (
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(webSiteJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
 
       <Seo
@@ -283,19 +357,17 @@ export default function Home({ lang }) {
               <div className="homeHeroCopy homeHeroCommand workbenchCopy boldHeroCopy">
                 <div className="kicker heroKicker">{t.kicker}</div>
                 <h1 className="h1 homeHeadline workbenchHeadline">{t.headline}</h1>
-                {Array.isArray(t.lede)
-                  ? t.lede.map((paragraph) => (
-                      <p className="lede heroLede" key={paragraph}>
-                        {paragraph}
-                      </p>
-                    ))
-                  : <p className="lede heroLede">{t.lede}</p>}
+                {t.lede.map((paragraph) => (
+                  <p className="lede heroLede" key={paragraph}>
+                    {paragraph}
+                  </p>
+                ))}
 
                 <div className="row heroActions" style={{ marginTop: 16 }}>
-                  <Link className="btn heroPrimary" to={pathFor(lang, "contact")}>
+                  <Link className="btn heroPrimary" to={pagePath("devKontakt", lang)}>
                     {t.ctaPrimary}
                   </Link>
-                  <Link className="btn btn-outline heroSecondary" to={pathFor(lang, "projects")}>
+                  <Link className="btn btn-outline heroSecondary" to={pagePath("devProjekt", lang)}>
                     {t.ctaSecondary}
                   </Link>
                 </div>
@@ -385,7 +457,7 @@ export default function Home({ lang }) {
                 {t.selectedTitle}
               </h2>
             </div>
-            <Link className="textLink" to={pathFor(lang, t.workCtaPath)}>
+            <Link className="textLink" to={pagePath("devProjekt", lang)}>
               {t.workCta}
             </Link>
           </div>
@@ -399,7 +471,7 @@ export default function Home({ lang }) {
                     <p className="caseMeta">{item.meta}</p>
                     <h3>{item.title}</h3>
                   </div>
-                  <Link className="textLink selectedCaseLink" to={pathFor(lang, item.casePath)}>
+                  <Link className="textLink selectedCaseLink" to={devCasePath(item.slug, lang)}>
                     {lang === "en" ? "Read case" : "Läs case"}
                   </Link>
                 </header>
@@ -437,19 +509,50 @@ export default function Home({ lang }) {
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          {lang === "sv" ? (
-            <aside className="localSpotlight localSpotlightRebuild">
-              <div>
-                <div className="kicker">{t.localSpotlightKicker}</div>
-                <h3>{t.localSpotlightTitle}</h3>
-                <p>{t.localSpotlightText}</p>
-              </div>
-              <Link className="btn btn-outline localCtaButton" to="/hemsida-vastervik">
-                {t.localSpotlightCta}
-              </Link>
-            </aside>
-          ) : null}
+      <section className="section pageEditorial">
+        <div className="container">
+          <div className="kicker">{t.servicesKicker}</div>
+          <h2 className="h2 homeSectionTitle" style={{ marginTop: 10 }}>
+            {t.servicesTitle}
+          </h2>
+          <p className="lede">{t.servicesLede}</p>
+
+          <div className="serviceList">
+            {t.services.map((item) => (
+              <article className="serviceRow" key={item.title}>
+                <div className="serviceRowHeader">
+                  <span className="caseIndex">{item.index}</span>
+                  <div>
+                    <p className="caseMeta">{item.meta}</p>
+                    <h2>{item.title}</h2>
+                  </div>
+                </div>
+                <div className="serviceRowBody">
+                  <div>
+                    <span>{t.serviceLabels.context}</span>
+                    <p>{item.context}</p>
+                  </div>
+                  <div>
+                    <span>{t.serviceLabels.output}</span>
+                    <p>{item.output}</p>
+                  </div>
+                  <div className="caseStackBlock">
+                    <span>{t.serviceLabels.stack}</span>
+                    <div className="projectStack">
+                      {item.stack.map((token) => (
+                        <span className="projectStackChip" key={`${item.title}-${token}`}>
+                          {token}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -483,16 +586,11 @@ export default function Home({ lang }) {
             {t.linksTitle}
           </h2>
           <div className="row exploreButtonRow" style={{ marginTop: 14 }}>
-            {t.links.map(([label, to]) => (
-              <Link className="btn btn-outline exploreButton" key={to} to={pathFor(lang, to)}>
+            {t.links.map(([label, page]) => (
+              <Link className="btn btn-outline exploreButton" key={page} to={pagePath(page, lang)}>
                 {label}
               </Link>
             ))}
-            {lang === "sv" ? (
-              <Link className="btn btn-outline exploreButton exploreButtonLocal" to="/hemsida-vastervik">
-                Lokal hemsida
-              </Link>
-            ) : null}
           </div>
         </div>
       </section>
@@ -504,7 +602,7 @@ export default function Home({ lang }) {
             <p className="lede">{t.finalText}</p>
 
             <div className="row" style={{ marginTop: 14 }}>
-              <Link className="btn" to={pathFor(lang, "contact")}>
+              <Link className="btn" to={pagePath("devKontakt", lang)}>
                 {t.ctaPrimary}
               </Link>
               {hasBooking ? (

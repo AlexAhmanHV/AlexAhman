@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { BUSINESS } from "../business";
+import { pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "";
@@ -39,6 +40,14 @@ const copy = {
     ],
     photoAlt: "Porträtt av Alexander Åhman",
     relatedLabel: "Läs vidare",
+  },
+
+  // Hemsidespåret (bara svenska): samma formulär, men texten riktar sig till företag.
+  hemsidor: {
+    kicker: "Kontakt",
+    title: "Berätta om ditt företag",
+    lede:
+      "Skriv några rader om verksamheten, vad hemsidan ska göra och när du vill komma igång. Jag svarar inom ett dygn med ett förslag och ett pris.",
   },
 
   en: {
@@ -96,15 +105,21 @@ function InstagramIcon() {
   );
 }
 
-export default function Contact({ lang }) {
-  const t = copy[lang] || copy.sv;
+export default function Contact({ lang, track }) {
+  const isHemsidor = track === "hemsidor";
+  const t = isHemsidor ? { ...copy.sv, ...copy.hemsidor } : copy[lang] || copy.sv;
   const hasBooking = Boolean(BOOKING_URL);
-  const pathname = lang === "en" ? "/en/contact" : "/contact";
+  const pathname = isHemsidor ? pagePath("hemsidorKontakt") : pagePath("devKontakt", lang);
 
-  const seoTitle = lang === "en" ? "Contact | Alexander Ahman" : "Kontakt | Alexander Åhman";
+  const seoTitle = isHemsidor
+    ? "Kontakt – hemsida för ditt företag | Alexander Åhman"
+    : lang === "en"
+      ? "Contact | Alexander Ahman"
+      : "Kontakt | Alexander Åhman";
 
-  const seoDescription =
-    lang === "en"
+  const seoDescription = isHemsidor
+    ? "Kontakta Alexander Åhman i Västervik om en ny hemsida för ditt företag eller din förening. Berätta om verksamheten så får du ett förslag och ett pris."
+    : lang === "en"
       ? "Contact Alexander Ahman in Västervik about full-stack development, consulting work, React, Laravel, APIs, data flows, and product-facing systems."
       : "Kontakta Alexander Åhman i Västervik om fullstackutveckling, konsultuppdrag, React, Laravel, API:er, dataflöden och produktnära system.";
 
@@ -249,6 +264,7 @@ export default function Contact({ lang }) {
 
             <form className="card contactFormCard contactFormEditorial" action={formAction} method="POST" onSubmit={handleSubmit}>
               <h2>{t.formTitle}</h2>
+              <input type="hidden" name="spår" value={isHemsidor ? "hemsidor" : "systemutveckling"} />
               <p style={{ marginTop: 8, marginBottom: 16 }}>{t.formLead}</p>
 
               <div className={`inputGroup${focusedField === "name" ? " isFocused" : ""}`}>
@@ -313,17 +329,31 @@ export default function Contact({ lang }) {
 
           <div className="relatedStrip">
             <p>{t.relatedLabel}</p>
-            <div className="row">
-              <Link className="textLink" to={lang === "en" ? "/en/projects" : "/projects"}>
-                {lang === "en" ? "Projects" : "Projekt"}
-              </Link>
-              <Link className="textLink" to={lang === "en" ? "/en/services" : "/services"}>
-                {lang === "en" ? "Services" : "Tjänster"}
-              </Link>
-              <Link className="textLink" to={lang === "en" ? "/en/about" : "/about"}>
-                {lang === "en" ? "About" : "Om mig"}
-              </Link>
-            </div>
+            {isHemsidor ? (
+              <div className="row">
+                <Link className="textLink" to={pagePath("hemsidorPriser")}>
+                  Priser
+                </Link>
+                <Link className="textLink" to={pagePath("hemsidorExempel")}>
+                  Exempel
+                </Link>
+                <Link className="textLink" to={pagePath("hemsidorGuide")}>
+                  Guide
+                </Link>
+              </div>
+            ) : (
+              <div className="row">
+                <Link className="textLink" to={pagePath("devProjekt", lang)}>
+                  {lang === "en" ? "Projects" : "Projekt"}
+                </Link>
+                <Link className="textLink" to={pagePath("dev", lang)}>
+                  {lang === "en" ? "Services" : "Tjänster"}
+                </Link>
+                <Link className="textLink" to={pagePath("devOm", lang)}>
+                  {lang === "en" ? "About" : "Om mig"}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </section>

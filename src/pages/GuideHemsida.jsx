@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Seo from "../Seo";
 import { SITE_URL } from "../routes";
+import { hemsidorCasePath, pagePath } from "../paths";
 
-const PATH = "/guide/hemsida-for-lokala-foretag";
+const PATH = pagePath("hemsidorGuide");
 const PUBLISHED = "2026-10-04";
 const MODIFIED = "2026-10-11";
 const SHARE_IMAGE = "/guide/butik-och-hemsida-dela.jpg";
@@ -117,12 +118,12 @@ const examples = [
   {
     title: "Bröd & Deli",
     text: "Bageri och deli på Allén i Västervik. Sortimentet visas i bilder, och öppettider, adress och karta ligger samlade på kontaktsidan.",
-    to: "/projects/brod-och-deli",
+    to: hemsidorCasePath("brod-och-deli"),
   },
   {
     title: "Ankarsrums Jaktskytteklubb",
     text: "Föreningssida där styrelsen själv lägger in nyheter och banbokningar i ett adminläge, så att sidan hålls aktuell utan att någon behöver koda.",
-    to: "/projects/ankarsrums-jsk",
+    to: hemsidorCasePath("ankarsrums-jsk"),
   },
 ];
 
@@ -336,10 +337,10 @@ export default function GuideHemsida() {
                 checklistan och återkommer med konkreta förbättringar.
               </p>
               <div className="row" style={{ marginTop: 14 }}>
-                <Link className="btn" to="/contact">
+                <Link className="btn" to={pagePath("hemsidorKontakt")}>
                   Ta kontakt
                 </Link>
-                <Link className="btn btn-home-outline" to="/hemsida-vastervik">
+                <Link className="btn btn-home-outline" to={pagePath("hemsidor")}>
                   Hemsida i Västervik
                 </Link>
               </div>

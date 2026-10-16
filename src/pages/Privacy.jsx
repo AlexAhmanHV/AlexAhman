@@ -1,4 +1,5 @@
 import Seo from "../Seo";
+import { pagePath } from "../paths";
 
 import { SITE_URL } from "../routes";
 
@@ -29,7 +30,7 @@ const copy = {
 export default function Privacy({ lang }) {
   const t = copy[lang] || copy.sv;
 
-  const pathname = lang === "en" ? "/en/privacy" : "/privacy";
+  const pathname = pagePath("privacy", lang);
 
   const seoTitle =
     lang === "en"
