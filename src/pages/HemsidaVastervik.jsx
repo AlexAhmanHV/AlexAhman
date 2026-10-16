@@ -127,7 +127,7 @@ const copy = {
   ctaTitle: "Vill du ha hjälp med hemsida i Västervik?",
   ctaText: "Skicka ett meddelande så tar vi ett första, enkelt samtal om vad du behöver och vilken lösning som passar bäst.",
   ctaPrimary: "Ta kontakt",
-  ctaSecondary: "Se alla tjänster",
+  ctaSecondary: "Se paket och priser",
 };
 
 export default function HemsidaVastervik() {

@@ -31,8 +31,9 @@ export default function Seo({
   const canonical = buildUrl(siteUrl, canonicalPath ?? pathname);
   const ogImage = buildUrl(siteUrl, image);
 
-  // Språkalternativ från paths.js, om inte anroparen anger dem explicit
-  const alternates = langAlternates(pathname);
+  // Språkalternativ från paths.js, om inte anroparen anger dem explicit.
+  // Med canonicalPath följer alternativen den kanoniska adressen.
+  const alternates = langAlternates(canonicalPath ?? pathname);
   const svPath = alternateSvPath !== undefined ? alternateSvPath : alternates.sv;
   const enPath = alternateEnPath !== undefined ? alternateEnPath : alternates.en;
   const defaultPath = xDefaultPath !== undefined ? xDefaultPath : svPath;

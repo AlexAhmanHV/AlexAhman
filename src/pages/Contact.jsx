@@ -48,6 +48,14 @@ const copy = {
     title: "Berätta om ditt företag",
     lede:
       "Skriv några rader om verksamheten, vad hemsidan ska göra och när du vill komma igång. Jag svarar inom ett dygn med ett förslag och ett pris.",
+    formLead: "Berätta om verksamheten, vad sidan ska göra och när den behöver vara klar. Det räcker som start.",
+    fitTitle: "Bra att skriva med",
+    fitItems: [
+      "Vad verksamheten gör och vilka kunderna är.",
+      "Vad hemsidan ska hjälpa till med: bli hittad, visa sortiment eller meny, ta emot förfrågningar eller bokningar.",
+      "När du vill att sidan ska vara klar.",
+      "Om du redan har en hemsida, domän, logga eller bilder att utgå från.",
+    ],
   },
 
   en: {

@@ -13,7 +13,7 @@ const copy = {
     kicker: "Alexander Åhman / systemutvecklare i Västervik",
     headline: "Systemutvecklare som bygger webbappar och automation som fungerar på riktigt.",
     lede: [
-      "Jag hjälper team att gå från rörigt problem till körbar produkt: datamodell, API, gränssnitt, automation och driftsättning.",
+      "Jag är fullstackutvecklare i Västervik och hjälper team att gå från rörigt problem till körbar produkt: datamodell, API, gränssnitt, automation och driftsättning.",
       "Du anlitar mig när du behöver någon som förstår nuläget snabbt, fattar rimliga tekniska beslut och bygger första versionen utan att tappa kvaliteten.",
     ],
     ctaPrimary: "Kontakta mig",
@@ -144,7 +144,7 @@ const copy = {
     kicker: "Alexander Åhman / software developer",
     headline: "Software developer building practical web apps and automations.",
     lede: [
-      "I help teams move from messy problem to running product: data model, API, interface, automation, and deployment.",
+      "I am a full-stack developer in Västervik helping teams move from messy problem to running product: data model, API, interface, automation, and deployment.",
       "You bring me in when you need someone who understands the current state quickly, makes reasonable technical decisions, and ships the first version without losing quality.",
     ],
     ctaPrimary: "Contact me",

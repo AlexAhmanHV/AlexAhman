@@ -11,7 +11,7 @@ const copy = {
     kicker: "Case archive",
     title: "Projekt som visar systemtänk i praktiken",
     lede:
-      "Sju leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.",
+      `${DEV_CASES.length} leveranser där värdet sitter i mer än ytan: bokningslogik, datapipelines, innehållsflöden, drift och gränssnitt som går att använda.`,
     ctaTitle: "Vill du se hur ditt projekt skulle brytas ner?",
     ctaText:
       "Skicka nuläge, mål och det som är oklart. Jag återkommer med ett konkret första steg och vad som bör byggas först.",
@@ -22,7 +22,7 @@ const copy = {
     kicker: "Case archive",
     title: "Projects that show systems thinking in practice",
     lede:
-      "Seven deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.",
+      `${DEV_CASES.length} deliveries where the value is more than the surface: booking logic, data pipelines, content flows, deployment, and interfaces people can use.`,
     ctaTitle: "Want to see how your project would be broken down?",
     ctaText:
       "Send the current state, goal, and what is unclear. I will respond with a concrete first step and what should be built first.",
