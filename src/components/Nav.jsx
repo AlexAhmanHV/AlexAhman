@@ -105,9 +105,9 @@ export default function Nav({ lang, items, crossLink, showLangToggle = true }) {
               aria-label={t.toggleLabel}
               title={t.toggleLabel}
             >
-            <span className="flagToggle" aria-hidden="true">
-              {lang === "sv" ? <UKFlagIcon /> : <SwedenFlagIcon />}
-            </span>
+              <span className="flagToggle" aria-hidden="true">
+                {lang === "sv" ? <UKFlagIcon /> : <SwedenFlagIcon />}
+              </span>
             </Link>
           ) : null}
         </div>

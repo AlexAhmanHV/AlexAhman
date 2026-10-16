@@ -4927,10 +4927,11 @@ body{
   z-index:1;
   padding:10px 14px;
   font-size:0.85em;
-  color:var(--muted);
+  color:#bdb0a2;
   transition: color 180ms ease;
 }
 
-.navCross:hover{
-  color:var(--accent-3);
+.navCross:hover,
+.navCross:focus-visible{
+  color:#fffaf3;
 }
