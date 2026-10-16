@@ -1,33 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
-
-function toggleLangPath(pathname) {
-  const clean = pathname.replace(/\/+$/, "") || "/";
-  const unmatchedLanguagePages = new Map([
-    ["/hemsida-vastervik", "/en"],
-    ["/guide/hemsida-for-lokala-foretag", "/en"],
-    ["/fullstackutvecklare-vastervik", "/en/fullstack-developer-vastervik"],
-    ["/webbutvecklare-vastervik", "/en"],
-    ["/en/fullstack-developer-vastervik", "/fullstackutvecklare-vastervik"],
-  ]);
-
-  if (unmatchedLanguagePages.has(clean)) {
-    return unmatchedLanguagePages.get(clean);
-  }
-
-  if (clean === "/en") return "/";
-  if (clean.startsWith("/en/")) return clean.replace(/^\/en/, "") || "/";
-  return clean === "/" ? "/en" : `/en${clean}`;
-}
+import { pagePath, toggleLangPath } from "../paths";
 
 function navLinkClassName({ isActive }) {
   return `navLink${isActive ? " isActive" : ""}`;
@@ -57,30 +30,18 @@ function SwedenFlagIcon() {
   );
 }
 
-export default function Nav({ lang }) {
+// Startsidorna för spåren ska inte vara aktiva på undersidorna.
+const END_PATHS = new Set([pagePath("hemsidor"), pagePath("dev")]);
+
+export default function Nav({ lang, items, crossLink, showLangToggle = true }) {
   const { pathname } = useLocation();
   const navLinksRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({ opacity: 0 });
 
   const t =
     {
-      sv: {
-        websites: "Hemsidor",
-        projects: "Projekt",
-        services: "Tjänster",
-        about: "Om",
-        contact: "Kontakt",
-        toggleLabel: "Switch to English",
-        logoAlt: "Alex Ahman logotyp",
-      },
-      en: {
-        projects: "Projects",
-        services: "Services",
-        about: "About",
-        contact: "Contact",
-        toggleLabel: "Byt till svenska",
-        logoAlt: "Alex Ahman logo",
-      },
+      sv: { toggleLabel: "Switch to English", logoAlt: "Alex Ahman logotyp" },
+      en: { toggleLabel: "Byt till svenska", logoAlt: "Alex Ahman logo" },
     }[lang] || {};
 
   useEffect(() => {
@@ -120,40 +81,35 @@ export default function Nav({ lang }) {
   return (
     <div className="nav">
       <div className="container navInner">
-        <Link className="logo" to={pathFor(lang, "/")}>
+        <Link className="logo" to={pagePath("home", lang)}>
           <img className="logoImg" src="/favicon.svg" alt={t.logoAlt} />
         </Link>
 
         <div className="navLinks" ref={navLinksRef}>
           <span className="navIndicator" aria-hidden="true" style={indicatorStyle} />
-          {lang === "sv" ? (
-            <NavLink to="/hemsida-vastervik" className={navLinkClassName}>
-              {t.websites}
+          {items.map((item) => (
+            <NavLink key={item.to} to={item.to} end={END_PATHS.has(item.to)} className={navLinkClassName}>
+              {item.label}
             </NavLink>
+          ))}
+          {crossLink ? (
+            <Link className="navCross" to={crossLink.to}>
+              {crossLink.label}
+            </Link>
           ) : null}
-          <NavLink to={pathFor(lang, "projects")} className={navLinkClassName}>
-            {t.projects}
-          </NavLink>
-          <NavLink to={pathFor(lang, "services")} className={navLinkClassName}>
-            {t.services}
-          </NavLink>
-          <NavLink to={pathFor(lang, "about")} className={navLinkClassName}>
-            {t.about}
-          </NavLink>
-          <NavLink to={pathFor(lang, "contact")} className={navLinkClassName}>
-            {t.contact}
-          </NavLink>
 
-          <Link
-            className="langToggle"
-            to={toggleLangPath(pathname)}
-            aria-label={t.toggleLabel}
-            title={t.toggleLabel}
-          >
+          {showLangToggle ? (
+            <Link
+              className="langToggle"
+              to={toggleLangPath(pathname)}
+              aria-label={t.toggleLabel}
+              title={t.toggleLabel}
+            >
             <span className="flagToggle" aria-hidden="true">
               {lang === "sv" ? <UKFlagIcon /> : <SwedenFlagIcon />}
             </span>
-          </Link>
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

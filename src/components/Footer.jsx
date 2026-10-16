@@ -1,14 +1,5 @@
 ﻿import { BUSINESS } from "../business";
-
-function pathFor(lang, path) {
-  const base = lang === "en" ? "/en" : "";
-
-  // Normalize the incoming path so both "privacy" and "/privacy" work
-  const normalized = path === "/" ? "/" : `/${String(path).replace(/^\/+/, "")}`;
-
-  if (normalized === "/") return base || "/";
-  return `${base}${normalized}`;
-}
+import { pagePath } from "../paths";
 
 function LinkedInIcon() {
   return (
@@ -26,7 +17,7 @@ function InstagramIcon() {
   );
 }
 
-export default function Footer({ lang }) {
+export default function Footer({ lang, links = [] }) {
   const year = new Date().getFullYear();
 
   const text = lang === "en" ? "All rights reserved." : "Alla rättigheter förbehållna.";
@@ -74,11 +65,11 @@ export default function Footer({ lang }) {
           </a>
 
           <nav className="footerLinks" aria-label={lang === "en" ? "Footer" : "Sidfot"}>
-            {lang === "sv" ? <a href="/hemsida-vastervik">Hemsida Västervik</a> : null}
-            {lang === "sv" ? <a href="/priser">Paket och priser</a> : null}
-            {lang === "sv" ? <a href="/guide/hemsida-for-lokala-foretag">Guide: hemsida för företag</a> : null}
-            <a href={pathFor(lang, "privacy")}>{privacyLabel}</a>
-            <a href={pathFor(lang, "terms")}>{termsLabel}</a>
+            {links.map((link) => (
+              <a key={link.to} href={link.to}>{link.label}</a>
+            ))}
+            <a href={pagePath("privacy", lang)}>{privacyLabel}</a>
+            <a href={pagePath("terms", lang)}>{termsLabel}</a>
           </nav>
         </div>
       </div>

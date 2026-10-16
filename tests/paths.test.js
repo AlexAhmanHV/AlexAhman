@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { pagePath, devCasePath, hemsidorCasePath, langAlternates, toggleLangPath } from "../src/paths.js";
+import { TRACK_NAV } from "../src/tracks.js";
+import { ROUTES } from "../src/routes.js";
 
 test("pagePath ger svensk adress som standard och engelsk när den finns", () => {
   assert.equal(pagePath("devOm"), "/systemutveckling/om");
@@ -28,4 +30,9 @@ test("toggleLangPath växlar språk och faller tillbaka till /en eller /", () =>
   assert.equal(toggleLangPath("/hemsidor/exempel/lordagsgolf"), "/en");
   assert.equal(toggleLangPath("/en"), "/");
   assert.equal(toggleLangPath("/systemutveckling/om/"), "/en/software-development/about");
+});
+
+test("alla menylänkar pekar på adresser som förrenderas", () => {
+  const all = [...TRACK_NAV.hemsidor, ...TRACK_NAV.dev.sv, ...TRACK_NAV.dev.en];
+  for (const item of all) assert.ok(ROUTES.includes(item.to), item.to);
 });

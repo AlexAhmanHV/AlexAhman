@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { businessJsonLd } from "./business";
+import { langAlternates } from "./paths";
 
 function normalizePath(pathname) {
   if (!pathname) return "/";
@@ -15,27 +16,28 @@ function buildUrl(siteUrl, pathname) {
 
 export default function Seo({
   lang, // "sv" | "en"
-  pathname, // e.g. "/" or "/services" or "/en/services"
+  pathname, // e.g. "/" or "/systemutveckling/om"
+  canonicalPath, // ersätter pathname i canonical och og:url när den anges
   title,
   description,
   siteUrl, // e.g. "https://alexahman.se"
-  svOnly = false,
+  svOnly: svOnlyProp = false,
   alternateSvPath,
   alternateEnPath,
   xDefaultPath,
   image = "/Alex-1200.jpg", // share image path
   type = "website", // og:type, "article" for guides
 }) {
-  const canonical = buildUrl(siteUrl, pathname);
+  const canonical = buildUrl(siteUrl, canonicalPath ?? pathname);
   const ogImage = buildUrl(siteUrl, image);
 
-  // Language alternates: sv lives on "/", en on "/en"
-  const derivedSvPath = pathname.startsWith("/en") ? pathname.replace(/^\/en/, "") || "/" : pathname;
-  const derivedEnPath = derivedSvPath === "/" ? "/en" : `/en${derivedSvPath}`;
-  const svPath = alternateSvPath !== undefined ? alternateSvPath : derivedSvPath;
-  const enPath = alternateEnPath !== undefined ? alternateEnPath : derivedEnPath;
+  // Språkalternativ från paths.js, om inte anroparen anger dem explicit
+  const alternates = langAlternates(pathname);
+  const svPath = alternateSvPath !== undefined ? alternateSvPath : alternates.sv;
+  const enPath = alternateEnPath !== undefined ? alternateEnPath : alternates.en;
   const defaultPath = xDefaultPath !== undefined ? xDefaultPath : svPath;
 
+  const svOnly = svOnlyProp || !enPath;
   const svUrl = svPath ? buildUrl(siteUrl, svPath) : null;
   const enUrl = enPath ? buildUrl(siteUrl, enPath) : null;
   const xDefaultUrl = defaultPath ? buildUrl(siteUrl, defaultPath) : canonical;

@@ -4920,3 +4920,17 @@ body{
     gap:28px;
   }
 }
+
+/* Länk till det andra spåret i menyn: dämpad, ingen indikator */
+.navCross{
+  position:relative;
+  z-index:1;
+  padding:10px 14px;
+  font-size:0.85em;
+  color:var(--muted);
+  transition: color 180ms ease;
+}
+
+.navCross:hover{
+  color:var(--accent-3);
+}
