@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[12663,["/exempel/golfbutik/_next/static/chunks/30j0l_us_gfn7.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js","/exempel/golfbutik/_next/static/chunks/0m-7lw66rhtcr.js"],"AdminApp"]
-3:I[12689,["/exempel/golfbutik/_next/static/chunks/30j0l_us_gfn7.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js"],"OutletBoundary"]
+2:I[12663,["/exempel/golfbutik/_next/static/chunks/306fb59ekb1k3.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js","/exempel/golfbutik/_next/static/chunks/18g1i9cml1n9y.js"],"AdminApp"]
+3:I[12689,["/exempel/golfbutik/_next/static/chunks/306fb59ekb1k3.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/exempel/golfbutik/_next/static/chunks/0m-7lw66rhtcr.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"VCL2f7RJPmS4-tUungbAx"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/exempel/golfbutik/_next/static/chunks/18g1i9cml1n9y.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UExqPtS_hqfdYeNIdpqc4"}
 5:null
