@@ -4657,7 +4657,7 @@ body{
 .priceGrid{
   margin-top:36px;
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
+  grid-template-columns:repeat(4, minmax(0, 1fr));
   gap:20px;
   align-items:stretch;
 }
@@ -4799,6 +4799,12 @@ body{
   color:#f6f1e9;
 }
 
+/* Fyra kort i rad blir smala: exempellänken får radbrytas i stället för att flöda ut */
+.priceExample{
+  width:auto;
+  max-width:100%;
+}
+
 .priceSectionTitle{
   font-family:"Canela","Garamond",serif;
   font-size:clamp(24px, 3vw, 32px);
@@ -4907,6 +4913,12 @@ body{
 
 .priceTeaserList strong{
   white-space:nowrap;
+}
+
+@media (max-width: 1100px){
+  .priceGrid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px){
