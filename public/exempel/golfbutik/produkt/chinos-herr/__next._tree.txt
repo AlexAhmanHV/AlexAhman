@@ -1,3 +1,3 @@
 :HL["/exempel/golfbutik/_next/static/chunks/0iui5xlqucw35.css","style"]
 :HL["/exempel/golfbutik/_next/static/media/31a9145ccb84606d-s.p.3j3x29wbycqkn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"produkt","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"chinos-herr","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"GVk-7n-xv_ZJSc3NesD0M"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"produkt","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"chinos-herr","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"VCL2f7RJPmS4-tUungbAx"}
