@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[76398,["/exempel/golfbutik/_next/static/chunks/2ialkg_306523.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js","/exempel/golfbutik/_next/static/chunks/1zrwb_lxmomd1.js"],"ProductView"]
+3:I[12689,["/exempel/golfbutik/_next/static/chunks/2ialkg_306523.js","/exempel/golfbutik/_next/static/chunks/3l21891non86p.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"Skort Dam\",\"description\":\"Veckad kjol med inbyggda shorts och ficka för bollar och tee. Lätt, luftig och rör sig fritt.\",\"sku\":\"skort-dam\",\"offers\":{\"@type\":\"Offer\",\"price\":899,\"priceCurrency\":\"SEK\",\"availability\":\"https://schema.org/InStock\"}}"}}],["$","$L2",null,{"slug":"skort-dam"}]],[["$","script","script-0",{"src":"/exempel/golfbutik/_next/static/chunks/1zrwb_lxmomd1.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GVk-7n-xv_ZJSc3NesD0M"}
+5:null

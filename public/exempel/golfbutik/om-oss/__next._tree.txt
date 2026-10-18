@@ -1,0 +1,4 @@
+:HL["/exempel/golfbutik/_next/static/chunks/0iui5xlqucw35.css","style"]
+:HL["/exempel/golfbutik/_next/static/media/31a9145ccb84606d-s.p.3j3x29wbycqkn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/exempel/golfbutik/images/om-oss-960.webp","image",{"imageSrcSet":"/exempel/golfbutik/images/om-oss-480.webp 480w, /exempel/golfbutik/images/om-oss-960.webp 960w, /exempel/golfbutik/images/om-oss-1600.webp 1600w","imageSizes":"(min-width: 1024px) 50vw, 100vw","fetchPriority":"high"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"om-oss","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"GVk-7n-xv_ZJSc3NesD0M"}
