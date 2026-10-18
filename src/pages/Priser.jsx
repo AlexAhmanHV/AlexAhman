@@ -108,6 +108,30 @@ export default function Priser() {
 
           <p className="priceNote">Exemplen är påhittade verksamheter med bilder från Unsplash. Riktiga kunder får sina egna bilder.</p>
 
+          <section className="priceHosting" aria-labelledby="webbutik">
+            <h2 id="webbutik" className="priceSectionTitle">
+              Webbutik
+            </h2>
+            <p className="priceHostingLede">
+              För butiken som vill sälja på nätet. Varje butik är olika, så priset sätts i offerten efter vad ni behöver.
+            </p>
+            <ul className="priceIncludes">
+              <li>Sortiment med varianter, till exempel storlek och färg</li>
+              <li>Lagersaldo per variant och reapriser</li>
+              <li>Varukorg, rabattkoder och kassa</li>
+              <li>Admin där ni ser ordrar och sköter lager och priser</li>
+            </ul>
+            <p className="priceAmount">Pris efter offert</p>
+            <div className="priceActions">
+              <Link className="btn priceCta" to={pagePath("hemsidorKontakt")}>
+                Be om offert
+              </Link>
+              <a className="textLink priceExample" href="/exempel/golfbutik/">
+                Se exempel: Tidvatten Golf
+              </a>
+            </div>
+          </section>
+
           <section className="priceHosting" aria-labelledby="drift">
             <h2 id="drift" className="priceSectionTitle">
               Drift och underhåll
