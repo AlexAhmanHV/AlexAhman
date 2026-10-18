@@ -16,7 +16,7 @@ export default function HemsidorExempel() {
         lang="sv"
         pathname={pagePath("hemsidorExempel")}
         title="Exempel på hemsidor | Alexander Åhman"
-        description="Hemsidor jag byggt för företag och föreningar i Västerviks kommun, och exempelsajter för varje paket: hantverkare, café och förening med adminläge."
+        description="Hemsidor jag byggt för företag och föreningar i Västerviks kommun, och exempelsajter för varje paket: hantverkare, café, förening med adminläge och webbutik."
         siteUrl={SITE_URL}
       />
 
@@ -35,7 +35,7 @@ export default function HemsidorExempel() {
           <h2 className="h2 homeSectionTitle homeSectionTitleSingle" style={{ marginTop: 36 }}>
             Exempelsajter för paketen
           </h2>
-          <div className="grid cols-3" style={{ marginTop: 18 }}>
+          <div className="grid cols-2" style={{ marginTop: 18 }}>
             {PACKAGES.map((p) => (
               <div className="card" key={p.id}>
                 <h3 style={{ fontSize: 18, fontWeight: 700 }}>{p.name}</h3>
@@ -45,6 +45,13 @@ export default function HemsidorExempel() {
                 </a>
               </div>
             ))}
+            <div className="card">
+              <h3 style={{ fontSize: 18, fontWeight: 700 }}>Webbutik</h3>
+              <p style={{ marginTop: 10 }}>För butiken som vill sälja på nätet: varianter, lager, kassa och admin.</p>
+              <a className="textLink" href="/exempel/golfbutik/" style={{ marginTop: 14 }}>
+                Se exempel: Tidvatten Golf
+              </a>
+            </div>
           </div>
           <p className="priceNote">Exemplen är påhittade verksamheter med bilder från Unsplash. Riktiga kunder får sina egna bilder.</p>
 
