@@ -1,3 +1,12 @@
+/* Knapparnas typsnitt: Instrument Sans (SIL OFL, se public/fonts/InstrumentSans-OFL.txt), självhostat */
+@font-face{
+  font-family:"Instrument Sans";
+  src:url("/fonts/instrument-sans-latin.woff2") format("woff2");
+  font-weight:400 700;
+  font-style:normal;
+  font-display:swap;
+}
+
 :root{
   --bg:#f3efe8;
   --text:#111111;
@@ -4979,4 +4988,15 @@ body{
     padding:6px 8px;
     text-align:left;
   }
+}
+
+/* Alla knappar använder Instrument Sans i stället för reservtypsnittet */
+.btn{
+  font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;
+  letter-spacing:0;
+}
+
+.priceCard .priceExampleBtn{
+  font-weight:500;
 }
