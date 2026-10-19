@@ -16,6 +16,8 @@ import Terms from "./pages/Terms";
 import HemsidaVastervik from "./pages/HemsidaVastervik";
 import HemsidorExempel from "./pages/HemsidorExempel";
 import GuideHemsida from "./pages/GuideHemsida";
+import GuideKostnad from "./pages/GuideKostnad";
+import GuideWebbutik from "./pages/GuideWebbutik";
 import Priser from "./pages/Priser";
 import Projects from "./pages/Projects";
 import ProjectCase from "./pages/ProjectCase";
@@ -131,6 +133,8 @@ export default function App() {
             <Route key={slug} path={hemsidorCasePath(slug)} element={<ProjectCase lang="sv" slug={slug} track="hemsidor" />} />
           ))}
           <Route path={pagePath("hemsidorGuide")} element={<GuideHemsida />} />
+          <Route path={pagePath("hemsidorGuideKostnad")} element={<GuideKostnad />} />
+          <Route path={pagePath("hemsidorGuideWebbutik")} element={<GuideWebbutik />} />
           <Route path={pagePath("hemsidorKontakt")} element={<Contact lang="sv" track="hemsidor" />} />
           <Route path={`${pagePath("hemsidor")}/*`} element={<NotFound lang="sv" />} />
         </Route>

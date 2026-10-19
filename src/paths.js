@@ -8,6 +8,8 @@ export const PAGES = {
   hemsidorPriser: { sv: "/hemsidor/priser" },
   hemsidorExempel: { sv: "/hemsidor/exempel" },
   hemsidorGuide: { sv: "/hemsidor/guide" },
+  hemsidorGuideKostnad: { sv: "/hemsidor/guide/vad-kostar-en-hemsida" },
+  hemsidorGuideWebbutik: { sv: "/hemsidor/guide/webbutik" },
   hemsidorKontakt: { sv: "/hemsidor/kontakt" },
   dev: { sv: "/systemutveckling", en: "/en/software-development" },
   devProjekt: { sv: "/systemutveckling/projekt", en: "/en/software-development/projects" },
