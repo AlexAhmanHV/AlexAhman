@@ -4781,8 +4781,8 @@ body{
   padding-top:22px;
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
-  gap:14px;
+  align-items:stretch;
+  gap:10px;
 }
 
 .priceCard .priceCta{
@@ -4795,14 +4795,25 @@ body{
   color:#fff;
 }
 
-.priceCard.isFeatured .priceExample{
+/* Exempelknappen: lika bred som köpknappen, men med kontur så att köpet förblir huvudvalet */
+.priceCard .priceExampleBtn{
+  width:100%;
+  background:transparent;
+  border-color:var(--text);
+  color:var(--text);
+}
+
+.priceCard .priceExampleBtn:hover{
+  background:rgba(20,17,15,0.06);
+}
+
+.priceCard.isFeatured .priceExampleBtn{
+  border-color:rgba(246,241,233,0.7);
   color:#f6f1e9;
 }
 
-/* Fyra kort i rad blir smala: exempellänken får radbrytas i stället för att flöda ut */
-.priceExample{
-  width:auto;
-  max-width:100%;
+.priceCard.isFeatured .priceExampleBtn:hover{
+  background:rgba(246,241,233,0.1);
 }
 
 .priceSectionTitle{

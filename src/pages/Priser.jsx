@@ -98,8 +98,8 @@ export default function Priser() {
                   <Link className="btn priceCta" to={pagePath("hemsidorKontakt")}>
                     Välj {p.name}
                   </Link>
-                  <a className="textLink priceExample" href={p.demo.href}>
-                    {p.demo.label}
+                  <a className="btn priceExampleBtn" href={p.demo.href} aria-label={p.demo.label}>
+                    Se exempel
                   </a>
                 </div>
               </article>
@@ -119,8 +119,8 @@ export default function Priser() {
                 <Link className="btn priceCta" to={pagePath("hemsidorKontakt")}>
                   Be om offert
                 </Link>
-                <a className="textLink priceExample" href="/exempel/golfbutik/">
-                  Se exempel: Tidvatten Golf
+                <a className="btn priceExampleBtn" href="/exempel/golfbutik/" aria-label="Se exempel: Tidvatten Golf">
+                  Se exempel
                 </a>
               </div>
             </article>
