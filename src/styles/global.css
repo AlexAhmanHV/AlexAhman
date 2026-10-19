@@ -5000,3 +5000,13 @@ body{
 .priceCard .priceExampleBtn{
   font-weight:500;
 }
+
+/* Länklista med fler guider i slutet av artiklarna */
+.guideRelated{
+  margin:14px 0 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}

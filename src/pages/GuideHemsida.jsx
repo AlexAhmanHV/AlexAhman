@@ -330,6 +330,22 @@ export default function GuideHemsida() {
               </div>
             </section>
 
+            <section className="guideSection">
+              <h2>Fler guider</h2>
+              <ul className="guideRelated">
+                <li>
+                  <Link className="textLink" to={pagePath("hemsidorGuideKostnad")}>
+                    Vad kostar en hemsida för ett litet företag?
+                  </Link>
+                </li>
+                <li>
+                  <Link className="textLink" to={pagePath("hemsidorGuideWebbutik")}>
+                    Webbutik för en lokal butik: vad behövs?
+                  </Link>
+                </li>
+              </ul>
+            </section>
+
             <div className="homeFinal" style={{ marginTop: 36 }}>
               <h2 className="h2 homeSectionTitle homeSectionTitleSingle">Vill du ha hjälp att gå igenom din hemsida?</h2>
               <p className="lede">
